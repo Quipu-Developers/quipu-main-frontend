@@ -43,3 +43,8 @@ body {
 .navbar__menu li {
   padding: 20px;
 }
+
+.main-container {
+  width: 100%;
+  height: calc(100vh - 80px);
+}
