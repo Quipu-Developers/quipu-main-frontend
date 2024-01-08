@@ -7,6 +7,10 @@ body {
   background: #C0CEFF;
 }
 
+p {
+  margin: 0px;
+}
+
 .navbar {
   width: 100%;
   height: 80px;
@@ -14,6 +18,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0px 40px;
+
+  position: fixed;
+  
 }
 
 .navbar__logo {
@@ -46,5 +53,14 @@ body {
 
 .main-container {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: 100%;
+  position: relative;
+}
+
+.main-container--message {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  color: white;
+  margin: 0  5%;
 }
