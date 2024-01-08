@@ -45,6 +45,10 @@ p {
   list-style: none;
   display: flex;
   padding-left: 0;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 }
 
 .navbar__menu li {

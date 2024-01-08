@@ -23,7 +23,7 @@ function Object3D() {
     
     // light
 
-    const pointLight1 = new THREE.PointLight(0xffffff, 90);
+    const pointLight1 = new THREE.PointLight(0xffffff, 120);
     pointLight1.position.set(-5,0,5);
     scene.add(pointLight1);
 
@@ -31,41 +31,50 @@ function Object3D() {
     pointLight2.position.set(0,10,0);
     scene.add(pointLight2);
 
-    const ambientLight = new THREE.AmbientLight( 0xffffff, 1.2 );
+    const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
     scene.add(ambientLight);
 
     // mesh
 
-    const sphere_left = new THREE.Mesh( new THREE.SphereGeometry( 0.7, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#9AB9FF"} ) );
-    scene.add( sphere_left );
-    sphere_left.position.set(-1.5,0.5,-3);
+    const sphere1 = new THREE.Mesh( new THREE.SphereGeometry( 0.7, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#9AB9FF", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2} ) );
+    scene.add( sphere1 );
+    sphere1.position.set(-1.5,0.5,-3);
 
-    const sphere_middle = new THREE.Mesh( new THREE.SphereGeometry( 0.8, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#FFD4DF"} ) );
-    scene.add( sphere_middle );
-    sphere_middle.position.set(-0.3,-1,-1);
+    const sphere2 = new THREE.Mesh( new THREE.SphereGeometry( 0.8, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#B4B4FF", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2} ) );
+    scene.add( sphere2 );
+    sphere2.position.set(-0.3,-1,-1);
 
-    const sphere_right = new THREE.Mesh( new THREE.SphereGeometry( 0.8, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#95CFFE"} ) );
-    scene.add( sphere_right );
-    sphere_right.position.set(2.2,-1.4, -1);
+    const sphere3 = new THREE.Mesh( new THREE.SphereGeometry( 0.75, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#95CFFE", transparent: true, opacity: 0.5, clearcoat: 0.6, clearcoatRoughness: 0.3} ) );
+    scene.add( sphere3 );
+    sphere3.position.set(2,0.3, -1);
+    
+    const sphere4 = new THREE.Mesh( new THREE.SphereGeometry( 0.2, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#A0A0FF", transparent: true, opacity: 0.8, clearcoat: 0.4, clearcoatRoughness: 0.3} ) );
+    scene.add( sphere4 );
+    sphere4.position.set(1.3,-1, -1);
 
-    const cone = new THREE.Mesh( new THREE.ConeGeometry( 0.45, 0.8, 32 ) , new THREE.MeshPhysicalMaterial( { color: "#FFD2FF"} ));
-    scene.add(cone);
-    cone.position.set(0.6,0.2,-1);
-    cone.rotation.z = -Math.PI / 6;
-    cone.rotation.x = -Math.PI / 10;
+    const torus1 = new THREE.Mesh(new THREE.TorusGeometry( 0.4, 0.15, 32, 100 ) , new THREE.MeshPhysicalMaterial( { color: "#FFDCFF", transparent: true, opacity: 0.8, clearcoat: 0.2, clearcoatRoughness: 0.2} ));
+    scene.add(torus1);
+    torus1.position.set(0.3,-0.8,-3);
+    torus1.rotation.x = -Math.PI / 5;
+    torus1.rotation.y = Math.PI / 5;
 
-    const capsule = new THREE.Mesh( new THREE.CapsuleGeometry( 0.17, 0.3, 32, 32 ), new THREE.MeshPhysicalMaterial( {color: "#FFF8E1"} ) );
-    scene.add( capsule );
-    capsule.position.set(2.1,0.8,-1);
-    capsule.rotation.x = Math.PI / 5;
-    capsule.rotation.z = Math.PI / 4;
+    const torus2 = new THREE.Mesh(new THREE.TorusGeometry( 0.35, 0.1, 32, 100 ) , new THREE.MeshPhysicalMaterial( { color: "#D2D2FF", transparent: true, opacity: 0.8, clearcoat: 0.2, clearcoatRoughness: 0.2} ));
+    scene.add(torus2);
+    torus2.position.set(2.4,-1.5,-2);
+    torus2.rotation.x = -Math.PI / 2;
+    torus2.rotation.y = -Math.PI / 5;
 
-    const cube = new THREE.Mesh( new THREE.BoxGeometry( 0.3, 0.3, 0.3 ), new THREE.MeshPhysicalMaterial( {color: '#E0EBFF'} ) ); 
-    scene.add( cube );
-    cube.position.set(2.6,-0.3,0);
-    cube.rotation.x = -Math.PI / 18;
-    cube.rotation.y = Math.PI / 6;
-    cube.rotation.z = Math.PI / 6;
+    const capsule1 = new THREE.Mesh( new THREE.CapsuleGeometry( 0.17, 0.3, 32, 32 ), new THREE.MeshPhysicalMaterial( {color: "#9282CD", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2} ) );
+    scene.add( capsule1 );
+    capsule1.position.set(0.3,0.8,-1);
+    capsule1.rotation.x = Math.PI / 5;
+    capsule1.rotation.z = Math.PI / 4;
+
+    const capsule2 = new THREE.Mesh( new THREE.CapsuleGeometry( 0.17, 0.3, 32, 32 ), new THREE.MeshPhysicalMaterial( {color: "#87AFEB", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2} ) );
+    scene.add( capsule2 );
+    capsule2.position.set(2.2,-0.7,-3);
+    capsule2.rotation.x = -Math.PI / 12;
+    capsule2.rotation.z = -Math.PI / 6;
   
     //
     function animate(){
