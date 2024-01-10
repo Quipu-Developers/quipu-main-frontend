@@ -25,12 +25,16 @@ function App() {
         <div className="navbar__logo">
           <a href="#"><img className="navbar__logo--img" src="/logo_main.png"></img></a>
         </div>
-        <ul className="navbar__menu">
-          <li><a href="#">home</a></li>
-          <li><a href="#">activity</a></li>
-          <li><a href="#">recommend site</a></li>
-          <li><a href="#">join Quipu</a></li>
-        </ul>
+        <div className="navbar__menu">
+          <ul className="navbar__menu--1">
+            <li><a href="#" data-item='home'>home</a></li>
+            <li><a href="#" data-item='activity'>activity</a></li>
+            <li><a href="#" data-item='recommend site'>recommend site</a></li>
+          </ul>
+          <ul className="navbar__menu--2">
+            <li><a href="#" data-item='join Quipu'>join Quipu</a></li>
+          </ul>
+        </div>
       </nav>
 
       <div className = "main-container">
@@ -39,7 +43,10 @@ function App() {
 
         <div className="main-container__message">
           <p className="main-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
-          <p className="main-container__message--sentence2">Hello, QUIPU!</p>
+          <p className="main-container__message--sentence2">
+            <span className='Hello,'>Hello, </span>
+            <span className="QUIPU!">QUIPU!</span>
+          </p>
         </div>
       </div>
 
