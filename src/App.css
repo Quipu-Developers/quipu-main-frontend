@@ -5,6 +5,7 @@ div, nav {
 body {
   margin: 0px;
   background: #C0CEFF;
+  font-family: 'Inter', sans-serif;
 }
 
 p {
@@ -53,7 +54,10 @@ p {
 .navbar__menu {
   list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding-left: 0;
+
 
   li {
     padding: 20px;
@@ -63,6 +67,7 @@ p {
       font-size: 22px;
       font-weight: 500;
       transition: color 0.4s ease-in-out;
+
 
       @media (max-width: 800px) {
         font-size: 18px;
@@ -88,9 +93,13 @@ p {
 }
 
 .navbar__menu--2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   padding-left: 0;
 }
+
 
 .main-container {
   width: 100%;

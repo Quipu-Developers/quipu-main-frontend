@@ -1,56 +1,43 @@
 /*eslint-disable*/
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import './App.css';
-import Object3D1 from './components/Object3D1'
-import Object3D2 from './components/Object3D2'
+import Home from './components/Home'
+import Activity from './components/Activity'
+import RecommendSite from './components/RecommendSite'
 
 function App() {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 480);
-
-  //가로 480px임을 감지해서 다른 컴포넌트는 렌더링하기 위한 함수
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 480);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
-    <div>
+    <Router>
+      <div>
+        <nav className="navbar">
 
-      <nav className="navbar">
-        <div className="navbar__logo">
-          <a href="#"><img className="navbar__logo--img" src="/logo_main.png"></img></a>
-        </div>
-        <div className="navbar__menu">
-          <ul className="navbar__menu--1">
-            <li><a href="#" data-item='home'>home</a></li>
-            <li><a href="#" data-item='activity'>activity</a></li>
-            <li><a href="#" data-item='recommend site'>recommend site</a></li>
-          </ul>
-          <ul className="navbar__menu--2">
-            <li><a href="#" data-item='join Quipu'>join Quipu</a></li>
-          </ul>
-        </div>
-      </nav>
+          <div className="navbar__logo">
+            <a href="#"><img className="navbar__logo--img" src="/logo_main.png"></img></a>
+          </div>
 
-      <div className = "main-container">
+          <div className="navbar__menu">
+            <ul className="navbar__menu--1">
+              <li><NavLink to="/" activeClassName="active" exact data-item='home'>home</NavLink></li>
+              <li><NavLink to="/activity" activeClassName="active" data-item='activity'>activity</NavLink></li>
+              <li><NavLink to="/recommend-site" activeClassName="active" data-item='recommend site'>recommend site</NavLink></li>
+            </ul>
+            <ul className="navbar__menu--2">
+              <li><a href="#" data-item='join Quipu'>join Quipu</a></li>
+            </ul>
+          </div>
 
-        {isSmallScreen ? ( <Object3D2 /> ) : ( <Object3D1 /> )}
+        </nav>
 
-        <div className="main-container__message">
-          <p className="main-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
-          <p className="main-container__message--sentence2">
-            <span className='Hello,'>Hello, </span>
-            <span className="QUIPU!">QUIPU!</span>
-          </p>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/activity" element={<Activity />} />
+          <Route path="/recommend-site" element={<RecommendSite />} />
+        </Routes>
+        
       </div>
-
-    </div>
+    </Router>
   );
 }
 

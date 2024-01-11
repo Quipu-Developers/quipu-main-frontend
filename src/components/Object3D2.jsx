@@ -2,12 +2,12 @@ import React from 'react';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 
-function Object3D1() {
+function Object3D2() {
 
     const scene = new THREE.Scene();
     
-    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0,0.5,5);
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(1.2,-2,-5);
   
     const renderer = new THREE.WebGLRenderer({
       alpha : true,
@@ -19,6 +19,7 @@ function Object3D1() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.minDistance = 2;
     controls.maxDistance = 5;
+    controls.target.set(0.7, 0.2, 0);
     
     // light
 
@@ -26,13 +27,13 @@ function Object3D1() {
     pointLight1.position.set(-5,0,5);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0xffffff, 160);
+    const pointLight2 = new THREE.PointLight(0xffffff, 140);
     pointLight2.position.set(0,10,0);
     scene.add(pointLight2);
 
-    // const pointLight3 = new THREE.PointLight(0xffffff, 100);
-    // pointLight3.position.set(5,5,-5);
-    // scene.add(pointLight3);
+    const pointLight3 = new THREE.PointLight(0xffffff, 100);
+    pointLight3.position.set(5,5,-5);
+    scene.add(pointLight3);
 
     const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
     scene.add(ambientLight);
@@ -124,4 +125,4 @@ function Object3D1() {
     return <div ref={(ref) => ref && ref.appendChild(renderer.domElement)} />;
 }
 
-export default Object3D1;
+export default Object3D2;

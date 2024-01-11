@@ -7,7 +7,7 @@ function Object3D1() {
     const scene = new THREE.Scene();
     
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(-1.5,0.6,3);
+    camera.position.set(1.2,-2,-5);
   
     const renderer = new THREE.WebGLRenderer({
       alpha : true,
@@ -19,6 +19,7 @@ function Object3D1() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.minDistance = 2;
     controls.maxDistance = 5;
+    controls.target.set(0.7, 0.2, 0);
     
     // light
 
@@ -26,7 +27,7 @@ function Object3D1() {
     pointLight1.position.set(-5,0,5);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0xffffff, 160);
+    const pointLight2 = new THREE.PointLight(0xffffff, 140);
     pointLight2.position.set(0,10,0);
     scene.add(pointLight2);
 
@@ -55,9 +56,9 @@ function Object3D1() {
     sphere3.position.set(2,0.3, -1);
     
     //작은 구
-    const sphere4 = new THREE.Mesh( new THREE.SphereGeometry( 0.2, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#B0A0CD", transparent: true, opacity: 0.6, clearcoat: 0.5, clearcoatRoughness: 0.2} ) );
+    const sphere4 = new THREE.Mesh( new THREE.SphereGeometry( 0.2, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#B0A0CD", transparent: true, opacity: 0.8, clearcoat: 0.5, clearcoatRoughness: 0.2} ) );
     scene.add( sphere4 );
-    sphere4.position.set(0.3,0.5,-1);
+    sphere4.position.set(0.2,0.5,-1);
 
     //분홍색 링
     const torus1 = new THREE.Mesh(new THREE.TorusGeometry( 0.45, 0.15, 32, 100 ) , new THREE.MeshPhysicalMaterial( { color: "#FFDCFF", transparent: true, opacity: 0.8, clearcoat: 0.2, clearcoatRoughness: 0.2} ));
