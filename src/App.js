@@ -1,43 +1,49 @@
 /*eslint-disable*/
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import './App.css';
 import Home from './components/Home'
 import Activity from './components/Activity'
 import RecommendSite from './components/RecommendSite'
+import JoinQuipu from './components/JoinQuipu'
 
 function App() {
 
   return (
-    <Router>
-      <div>
-        <nav className="navbar">
+    <div>
+      <nav className="navbar">
 
-          <div className="navbar__logo">
-            <a href="#"><img className="navbar__logo--img" src="/logo_main.png"></img></a>
-          </div>
+        <div className="navbar__logo">
+          <Link to="home" smooth={true} duration={400}>
+            <img className="navbar__logo--img" src="/logo_main.png"></img>
+          </Link>
+        </div>
 
-          <div className="navbar__menu">
-            <ul className="navbar__menu--1">
-              <li><NavLink to="/" activeClassName="active" exact data-item='home'>home</NavLink></li>
-              <li><NavLink to="/activity" activeClassName="active" data-item='activity'>activity</NavLink></li>
-              <li><NavLink to="/recommend-site" activeClassName="active" data-item='recommend site'>recommend site</NavLink></li>
-            </ul>
-            <ul className="navbar__menu--2">
-              <li><a href="#" data-item='join Quipu'>join Quipu</a></li>
-            </ul>
-          </div>
+        <div className="navbar__menu">
+          <ul className="navbar__menu--1">
+            <li><Link to="home" smooth={true} duration={400} data-item='home'>home</Link></li>
+            <li><Link to="activity" smooth={true} duration={400} data-item='activity'>activity</Link></li>
+            <li><Link to="recommend-site" smooth={true} duration={400} data-item='recommend site'>recommend site</Link></li>
+          </ul>
+          <ul className="navbar__menu--2">
+            <li><a hef="#" data-item='join Quipu'>join Quipu</a></li>
+          </ul>
+        </div>
 
-        </nav>
+      </nav>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/activity" element={<Activity />} />
-          <Route path="/recommend-site" element={<RecommendSite />} />
-        </Routes>
-        
-      </div>
-    </Router>
+      <section id="home">
+        <Home />
+      </section>
+      <section id="activity">
+        <Activity />
+      </section>
+      <section id="recommend-site">
+        <RecommendSite />
+      </section>
+      
+    </div>
   );
 }
 
