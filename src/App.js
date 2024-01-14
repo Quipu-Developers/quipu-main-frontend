@@ -1,12 +1,12 @@
 /*eslint-disable*/
-import React, { useEffect, useState } from 'react';
-// import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './App.css';
 import Home from './components/Home'
 import Activity from './components/Activity'
 import RecommendSite from './components/RecommendSite'
 import JoinQuipu from './components/JoinQuipu'
+
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
             <li><Link to="recommend-site" smooth={true} duration={400} data-item='recommend site'>recommend site</Link></li>
           </ul>
           <ul className="navbar__menu--2">
-            <li><a hef="#" data-item='join Quipu'>join Quipu</a></li>
+            <li><Link to="join-quipu" smooth={true} duration={400} data-item='join Quipu'>join Quipu</Link></li>
           </ul>
         </div>
 
@@ -42,7 +42,10 @@ function App() {
       <section id="recommend-site">
         <RecommendSite />
       </section>
-      
+      <section id="join-quipu">
+        <JoinQuipu />
+      </section>
+
     </div>
   );
 }

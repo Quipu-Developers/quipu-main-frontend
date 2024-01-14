@@ -24,7 +24,7 @@ function Home() {
 
       <div className="main-container__message">
         <p className="main-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
-        <p className="main-container__message--sentence2">Hello, Quipu!</p>
+        <p className="main-container__message--sentence2">"Hello, Quipu!"</p>
       </div>
     </div>
   )
