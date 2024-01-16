@@ -2,6 +2,10 @@ div, nav {
   box-sizing: border-box;
 }
 
+p {
+  margin: 0px;
+}
+
 section {
   min-height: 100vh;
 }
@@ -14,13 +18,7 @@ body, html {
   overflow: hidden; /* 스크롤 비활성화 */
 } 
 
-p {
-  margin: 0px;
-}
-
-.clear-both {
-  clear: both;
-}
+/* 네브바 */
 
 .navbar {
   width: 100%;
@@ -65,7 +63,6 @@ p {
   align-items: center;
   padding-left: 0;
 
-
   li {
     padding: 20px;
     a {
@@ -75,7 +72,6 @@ p {
       font-size: 22px;
       font-weight: 500;
       transition: color 0.4s ease-in-out;
-
 
       @media (max-width: 800px) {
         font-size: 17px;
@@ -108,6 +104,7 @@ p {
   padding-left: 0;
 }
 
+/* home */
 
 .main-container {
   width: 100%;
@@ -153,3 +150,13 @@ p {
     display: block;
   }
 }
+
+/* activity */
+
+
+/* recommend site */
+
+
+/* join Quipu */
+
+

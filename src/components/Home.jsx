@@ -6,7 +6,7 @@ import '../App.css';
 function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 700);
 
-  //가로 700px임을 감지해서 다른 컴포넌트는 렌더링하기 위한 함수
+  //가로 700px임을 감지해서 다른 컴포넌트를 렌더링하기 위한 함수
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 700);
@@ -20,11 +20,11 @@ function Home() {
   return (
     <div className="main-container">
 
-      {isSmallScreen ? (<Object3D2 />) : (<Object3D1 />)}
+      {isSmallScreen ? (<Object3D2 />) : (<Object3D1 />)} //
 
       <div className="main-container__message">
         <p className="main-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
-        <p className="main-container__message--sentence2">"Hello, Quipu!"</p>
+        <p className="main-container__message--sentence2">Hello, Quipu!</p>
       </div>
     </div>
   )
