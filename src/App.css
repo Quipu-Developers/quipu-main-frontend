@@ -1,3 +1,5 @@
+/* 공통 */
+
 div, nav {
   box-sizing: border-box;
 }
@@ -16,7 +18,12 @@ html {
 
 body, html {
   overflow: hidden; /* 스크롤 비활성화 */
-} 
+}
+
+.blank-navbar {
+  height: 80px;
+  width: 100%;
+}
 
 /* 네브바 */
 
@@ -105,15 +112,14 @@ body, html {
 }
 
 /* home */
-
-.main-container {
+.home-container {
   width: 100%;
   height: auto;
   position: relative;
   z-index: 1;
 }
 
-.main-container__message {
+.home-container__message {
   position: absolute;
   left: 0;
   top: 40%;
@@ -121,7 +127,7 @@ body, html {
   margin: 0  5%;
 }
 
-.main-container__message--sentence1 {
+.home-container__message--sentence1 {
   font-size: 30px;
   font-weight: 600;
 
@@ -132,7 +138,7 @@ body, html {
   }
 }
 
-.main-container__message--sentence2 {
+.home-container__message--sentence2 {
   font-size: 60px;
   font-weight: 700;
 
@@ -143,7 +149,7 @@ body, html {
   }
 }
 
-.main-container__message--sentence1 br{
+.home-container__message--sentence1 br{
   display: none;
 
   @media (max-width: 700px) {

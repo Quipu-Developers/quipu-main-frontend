@@ -18,13 +18,13 @@ function Home() {
   }, []);
 
   return (
-    <div className="main-container">
+    <div className="home-container">
 
       {isSmallScreen ? (<Object3D2 />) : (<Object3D1 />)}
 
-      <div className="main-container__message">
-        <p className="main-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
-        <p className="main-container__message--sentence2">Hello, Quipu!</p>
+      <div className="home-container__message">
+        <p className="home-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
+        <p className="home-container__message--sentence2">Hello, Quipu!</p>
       </div>
     </div>
   )
