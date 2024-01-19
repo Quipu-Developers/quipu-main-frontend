@@ -21,12 +21,10 @@ function App() {
         </div>
 
         <div className="navbar__menu">
-          <ul className="navbar__menu--1">
+          <ul>
             <li><Link to="home" smooth={true} duration={400}>home</Link></li>
             <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
             <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
-          </ul>
-          <ul className="navbar__menu--2">
             <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
           </ul>
         </div>

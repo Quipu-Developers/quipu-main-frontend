@@ -24,7 +24,7 @@ body, html {
   height: 80px;
   width: 100%;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     height: 60px;
   }
 }
@@ -44,7 +44,7 @@ body, html {
 
   z-index: 3;
   
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     height: 60px;
     padding: 10px;
   }
@@ -54,7 +54,7 @@ body, html {
   width: 120px;
   height: 60px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 80px;
     height: 40px;
   }
@@ -68,7 +68,16 @@ body, html {
 }
 
 .navbar__menu {
-  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
+.navbar__menu ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +85,8 @@ body, html {
   color: white;
   
   li {
-    padding: 40px;
+    list-style: none;
+    padding: 20px;
   }
   
   a {
@@ -85,33 +95,10 @@ body, html {
     transition: color 0.4s ease-in-out;
     font-size: 22px;
     font-weight: 500;
-
-    @media (max-width: 800px) {
-      font-size: 17px;
-      font-weight: 800;
-    }
   }
 
   a:hover{
     color:#5C518B;
     transition: color 0.4s ease-in-out;
   }
-}
-
-.navbar__menu--1 {
-  list-style: none;
-  display: flex;
-  padding-left: 0;
-
-  @media (max-width: 700px) {
-    display: none !important;
-  }
-}
-
-.navbar__menu--2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  padding-left: 0;
 }
