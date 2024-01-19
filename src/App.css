@@ -74,14 +74,14 @@ body, html {
   align-items: center;
   padding-left: 0;
   color: white;
+  font-size: 22px;
+  font-weight: 500;
 
   li {
     padding: 20px;
     a {
       text-decoration: none;
       cursor:pointer;
-      font-size: 22px;
-      font-weight: 500;
       transition: color 0.4s ease-in-out;
 
       @media (max-width: 800px) {
