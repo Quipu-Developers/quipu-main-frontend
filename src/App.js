@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './App.css';
-import Home from './components/Home'
-import Activity from './components/Activity'
-import RecommendSite from './components/RecommendSite'
-import JoinQuipu from './components/JoinQuipu'
+import Home from './components/Home/Home'
+import Activity from './components/Activity/Activity'
+import RecommendSite from './components/RecommendSite/RecommendSite'
+import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 
 
 function App() {

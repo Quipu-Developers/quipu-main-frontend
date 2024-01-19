@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../App.css';
-import './activity.css';
+import '../../App.css';
+import './Activity.css';
 
 function Activity() {
     const titles = ['Study', 'Friendship', 'MT'];
