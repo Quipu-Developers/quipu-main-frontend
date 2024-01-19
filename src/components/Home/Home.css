@@ -1,0 +1,45 @@
+/* home */
+.home-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.home-container__message {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  color: white;
+  margin: 0  5%;
+}
+
+.home-container__message--sentence1 {
+  font-size: 30px;
+  font-weight: 600;
+
+  @media (max-width: 480px) {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 5px;
+  }
+}
+
+.home-container__message--sentence2 {
+  font-size: 60px;
+  font-weight: 700;
+
+  @media (max-width: 480px) {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 5px;
+  }
+}
+
+.home-container__message--sentence1 br{
+  display: none;
+
+  @media (max-width: 700px) {
+    display: block;
+  }
+}

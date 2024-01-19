@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Object3D1 from './Object3D1'
 import Object3D2 from './Object3D2'
 import '../../App.css';
+import './Home.css';
+
 
 function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 700);
