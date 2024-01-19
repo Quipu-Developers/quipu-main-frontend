@@ -5,6 +5,8 @@ function JoinQuipu() {
   return (
     <div>
       <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
     </div>
   );
 }
