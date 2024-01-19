@@ -74,23 +74,24 @@ body, html {
   align-items: center;
   padding-left: 0;
   color: white;
-  font-size: 22px;
-  font-weight: 500;
-
+  
   li {
     padding: 20px;
-    a {
-      text-decoration: none;
-      cursor:pointer;
-      transition: color 0.4s ease-in-out;
+  }
+  
+  a {
+    text-decoration: none;
+    cursor:pointer;
+    transition: color 0.4s ease-in-out;
+    font-size: 22px;
+    font-weight: 500;
 
-      @media (max-width: 800px) {
-        font-size: 17px;
-        font-weight: 500;
-      }
+    @media (max-width: 800px) {
+      font-size: 17px;
+      font-weight: 500;
     }
   }
-
+  
   a:hover{
     color:#5C518B;
     transition: color 0.4s ease-in-out;
