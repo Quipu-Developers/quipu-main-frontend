@@ -30,7 +30,7 @@ function Object3D2() {
   const pointLight2 = new THREE.PointLight(0xffffff, 150);
   pointLight2.position.set(2, 10, 0);
   scene.add(pointLight2);
-
+  
   const ambientLight = new THREE.AmbientLight(0xffffff, 1);
   scene.add(ambientLight);
 
