@@ -31,10 +31,6 @@ function Object3D1() {
     pointLight2.position.set(0,10,0);
     scene.add(pointLight2);
 
-    // const pointLight3 = new THREE.PointLight(0xffffff, 100);
-    // pointLight3.position.set(5,5,-5);
-    // scene.add(pointLight3);
-
     const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
     scene.add(ambientLight);
 
