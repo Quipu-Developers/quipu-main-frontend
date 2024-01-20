@@ -1,6 +1,7 @@
 /* 공통 */
 
-div, nav {
+div,
+nav {
   box-sizing: border-box;
 }
 
@@ -16,8 +17,10 @@ html {
   scroll-behavior: smooth;
 }
 
-body, html {
-  overflow: hidden; /* 스크롤 비활성화 */
+body,
+html {
+  overflow: hidden;
+  /* 스크롤 비활성화 */
 }
 
 .blank-navbar {
@@ -43,7 +46,7 @@ body, html {
   top: 0;
 
   z-index: 3;
-  
+
   @media (max-width: 800px) {
     height: 60px;
     padding: 10px;
@@ -71,7 +74,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   @media (max-width: 800px) {
     display: none;
   }
@@ -83,22 +86,22 @@ body, html {
   align-items: center;
   padding-left: 0;
   color: white;
-  
+  list-style: none;
+
   li {
-    list-style: none;
     padding: 20px;
   }
-  
+
   a {
     text-decoration: none;
-    cursor:pointer;
+    cursor: pointer;
     transition: color 0.4s ease-in-out;
     font-size: 22px;
     font-weight: 500;
   }
 
-  a:hover{
-    color:#5C518B;
+  a:hover {
+    color: #5C518B;
     transition: color 0.4s ease-in-out;
   }
 }
