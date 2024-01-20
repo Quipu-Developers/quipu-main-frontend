@@ -11,17 +11,25 @@
   left: 0;
   top: 40%;
   color: white;
-  margin: 0  5%;
+  margin: 0 0 0 5%;
 }
 
-.home-container__message--sentence1 {
+.home-container__message--sentence1-pc {
   font-size: 30px;
   font-weight: 600;
 
-  @media (max-width: 480px) {
+  @media (max-width: 700px) {
+    font-size: 0px;
+  }
+}
+
+.home-container__message--sentence1-mobile {
+  font-size: 0px;
+
+  @media (max-width: 700px) {
     font-size: 25px;
     font-weight: 600;
-    margin: 5px;
+    margin-bottom: 5px;
   }
 }
 
@@ -29,17 +37,9 @@
   font-size: 60px;
   font-weight: 700;
 
-  @media (max-width: 480px) {
+  @media (max-width: 700px) {
     font-size: 40px;
     font-weight: 700;
-    margin: 5px;
-  }
-}
-
-.home-container__message--sentence1 br{
-  display: none;
-
-  @media (max-width: 700px) {
-    display: block;
+    margin-top: 5px;
   }
 }

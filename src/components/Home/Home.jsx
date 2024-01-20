@@ -25,7 +25,8 @@ function Home() {
       {isSmallScreen ? (<Object3D2 />) : (<Object3D1 />)}
 
       <div className="home-container__message">
-        <p className="home-container__message--sentence1">서울시립대학교 <br></br>컴퓨터 학술 동아리</p>
+        <p className="home-container__message--sentence1-pc">서울시립대학교 컴퓨터 학술 동아리</p>
+        <p className="home-container__message--sentence1-mobile">서울시립대학교<br></br>컴퓨터 학술 동아리</p>
         <p className="home-container__message--sentence2">Hello, Quipu!</p>
       </div>
     </div>
