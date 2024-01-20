@@ -76,7 +76,9 @@ html {
   align-items: center;
 
   @media (max-width: 800px) {
-    display: none;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
   }
 }
 
@@ -97,8 +99,8 @@ html {
   text-decoration: none;
   cursor: pointer;
   transition: color 0.4s ease-in-out;
-  font-size: 30px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .navbar__menu a:hover {
