@@ -21,7 +21,7 @@ function App() {
 
         <div className="navbar__logo">
           <Link to="home" smooth={true} duration={400}>
-            <img className="navbar__logo--img" src="/logo_main.png"></img>
+            <img className="navbar__logo--img" src="/logo_main1.png"></img>
           </Link>
         </div>
 
@@ -36,19 +36,22 @@ function App() {
         </div>
 
         {/* mobile에서 메뉴 버튼 */}
-        <div className="hamburger" onClick={toggleMenu}>
-          <div class="icon"></div>
-        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button' htmlFor="menu-toggle">
+          <span className="line line1"></span>
+          <span className="line line2"></span>
+          <span className="line line3"></span>
+        </label>
 
         {/* mobile에서 메뉴들 */}
-        <div className={`navbar__menu--mobile ${isMenuOpen ? 'open' : ''}`}>
-          <ul>
-            <li><Link to="home" smooth={true} duration={400}>home</Link></li>
-            <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
-            <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
-            <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
-          </ul>
-        </div>
+        <ul className="navbar__menu--mobile">
+          <li></li>
+          <li></li>
+          <li><Link to="home" smooth={true} duration={400}>home</Link></li>
+          <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
+          <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
+          <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
+        </ul>
 
       </nav>
 
