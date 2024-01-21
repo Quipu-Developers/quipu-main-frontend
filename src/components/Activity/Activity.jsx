@@ -4,7 +4,9 @@ import './Activity.css';
 
 function Activity() {
     const titles = ['Study', 'Friendship', 'MT'];
-    const images = [["/img/파이썬스터디.png", "/img/웹개발스터디.jpg", "/img/공모전.png"], ["/img/친목1.jpg", "/img/친목2.jpg", "/img/친목3.jpg"], ["/img/mt1.jpg", "/img/mt2.jpg", "/img/mt3.jpg"]];
+    const images = [["/img/파이썬스터디.png", "/img/웹개발스터디.jpg", "/img/공모전.png"], 
+                    ["/img/친목1.jpg", "/img/친목2.jpg", "/img/친목3.jpg"], 
+                    ["/img/mt1.jpg", "/img/mt2.jpg", "/img/mt3.jpg"]];
 
     return (
         <>
