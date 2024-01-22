@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 
 function Object3D1() {
+  const mountRef = useRef(null);
 
+  useEffect(() => {
     const scene = new THREE.Scene();
     
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -14,6 +16,8 @@ function Object3D1() {
       antialias : true
     });
     renderer.setSize(window.innerWidth, window.innerHeight); 
+
+    mountRef.current.appendChild(renderer.domElement);
   
     //
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -93,8 +97,6 @@ function Object3D1() {
   
     //
     function animate(){
-      requestAnimationFrame(animate);
-
       torus1.rotation.x += 0.005;
       torus1.rotation.y += 0.005;
       torus2.rotation.x += 0.005;
@@ -105,9 +107,10 @@ function Object3D1() {
       capsule1.rotation.y += 0.005;
       capsule2.rotation.x += 0.005;
       capsule2.rotation.y += 0.005;
-  
+      
       controls.update();
       renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     }
     animate();
   
@@ -118,7 +121,31 @@ function Object3D1() {
     }
     window.addEventListener('resize', onWindowResize);
   
-    return <div ref={(ref) => ref && ref.appendChild(renderer.domElement)} />;
+    return () => {
+      window.removeEventListener('resize', onWindowResize);
+      mountRef.current.removeChild(renderer.domElement);
+      
+      // 모든 메시(mesh)와 라이트(light)를 씬에서 제거하고, 메모리를 해제합니다.
+      scene.children.forEach(child => {
+        if (child.geometry) {
+          child.geometry.dispose(); // Geometry 메모리 해제
+        }
+        if (child.material) {
+          Object.keys(child.material).forEach(prop => {
+            if (child.material[prop] && typeof child.material[prop].dispose === 'function') {
+              child.material[prop].dispose(); // Material 프로퍼티의 메모리 해제
+            }
+          });
+          child.material.dispose(); // Material 메모리 해제
+        }
+      });
+      
+      renderer.dispose(); // 렌더러와 관련된 메모리 해제
+      controls.dispose(); // 컨트롤러 메모리 해제
+    };
+  }, []);
+
+  return <div ref={mountRef} />;
 }
 
 export default Object3D1;
