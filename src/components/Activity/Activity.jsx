@@ -24,9 +24,9 @@ function ActivityBlock(props) {
     return (
         <div className="activity-block">
             <p className="activity-block__title">{props.title}</p>
-            <img className="activity-block__image--big" src={props.src1} loading="lazy"></img>
-            <img className="activity-block__image--small" src={props.src2} loading="lazy"></img>
-            <img className="activity-block__image--small" src={props.src3} loading="lazy"></img>
+            <img className="activity-block__image--big" src={props.src1}></img>
+            <img className="activity-block__image--small" src={props.src2}></img>
+            <img className="activity-block__image--small" src={props.src3}></img>
         </div>
     )
 }
