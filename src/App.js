@@ -49,7 +49,7 @@ function App() {
       </nav>
 
       <section id="home">
-        <JoinQuipu />
+        <Home />
       </section>
       <section id="activity">
         <Activity />
@@ -58,7 +58,7 @@ function App() {
         <RecommendSite />
       </section>
       <section id="join-quipu">
-        <Home />
+        <JoinQuipu />
       </section>
 
     </div>
