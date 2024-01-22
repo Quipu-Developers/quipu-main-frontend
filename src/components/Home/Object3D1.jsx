@@ -1,9 +1,10 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 
-function Object3D1() {
+function Object3D1({ isVisible }) {
   const mountRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -94,6 +95,8 @@ function Object3D1() {
     capsule2.position.set(2.2,-0.7,-3);
     capsule2.rotation.x = -Math.PI / 12;
     capsule2.rotation.z = -Math.PI / 6;
+
+    setIsLoaded(true);
   
     //
     function animate(){
@@ -145,7 +148,13 @@ function Object3D1() {
     };
   }, []);
 
-  return <div ref={mountRef} />;
+  useEffect(() => {
+    if (mountRef.current) {
+      mountRef.current.style.display = isVisible ? 'block' : 'none';
+    }
+  }, [isVisible]);
+
+  return <div ref={mountRef} style={{ display: 'none' }} />;
 }
 
 export default Object3D1;

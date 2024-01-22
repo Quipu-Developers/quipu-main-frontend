@@ -13,6 +13,7 @@ function Home() {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 700);
     };
+
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -22,7 +23,8 @@ function Home() {
   return (
     <div className="home-container">
 
-      {isSmallScreen ? (<Object3D2 />) : (<Object3D1 />)}
+      <Object3D1 isVisible={!isSmallScreen} />
+      <Object3D2 isVisible={isSmallScreen} />
 
       <div className="home-container__message">
         <p className="home-container__message--sentence1-pc">서울시립대학교 컴퓨터 학술 동아리</p>
