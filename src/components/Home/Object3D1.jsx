@@ -1,12 +1,9 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React from 'react';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 
-function Object3D1({ isVisible }) {
-  const mountRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+function Object3D1() {
 
-  useEffect(() => {
     const scene = new THREE.Scene();
     
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -17,8 +14,6 @@ function Object3D1({ isVisible }) {
       antialias : true
     });
     renderer.setSize(window.innerWidth, window.innerHeight); 
-
-    mountRef.current.appendChild(renderer.domElement);
   
     //
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -41,7 +36,7 @@ function Object3D1({ isVisible }) {
 
     // mesh
 
-    //파란색 구
+    // 파란색 구
     const sphere1 = new THREE.Mesh( new THREE.SphereGeometry( 0.7, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#9AB9FF", transparent: true, opacity: 0.6, clearcoat: 0.5, clearcoatRoughness: 0.2} ) );
     scene.add( sphere1 );
     sphere1.position.set(-1.5,0.5,-3);
@@ -95,25 +90,27 @@ function Object3D1({ isVisible }) {
     capsule2.position.set(2.2,-0.7,-3);
     capsule2.rotation.x = -Math.PI / 12;
     capsule2.rotation.z = -Math.PI / 6;
-
-    setIsLoaded(true);
   
-    //
+    
+
+    renderer.render(scene, camera);
+    
     function animate(){
-      torus1.rotation.x += 0.005;
-      torus1.rotation.y += 0.005;
-      torus2.rotation.x += 0.005;
-      torus2.rotation.y += 0.005;
-      torus3.rotation.x += 0.005;
-      torus3.rotation.y += 0.005;
-      capsule1.rotation.x += 0.005;
-      capsule1.rotation.y += 0.005;
-      capsule2.rotation.x += 0.005;
-      capsule2.rotation.y += 0.005;
-      
+      requestAnimationFrame(animate);
+
+      torus1.rotation.x += 0.01;
+      torus1.rotation.y += 0.01;
+      torus2.rotation.x += 0.01;
+      torus2.rotation.y += 0.01;
+      torus3.rotation.x += 0.01;
+      torus3.rotation.y += 0.01;
+      capsule1.rotation.x += 0.01;
+      capsule1.rotation.y += 0.01;
+      capsule2.rotation.x += 0.01;
+      capsule2.rotation.y += 0.01;
+  
       controls.update();
       renderer.render(scene, camera);
-      requestAnimationFrame(animate);
     }
     animate();
   
@@ -124,37 +121,7 @@ function Object3D1({ isVisible }) {
     }
     window.addEventListener('resize', onWindowResize);
   
-    return () => {
-      window.removeEventListener('resize', onWindowResize);
-      mountRef.current.removeChild(renderer.domElement);
-      
-      // 모든 메시(mesh)와 라이트(light)를 씬에서 제거하고, 메모리를 해제합니다.
-      scene.children.forEach(child => {
-        if (child.geometry) {
-          child.geometry.dispose(); // Geometry 메모리 해제
-        }
-        if (child.material) {
-          Object.keys(child.material).forEach(prop => {
-            if (child.material[prop] && typeof child.material[prop].dispose === 'function') {
-              child.material[prop].dispose(); // Material 프로퍼티의 메모리 해제
-            }
-          });
-          child.material.dispose(); // Material 메모리 해제
-        }
-      });
-      
-      renderer.dispose(); // 렌더러와 관련된 메모리 해제
-      controls.dispose(); // 컨트롤러 메모리 해제
-    };
-  }, []);
-
-  useEffect(() => {
-    if (mountRef.current) {
-      mountRef.current.style.display = isVisible ? 'block' : 'none';
-    }
-  }, [isVisible]);
-
-  return <div ref={mountRef} style={{ display: 'none' }} />;
+    return <div ref={(ref) => ref && ref.appendChild(renderer.domElement)} />;
 }
 
 export default Object3D1;

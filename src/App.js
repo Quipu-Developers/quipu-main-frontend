@@ -49,10 +49,11 @@ function App() {
       </nav>
 
       <section id="home">
-        <Home />
+        <Activity />
       </section>
       <section id="activity">
-        <Activity />
+        <Home />
+
       </section>
       <section id="recommend-site">
         <RecommendSite />
