@@ -4,9 +4,9 @@ import './Activity.css';
 
 function Activity() {
     const titles = ['Study', 'Friendship', 'MT'];
-    const images = [["/img/파이썬스터디.png", "/img/웹개발스터디.jpg", "/img/공모전.png"], 
-                    ["/img/친목1.jpg", "/img/친목2.jpg", "/img/친목3.jpg"], 
-                    ["/img/mt1.jpg", "/img/mt2.jpg", "/img/mt3.jpg"]];
+    const images = [["/img/파이썬스터디-min.png", "/img/웹개발스터디-min.jpg", "/img/공모전-min.png"], 
+                    ["/img/친목1-min.jpg", "/img/친목2-min.jpg", "/img/친목3-min.jpg"], 
+                    ["/img/mt1-min.jpg", "/img/mt2-min.jpg", "/img/mt3-min.jpg"]];
 
     return (
         <>
@@ -24,9 +24,9 @@ function ActivityBlock(props) {
     return (
         <div className="activity-block">
             <p className="activity-block__title">{props.title}</p>
-            <img className="activity-block__image--big" src={props.src1}></img>
-            <img className="activity-block__image--small" src={props.src2}></img>
-            <img className="activity-block__image--small" src={props.src3}></img>
+            <img className="activity-block__image--big" src={props.src1} loading="lazy"></img>
+            <img className="activity-block__image--small" src={props.src2} loading="lazy"></img>
+            <img className="activity-block__image--small" src={props.src3} loading="lazy"></img>
         </div>
     )
 }

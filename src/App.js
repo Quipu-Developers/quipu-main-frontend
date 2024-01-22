@@ -22,10 +22,10 @@ function App() {
         {/* pc에서 메뉴들 */}
         <div className="navbar__menu--pc">
           <ul>
-            <li><Link to="home" smooth={true} duration={800}>home</Link></li>
-            <li><Link to="activity" smooth={true} duration={800}>activity</Link></li>
-            <li><Link to="recommend-site" smooth={true} duration={800}>recommend site</Link></li>
-            <li><Link to="join-quipu" smooth={true} duration={800}>join Quipu</Link></li>
+            <li><Link to="home" smooth={true} duration={400}>home</Link></li>
+            <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
+            <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
+            <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
           </ul>
         </div>
 
@@ -49,7 +49,7 @@ function App() {
       </nav>
 
       <section id="home">
-        <Home />
+        <JoinQuipu />
       </section>
       <section id="activity">
         <Activity />
@@ -58,7 +58,7 @@ function App() {
         <RecommendSite />
       </section>
       <section id="join-quipu">
-        <JoinQuipu />
+        <Home />
       </section>
 
     </div>
