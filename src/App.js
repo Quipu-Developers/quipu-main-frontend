@@ -1,13 +1,11 @@
 /*eslint-disable*/
-import React, { Suspense } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './App.css';
-
-const Home = React.lazy(() => import('./components/Home/Home'));
-const Activity = React.lazy(() => import('./components/Activity/Activity'));
-const RecommendSite = React.lazy(() => import('./components/RecommendSite/RecommendSite'));
-const JoinQuipu = React.lazy(() => import('./components/JoinQuipu/JoinQuipu'));
-
+import Home from './components/Home/Home'
+import Activity from './components/Activity/Activity'
+import RecommendSite from './components/RecommendSite/RecommendSite'
+import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 
 function App() {
 
@@ -24,10 +22,10 @@ function App() {
         {/* pc에서 메뉴들 */}
         <div className="navbar__menu--pc">
           <ul>
-            <li><Link to="home" smooth={true} duration={400}>home</Link></li>
-            <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
-            <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
-            <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
+            <li><Link to="home" smooth={true} duration={800}>home</Link></li>
+            <li><Link to="activity" smooth={true} duration={800}>activity</Link></li>
+            <li><Link to="recommend-site" smooth={true} duration={800}>recommend site</Link></li>
+            <li><Link to="join-quipu" smooth={true} duration={800}>join Quipu</Link></li>
           </ul>
         </div>
 
@@ -50,20 +48,18 @@ function App() {
 
       </nav>
 
-      <Suspense fallback={<div></div>}>
-        <section id="home">
-          <Home />
-        </section>
-        <section id="activity">
-          <Activity />
-        </section>
-        <section id="recommend-site">
-          <RecommendSite />
-        </section>
-        <section id="join-quipu">
-          <JoinQuipu />
-        </section>
-      </Suspense>
+      <section id="home">
+        <Home />
+      </section>
+      <section id="activity">
+        <Activity />
+      </section>
+      <section id="recommend-site">
+        <RecommendSite />
+      </section>
+      <section id="join-quipu">
+        <JoinQuipu />
+      </section>
 
     </div>
   );
