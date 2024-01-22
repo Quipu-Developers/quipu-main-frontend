@@ -95,16 +95,16 @@ function Object3D1() {
     function animate(){
       requestAnimationFrame(animate);
 
-      torus1.rotation.x += 0.01;
-      torus1.rotation.y += 0.01;
-      torus2.rotation.x += 0.01;
-      torus2.rotation.y += 0.01;
-      torus3.rotation.x += 0.01;
-      torus3.rotation.y += 0.01;
-      capsule1.rotation.x += 0.01;
-      capsule1.rotation.y += 0.01;
-      capsule2.rotation.x += 0.01;
-      capsule2.rotation.y += 0.01;
+      torus1.rotation.x += 0.005;
+      torus1.rotation.y += 0.005;
+      torus2.rotation.x += 0.005;
+      torus2.rotation.y += 0.005;
+      torus3.rotation.x += 0.005;
+      torus3.rotation.y += 0.005;
+      capsule1.rotation.x += 0.005;
+      capsule1.rotation.y += 0.005;
+      capsule2.rotation.x += 0.005;
+      capsule2.rotation.y += 0.005;
   
       controls.update();
       renderer.render(scene, camera);
