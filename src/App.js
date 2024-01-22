@@ -1,11 +1,13 @@
 /*eslint-disable*/
-import React, { useState } from 'react';
+import React, { Suspense } from 'react';
 import { Link } from 'react-scroll';
 import './App.css';
-import Home from './components/Home/Home'
-import Activity from './components/Activity/Activity'
-import RecommendSite from './components/RecommendSite/RecommendSite'
-import JoinQuipu from './components/JoinQuipu/JoinQuipu'
+
+const Home = React.lazy(() => import('./components/Home/Home'));
+const Activity = React.lazy(() => import('./components/Activity/Activity'));
+const RecommendSite = React.lazy(() => import('./components/RecommendSite/RecommendSite'));
+const JoinQuipu = React.lazy(() => import('./components/JoinQuipu/JoinQuipu'));
+
 
 function App() {
 
@@ -48,19 +50,20 @@ function App() {
 
       </nav>
 
-      <section id="home">
-        <Activity />
-      </section>
-      <section id="activity">
-        <Home />
-
-      </section>
-      <section id="recommend-site">
-        <RecommendSite />
-      </section>
-      <section id="join-quipu">
-        <JoinQuipu />
-      </section>
+      <Suspense fallback={<div></div>}>
+        <section id="home">
+          <Home />
+        </section>
+        <section id="activity">
+          <Activity />
+        </section>
+        <section id="recommend-site">
+          <RecommendSite />
+        </section>
+        <section id="join-quipu">
+          <JoinQuipu />
+        </section>
+      </Suspense>
 
     </div>
   );
