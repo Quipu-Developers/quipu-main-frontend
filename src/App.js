@@ -40,10 +40,10 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <ul className="navbar__menu--mobile">
           <li className="blank"></li>
-          <li className="block"><Link to="home" smooth={true} duration={400}>home</Link></li>
-          <li className="block"><Link to="activity" smooth={true} duration={400}>activity</Link></li>
-          <li className="block"><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
-          <li className="block"><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
+          <li className="block"><Link to="home" smooth={true} duration={500}>home</Link></li>
+          <li className="block"><Link to="activity" smooth={true} duration={500}>activity</Link></li>
+          <li className="block"><Link to="recommend-site" smooth={true} duration={500}>recommend site</Link></li>
+          <li className="block"><Link to="join-quipu" smooth={true} duration={500}>join Quipu</Link></li>
         </ul>
 
       </nav>

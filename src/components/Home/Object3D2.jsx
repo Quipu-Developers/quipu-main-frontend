@@ -83,13 +83,6 @@ function Object3D2() {
   capsule1.rotation.x = Math.PI / 5;
   capsule1.rotation.z = Math.PI / 4;
 
-  //파란색 캡슐
-  const capsule2 = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.3, 32, 32), new THREE.MeshPhysicalMaterial({ color: "#87AFEB", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2 }));
-  scene.add(capsule2);
-  capsule2.position.set(2.2, -0.7, -3);
-  capsule2.rotation.x = -Math.PI / 12;
-  capsule2.rotation.z = -Math.PI / 6;
-
   //
   function animate() {
     requestAnimationFrame(animate);
@@ -102,8 +95,6 @@ function Object3D2() {
     torus3.rotation.y += 0.01;
     capsule1.rotation.x += 0.01;
     capsule1.rotation.y += 0.01;
-    capsule2.rotation.x += 0.01;
-    capsule2.rotation.y += 0.01;
 
     controls.update();
     renderer.render(scene, camera);
