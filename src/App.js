@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './App.css';
 import Home from './components/Home/Home'
+import About from './components/About/About'
 import Activity from './components/Activity/Activity'
 import RecommendSite from './components/RecommendSite/RecommendSite'
 import JoinQuipu from './components/JoinQuipu/JoinQuipu'
@@ -23,6 +24,7 @@ function App() {
         <div className="navbar__menu--pc">
           <ul>
             <li><Link to="home" smooth={true} duration={400}>home</Link></li>
+            <li><Link to="about" smooth={true} duration={500}>about</Link></li>
             <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
             <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
             <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
@@ -41,6 +43,7 @@ function App() {
         <ul className="navbar__menu--mobile">
           <li className="blank"></li>
           <li className="block"><Link to="home" smooth={true} duration={500}>home</Link></li>
+          <li className="block"><Link to="about" smooth={true} duration={500}>about</Link></li>
           <li className="block"><Link to="activity" smooth={true} duration={500}>activity</Link></li>
           <li className="block"><Link to="recommend-site" smooth={true} duration={500}>recommend site</Link></li>
           <li className="block"><Link to="join-quipu" smooth={true} duration={500}>join Quipu</Link></li>
@@ -50,6 +53,9 @@ function App() {
 
       <section id="home">
         <Home />
+      </section>
+      <section id="about">
+        <About />
       </section>
       <section id="activity">
         <Activity />
