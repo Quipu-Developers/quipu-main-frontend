@@ -42,14 +42,14 @@ function RecommendSite(){
                         <Icon img="../RecommendSite-img/computerWorld.png" name="Computer World"/>
                     </div>
                     <div className="recommend-site__box--bottom">
-                        <Icon img="../baekJoon.png" name="BaekJoon"/>
-                        <Icon img="../replit.png" name="Replit"/>
-                        <Icon img="../computerWorld.png" name="Computer World"/>
+                        <Icon img="../RecommendSite-img/baekJoon.png" name="BaekJoon"/>
+                        <Icon img="../RecommendSite-img/replit.png" name="Replit"/>
+                        <Icon img="../RecommendSite-img/computerWorld.png" name="Computer World"/>
                     </div>
                     <div className="recommend-site__box--bottomBehind">
-                        <Icon img="../leetCode.png" name="LeetCode"/>
-                        <Icon img="../baekJoon.png" name="BaekJoon"/>
-                        <Icon img="../replit.png" name="Replit"/>
+                        <Icon img="../RecommendSite-img/leetCode.png" name="LeetCode"/>
+                        <Icon img="../RecommendSite-img/baekJoon.png" name="BaekJoon"/>
+                        <Icon img="../RecommendSite-img/replit.png" name="Replit"/>
                     </div>
                 </div>
             </div>

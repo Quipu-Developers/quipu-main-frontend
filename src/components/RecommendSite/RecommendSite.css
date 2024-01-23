@@ -1,6 +1,8 @@
 .recommend-site {
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 1;
 }
@@ -22,6 +24,8 @@
 
 .recommend-site__box {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: auto;
     position: relative;
@@ -29,12 +33,14 @@
 
     @media screen and (max-width: 700px){
         display: flex;
+        align-items: center;
         flex-direction: row;
     }
 }
 
 .recommend-site__box--top {
     margin: 20px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,9 +66,10 @@
 
 .recommend-site__box--bottom {
     margin: 20px;
+    width: 80%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .recommend-site__box--bottomBehind{
@@ -71,18 +78,6 @@
     justify-content: space-around;
     z-index: 1;
     padding-right: 20%;
-}
-
-.recommend-site__box--topBehind .recommend-site__icon:nth-child(odd),
-.recommend-site__box--bottomBehind .recommend-site__icon:nth-child(even) {
-    margin-right: auto;
-    margin-left: 0;
-}
-
-.recommend-site__box--topBehind .recommend-site__icon:nth-child(even),
-.recommend-site__box--bottomBehind .recommend-site__icon:nth-child(odd) {
-    margin-left: auto;
-    margin-right: 0;
 }
 
 .recommend-site__icon {
