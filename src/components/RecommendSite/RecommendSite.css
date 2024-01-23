@@ -23,6 +23,7 @@
 }
 
 .recommend-site__box {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -61,8 +62,6 @@
     padding-left: 10%;
 
 }
-
-
 
 .recommend-site__box--bottom {
     margin: 20px;
