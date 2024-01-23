@@ -31,16 +31,12 @@ function Object3D1() {
     pointLight2.position.set(0,10,0);
     scene.add(pointLight2);
 
-    // const pointLight3 = new THREE.PointLight(0xffffff, 100);
-    // pointLight3.position.set(5,5,-5);
-    // scene.add(pointLight3);
-
     const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
     scene.add(ambientLight);
 
     // mesh
 
-    //파란색 구
+    // 파란색 구
     const sphere1 = new THREE.Mesh( new THREE.SphereGeometry( 0.7, 32, 32 ), new THREE.MeshPhysicalMaterial( { color: "#9AB9FF", transparent: true, opacity: 0.6, clearcoat: 0.5, clearcoatRoughness: 0.2} ) );
     scene.add( sphere1 );
     sphere1.position.set(-1.5,0.5,-3);
@@ -95,7 +91,10 @@ function Object3D1() {
     capsule2.rotation.x = -Math.PI / 12;
     capsule2.rotation.z = -Math.PI / 6;
   
-    //
+    
+
+    renderer.render(scene, camera);
+    
     function animate(){
       requestAnimationFrame(animate);
 

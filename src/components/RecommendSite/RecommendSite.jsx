@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import '../App.css';
-import '../RecommendSite.css';
-import '../activity.css';
+import '../../App.css';
+import './RecommendSite.css';
 
-function Icon({img, name, }){
+function Icon({img, name}){
     return (
         <div className="recommend-site__icon">
             <div className="recommend-site__icon--top1">
@@ -31,16 +30,16 @@ function RecommendSite(){
                 <div className="recommend-site__title">Recommend Site</div>
                 <div className="recommend-site__box">
                     <div className="recommend-site__box--top">
-                        <Icon img="../chatGPT.png" name="ChatGPT"/>
-                        <Icon img="../leetCode.png" name="LeetCode"/>
-                        <Icon img="../hackerRank.png" name="HackerRank"/>
-                        <Icon img="../w3Schools.png" name="W3 Schools"/>
+                        <Icon img="../RecommendSite-img/chatGPT.png" name="ChatGPT"/>
+                        <Icon img="../RecommendSite-img/leetCode.png" name="LeetCode"/>
+                        <Icon img="../RecommendSite-img/hackerRank.png" name="HackerRank"/>
+                        <Icon img="../RecommendSite-img/w3Schools.png" name="W3 Schools"/>
                     </div>
                     <div className="recommend-site__box--topBehind">
-                        <Icon img="../chatGPT.png" name="ChatGPT"/>
-                        <Icon img="../hackerRank.png" name="HackerRank"/>
-                        <Icon img="../w3Schools.png" name="W3 Schools"/>
-                        <Icon img="../computerWorld.png" name="Computer World"/>
+                        <Icon img="../RecommendSite-img/chatGPT.png" name="ChatGPT"/>
+                        <Icon img="../RecommendSite-img/hackerRank.png" name="HackerRank"/>
+                        <Icon img="../RecommendSite-img/w3Schools.png" name="W3 Schools"/>
+                        <Icon img="../RecommendSite-img/computerWorld.png" name="Computer World"/>
                     </div>
                     <div className="recommend-site__box--bottom">
                         <Icon img="../baekJoon.png" name="BaekJoon"/>
