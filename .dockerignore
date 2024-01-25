@@ -1,0 +1,10 @@
+# build
+node_modules
+/build
+
+# env
+.env
+
+# git
+.git
+.gitignore
