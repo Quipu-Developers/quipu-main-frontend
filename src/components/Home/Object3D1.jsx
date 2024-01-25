@@ -88,7 +88,7 @@ function Object3D1() {
     const capsule2 = new THREE.Mesh( new THREE.CapsuleGeometry( 0.17, 0.3, 32, 32 ), new THREE.MeshPhysicalMaterial( {color: "#87AFEB", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2} ) );
     scene.add( capsule2 );
     capsule2.position.set(2.2,-0.7,-3);
-    capsule2.rotation.x = -Math.PI / 12;
+    capsule2.rotation.x = Math.PI / 6;
     capsule2.rotation.z = -Math.PI / 6;
   
     

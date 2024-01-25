@@ -1,33 +1,35 @@
 /*eslint-disable*/
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
 import Home from './components/Home/Home'
 import About from './components/About/About'
 import Activity from './components/Activity/Activity'
 import RecommendSite from './components/RecommendSite/RecommendSite'
 import JoinQuipu from './components/JoinQuipu/JoinQuipu'
+import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 
 function App() {
 
   return (
-    <div>
+    <Router>
       <nav className="navbar">
 
         <div className="navbar__logo">
-          <Link to="home" smooth={true} duration={400}>
-            <img className="navbar__logo--img" src="/logo_main3.png"></img>
-          </Link>
+          <NavLink to="/#home" smooth>
+            <img className="navbar__logo--img" src="/logo_main.png"></img>
+          </NavLink>
         </div>
 
         {/* pc에서 메뉴들 */}
         <div className="navbar__menu--pc">
           <ul>
-            <li><Link to="home" smooth={true} duration={400}>home</Link></li>
-            <li><Link to="about" smooth={true} duration={500}>about</Link></li>
-            <li><Link to="activity" smooth={true} duration={400}>activity</Link></li>
-            <li><Link to="recommend-site" smooth={true} duration={400}>recommend site</Link></li>
-            <li><Link to="join-quipu" smooth={true} duration={400}>join Quipu</Link></li>
+            <li><NavLink to="/#home" smooth>home</NavLink></li>
+            <li><NavLink to="/#about" smooth>about</NavLink></li>
+            <li><NavLink to="/#activity" smooth>activity</NavLink></li>
+            <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
+            <li><NavLink to="/#join-quipu" smooth>join Quipu</NavLink></li>
           </ul>
         </div>
 
@@ -42,32 +44,29 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <ul className="navbar__menu--mobile">
           <li className="blank"></li>
-          <li className="block"><Link to="home" smooth={true} duration={500}>home</Link></li>
-          <li className="block"><Link to="about" smooth={true} duration={500}>about</Link></li>
-          <li className="block"><Link to="activity" smooth={true} duration={500}>activity</Link></li>
-          <li className="block"><Link to="recommend-site" smooth={true} duration={500}>recommend site</Link></li>
-          <li className="block"><Link to="join-quipu" smooth={true} duration={500}>join Quipu</Link></li>
+          <li className="block"><NavLink to="/#home" smooth>home</NavLink></li>
+          <li className="block"><NavLink to="/#about" smooth>about</NavLink></li>
+          <li className="block"><NavLink to="/#activity" smooth>activity</NavLink></li>
+          <li className="block"><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
+          <li className="block"><NavLink to="/#join-quipu" smooth>join Quipu</NavLink></li>
         </ul>
 
       </nav>
 
-      <section id="home">
-        <Home />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="activity">
-        <Activity />
-      </section>
-      <section id="recommend-site">
-        <RecommendSite />
-      </section>
-      <section id="join-quipu">
-        <JoinQuipu />
-      </section>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <section id="home"><Home /></section>
+            <section id="about"><About /></section>
+            <section id="activity"><Activity /></section>
+            <section id="recommend-site"><RecommendSite /></section>
+            <section id="join-quipu"><JoinQuipu /></section>
+          </>
+        } />
+        <Route path="/activity-detail" element={<ActivityDetail />} />
+      </Routes>
 
-    </div>
+    </Router>
   );
 }
 
