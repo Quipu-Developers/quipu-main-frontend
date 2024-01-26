@@ -25,6 +25,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 500px) {
+    justify-content: start;
+  }
 }
 
 .activity-container::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
@@ -96,7 +100,7 @@
   width: 30px;
   padding: 2px 10px;
   border: 1.5px solid #1C0093;
-  border-radius: 8px;
+  border-radius: 15px;
   color: #1C0093;
   background-color: #DFE7FF;
   font-size: 13px;
@@ -111,5 +115,4 @@
 
 .more-button:hover {
   background-color: #5D94FF;
-  color: #DFE7FF;
 }

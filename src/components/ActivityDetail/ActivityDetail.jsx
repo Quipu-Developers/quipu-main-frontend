@@ -6,9 +6,18 @@ function ActivityDetail() {
 
     return (
         <>
-            <p>hi</p>
+            <div className="blank-navbar"></div>
+
         </>
     )
 }
 
 export default ActivityDetail;
+
+function StudyBlock(props) {
+    return (
+        <>
+        
+        </>
+    )
+}
