@@ -144,6 +144,10 @@
     background-color: #F8F8F8;
     box-shadow: 3px 3px 4px black;
     z-index: auto;
+
+    @media (max-width:600px) {
+        width: 80%;
+    }
 }
 
 .modal__bar {
