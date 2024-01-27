@@ -10,11 +10,15 @@
 
   @media (max-width: 500px) {
     height: calc(100vh - 60px);
-    justify-content: start;
+    justify-content: flex-start;
     overflow-x: auto; /* 가로 스크롤 활성화 */
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
     scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
   }
+}
+
+.activity-container::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
+  display: none;
 }
 
 .activity-blocks-container {
@@ -23,17 +27,9 @@
   width: auto;
   height: 80vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  @media (max-width: 500px) {
-    justify-content: start;
-  }
 }
 
-.activity-container::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
-  display: none;
-}
 
 /* activity 하나의 container */
 .activity-block {
@@ -107,10 +103,6 @@
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
-
-  @media (max-width: 500px) {
-    left: 5vw;
-  }
 }
 
 .more-button:hover {

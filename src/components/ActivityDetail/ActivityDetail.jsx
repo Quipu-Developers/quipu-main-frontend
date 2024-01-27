@@ -4,9 +4,9 @@ import './ActivityDetail.css';
 
 function ActivityDetail() {
     const studyInfo = {
-        description: '퀴푸 홍보용 홈페이지 개발',
+        description: '퀴푸 홍보용 웹페이지 개발',
         leaders: ['이예나'],
-        members: ['김고은', '이제민', '외 8명'],
+        members: ['김고은', '이제민', '외 7명'],
         image: "/ActivityDetail-img/Study/퀴푸홈페이지웹개발-min.png",
         title: '퀴푸 웹 개발',
         period: '기간: 2023.10 - 2024.02',
@@ -21,6 +21,9 @@ function ActivityDetail() {
         <>
             <div className="blank-navbar"></div>
             <div className="ActivityDetail-container">
+                <StudyCard {...studyInfo} />
+                <StudyCard {...studyInfo} />
+                <StudyCard {...studyInfo} />
                 <StudyCard {...studyInfo} />
                 <StudyCard {...studyInfo} />
                 <StudyCard {...studyInfo} />
@@ -89,17 +92,21 @@ function StudyModal({ isOpen, onClose, image, title, period, allLeaders, allMemb
     return (
         <div className="modal-container" onClick={onClose}>
             <div className="modal">
-                <div className="modal__bar"></div>
+                <div className="modal__bar">
+                    <p style={{ color: "red" }}>●</p>
+                    <p style={{ color: "#ffd400" }}>●</p>
+                    <p style={{ color: "#09ce20" }}>●</p>
+                </div>
                 <div className="modal__content">
                     <div className="modal__content--top">
-                        <div className="studycard__top">
+                        <div className="studycard__top" style={{ height: '70%', justifyContent: "start" }}>
                             <img className="studycard__img" src={image} />
-                            <div className="studycard__content">
+                            <div className="studycard__content" style={{ margin: '10px' }}>
                                 <h3>{title}</h3>
                                 <p>{period}</p>
                             </div>
                         </div>
-                        <div className="studycard__member--container">
+                        <div className="studycard__member--container" style={{ height: '30%' }}>
                             {
                                 allLeaders.map(function (name, index) {
                                     return (
@@ -117,10 +124,8 @@ function StudyModal({ isOpen, onClose, image, title, period, allLeaders, allMemb
                         </div>
                     </div>
                     <div className="modal__content--bottom">
-                        <div className="w-20">
-                            <p>MORE<br></br>INFORMATION</p>
-                        </div>
-                        <div className="w-80">
+                        <p className="h10">MORE INFORMATION</p>
+                        <div className="h90">
                             <div className="modal__img--container">
                                 {
                                     allImgs.map(function (src, index) {

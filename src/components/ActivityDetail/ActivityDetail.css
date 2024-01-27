@@ -1,22 +1,35 @@
 .ActivityDetail-container {
+    width: 100%;
+    height: calc(100vh - 80px);
     display: flex; 
+    justify-content: center;
+    align-content: start;
     flex-wrap: wrap; 
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    @media (max-width: 900px) {
+        height: calc(100vh - 60px);
+    }
 }
 
-
-
+.ActivityDetail-container::-webkit-scrollbar {
+    display: none;
+}
 
 /* study */
 
 .studycard {
-    width: calc(100vw / 3.5);
-    aspect-ratio: 446 / 326;
+    width: 260px;
+    height: 180px;
     background-color: white;
     border-radius: 20px;
     padding: 10px;
     margin: 20px;
     position: relative;
     box-shadow: 3px 3px 4px grey;
+    z-index: auto;
 }
 
 .studycard__top {
@@ -28,52 +41,63 @@
 }
 
 .studycard__img {
-    width: 30%;
+    height: 80%;
     aspect-ratio: 1 / 1;
-}
+}   
 
 .studycard__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between; 
-    width: 60%;
-    aspect-ratio: 2 / 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+}
+
+.studycard__content::-webkit-scrollbar {
+    display: none;
 }
 
 .studycard__content h3 {
-    text-align: center;
+    text-align: start;
+    margin: 10px;
+
 }
 
 .studycard__content p {
     font-size: 13px;
     font-weight: 550;
-    text-align: center;
+    text-align: start;
     word-break: keep-all;
 }
 
 .studycard__member--container {
     display: flex;
-    justify-content: start;
     align-items: center;
     width: 100%;
     height: 20%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+}
+
+.studycard__member--container::-webkit-scrollbar {
+    display: none;
 }
 
 .studycard__member {
-    width: 15%;
+    padding: 5px;
     height: 70%;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 1%;
+    margin: 0 2px;
 }
 
 .studycard__member p {
     color: white;
     font-size: 10px;
-    font-weight: 550;
+    font-weight: 500;
 }
 
 .moreinfo-button {
@@ -91,6 +115,10 @@
     cursor: pointer;
 }
 
+.moreinfo-button:hover {
+    background-color: #5D94FF;
+}
+
 .modal-container {
     position: fixed;
     display: flex;
@@ -101,69 +129,104 @@
     right: 0px;
     bottom: 0px;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .modal {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: white;
-    height: 70%;
-    aspect-ratio: 1200 / 800;
+    width: 60%;
+    height: 450px;
+    border-radius: 7px;
+    background-color: #F8F8F8;
+    box-shadow: 3px 3px 4px black;
+    z-index: auto;
 }
 
 .modal__bar {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     width: 100%;
-    height: 6%;
-    background-color: white;
+    height: 50px;
+    background-color: 	#D8D8D8;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.modal__bar p {
+    font-size: 13px;
+    margin-bottom: 9px;
+    margin-left: 10px;
 }
 
 .modal__content {
+    position: absolute;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 94%;
+    height: 400px;
+    background-color: #F8F8F8;
+    color: black;
+    border-radius: 7px;
 }
 
 .modal__content--top {
-    width: 100%;
-    height: 40%;
+    width: 90%;
+    height: 30%;
 }
 
 .modal__content--bottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 90%;
-    height: 60%;
+    height: 70%;
     border-top: 1px solid black;
 }
 
-.w-20 {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: start;
+.h10 {
+    height: 10%;
+    text-align: start;
+    padding: 4px;
 }
 
-.w-80 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.h90 {
+    height: 90%;
 }
 
 .modal__img--container {
+    height: 40%;
     display: flex;
-    justify-content: start;
     align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+}
+
+.modal__img--container::-webkit-scrollbar {
+    display: none;
 }
 
 .modal__img {
-    width: 100px;
-    aspect-ratio: 3 / 4;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.h90 p {
+    overflow-y: auto;
+    max-height: 50%;
+    margin-top: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.h90 p::-webkit-scrollbar {
+    display: none;
 }
