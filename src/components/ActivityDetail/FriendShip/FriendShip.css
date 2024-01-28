@@ -10,7 +10,7 @@
     -ms-overflow-style: none;
 
     @media (max-width: 900px) {
-        height: calc(100vh - 60px);
+        height: calc(100vh - 60px - 50px);
     } 
 }
 
