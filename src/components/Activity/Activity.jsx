@@ -9,6 +9,8 @@ function Activity() {
     ["/Activity-img/친목1-min2.jpg", "/Activity-img/친목2-min2.jpg", "/Activity-img/친목3-min2.jpg"],
     ["/Activity-img/mt1-min2.jpg", "/Activity-img/mt2-min2.jpg", "/Activity-img/mt3-min2.jpg"]];
 
+    const defaultTab = 'Study';
+
     return (
         <>
             <div className="blank-navbar"></div>
@@ -17,7 +19,10 @@ function Activity() {
                     <ActivityBlock title={titles[0]} src1={images[0][0]} src2={images[0][1]} src3={images[0][2]}></ActivityBlock>
                     <ActivityBlock title={titles[1]} src1={images[1][0]} src2={images[1][1]} src3={images[1][2]}></ActivityBlock>
                     <ActivityBlock title={titles[2]} src1={images[2][0]} src2={images[2][1]} src3={images[2][2]}></ActivityBlock>
-                    <RouterLink to="/activity-detail" className="more-button">more</RouterLink>
+                    <RouterLink to={{
+                        pathname: "/activity-detail",
+                        state: { activeTab: defaultTab }
+                    }} className="more-button">more</RouterLink>
                 </div>
             </div>
         </>

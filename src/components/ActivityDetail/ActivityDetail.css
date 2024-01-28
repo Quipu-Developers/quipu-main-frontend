@@ -1,236 +1,25 @@
 .ActivityDetail-container {
     width: 100%;
-    height: calc(100vh - 80px);
     display: flex; 
     justify-content: center;
-    align-content: start;
-    flex-wrap: wrap; 
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    @media (max-width: 900px) {
-        height: calc(100vh - 60px);
-    }
-}
-
-.ActivityDetail-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* study */
-
-.studycard {
-    width: 260px;
-    height: 180px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px;
-    position: relative;
-    box-shadow: 3px 3px 4px grey;
-    z-index: auto;
-}
-
-.studycard__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 60%;
-}
-
-.studycard__img {
-    height: 80%;
-    aspect-ratio: 1 / 1;
-}   
-
-.studycard__content {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-}
-
-.studycard__content::-webkit-scrollbar {
-    display: none;
-}
-
-.studycard__content h3 {
-    text-align: start;
-    margin: 10px;
-
-}
-
-.studycard__content p {
-    font-size: 13px;
-    font-weight: 550;
-    text-align: start;
-    word-break: keep-all;
-}
-
-.studycard__member--container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-}
-
-.studycard__member--container::-webkit-scrollbar {
-    display: none;
-}
-
-.studycard__member {
-    padding: 5px;
-    height: 70%;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 2px;
-}
-
-.studycard__member p {
-    color: white;
-    font-size: 10px;
-    font-weight: 500;
-}
-
-.moreinfo-button {
-    width: 60%;
-    height: 13%;
-    font-size: 11px;
-    font-weight: 550;
-    color: #1C0093;
-    border: 2px solid #1C0093;
-    border-radius: 20px;
-    background-color: #DFE7FF;
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    cursor: pointer;
-}
-
-.moreinfo-button:hover {
-    background-color: #5D94FF;
-}
-
-.modal-container {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.modal {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    align-content: center;
     flex-direction: column;
-    width: 60%;
-    height: 450px;
-    border-radius: 7px;
-    background-color: #F8F8F8;
-    box-shadow: 3px 3px 4px black;
-    z-index: auto;
-
-    @media (max-width:600px) {
-        width: 80%;
-    }
 }
 
-.modal__bar {
-    position: absolute;
-    top: 0px;
+.ActivityDetail-titles {
     display: flex;
     justify-content: start;
     align-items: center;
-    width: 100%;
-    height: 50px;
-    background-color: 	#D8D8D8;
-    border-radius: 7px;
-    padding: 5px;
+    padding-left: 30px;
 }
 
-.modal__bar p {
-    font-size: 13px;
-    margin-bottom: 9px;
-    margin-left: 10px;
-}
-
-.modal__content {
-    position: absolute;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 400px;
-    background-color: #F8F8F8;
-    color: black;
-    border-radius: 7px;
-}
-
-.modal__content--top {
-    width: 90%;
-    height: 30%;
-}
-
-.modal__content--bottom {
-    width: 90%;
-    height: 70%;
-    border-top: 1px solid black;
-}
-
-.h10 {
-    height: 10%;
-    text-align: start;
-    padding: 4px;
-}
-
-.h90 {
-    height: 90%;
-}
-
-.modal__img--container {
-    height: 40%;
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-}
-
-.modal__img--container::-webkit-scrollbar {
-    display: none;
-}
-
-.modal__img {
-    height: 100%;
-    margin-right: 10px;
-}
-
-.h90 p {
-    overflow-y: auto;
-    max-height: 50%;
-    margin-top: 10px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.h90 p::-webkit-scrollbar {
-    display: none;
+.ActivityDetail-titles button {
+    border-style: none;
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+    text-shadow: 3px 3px 4px grey;
 }
