@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React, { useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
@@ -11,6 +11,26 @@ import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 
 function App() {
+
+  const adjustSectionHeight = useCallback(() => {
+    const sections = document.querySelectorAll('section');
+    const viewportHeight = window.innerHeight;
+    sections.forEach(section => {
+      section.style.minHeight = `${viewportHeight}px`;
+    });
+  }, []);
+
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때 resize 이벤트 리스너를 추가
+    window.addEventListener('resize', adjustSectionHeight);
+    // 초기 높이 조정
+    adjustSectionHeight();
+
+    // 컴포넌트가 언마운트될 때 이벤트 리스너를 정리
+    return () => {
+      window.removeEventListener('resize', adjustSectionHeight);
+    };
+  }, [adjustSectionHeight]);
 
   return (
     <Router>

@@ -87,15 +87,15 @@ function StudyModal({ isOpen, onClose, title, period, longDescription, leaders, 
     if (!isOpen) return null;
 
     return (
-        <div className="modal-container" onClick={onClose}>
-            <div className="modal">
-                <div className="modal__bar">
+        <div className="study__modal--container" onClick={onClose}>
+            <div className="study__modal">
+                <div className="study__modal--bar">
                     <p style={{ color: "red" }}>●</p>
                     <p style={{ color: "#ffd400" }}>●</p>
                     <p style={{ color: "#09ce20" }}>●</p>
                 </div>
-                <div className="modal__content">
-                    <div className="modal__content--top">
+                <div className="study__modal--content">
+                    <div className="study__modal--content-top">
                         <div className="studycard__top" style={{ height: '70%', justifyContent: "start" }}>
                             <img className="studycard__img" src={image} />
                             <div className="studycard__content" style={{ margin: '10px' }}>
@@ -120,14 +120,14 @@ function StudyModal({ isOpen, onClose, title, period, longDescription, leaders, 
                             }
                         </div>
                     </div>
-                    <div className="modal__content--bottom">
+                    <div className="study__modal--content-bottom">
                         <p className="h10">MORE INFORMATION</p>
                         <div className="h90">
-                            <div className="modal__img--container">
+                            <div className="study__modal--img-container">
                                 {
                                     allImgs.map(function (src, index) {
                                         return (
-                                            <img src={src} className="modal__img"></img>
+                                            <img src={src} className="study__modal--img"></img>
                                         )
                                     })
                                 }

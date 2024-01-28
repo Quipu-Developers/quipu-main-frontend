@@ -1,8 +1,8 @@
 /* study */
 
 .Study-container {
-    width: 100%;
-    height: calc(100vh - 80px - 80px);
+    width: 90%;
+    height: calc(100vh - 80px - 50px);
     display: flex; 
     justify-content: center;
     align-content: start;
@@ -30,6 +30,11 @@
     position: relative;
     box-shadow: 3px 3px 4px grey;
     z-index: auto;
+}
+
+.studycard:hover {
+    bottom: 3px;
+    right: 3px;
 }
 
 .studycard__top {
@@ -116,10 +121,11 @@
 }
 
 .moreinfo-button:hover {
-    background-color: #5D94FF;
+    background-color: #1C0093;
+    color: #DFE7FF;
 }
 
-.modal-container {
+.study__modal--container {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -132,7 +138,7 @@
     z-index: 1000;
 }
 
-.modal {
+.study__modal {
     position: relative;
     display: flex;
     justify-content: center;
@@ -150,7 +156,7 @@
     }
 }
 
-.modal__bar {
+.study__modal--bar {
     position: absolute;
     top: 0px;
     display: flex;
@@ -163,13 +169,13 @@
     padding: 5px;
 }
 
-.modal__bar p {
+.study__modal--bar p {
     font-size: 13px;
     margin-bottom: 9px;
     margin-left: 10px;
 }
 
-.modal__content {
+.study__modal--content {
     position: absolute;
     margin-top: 30px;
     display: flex;
@@ -183,12 +189,12 @@
     border-radius: 7px;
 }
 
-.modal__content--top {
+.study__modal--content-top {
     width: 90%;
     height: 30%;
 }
 
-.modal__content--bottom {
+.study__modal--content-bottom {
     width: 90%;
     height: 70%;
     border-top: 1px solid black;
@@ -204,25 +210,6 @@
     height: 90%;
 }
 
-.modal__img--container {
-    height: 40%;
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-}
-
-.modal__img--container::-webkit-scrollbar {
-    display: none;
-}
-
-.modal__img {
-    height: 100%;
-    margin-right: 10px;
-}
-
 .h90 p {
     overflow-y: auto;
     max-height: 50%;
@@ -233,4 +220,23 @@
 
 .h90 p::-webkit-scrollbar {
     display: none;
+}
+
+.study__modal--img-container {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+}
+
+.study__modal--img-container::-webkit-scrollbar {
+    display: none;
+}
+
+.study__modal--img {
+    height: 100%;
+    margin-right: 10px;
 }
