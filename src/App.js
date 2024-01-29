@@ -43,11 +43,11 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <ul className="navbar__menu--mobile">
           <li className="blank"></li>
-          <li className="block"><NavLink to="/#home" smooth>home</NavLink></li>
-          <li className="block"><NavLink to="/#about" smooth>about</NavLink></li>
-          <li className="block"><NavLink to="/#activity" smooth>activity</NavLink></li>
-          <li className="block"><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-          <li className="block"><NavLink to="/#join-quipu" smooth>join Quipu</NavLink></li>
+          <li className="block"><NavLink to="/home" smooth>home</NavLink></li>
+          <li className="block"><NavLink to="/about" smooth>about</NavLink></li>
+          <li className="block"><NavLink to="/activity" smooth>activity</NavLink></li>
+          <li className="block"><NavLink to="/recommend-site" smooth>recommend site</NavLink></li>
+          <li className="block"><NavLink to="/join-quipu" smooth>join Quipu</NavLink></li>
         </ul>
 
       </nav>
@@ -62,7 +62,13 @@ function App() {
             <section id="join-quipu"><JoinQuipu /></section>
           </>
         } />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/activity" element={<Activity />} />
         <Route path="/activity-detail" element={<ActivityDetail />} />
+        <Route path="/recommend-site" element={<RecommendSite />} />
+        <Route path="/join-quipu" element={<JoinQuipu />} />
+
       </Routes>
 
     </Router>
