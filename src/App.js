@@ -9,29 +9,7 @@ import RecommendSite from './components/RecommendSite/RecommendSite'
 import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 
-// 스크롤 방지 함수
-function disableScroll() {
-  document.body.addEventListener('touchmove', preventDefault, { passive: false });
-  // document.body.addEventListener('mousewheel', preventDefault, { passive: false });
-  // 필요하다면 onclick 이벤트도 추가하세요.
-}
-
-// 스크롤 방지 해제 함수
-function enableScroll() {
-  document.body.removeEventListener('touchmove', preventDefault);
-  // document.body.removeEventListener('mousewheel', preventDefault);
-  // 필요하다면 onclick 이벤트도 제거하세요.
-}
-
-// 기본 이벤트를 막는 함수
-function preventDefault(e) {
-  e.preventDefault();
-  e.stopPropagation();
-}
-
 function App() {
-
-  disableScroll();
 
   return (
     <Router>

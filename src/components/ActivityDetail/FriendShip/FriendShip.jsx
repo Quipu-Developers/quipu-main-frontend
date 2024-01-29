@@ -3,13 +3,21 @@ import '../../../App.css';
 import './FriendShip.css';
 
 function FriendShip() {
-    const imgs = ["/ActivityDetail-img/FriendShip/친목1-min2.jpg",
-    "/ActivityDetail-img/FriendShip/친목2-min2.jpg","/ActivityDetail-img/FriendShip/친목1-min2.jpg",
-    "/ActivityDetail-img/FriendShip/친목2-min2.jpg","/ActivityDetail-img/FriendShip/친목1-min2.jpg",
-    "/ActivityDetail-img/FriendShip/친목2-min2.jpg","/ActivityDetail-img/FriendShip/친목1-min2.jpg",
-    "/ActivityDetail-img/FriendShip/친목2-min2.jpg","/ActivityDetail-img/FriendShip/친목1-min2.jpg",
-    "/ActivityDetail-img/FriendShip/친목2-min2.jpg","/ActivityDetail-img/FriendShip/친목1-min2.jpg",
-    "/ActivityDetail-img/FriendShip/친목2-min2.jpg"]
+    const imgs = ["/ActivityDetail-img/2023/FriendShip/개강총회-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목1-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목2-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목3-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목5-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목6-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목7-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목8-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목9-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목10-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목11-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목12-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목13-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목14-min.jpg",
+    "/ActivityDetail-img/2023/FriendShip/친목15-min.jpg",]
 
     const [selectedImg, setSelectedImg] = useState(null);
 

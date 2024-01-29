@@ -5,9 +5,9 @@ import './Activity.css';
 
 function Activity() {
     const titles = ['Study', 'Friendship', 'MT'];
-    const images = [["/Activity-img/파이썬스터디-min2.png", "/Activity-img/웹개발스터디-min2.jpg", "/Activity-img/공모전-min2.png"],
-    ["/Activity-img/친목1-min2.jpg", "/Activity-img/친목2-min2.jpg", "/Activity-img/친목3-min2.jpg"],
-    ["/Activity-img/mt1-min2.jpg", "/Activity-img/mt2-min2.jpg", "/Activity-img/mt3-min2.jpg"]];
+    const images = [["/ActivityDetail-img/2024/Study/코딩테스트-min.jpg", "/ActivityDetail-img/2023/Study/웹개발_2-min.jpg", "/ActivityDetail-img/2023/Study/웹개발_3-min.jpg"],
+    ["/ActivityDetail-img/2023/FriendShip/친목11-min.jpg", "/ActivityDetail-img/2023/FriendShip/친목1-min.jpg", "/ActivityDetail-img/2023/FriendShip/친목10-min.jpg"],
+    ["/ActivityDetail-img/2023/MT/엠티_1-min.jpg", "/ActivityDetail-img/2023/MT/엠티_2-min.jpg", "/ActivityDetail-img/2023/MT/엠티_3-min.jpg"]];
 
     const defaultTab = 'Study';
 

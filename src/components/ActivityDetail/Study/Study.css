@@ -48,6 +48,7 @@
 .studycard__img {
     height: 80%;
     aspect-ratio: 1 / 1;
+    object-fit: contain;
 }   
 
 .studycard__content {
