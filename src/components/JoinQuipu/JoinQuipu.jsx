@@ -31,8 +31,12 @@ function JoinQuipu() {
         <div className="member">
           <h1>Join Quipu</h1>
           <div className="field-type">
-            <button type="button">💻 New Entry</button>
-            <button type="button">🔍 Re-Entry</button>
+            <input type="radio" name="entryType" id="newEntry" />
+            <label htmlFor="newEntry">💻New Entry</label>
+
+            <input type="radio" name="entryType" id="reEntry" />
+            <label htmlFor="reEntry">🔍Re-Entry</label>
+
           </div>
 
           <div className="join-notice">

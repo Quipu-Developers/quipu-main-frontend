@@ -75,24 +75,38 @@ h2 {
     display: flex;
     gap: 15px;
     justify-content: center;
+    align-items: center;
 }
 
-.field-type button {
-    width: 105px;
+.field-type input[type=radio] {
+    display: none;
+}
+
+.field-type label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     height: 35px;
+    width: 105px;
+    border: solid 2px #1c0093;
+    line-height: 24px;
+    text-align: center;
+    font-size: 13px;
+    border-radius: 12px;
+}
+
+.field-type input[type=radio]+label {
     background-color: #DFE7FF;
     color: #1c0093;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 12px;
-    border: solid 2px #1c0093;
-    font-weight: 500;
 }
 
-.field-type button:nth-child(2) {
+.field-type input[type=radio]:checked+label {
     background-color: #211D2A;
     color: whitesmoke;
+    font-weight: bold;
 }
+
 
 .join-notice {
     display: flex;
