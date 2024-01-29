@@ -12,12 +12,15 @@
     justify-content: start;
     align-items: center;
     padding-left: 30px;
+
+    @media (max-width: 900px){
+        height: 30px;
+    }
 }
 
 .ActivityDetail-titles button {
     border-style: none;
     background-color: transparent;
-    color: white;
     font-size: 18px;
     font-weight: 600;
     margin: 10px;

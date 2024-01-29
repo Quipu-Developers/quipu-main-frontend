@@ -9,8 +9,6 @@ function Activity() {
     ["/ActivityDetail-img/2023/FriendShip/친목11-min.jpg", "/ActivityDetail-img/2023/FriendShip/친목1-min.jpg", "/ActivityDetail-img/2023/FriendShip/친목10-min.jpg"],
     ["/ActivityDetail-img/2023/MT/엠티_1-min.jpg", "/ActivityDetail-img/2023/MT/엠티_2-min.jpg", "/ActivityDetail-img/2023/MT/엠티_3-min.jpg"]];
 
-    const defaultTab = 'Study';
-
     return (
         <>
             <div className="blank-navbar"></div>
@@ -19,10 +17,6 @@ function Activity() {
                     <ActivityBlock title={titles[0]} src1={images[0][0]} src2={images[0][1]} src3={images[0][2]}></ActivityBlock>
                     <ActivityBlock title={titles[1]} src1={images[1][0]} src2={images[1][1]} src3={images[1][2]}></ActivityBlock>
                     <ActivityBlock title={titles[2]} src1={images[2][0]} src2={images[2][1]} src3={images[2][2]}></ActivityBlock>
-                    <RouterLink to={{
-                        pathname: "/activity-detail",
-                        state: { activeTab: defaultTab }
-                    }} className="more-button">more</RouterLink>
                 </div>
             </div>
         </>
@@ -32,7 +26,9 @@ function Activity() {
 function ActivityBlock(props) {
     return (
         <div className="activity-block">
-            <p className="activity-block__title">{props.title}</p>
+            <RouterLink to={"/activity-detail"} state= {{ activeTab: props.title }}>
+                <p className="activity-block__title">{props.title}&nbsp; ›</p>
+            </RouterLink>
             <img className="activity-block__image--big" src={props.src1}></img>
             <img className="activity-block__image--small" src={props.src2}></img>
             <img className="activity-block__image--small" src={props.src3}></img>

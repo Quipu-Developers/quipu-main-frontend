@@ -30,8 +30,6 @@
   align-items: center;
 }
 
-
-/* activity 하나의 container */
 .activity-block {
   display: flex;
   justify-content: space-between;
@@ -60,6 +58,10 @@
     width: 80vw; 
     margin: 5vw;
   }
+}
+
+.activity-block a {
+  text-decoration-line: none;
 }
 
 .activity-block__title {

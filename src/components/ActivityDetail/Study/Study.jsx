@@ -135,14 +135,14 @@ function StudyCard({ title, period, shortDescription, longDescription, leaders, 
                 {
                     leaders.map(function (name, index) {
                         return (
-                            <Member name={name} backgroundColor="#1C0093"></Member>
+                            <Member name={name} backgroundColor="#1C0093" color='white'></Member>
                         )
                     })
                 }
                 {
                     members.map(function (name, index) {
                         return (
-                            <Member name={name} backgroundColor="#D5D5D5"></Member>
+                            <Member name={name} backgroundColor="#D5D5D5" color='black'></Member>
                         )
                     })
                 }
@@ -159,9 +159,9 @@ function StudyCard({ title, period, shortDescription, longDescription, leaders, 
     );
 };
 
-function Member({ name, backgroundColor }) {
+function Member({ name, backgroundColor, color }) {
     return (
-        <div className="studycard__member" style={{ backgroundColor }}>
+        <div className="studycard__member" style={{ backgroundColor, color }}>
             <p>{name}</p>
         </div>
     )
@@ -192,14 +192,14 @@ function StudyModal({ isOpen, onClose, title, period, longDescription, leaders, 
                             {
                                 leaders.map(function (name, index) {
                                     return (
-                                        <Member name={name} backgroundColor="#1C0093"></Member>
+                                        <Member name={name} backgroundColor="#1C0093" color='white'></Member>
                                     )
                                 })
                             }
                             {
                                 allMembers.map(function (name, index) {
                                     return (
-                                        <Member name={name} backgroundColor="#D5D5D5"></Member>
+                                        <Member name={name} backgroundColor="#D5D5D5" color='black'></Member>
                                     )
                                 })
                             }

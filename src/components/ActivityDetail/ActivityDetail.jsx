@@ -26,9 +26,12 @@ function ActivityDetail() {
             <div className="blank-navbar"></div>
             <div className="ActivityDetail-container">
                 <div className="ActivityDetail-titles">
-                    <button onClick={() => handleTabClick('Study')}>STUDY</button>
-                    <button onClick={() => handleTabClick('Friendship')}>FRIENDSHIP</button>
-                    <button onClick={() => handleTabClick('MT')}>MT</button>
+                    <button onClick={() => handleTabClick('Study')}
+                        style={{ color: activeTab === 'Study' ? '#5C518B' : 'white' }}>STUDY</button>
+                    <button onClick={() => handleTabClick('Friendship')}
+                        style={{ color: activeTab === 'Friendship' ? '#5C518B' : 'white' }}>FRIENDSHIP</button>
+                    <button onClick={() => handleTabClick('MT')}
+                        style={{ color: activeTab === 'MT' ? '#5C518B' : 'white' }}>MT</button>
                 </div>
                 <div className="ActivityDetail-content">
                     {activeTab === 'Study' && <Study />}
