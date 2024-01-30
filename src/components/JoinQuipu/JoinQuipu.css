@@ -37,9 +37,6 @@ h2{
     color : #1c0093;
 }
 
-
-
-
 .member{
     width: 600px;
     margin: auto;
@@ -47,7 +44,6 @@ h2{
     margin-bottom: 20px;
     overflow-y: auto;
 }
-
 
 .member .field{
     margin :10px 0;
@@ -200,6 +196,7 @@ color:#fff
     justify-content: center;
     align-items: center;
 }
+
 .apply button {
     /* width: 85px;
     height: 35px;
@@ -209,13 +206,13 @@ color:#fff
     text-align: center;
     cursor: pointer;
     border-radius: 12px;
-    border: solid 2px #1c0093;
     font-weight: 600;
     margin-top: 20px;
     width: 130px;
     height: 50px;
     font-size: 20px;
     border: solid 2px #1c0093;
+
 }
 
 .faq {

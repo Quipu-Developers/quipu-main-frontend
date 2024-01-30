@@ -218,5 +218,4 @@ return (
 	</div>
 );
 }
-
 export default JoinQuipu;
