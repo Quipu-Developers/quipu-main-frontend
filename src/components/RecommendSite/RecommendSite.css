@@ -1,6 +1,6 @@
 .recommend-site {
     width: 1500px;
-    height: calc(100vh - 80px);
+    height: cal(100vh - 80px);
     display: flex;
     flex-direction: column;
     z-index: 1;
@@ -12,8 +12,6 @@
 }
 
 .recommend-site__title {
-    height: 40px;
-    margin: 30px;
     font-size: 30px;
     font-weight: 600;
     text-shadow: 5px 5px 5px #9a9a9a;
@@ -32,10 +30,11 @@
     height: calc(100vh - 80px - 40px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100%;
-    height: 90%;
+    height: auto;
+
     position: relative;
     overflow-x: scroll;
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
@@ -47,18 +46,17 @@
 }
 
 .recommend-site__box--top {
+    margin: 20px;
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 50%;
     justify-content: space-around;
 }
 
 .recommend-site__box--bottom {
+    margin: 20px;
     display: flex;
     align-items: center;
-    width: 80%;
-    height: 50%;
+
     justify-content: space-around;
 }
 
@@ -94,8 +92,8 @@
 
 .recommend-site__icon {
     flex: 0 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 50px;
+
     width: 250px;
     height: 150px;
     background-color: white;

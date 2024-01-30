@@ -27,17 +27,15 @@
 
 h1{
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
     color : #1c0093;
 }
 
 h2{
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     color : #1c0093;
 }
-
-
 
 .member{
     width: 600px;
@@ -46,7 +44,6 @@ h2{
     margin-bottom: 20px;
     overflow-y: auto;
 }
-
 
 .member .field{
     margin :10px 0;
@@ -64,7 +61,7 @@ h2{
     margin-bottom: 5px;
     border-radius: 0.5em;
     background-color: rgba(255, 255, 255);
-    box-shadow: 1px 1px 3px 1px #9a9a9a;
+    box-shadow: 1px 1px 5px 1px #B7B7B7;
 }
 
 .member input[type=submit]{
@@ -194,8 +191,8 @@ color:#fff
     position:relative;
 }
 
-.apply { 
-    display: flex;
+.apply {
+    display:flex;
     justify-content: center;
     align-items: center;
 }
@@ -211,10 +208,11 @@ color:#fff
     border-radius: 12px;
     font-weight: 600;
     margin-top: 20px;
-    border: solid 3px #1c0093;
     width: 130px;
     height: 50px;
     font-size: 20px;
+    border: solid 2px #1c0093;
+
 }
 
 .faq {
