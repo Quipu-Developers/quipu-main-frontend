@@ -1,42 +1,31 @@
-.JoinQuipu-container {
-    width: 100%;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 
-    font-size: 14px;
-    line-height: 1.5em;
-    color: black;
-    margin: 0;
 
-    @media (max-width: 900px) {
-        height: calc(100vh - 60px);
-    }
-}
-
-.JoinQuipu-container::-webkit-scrollbar {
-    display: none;
-}
-
-.JoinQuipu-container * {
-    box-sizing: border-box;
-    outline: none;
-}
-
-h1 {
+h1{
     text-align: center;
     font-size: 30px;
-    color: #1c0093;
+    color : #1c0093;
 }
 
-h2 {
+h2{
     text-align: center;
     font-size: 20px;
-    color: #1c0093;
+    color : #1c0093;
 }
 
-.member {
+*{
+    box-sizing: border-box; 
+    outline: none; 
+}
+
+body{
+    font-size:14px;
+    line-height: 1.5em;
+    color : black;
+    margin: 0;
+}
+
+
+.member{
     width: 600px;
     margin: auto;
     padding: 0 20px;
@@ -45,28 +34,28 @@ h2 {
 }
 
 
-.member .field {
-    margin: 10px 0;
+.member .field{
+    margin :10px 0;
 }
 
-.member b {
-    display: block;
+.member b{
+    display: block; 
     margin-bottom: 5px;
 }
 
-.member input:not(input[type=radio]),
-.member select {
+.member input:not(input[type=radio]),.member select{
     border: 1px solid #dadada;
     padding: 10px;
     width: 100%;
     margin-bottom: 5px;
-    box-shadow: 1px 1px 3px 1px #9a9a9a;
+    /* box-shadow: 1px 1px 3px 1px #9a9a9a; */
     border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.member input[type=submit] {
-    background-color: #3c3c8c;
-    color: #fff
+.member input[type=submit]{
+background-color: #3c3c8c;
+color:#fff
 }
 
 
@@ -78,11 +67,10 @@ h2 {
     align-items: center;
 }
 
-.field-type input[type=radio] {
+.field-type input[type=radio]{
     display: none;
 }
-
-.field-type label {
+.field-type label{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,16 +80,14 @@ h2 {
     border: solid 2px #1c0093;
     line-height: 24px;
     text-align: center;
-    font-size: 13px;
+    font-size:13px;
     border-radius: 12px;
 }
-
-.field-type input[type=radio]+label {
+.field-type input[type=radio]+label{
     background-color: #DFE7FF;
-    color: #1c0093;
+    color:  #1c0093;
 }
-
-.field-type input[type=radio]:checked+label {
+.field-type input[type=radio]:checked+label{
     background-color: #211D2A;
     color: whitesmoke;
     font-weight: bold;
@@ -162,7 +148,7 @@ h2 {
 }
 
 .join-notice__icon--body p {
-    margin: 0;
+    margin:0;
 }
 
 .divider {
@@ -173,17 +159,14 @@ h2 {
 }
 
 
-.member input[type=text]:focus,
-.member input[type=tel]:focus,
-.member input[type=radio]:focus,
-.member select:focus {
+.member input[type=text]:focus, .member input[type=tel]:focus, .member input[type=radio]:focus, .member select:focus {
     border: 1px solid #3c3c8c;
 }
 
 
-.field.major div {
+.field.major div{ 
     display: flex;
-    gap: 10px;
+    gap:10px; 
 }
 
 .field.tel-number div {
@@ -191,21 +174,9 @@ h2 {
 }
 
 
-
-/* .field.type div {
-    border: 1px solid #dadada;
-    padding: 15px 5px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    gap : 30px;
-  } */
-
-
-.placehold-text {
+.placehold-text{
     display: block;
-    position: relative;
+    position:relative;
     border: 1px solid #000;
 }
 
@@ -222,9 +193,60 @@ h2 {
     margin-top: 20px;
 }
 
+.faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.question {
+    width: 85%;
+    /* display: flex; */
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    padding: 20px 30px 20px 30px;
+    border-radius: 0.5em;
+}
+
+.question-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.title-container, .emoji-container {
+    display: flex;
+}
+
+.question-title {
+    font-weight: bold;
+}
+
+/* FAQ 항목이 확장됐을 때의 스타일 */
+.question.expanded .expanded-content {
+    display: block;
+    font-size: 10px; 
+    margin-top: 10px; 
+    font-weight: bold;
+}
+/* .question-title.expanded {
+    color : #1c0093;
+} */
+
+/* 추가된 스타일 */
+.expanded-content {
+    display: none; 
+}
 
 @media (max-width:500px) {
-    .member {
+    .member{
         width: 100%;
+    }
+    .join-notice__icon--body p {
+    font-size: 9px;
+    font-weight: bold;
     }
 }
