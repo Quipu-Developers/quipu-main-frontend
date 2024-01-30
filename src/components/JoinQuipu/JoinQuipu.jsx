@@ -207,13 +207,12 @@ function JoinQuipu() {
 								emoji="🥸"
 							/>
 						</div>
+
+
 					</div>
-
-
 				</div>
+
 			</div>
-
-
 
 
 		</div>
