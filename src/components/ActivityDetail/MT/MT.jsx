@@ -3,9 +3,9 @@ import '../../../App.css';
 import '../FriendShip/FriendShip.css';
 
 function MT() {
-    const imgs = ["/ActivityDetail-img/2023/MT/엠티_1-min.jpg",
-    "/ActivityDetail-img/2023/MT/엠티_2-min.jpg",
-    "/ActivityDetail-img/2023/MT/엠티_3-min.jpg",]
+    const imgs = ["/ActivityDetail-img/2023/MT/엠티1.jpg",
+    "/ActivityDetail-img/2023/MT/엠티2.jpg",
+    "/ActivityDetail-img/2023/MT/엠티3.jpg",]
 
     const [selectedImg, setSelectedImg] = useState(null);
 

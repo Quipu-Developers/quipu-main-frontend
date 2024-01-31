@@ -1,4 +1,5 @@
 /*eslint-disable*/
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
@@ -43,11 +44,14 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <ul className="navbar__menu--mobile">
           <li className="blank"></li>
-          <li className="block"><NavLink to="/home" smooth>home</NavLink></li>
-          <li className="block"><NavLink to="/about" smooth>about</NavLink></li>
-          <li className="block"><NavLink to="/activity" smooth>activity</NavLink></li>
-          <li className="block"><NavLink to="/recommend-site" smooth>recommend site</NavLink></li>
-          <li className="block"><NavLink to="/join-quipu" smooth>join Quipu</NavLink></li>
+          <li className="block"><NavLink to="/home">home</NavLink></li>
+          <li className="block"><NavLink to="/about">about</NavLink></li>
+          <li className="block"><NavLink to="/activity">activity +</NavLink></li>
+          <li className="block"><NavLink to="/activity-detail#Study">&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+          <li className="block"><NavLink to="/activity-detail#Friendship">&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+          <li className="block"><NavLink to="/activity-detail#MT">&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+          <li className="block"><NavLink to="/recommend-site">recommend site</NavLink></li>
+          <li className="block"><NavLink to="/join-quipu">join Quipu</NavLink></li>
         </ul>
 
       </nav>

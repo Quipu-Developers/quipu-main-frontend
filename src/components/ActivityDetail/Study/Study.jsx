@@ -4,79 +4,53 @@ import './Study.css';
 
 function Study() {
     const Cpp = {
-        title: 'C++',
+        title: 'C++ 강연',
         period: '2022.12 - 2023.02',
         shortDescription: 'C++ 기본 문법 강연',
         longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
         leaders: ['최준하']        ,
         members: ['김시은', '김형민', '서진주', '외 8명'],
         allMembers: ['김시은', '김형민', '서진주', '이예나', '이학재', '이해리', '조승호', '차준섭', '최영채', '표성은', '하진혁'],
-        image: "/ActivityDetail-img/2023/Study/C++_1-min.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/C++_2-min.png",],
+        image: "/ActivityDetail-img/2023/Study/C++스터디1.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/C++스터디2.png",],
     };
 
     const Python1 = {
-        title: 'Python',
+        title: 'Python 기초 스터디',
         period: '2023.02 - 2023.06',
         shortDescription: 'python 입문 및 활용',
         longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
         leaders: ['이예나'],
         members: ['김형민', '남민우', '남현우', '외 8명'],
         allMembers: ['김형민', '남민우', '남현우', '최영채', '전한솔', '최다영', '표성은', '하진혁'],
-        image: "/ActivityDetail-img/2023/Study/Python-min.png",
+        image: "/ActivityDetail-img/2023/Study/Python스터디.png",
         allImgs: [
-        "/ActivityDetail-img/2023/Study/Python1_1-min.png",
-        "/ActivityDetail-img/2023/Study/Python1_2-min.png",],
+        "/ActivityDetail-img/2023/Study/Python기초스터디1.png",
+        "/ActivityDetail-img/2023/Study/Python기초스터디2.png",],
     };
 
     const Python2 = {
-        title: 'Python',
+        title: 'Python 강연',
         period: '2023.03 - 2023.06',
         shortDescription: 'python 기본 강연',
         longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
         leaders: ['정욱재'],
         members: ['전체'],
         allMembers: ['전체'],
-        image: "/ActivityDetail-img/2023/Study/Python-min.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/Python2-min.png"],
+        image: "/ActivityDetail-img/2023/Study/Python스터디.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/Python강연.png"],
     };
 
-    const CodingTest23 = {
-        title: '코딩테스트',
+    const CodingTest2023 = {
+        title: '코딩테스트 스터디',
         period: '2023.06 - 2023.08',
         shortDescription: '코딩테스트 코드 리뷰',
         longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
         leaders: ['모용'],
         members: ['이동현', '이예나', '하진혁'],
         allMembers: ['이동현', '이예나', '하진혁'],
-        image: "/ActivityDetail-img/2023/Study/Python-min.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/코딩테스트-min.png"],
-    };
-
-    const QuipuDev = {
-        title: '퀴푸 웹 개발',
-        period: '2023.10 - 2024.02',
-        shortDescription: '퀴푸 홍보용 웹페이지 개발',
-        longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
-        leaders: ['이예나'],
-        members: ['김고은', '황민영', '박시현', '외 6명'],
-        allMembers: ['김고은', '황민영', '박시현', '차준섭', '김은지', '이제민', '표성은', '박수연', '강형준'],
-        image: "/ActivityDetail-img/2023/Study/웹개발_1-min.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/웹개발_2-min.jpg",
-        "/ActivityDetail-img/2023/Study/웹개발_3-min.jpg",
-        "/ActivityDetail-img/2023/Study/웹개발_4-min.jpg",],
-    };
-
-    const C = {
-        title: 'C언어',
-        period: '2023.10 - 2023.11',
-        shortDescription: 'c언어 입문 및 코드 리뷰',
-        longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
-        leaders: ['서강훈'],
-        members: ['이예나', '이정훈', '조영서', '외 2명'],
-        allMembers: ['이예나', '이정훈', '조영서', '차원재', '최다영'],
-        image: "/ActivityDetail-img/2023/Study/C_1-min.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/C_2-min.png"],
+        image: "/ActivityDetail-img/2023/Study/Python스터디.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/코딩테스트스터디.png"],
     };
 
     const Competition = {
@@ -87,33 +61,72 @@ function Study() {
         leaders: ['김형민'],
         members: ['신교윤', '안태성', '정하연'],
         allMembers: ['신교윤', '안태성', '정하연'],
-        image: "/ActivityDetail-img/2023/Study/웹개발_1-min.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/공모전-min.png"],
+        image: "/ActivityDetail-img/2023/Study/퀴푸웹개발1.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/공모전.png"],
     };
 
-    const CodingTest24 = {
-        title: '코딩테스트',
+    const 전자장및전기회로 = {
+        title: '전자장 및 전기회로 강연',
+        period: '2023.09 - 2023.12',
+        shortDescription: '전자장과 전기회로 기본 개념 강연',
+        longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
+        leaders: ['오병규'],
+        members: ['전체'],
+        allMembers: ['전체'],
+        image: "/ActivityDetail-img/2023/Study/Python스터디.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/전자장및전기회로.png"],
+    };
+
+    const C = {
+        title: 'C언어 스터디',
+        period: '2023.10 - 2023.11',
+        shortDescription: 'c언어 입문 및 코드 리뷰',
+        longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
+        leaders: ['서강훈'],
+        members: ['이예나', '이정훈', '조영서', '외 2명'],
+        allMembers: ['이예나', '이정훈', '조영서', '차원재', '최다영'],
+        image: "/ActivityDetail-img/2023/Study/C스터디1.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/C스터디2.png"],
+    };
+
+    const QuipuDev = {
+        title: '퀴푸 웹 개발',
+        period: '2023.10 - 2024.02',
+        shortDescription: '퀴푸 홍보용 웹페이지 개발',
+        longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
+        leaders: ['이예나'],
+        members: ['김고은', '황민영', '박시현', '외 6명'],
+        allMembers: ['김고은', '황민영', '박시현', '차준섭', '김은지', '이제민', '표성은', '박수연', '강형준'],
+        image: "/ActivityDetail-img/2023/Study/퀴푸웹개발1.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/퀴푸웹개발2.jpg",
+        "/ActivityDetail-img/2023/Study/퀴푸웹개발3.jpg",
+        "/ActivityDetail-img/2023/Study/퀴푸웹개발4.jpg",],
+    };
+
+    const CodingTest2024 = {
+        title: '코딩테스트 스터디',
         period: '2024.01 - 진행 중',
         shortDescription: '코딩테스트 코드 리뷰',
         longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. <br></br> Ab repellat impedit, sint nobis necessitatibus non ipsum tenetur esse fuga quod beatae, numquam eveniet atque obcaecati cumque neque accusamus ducimus rem.",
         leaders: ['이예나'],
         members: ['강형준', '김명준', '김예영', '외 3명'],
         allMembers: ['강형준', '김명준', '김예영', '이제민', '최영채', '표성은'],
-        image: "/ActivityDetail-img/2023/Study/Python-min.png",
-        allImgs: ["/ActivityDetail-img/2024/Study/코딩테스트-min.jpg",],
+        image: "/ActivityDetail-img/2023/Study/Python스터디.png",
+        allImgs: ["/ActivityDetail-img/2024/Study/코딩테스트스터디.jpg",],
     };
 
     return (
         <>
             <div className="Study-container">
-                <StudyCard {...Cpp} />
-                <StudyCard {...Python1} />
-                <StudyCard {...Python2} />
-                <StudyCard {...CodingTest23} />
+                <StudyCard {...CodingTest2024} />
                 <StudyCard {...QuipuDev} />
                 <StudyCard {...C} />
+                <StudyCard {...전자장및전기회로} />
                 <StudyCard {...Competition} />
-                <StudyCard {...CodingTest24} />
+                <StudyCard {...CodingTest2023} />
+                <StudyCard {...Python2} />
+                <StudyCard {...Python1} />
+                <StudyCard {...Cpp} />
             </div>
         </>
     )
