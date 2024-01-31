@@ -1,6 +1,6 @@
 .FriendShip-container {
     width: 80%;
-    height: calc(100dvh - 80px - 50px);
+    height: calc(var(--vh, 1vh) * 100 - 80px - 50px);
     display: flex; 
     justify-content: center;
     align-content: start;
@@ -10,7 +10,7 @@
     -ms-overflow-style: none;
 
     @media (max-width: 900px) {
-        height: calc(100dvh - 60px);
+        height: calc(var(--vh, 1vh) * 100 - 60px);
     } 
 }
 
