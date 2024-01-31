@@ -1,8 +1,54 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import '../../App.css';
 import './About.css';
 
 function About() {
+    // State variables to track touch positions
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+
+    // The minimum distance to consider it a swipe
+    const minSwipeDistance = 50;
+
+    useEffect(() => {
+        const aboutContainer = document.querySelector('.About-container');
+
+        const handleTouchStart = (e) => {
+            setTouchStart(e.targetTouches[0].clientY);
+        };
+
+        const handleTouchMove = (e) => {
+            setTouchEnd(e.targetTouches[0].clientY);
+        };
+
+        const handleTouchEnd = () => {
+            if (!touchStart || !touchEnd) return;
+
+            const distance = touchStart - touchEnd;
+            const isSwipeDown = distance > minSwipeDistance;
+            const isSwipeUp = distance < -minSwipeDistance;
+
+            if (isSwipeDown) {
+                aboutContainer.scrollTop += window.innerHeight;
+            } else if (isSwipeUp) {
+                aboutContainer.scrollTop -= window.innerHeight;
+            }
+
+            setTouchStart(null);
+            setTouchEnd(null);
+        };
+
+        aboutContainer.addEventListener('touchstart', handleTouchStart);
+        aboutContainer.addEventListener('touchmove', handleTouchMove);
+        aboutContainer.addEventListener('touchend', handleTouchEnd);
+
+        return () => {
+            aboutContainer.removeEventListener('touchstart', handleTouchStart);
+            aboutContainer.removeEventListener('touchmove', handleTouchMove);
+            aboutContainer.removeEventListener('touchend', handleTouchEnd);
+        };
+    }, []);
+
     useEffect(() => {
         const aboutContainer = document.querySelector('.About-container');
 
