@@ -5,6 +5,8 @@ import './About.css';
 function About() {
     useEffect(() => {
         const aboutContainer = document.querySelector('.About-container');
+        let touchStartY = 0;
+        let touchMoveY = 0;
 
         const handleScroll = () => {
             const scrollPosition = aboutContainer.scrollTop;
@@ -27,6 +29,17 @@ function About() {
             aboutContainer.scrollTop += e.deltaY;
         };
 
+        const handleTouchStart = (e) => {
+            touchStartY = e.touches[0].clientY;
+        };
+
+        const handleTouchMove = (e) => {
+            touchMoveY = e.touches[0].clientY;
+            const moveDistance = touchStartY - touchMoveY;
+            aboutContainer.scrollTop += moveDistance;
+            touchStartY = touchMoveY; // 다음 이동 거리 계산을 위해 현재 위치를 저장합니다.
+        };
+
         const firstSection = aboutContainer.querySelector('section');
         if (firstSection) {
             firstSection.style.opacity = 1;
@@ -34,12 +47,14 @@ function About() {
 
         aboutContainer.addEventListener('scroll', handleScroll);
         aboutContainer.addEventListener('wheel', handleWheel);
-        aboutContainer.addEventListener('touchmove', handleScroll); 
+        aboutContainer.addEventListener('touchstart', handleTouchStart);
+        aboutContainer.addEventListener('touchmove', handleTouchMove);
 
         return () => {
             aboutContainer.removeEventListener('scroll', handleScroll);
             aboutContainer.removeEventListener('wheel', handleWheel);
-            aboutContainer.removeEventListener('touchmove', handleScroll);
+            aboutContainer.removeEventListener('touchstart', handleTouchStart);
+            aboutContainer.removeEventListener('touchmove', handleTouchMove);
         };
     }, []);
 
