@@ -1,6 +1,6 @@
 .Study-container {
     width: 80%;
-    height: calc(100vh - 80px - 50px);
+    height: calc(100% - 80px - 50px);
     display: flex; 
     justify-content: center;
     align-content: start;
@@ -19,8 +19,8 @@
 }
 
 .studycard {
-    width: 280px;
-    height: 190px;
+    width: 260px;
+    height: 180px;
     background-color: white;
     border-radius: 20px;
     padding: 10px;
@@ -65,13 +65,13 @@
     font-family: 'JalnanGothic';
     text-align: center;
     margin: 10px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 100;
 }
 
 .studycard__content p {
     font-family: 'JalnanGothic';
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 100;
     color: grey;
     text-align: center;
@@ -105,7 +105,7 @@
 
 .studycard__member p {
     font-family: 'JalnanGothic';
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 100;
 }
 
