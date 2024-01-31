@@ -1,8 +1,6 @@
-/* study */
-
 .Study-container {
-    width: 90%;
-    height: calc(100vh - 80px - 50px);
+    width: 80%;
+    height: calc(100% - 80px - 50px);
     display: flex; 
     justify-content: center;
     align-content: start;
@@ -12,7 +10,7 @@
     -ms-overflow-style: none;
 
     @media (max-width: 900px) {
-        height: calc(100vh - 60px - 50px);
+        height: calc(100vh - 60px);
     }
 }
 
@@ -39,19 +37,20 @@
 
 .studycard__top {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 60%;
 }
 
 .studycard__img {
+    width: 30%;
     height: 80%;
     aspect-ratio: 1 / 1;
     object-fit: contain;
 }   
 
 .studycard__content {
+    width: 70%;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -63,15 +62,19 @@
 }
 
 .studycard__content h3 {
-    text-align: start;
+    font-family: 'JalnanGothic';
+    text-align: center;
     margin: 10px;
-
+    font-size: 15px;
+    font-weight: 100;
 }
 
 .studycard__content p {
-    font-size: 13px;
-    font-weight: 550;
-    text-align: start;
+    font-family: 'JalnanGothic';
+    font-size: 11px;
+    font-weight: 100;
+    color: grey;
+    text-align: center;
     word-break: keep-all;
 }
 
@@ -101,15 +104,17 @@
 }
 
 .studycard__member p {
-    font-size: 10px;
-    font-weight: 500;
+    font-family: 'JalnanGothic';
+    font-size: 9px;
+    font-weight: 100;
 }
 
 .moreinfo-button {
     width: 60%;
     height: 13%;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 550;
+    font-family: 'JalnanGothic';
     color: #1C0093;
     border: 2px solid #1C0093;
     border-radius: 20px;
@@ -170,6 +175,7 @@
 }
 
 .study__modal--bar p {
+    font-family: 'JalnanGothic';
     font-size: 13px;
     margin-bottom: 9px;
     margin-left: 10px;
@@ -201,9 +207,13 @@
 }
 
 .h10 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     height: 10%;
     text-align: start;
     padding: 4px;
+    font-family: 'JalnanGothic';
 }
 
 .h90 {
@@ -211,6 +221,7 @@
 }
 
 .h90 p {
+    font-family: 'JalnanGothic';
     overflow-y: auto;
     max-height: 50%;
     margin-top: 10px;

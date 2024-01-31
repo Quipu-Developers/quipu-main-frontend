@@ -17,6 +17,13 @@ function ActivityDetail() {
         }
     }, [location]);
 
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash === 'Study' || hash === 'Friendship' || hash === 'MT') {
+          setActiveTab(hash);
+        }
+      }, [location.hash]);
+
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };
