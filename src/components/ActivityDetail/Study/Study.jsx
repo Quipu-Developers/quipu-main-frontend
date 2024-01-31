@@ -11,8 +11,8 @@ function Study() {
         leaders: ['최준하']        ,
         members: ['김시은', '김형민', '서진주', '외 8명'],
         allMembers: ['김시은', '김형민', '서진주', '이예나', '이학재', '이해리', '조승호', '차준섭', '최영채', '표성은', '하진혁'],
-        image: "/ActivityDetail-img/2023/Study/C++스터디1.png",
-        allImgs: ["/ActivityDetail-img/2023/Study/C++스터디2.png",],
+        image: "/ActivityDetail-img/2023/Study/Cpp스터디1.png",
+        allImgs: ["/ActivityDetail-img/2023/Study/Cpp스터디2.png",],
     };
 
     const Python1 = {

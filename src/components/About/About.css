@@ -3,8 +3,14 @@
     width: 100%;
     height: 100dvh;
     overflow-y: scroll;
+    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
+    scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
     z-index: 500;
 }
+
+.About-container::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
+    display: none;
+  }
 
 .About-container section {
     display: flex;
@@ -12,69 +18,134 @@
     align-items: center;
     width: 100%;
     height: 100dvh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    overflow: hidden;
-    clip-path: inset(0 0 0 0);
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: opacity 1s; 
+
+    @media (max-width: 700px){
+        flex-direction: column;
+    }
 }
 
-.About-container section:nth-child(1) {
-    z-index: 507;
-}
-
-.About-container section:nth-child(2) {
-    z-index: 506;
-}
-
-.About-container section:nth-child(3) {
-    z-index: 505;
-}
-.About-container section:nth-child(4) {
-    z-index: 504;
-}
-.About-container section:nth-child(5) {
-    z-index: 503;
-}
-
-.About-container section:nth-child(6) {
-    z-index: 502;
-}
-
-.about-left, .about-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 50%;
-    height: 100%;
+.spacer {
+    height: 100dvh; /* 각 스페이서는 화면 높이와 동일한 높이를 가집니다 */
 }
 
 .about-left {
-    top: 0;
-    left: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+    @media (max-width: 700px){
+        justify-content: start;
+        width: 100%;
+        height: 50%;
+    }
+    @media (max-width: 500px){
+        height: 40%;
+    }
 }
 
 .about-left p {
+    text-align: center;
+    font-family: 'JalnanGothic';
+    font-size: 35px;
+    color: white;
+}
+
+.left-text {
+    width: 80%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    bottom: 100px;
+    margin: 30px;
+
+    @media (max-width: 700px){
+        width: 60%;
+        bottom: 0px;
+    }
+
+    @media (max-width: 500px){
+        width: 100%;
+        bottom: 0px;
+    }
+}
+
+.about-right {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+    @media (max-width: 700px){
+        justify-content: end;
+        width: 100%;
+        height: 50%;
+    }
+    @media (max-width: 500px){
+        height: 60%;
+    }
+}
+
+.about-right p {
     font-size: 20px;
     color: white;
 }
 
-.about-right {
-    top: 0;
-    right: 0;
+.right-text {
+    width: 80%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    position: relative;
+    top: 100px;
+    margin: 30px;
+
+    @media (max-width: 700px){
+        top: 0px;
+    }
+    @media (max-width: 500px){
+        justify-content: start;
+        margin: 0 30px 60px 0;
+    }
 }
 
-.about-right h4 {
+.right-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    text-align: center;
+}
+
+.right-title p {
+    font-family: 'JalnanGothic';
+    font-size: 35px;
+    font-weight: 100;
+}
+
+.right-content {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    width: 100%;
+    height: 70%;
+    word-break: keep-all;
+}
+
+.right-content p {
+    font-weight: 300;
+    text-align: end;
     font-size: 20px;
-}
-
-.about-right p {
-    font-size: 16px;
-}
-
-
-
-.spacer {
-    height: 100dvh; /* 각 스페이서는 화면 높이와 동일한 높이를 가집니다 */
+    line-height: 1.7;
 }

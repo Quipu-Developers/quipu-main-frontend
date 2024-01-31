@@ -26,7 +26,7 @@ function App() {
         <div className="navbar__menu--pc">
           <ul>
             <li><NavLink to="/#home" smooth>home</NavLink></li>
-            <li><NavLink to="/#about" smooth>about</NavLink></li>
+            <li><NavLink to="/about" smooth>about</NavLink></li>
             <li><NavLink to="/#activity" smooth>activity</NavLink></li>
             <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
             <li><NavLink to="/#join-quipu" smooth>join Quipu</NavLink></li>
@@ -60,7 +60,6 @@ function App() {
         <Route path="/" element={
           <>
             <section id="home"><Home /></section>
-            <section id="about"><About /></section>
             <section id="activity"><Activity /></section>
             <section id="recommend-site"><RecommendSite /></section>
             <section id="join-quipu"><JoinQuipu /></section>
