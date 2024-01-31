@@ -14,7 +14,7 @@ function About() {
 
             document.querySelectorAll('.About-container section').forEach((section, index) => {
                 const sectionHeight = viewportHeight;
-                const startAt = index * sectionHeight;
+                const startAt = index * sectionHeight
                 const endAt = startAt + sectionHeight;
 
                 if (scrollPosition >= startAt && scrollPosition < endAt) {
@@ -37,7 +37,7 @@ function About() {
             touchMoveY = e.touches[0].clientY;
             const moveDistance = touchStartY - touchMoveY;
             aboutContainer.scrollTop += moveDistance;
-            touchStartY = touchMoveY; // 다음 이동 거리 계산을 위해 현재 위치를 저장합니다.
+            touchStartY = touchMoveY;
         };
 
         const firstSection = aboutContainer.querySelector('section');
