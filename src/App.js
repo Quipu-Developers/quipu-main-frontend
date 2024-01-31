@@ -11,12 +11,6 @@ import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 
 function App() {
-  function setScreenSize() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
-  window.addEventListener('load', setScreenSize);
-  window.addEventListener('resize', setScreenSize);
   
   return (
     <Router>
