@@ -25,7 +25,7 @@
   position: relative;
   margin-bottom: 50px;
   width: auto;
-  height: 80vh;
+  height: 80dvh;
   display: flex;
   align-items: center;
 }
@@ -86,27 +86,4 @@
   border-radius: 18px;
   object-fit: cover;
   box-shadow: 3px 3px 4px grey;
-}
-
-.more-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 5px;
-  bottom: -15px;
-  width: 30px;
-  padding: 2px 10px;
-  border: 1.5px solid #1C0093;
-  border-radius: 15px;
-  color: #1C0093;
-  background-color: #DFE7FF;
-  font-size: 13px;
-  text-decoration: none;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.more-button:hover {
-  background-color: #5D94FF;
 }
