@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100 - 80px);
+  height: calc(100dvh - 80px);
   scroll-snap-type: x mandatory; /* 가로 스크롤에 스냅 기능을 적용 */
   -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤을 위함 */
 
   @media (max-width: 500px) {
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     justify-content: flex-start;
     overflow-x: auto; /* 가로 스크롤 활성화 */
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
