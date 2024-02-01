@@ -29,7 +29,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.blank-navbar {
+#blank-navbar {
   height: 80px;
   width: 100%;
 

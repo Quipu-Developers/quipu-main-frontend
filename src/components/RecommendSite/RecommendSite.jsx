@@ -35,7 +35,7 @@ function RecommendSite(){
         <div 
             
         >
-            <div className="blank-navbar"></div>
+            <div id="blank-navbar"></div>
             <div className="recommend-site">
                 <div className="recommend-site__title">Recommend Site</div>
                 <div className="recommend-site__box">

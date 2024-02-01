@@ -10,7 +10,7 @@ function Activity() {
 
     return (
         <>
-            <div className="blank-navbar"></div>
+            <div id="blank-navbar"></div>
             <div className="activity-container">
                 <div className="activity-blocks-container">
                     <ActivityBlock title={titles[0]} src1={images[0][0]} src2={images[0][1]} src3={images[0][2]}></ActivityBlock>
