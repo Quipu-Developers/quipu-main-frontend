@@ -9,11 +9,12 @@
 .ActivityDetail-titles {
     position: fixed;
     height: 50px;
-    top: 80px;
+    top: 100px;
     display: flex;
     justify-content: start;
-    align-items: center;
-    padding-left: 30px;
+    align-items: start;
+    flex-direction: column;
+    padding-left: 25px;
     z-index: 100;
 
     @media (max-width: 900px) {
