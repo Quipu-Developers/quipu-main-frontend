@@ -54,7 +54,7 @@ h2{
     margin-bottom: 5px;
 }
 
-.member input:not(input[type=radio]),.member select{
+.member input:not(input[type=radio]),.member select,.member textarea{
     border: 1px solid #dadada;
     padding: 13px;
     width: 100%;
@@ -171,7 +171,7 @@ color:#fff
 }
 
 
-.member input[type=text]:focus, .member input[type=tel]:focus, .member input[type=radio]:focus, .member select:focus {
+.member input[type=text]:focus, .member input[type=tel]:focus, .member input[type=radio]:focus, .member select:focus .member textarea:focus{
     border: 1px solid #1c0093;
 }
 
