@@ -28,6 +28,8 @@ const toggleExpand = () => {
 	);
 };
 
+/*전화번호입력시 자동하이픈 및 숫자만 입력*/
+
 
 function JoinQuipu() {
 const [name, setName] = useState('');
@@ -37,6 +39,8 @@ const [phoneNumber, setPhoneNumber] = useState('');
 const [entryType, setEntryType] = useState('');
 const [motivation, setMotivation] = useState('');
 const [suggestedEntry, setSuggestedEntry] = useState(false);
+
+/*전화번호입력시 자동하이픈 및 숫자만 입력*/
 
 return (
 	<div>
@@ -100,7 +104,7 @@ return (
 			<div className="field">
 				<b>학번 <span style={{ color: '#448FFF' }}>*</span></b>
 				<input 
-				type="text"
+				type="tel"
 				placeholder="2020xxxxxx"
 				value={studentNumber} 
 				onChange={(e) => setStudentNumber(e.target.value)} />
