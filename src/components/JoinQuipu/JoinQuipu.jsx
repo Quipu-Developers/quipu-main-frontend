@@ -43,7 +43,7 @@ function JoinQuipu() {
     return (
         <div>
         {/* 상단 공백 */}
-        <div className="blank-navbar"></div>
+        <div id="blank-navbar"></div>
     
         {/* JoinQuipu 컨테이너 */}
         <div className="JoinQuipu-container">
