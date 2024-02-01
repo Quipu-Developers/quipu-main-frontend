@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100dvh - 80px);
   scroll-snap-type: x mandatory; /* 가로 스크롤에 스냅 기능을 적용 */
   -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤을 위함 */
 
   @media (max-width: 500px) {
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     justify-content: flex-start;
     overflow-x: auto; /* 가로 스크롤 활성화 */
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
@@ -24,8 +24,6 @@
 .activity-blocks-container {
   position: relative;
   margin-bottom: 50px;
-  width: auto;
-  height: 80vh;
   display: flex;
   align-items: center;
 }
@@ -86,27 +84,4 @@
   border-radius: 18px;
   object-fit: cover;
   box-shadow: 3px 3px 4px grey;
-}
-
-.more-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 5px;
-  bottom: -15px;
-  width: 30px;
-  padding: 2px 10px;
-  border: 1.5px solid #1C0093;
-  border-radius: 15px;
-  color: #1C0093;
-  background-color: #DFE7FF;
-  font-size: 13px;
-  text-decoration: none;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.more-button:hover {
-  background-color: #5D94FF;
 }

@@ -1,4 +1,5 @@
 /*eslint-disable*/
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
@@ -10,7 +11,7 @@ import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 
 function App() {
-
+  
   return (
     <Router>
       <nav className="navbar">
@@ -25,7 +26,7 @@ function App() {
         <div className="navbar__menu--pc">
           <ul>
             <li><NavLink to="/#home" smooth>home</NavLink></li>
-            <li><NavLink to="/#about" smooth>about</NavLink></li>
+            <li><NavLink to="/about" smooth>about</NavLink></li>
             <li><NavLink to="/#activity" smooth>activity</NavLink></li>
             <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
             <li><NavLink to="/#join-quipu" smooth>join Quipu</NavLink></li>
@@ -34,7 +35,7 @@ function App() {
 
         {/* mobile에서 메뉴 버튼 */}
         <input id="menu-toggle" type="checkbox" />
-        <label class='menu-button' htmlFor="menu-toggle">
+        <label className='menu-button' htmlFor="menu-toggle">
           <span className="line line1"></span>
           <span className="line line2"></span>
           <span className="line line3"></span>
@@ -43,11 +44,14 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <ul className="navbar__menu--mobile">
           <li className="blank"></li>
-          <li className="block"><NavLink to="/home" smooth>home</NavLink></li>
-          <li className="block"><NavLink to="/about" smooth>about</NavLink></li>
-          <li className="block"><NavLink to="/activity" smooth>activity</NavLink></li>
-          <li className="block"><NavLink to="/recommend-site" smooth>recommend site</NavLink></li>
-          <li className="block"><NavLink to="/join-quipu" smooth>join Quipu</NavLink></li>
+          <li className="block"><NavLink to="/home">home</NavLink></li>
+          <li className="block"><NavLink to="/about">about</NavLink></li>
+          <li className="block"><NavLink to="/activity">activity +</NavLink></li>
+          <li className="block"><NavLink to="/activity-detail#Study">&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+          <li className="block"><NavLink to="/activity-detail#Friendship">&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+          <li className="block"><NavLink to="/activity-detail#MT">&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+          <li className="block"><NavLink to="/recommend-site">recommend site</NavLink></li>
+          <li className="block"><NavLink to="/join-quipu">join Quipu</NavLink></li>
         </ul>
 
       </nav>
@@ -56,7 +60,6 @@ function App() {
         <Route path="/" element={
           <>
             <section id="home"><Home /></section>
-            <section id="about"><About /></section>
             <section id="activity"><Activity /></section>
             <section id="recommend-site"><RecommendSite /></section>
             <section id="join-quipu"><JoinQuipu /></section>
