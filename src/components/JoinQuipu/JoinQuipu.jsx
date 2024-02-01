@@ -200,7 +200,6 @@ return (
                     value={entryType === 'reEntry' && suggestedEntry ? '건의사항' : motivation}
                     onChange={(e) => { setMotivation(e.target.value); handleResizeHeight(); }}
                     rows={1}
-                    style={{ resize: 'none', overflow:'hidden'}}
                 />
 			</div>
 

@@ -69,7 +69,11 @@ background-color: #3c3c8c;
 color:#fff
 }
 
-
+textarea {
+    resize: none; 
+    overflow: hidden;
+    line-height : 1.5;
+}
 
 /*가입 버튼*/
 .field-type {
