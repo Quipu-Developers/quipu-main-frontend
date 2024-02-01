@@ -9,7 +9,7 @@
     line-height: 1.5em;
     color: black;
     margin: 0;
-    padding-bottom: 10%;
+    padding-bottom: 20%;
     @media (max-width: 900px) {
         height: calc(100vh - 60px);
     }
