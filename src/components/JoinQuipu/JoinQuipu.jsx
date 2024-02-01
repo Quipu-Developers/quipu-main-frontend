@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../../App.css";
 import './JoinQuipu.css';
+
 
 const FAQ = ({ question, answer, emoji }) => {
 const [isExpanded, setIsExpanded] = useState(false);
@@ -29,14 +30,31 @@ const toggleExpand = () => {
 };
 
 
+
 function JoinQuipu() {
-const [name, setName] = useState('');
-const [studentNumber, setStudentNumber] = useState('');
-const [major, setMajor] = useState('학과선택'); 
-const [phoneNumber, setPhoneNumber] = useState('');
-const [entryType, setEntryType] = useState('');
-const [motivation, setMotivation] = useState('');
-const [suggestedEntry, setSuggestedEntry] = useState(false);
+    const [name, setName] = useState('');
+    const [studentNumber, setStudentNumber] = useState('');
+    const [major, setMajor] = useState('학과선택'); 
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [entryType, setEntryType] = useState('');
+    const [motivation, setMotivation] = useState('');
+    const [suggestedEntry, setSuggestedEntry] = useState(false);
+    const phoneAutoHyphen = (value) => {
+        return value
+        .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
+        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")  // 숫자를 그룹화하여 하이픈 추가
+        .replace(/(\-{1,2})$/g, "");  // 끝에 하이픈이 1개 또는 2개인 경우 1개로 변경
+    };
+    
+    const textareaRef = useRef();
+    const handleResizeHeight = () => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+            }
+    };
+
+
 
 return (
 	<div>
@@ -81,6 +99,7 @@ return (
 				</p>
 				<p>지원서 작성해주세요!</p>
 				<p >또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
+                <p >(신규회원 : <span style = {{fontWeight: 700}}>20,000</span>원 / 기존회원 : <span style = {{fontWeight: 700}}>25,000</span>원)</p>
 				<p>우리은행 <span style={{ color: 'yellow' }}>1002-861-110963</span></p>
 				<p><span style={{ color: '#448FFF'}}>*</span>는 필수입력 칸입니다. </p>
 				</div>
@@ -100,7 +119,8 @@ return (
 			<div className="field">
 				<b>학번 <span style={{ color: '#448FFF' }}>*</span></b>
 				<input 
-				type="text"
+				type="tel"
+                maxLength={10}
 				placeholder="2020xxxxxx"
 				value={studentNumber} 
 				onChange={(e) => setStudentNumber(e.target.value)} />
@@ -156,22 +176,31 @@ return (
 			<div className="field tel-number">
 				<b>전화번호 <span style={{ color: '#448FFF' }}>*</span></b>
 				<div>
-				<input
+                <input
+                    type="tel"
+                    maxLength={13}
+                    placeholder="010-xxxx-xxxx"
+                    value={phoneAutoHyphen(phoneNumber)}
+                    onChange={(e) => setPhoneNumber(phoneAutoHyphen(e.target.value))}
+                />
+				{/* <input
 					type="tel"
+                    maxLength={11}
 					placeholder="010-xxxx-xxxx"
 					value={phoneNumber}
 					onChange={(e) => setPhoneNumber(e.target.value)}
-				/>
+				/> */}
 				</div>
 			</div>
 
 			<div className="field">
 				<b>지원동기</b>
-				<input
-				type="text"
-				value={entryType === 'reEntry' && suggestedEntry ? '건의사항' : motivation}
-				onChange={(e) => setMotivation(e.target.value)}
-				/>
+                <textarea
+                    ref={textareaRef}
+                    value={entryType === 'reEntry' && suggestedEntry ? '건의사항' : motivation}
+                    onChange={(e) => { setMotivation(e.target.value); handleResizeHeight(); }}
+                    rows={1}
+                />
 			</div>
 
 			<div className="apply">
