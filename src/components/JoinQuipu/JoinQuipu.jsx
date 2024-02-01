@@ -68,23 +68,25 @@ function JoinQuipu() {
                 checked={suggestedEntry}
                 onChange={() => setSuggestedEntry(true)}
                 />
-                <label htmlFor="reEntry">🔍Re-Entry</label>
+                <label htmlFor="reEntry">🔎Re-Entry</label>
             </div>
     
             {/* 가입 안내 */}
             <div className="join-notice">
                 <div className="join-notice__icon">
                 <div className="join-notice__icon--top1">
-                    {/* ... */}
+                    <p style={{color: "red", marginTop: "1.5px", marginLeft: "10px", fontSize: "8px"}}>●</p>
+                    <p style={{color: "#ffd400", marginLeft: "7px", marginTop: "1.5px",fontSize: "8px"}}>●</p>
+                    <p style={{color: "#09ce20", marginLeft: "7px",marginTop: "1.5px", fontSize: "8px"}}>●</p>
                 </div>
                 <div className="join-notice__icon--top2"></div>
                 <div className="join-notice__icon--body">
                     <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p>
                     <p>지원서 작성해주세요!</p>
-                        <p >또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
-                        <p >(신규회원 : <span style = {{fontWeight: 700}}>20,000</span>원 / 기존회원 : <span style = {{fontWeight: 700}}>25,000</span>원)</p>
-                        <p>우리은행 <span style={{ color: 'yellow' }}>1002-861-110963</span></p>
-                        <p><span style={{ color: '#448FFF'}}>*</span>는 필수입력 칸입니다. </p>
+                    <p >또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
+                    <p >(신규회원 : <span style = {{fontWeight: 900}}>20,000</span>원 / 기존회원 : <span style = {{fontWeight: 900}}>25,000</span>원)</p>
+                    <p>우리은행 <span style={{ color: 'yellow' }}>1002-861-110963</span></p>
+                    <p><span style={{ color: '#448FFF'}}>*</span>는 필수입력 칸입니다. </p>
                 </div>
                 </div>
             </div>
@@ -111,22 +113,22 @@ function JoinQuipu() {
                 emoji="🤓"
                 />
                 <FAQ
-                    question="Q.&nbsp;&nbsp;&nbsp;&nbsp;Quipu 남녀 성비는 어떻게 되나요?"
-                    answer="23년 2학기 기준 남녀 성비는 남자 3 : 여자 2 였습니다! 특히나 여성 회원분들의 참여도가 높았기 때문에 성비 걱정은 크게 안 하셔도 됩니다!!"
-                    emoji="🤔"
-                    />
+                question="Q.&nbsp;&nbsp;&nbsp;&nbsp;Quipu 남녀 성비는 어떻게 되나요?"
+                answer="23년 2학기 기준 남녀 성비는 남자 3 : 여자 2 였습니다! 특히나 여성 회원분들의 참여도가 높았기 때문에 성비 걱정은 크게 안 하셔도 됩니다!!"
+                emoji="🤔"
+                />
 
-                    <FAQ
-                    question="Q.&nbsp;&nbsp;&nbsp;&nbsp;코딩 지식이 없는데 가입해도 되나요?"
-                    answer="전혀 상관 없습니다!! 현재 퀴푸에는 코딩 능력자분들도 계시지만 배우고자 들어오신 분들, 관심있어서 들어오신 분들이 더 많습니다! 또한 학술동아리로써 코딩이 아닌 다른 과목의 스터디도 개설 및 참여가 가능합니다 :)"
-                    emoji="🧐"
-                    />
+                <FAQ
+                question="Q.&nbsp;&nbsp;&nbsp;&nbsp;코딩 지식이 없는데 가입해도 되나요?"
+                answer="전혀 상관 없습니다!! 현재 퀴푸에는 코딩 능력자분들도 계시지만 배우고자 들어오신 분들, 관심있어서 들어오신 분들이 더 많습니다! 또한 학술동아리로써 코딩이 아닌 다른 과목의 스터디도 개설 및 참여가 가능합니다 :)"
+                emoji="🧐"
+                />
 
-                    <FAQ
-                    question="Q.&nbsp;&nbsp;&nbsp;&nbsp;동아리방 위치가 어디인가요?"
-                    answer="학생회관 3층 342호 입니다!"
-                    emoji="🥸"
-                    />
+                <FAQ
+                question="Q.&nbsp;&nbsp;&nbsp;&nbsp;동아리방 위치가 어디인가요?"
+                answer="학생회관 3층 342호 입니다!"
+                emoji="🥸"
+                />
             </div>
             </div>
         </div>
