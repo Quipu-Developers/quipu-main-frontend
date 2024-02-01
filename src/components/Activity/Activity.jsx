@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import '../../App.css';
 import './Activity.css';
 
 function Activity() {

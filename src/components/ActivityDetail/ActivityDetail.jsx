@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import '../../App.css';
 import './ActivityDetail.css';
 import Study from './Study/Study';
 import FriendShip from './FriendShip/FriendShip';
