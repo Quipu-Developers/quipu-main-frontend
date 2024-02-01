@@ -1,18 +1,17 @@
 .JoinQuipu-container {
     width: 100%;
-    height: 100dvh;
-    padding-top: 80px;
+    height: calc(100dvh - 80px);
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-
     font-size: 14px;
     line-height: 1.5em;
     color: black;
     margin: 0;
     padding-bottom: 20%;
+
     @media (max-width: 900px) {
-        padding-top: 60px;
+        height: calc(100dvh - 60px);
     }
 }
 
@@ -25,19 +24,19 @@
     outline: none;
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: 35px;
-    color : #1c0093;
+    color: #1c0093;
 }
 
-h2{
+h2 {
     text-align: center;
     font-size: 25px;
-    color : #1c0093;
+    color: #1c0093;
 }
 
-.member{
+.member {
     width: 600px;
     margin: auto;
     padding: 0 20px;
@@ -45,16 +44,18 @@ h2{
     overflow-y: auto;
 }
 
-.member .field{
-    margin :10px 0;
+.member .field {
+    margin: 10px 0;
 }
 
-.member b{
-    display: block; 
+.member b {
+    display: block;
     margin-bottom: 5px;
 }
 
-.member input:not(input[type=radio]),.member select,.member textarea{
+.member input:not(input[type=radio]),
+.member select,
+.member textarea {
     border: 1px solid #dadada;
     padding: 13px;
     width: 100%;
@@ -64,15 +65,15 @@ h2{
     box-shadow: 1px 1px 5px 1px #B7B7B7;
 }
 
-.member input[type=submit]{
-background-color: #3c3c8c;
-color:#fff
+.member input[type=submit] {
+    background-color: #3c3c8c;
+    color: #fff
 }
 
 textarea {
-    resize: none; 
+    resize: none;
     overflow: hidden;
-    line-height : 1.5;
+    line-height: 1.5;
 }
 
 /*가입 버튼*/
@@ -83,10 +84,11 @@ textarea {
     align-items: center;
 }
 
-.field-type input[type=radio]{
+.field-type input[type=radio] {
     display: none;
 }
-.field-type label{
+
+.field-type label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,14 +98,16 @@ textarea {
     border: solid 2px #1c0093;
     line-height: 24px;
     text-align: center;
-    font-size:13px;
+    font-size: 13px;
     border-radius: 12px;
 }
-.field-type input[type=radio]+label{
+
+.field-type input[type=radio]+label {
     background-color: #DFE7FF;
-    color:  #1c0093;
+    color: #1c0093;
 }
-.field-type input[type=radio]:checked+label{
+
+.field-type input[type=radio]:checked+label {
     background-color: #211D2A;
     color: whitesmoke;
     font-weight: bold;
@@ -164,7 +168,7 @@ textarea {
 }
 
 .join-notice__icon--body p {
-    margin:0;
+    margin: 0;
 }
 
 .divider {
@@ -175,14 +179,18 @@ textarea {
 }
 
 
-.member input[type=text]:focus, .member input[type=tel]:focus, .member input[type=radio]:focus, .member select:focus, .member textarea:focus{
+.member input[type=text]:focus,
+.member input[type=tel]:focus,
+.member input[type=radio]:focus,
+.member select:focus,
+.member textarea:focus {
     border: 1px solid #1c0093;
 }
 
 
-.field.major div{ 
+.field.major div {
     display: flex;
-    gap:10px; 
+    gap: 10px;
 }
 
 .field.tel-number div {
@@ -190,13 +198,13 @@ textarea {
 }
 
 
-.placehold-text{
+.placehold-text {
     display: block;
-    position:relative;
+    position: relative;
 }
 
 .apply {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -243,7 +251,8 @@ textarea {
     font-weight: 700;
 }
 
-.title-container, .emoji-container {
+.title-container,
+.emoji-container {
     display: flex;
 }
 
@@ -254,24 +263,26 @@ textarea {
 /* FAQ 항목이 확장됐을 때의 스타일 */
 .question.expanded .expanded-content {
     display: block;
-    font-size: 10px; 
-    margin-top: 10px; 
+    font-size: 10px;
+    margin-top: 10px;
     font-weight: bold;
 }
 
 /* 추가된 스타일 */
 .expanded-content {
-    display: none; 
+    display: none;
 }
 
 @media (max-width:500px) {
-    .member{
+    .member {
         width: 100%;
     }
+
     .join-notice__icon--body p {
-    font-size: 9px;
-    font-weight: bold;
+        font-size: 9px;
+        font-weight: bold;
     }
+
     .question-title {
         font-size: 12px;
         font-weight: bold;

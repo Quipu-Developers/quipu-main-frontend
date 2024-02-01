@@ -30,6 +30,8 @@ function ActivityDetail() {
 
     return (
         <>
+            <div className="blank-navbar-pc"></div>
+            <div className="blank-navbar-mobile"></div>
             <div className="ActivityDetail-container">
                 <div className="ActivityDetail-titles">
                     <button onClick={() => handleTabClick('Study')}

@@ -42,6 +42,8 @@ function JoinQuipu() {
 
     return (
         <div>
+            <div className="blank-navbar-pc"></div>
+            <div className="blank-navbar-mobile"></div>
 
             {/* JoinQuipu 컨테이너 */}
             <div className="JoinQuipu-container">
