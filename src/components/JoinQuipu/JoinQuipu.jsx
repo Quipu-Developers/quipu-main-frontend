@@ -251,8 +251,8 @@ function NewEntryComponent() {
                 <textarea
                     ref={textareaRef}
                     onChange={(e) => {handleResizeHeight(e.target.value); }}
-                    rows={1}
-                    placeholder="필수아니어도 써주시면 안될까요? 🙄"
+                    rows={2}
+                    placeholder="하고싶은 활동 있으시면 작성해 주세요"
                 />
             </div>
         </div>
@@ -375,8 +375,8 @@ function ReEntryComponent() {
                 <textarea
                     ref={textareaRef}
                     onChange={(e) => {handleResizeHeight(e.target.value); }}
-                    rows={2}
-                    placeholder="필수아니어도 써주시면 안될까요? 🙄"
+                    rows={1}
+                    placeholder="개선을 바라는 점 적어주세요!"
                 />
             </div>
         </div>
