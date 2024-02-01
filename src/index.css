@@ -29,15 +29,6 @@ html {
   scroll-behavior: smooth;
 }
 
-#blank-navbar {
-  height: 80px;
-  width: 100%;
-
-  @media (max-width: 900px) {
-    height: 60px;
-  }
-}
-
 @font-face {
   font-family: 'LINESeedKR-Bd';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');

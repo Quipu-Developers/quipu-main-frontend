@@ -1,7 +1,7 @@
 .FriendShip-container {
     width: 80%;
-    height: calc(100dvh - 80px - 50px);
-    padding: 0 0 150px 0;
+    height: 100dvh;
+    padding: 130px 0 150px 0;
     display: flex;
     justify-content: center;
     align-content: start;
@@ -11,7 +11,7 @@
     -ms-overflow-style: none;
 
     @media (max-width: 900px) {
-        height: calc(100dvh - 60px);
+        padding-top: 60px;
     }
 }
 

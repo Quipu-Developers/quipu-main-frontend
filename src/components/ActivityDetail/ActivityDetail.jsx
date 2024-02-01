@@ -7,6 +7,7 @@ import MT from './MT/MT';
 
 
 function ActivityDetail() {
+
     const location = useLocation();
     const [activeTab, setActiveTab] = useState('Study');
 
@@ -19,9 +20,9 @@ function ActivityDetail() {
     useEffect(() => {
         const hash = window.location.hash.replace('#', '');
         if (hash === 'Study' || hash === 'Friendship' || hash === 'MT') {
-          setActiveTab(hash);
+            setActiveTab(hash);
         }
-      }, [location.hash]);
+    }, [location.hash]);
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
@@ -29,7 +30,6 @@ function ActivityDetail() {
 
     return (
         <>
-            <div id="blank-navbar"></div>
             <div className="ActivityDetail-container">
                 <div className="ActivityDetail-titles">
                     <button onClick={() => handleTabClick('Study')}

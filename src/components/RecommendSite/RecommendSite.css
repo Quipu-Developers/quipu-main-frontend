@@ -1,6 +1,7 @@
 .recommend-site {
     width: 1500px;
-    height: cal(100vh - 80px);
+    height: 100dvh;
+    padding-top: 80px;
     display: flex;
     flex-direction: column;
     z-index: 1;
@@ -8,6 +9,7 @@
     @media screen and (max-width: 700px){
         width:100%;
         height: auto;
+        padding-top: 60px;
     }
 }
 

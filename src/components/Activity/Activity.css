@@ -4,20 +4,27 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100dvh - 80px);
-  scroll-snap-type: x mandatory; /* 가로 스크롤에 스냅 기능을 적용 */
-  -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤을 위함 */
+  height: 100dvh;
+  scroll-snap-type: x mandatory;
+  /* 가로 스크롤에 스냅 기능을 적용 */
+  -webkit-overflow-scrolling: touch;
+  /* iOS에서 부드러운 스크롤을 위함 */
+  padding-top: 80px;
 
   @media (max-width: 500px) {
-    height: calc(100dvh - 60px);
     justify-content: flex-start;
-    overflow-x: auto; /* 가로 스크롤 활성화 */
-    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
-    scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
+    overflow-x: auto;
+    /* 가로 스크롤 활성화 */
+    -ms-overflow-style: none;
+    /* IE와 Edge에서 스크롤바 숨기기 */
+    scrollbar-width: none;
+    /* Firefox에서 스크롤바 숨기기 */
+    padding-top: 60px;
   }
 }
 
-.activity-container::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
+.activity-container::-webkit-scrollbar {
+  /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
   display: none;
 }
 
@@ -37,14 +44,15 @@
   height: 400px;
   margin: 5px;
 
-  scroll-snap-align: center; /* 블록의 중간 부분이 스냅 포인트가 됨 */
+  scroll-snap-align: center;
+  /* 블록의 중간 부분이 스냅 포인트가 됨 */
 
   @media (max-width: 900px) {
-    width: 25vw; 
+    width: 25vw;
   }
 
   @media (max-width: 800px) {
-    width: 25vw; 
+    width: 25vw;
   }
 
   @media (max-width: 700px) {
@@ -52,8 +60,8 @@
   }
 
   @media (max-width: 500px) {
-    flex: 0 0 auto; 
-    width: 80vw; 
+    flex: 0 0 auto;
+    width: 80vw;
     margin: 5vw;
   }
 }
