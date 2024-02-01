@@ -9,7 +9,7 @@
 
 .About-container::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .About-container section {
     display: flex;

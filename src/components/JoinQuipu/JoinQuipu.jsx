@@ -200,6 +200,7 @@ return (
                     value={entryType === 'reEntry' && suggestedEntry ? '건의사항' : motivation}
                     onChange={(e) => { setMotivation(e.target.value); handleResizeHeight(); }}
                     rows={1}
+                    placeholder="필수아니어도 써주시면 안될까요? 🙄"
                 />
 			</div>
 
