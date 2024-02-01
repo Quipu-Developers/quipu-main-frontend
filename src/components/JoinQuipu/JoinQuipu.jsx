@@ -39,6 +39,12 @@ const [phoneNumber, setPhoneNumber] = useState('');
 const [entryType, setEntryType] = useState('');
 const [motivation, setMotivation] = useState('');
 const [suggestedEntry, setSuggestedEntry] = useState(false);
+const phoneAutoHyphen = (value) => {
+    return value
+      .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
+      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")  // 숫자를 그룹화하여 하이픈 추가
+      .replace(/(\-{1,2})$/g, "");  // 끝에 하이픈이 1개 또는 2개인 경우 1개로 변경
+};
 
 /*전화번호입력시 자동하이픈 및 숫자만 입력*/
 
@@ -105,6 +111,7 @@ return (
 				<b>학번 <span style={{ color: '#448FFF' }}>*</span></b>
 				<input 
 				type="tel"
+                maxLength={10}
 				placeholder="2020xxxxxx"
 				value={studentNumber} 
 				onChange={(e) => setStudentNumber(e.target.value)} />
@@ -160,12 +167,20 @@ return (
 			<div className="field tel-number">
 				<b>전화번호 <span style={{ color: '#448FFF' }}>*</span></b>
 				<div>
-				<input
+                <input
+                    type="tel"
+                    maxLength={13}
+                    placeholder="010-xxxx-xxxx"
+                    value={phoneAutoHyphen(phoneNumber)}
+                    onChange={(e) => setPhoneNumber(phoneAutoHyphen(e.target.value))}
+                />
+				{/* <input
 					type="tel"
+                    maxLength={11}
 					placeholder="010-xxxx-xxxx"
 					value={phoneNumber}
 					onChange={(e) => setPhoneNumber(e.target.value)}
-				/>
+				/> */}
 				</div>
 			</div>
 
