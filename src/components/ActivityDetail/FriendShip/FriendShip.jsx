@@ -16,9 +16,10 @@ function FriendShip() {
     "/ActivityDetail-img/2023/FriendShip/친목6.jpg",
     "/ActivityDetail-img/2023/FriendShip/친목5.jpg",
     "/ActivityDetail-img/2023/FriendShip/친목3.jpg",
+    "/ActivityDetail-img/2023/FriendShip/2학기개강총회.jpg",
     "/ActivityDetail-img/2023/FriendShip/친목2.jpg",
     "/ActivityDetail-img/2023/FriendShip/친목1.jpg",
-    "/ActivityDetail-img/2023/FriendShip/2학기개강총회.jpg"]
+    ]
 
     const [selectedImg, setSelectedImg] = useState(null);
 
