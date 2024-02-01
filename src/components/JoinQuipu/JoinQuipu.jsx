@@ -76,7 +76,9 @@ function JoinQuipu() {
             <div className="join-notice">
                 <div className="join-notice__icon">
                 <div className="join-notice__icon--top1">
-                    {/* ... */}
+                    <p style={{color: "red", marginTop: "1.5px", marginLeft: "10px", fontSize: "8px"}}>●</p>
+                    <p style={{color: "#ffd400", marginLeft: "7px", marginTop: "1.5px",fontSize: "8px"}}>●</p>
+                    <p style={{color: "#09ce20", marginLeft: "7px",marginTop: "1.5px", fontSize: "8px"}}>●</p>
                 </div>
                 <div className="join-notice__icon--top2"></div>
                 <div className="join-notice__icon--body">
