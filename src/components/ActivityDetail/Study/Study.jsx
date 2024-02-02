@@ -154,7 +154,7 @@ function Study({ selectedYear }) {
     const studies = [CodingTest2024, QuipuDev, C, 전자장및전기회로, Competition, CodingTest2023, Python2, Python1, Cpp ];
 
     const filteredStudies = studies.filter(study => study.year === selectedYear);
-
+    
     return (
         <>
             <div className="Study-container">

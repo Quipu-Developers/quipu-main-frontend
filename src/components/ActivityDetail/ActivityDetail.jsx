@@ -44,19 +44,19 @@ function ActivityDetail() {
                         style={{ color: activeTab === 'MT' ? '#5C518B' : 'white' }}>MT</button>
                     <select onChange={(e) => setSelectedYear(e.target.value)}
                         className="year-dropdown">
-                            <option>2023</option>
-                            <option>2024</option>
+                        <option>2023</option>
+                        <option>2024</option>
                     </select>
                 </div>
-                <select onChange={(e) => setSelectedYear(e.target.value)}
-                        className="year-dropdown-mobile">
-                            <option>2024</option>
-                            <option>2023</option>
-                    </select>
                 <div className="ActivityDetail-content">
-                    {activeTab === 'Study' && <Study selectedYear={selectedYear}/>}
-                    {activeTab === 'Friendship' && <FriendShip selectedYear={selectedYear}/>}
-                    {activeTab === 'MT' && <MT selectedYear={selectedYear}/>}
+                    <select onChange={(e) => setSelectedYear(e.target.value)}
+                        className="year-dropdown-mobile">
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
+                    {activeTab === 'Study' && <Study selectedYear={selectedYear} />}
+                    {activeTab === 'Friendship' && <FriendShip selectedYear={selectedYear} />}
+                    {activeTab === 'MT' && <MT selectedYear={selectedYear} />}
                 </div>
             </div>
         </>

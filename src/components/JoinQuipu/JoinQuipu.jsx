@@ -188,8 +188,8 @@ function NewEntryComponent() {
                 <div className="field major">
                     <b>학과 <span style={{ color: '#448FFF' }}>*</span></b>
                     <div>
-                        <select value={major} onChange={(e) => setMajor(e.target.value)}>
-                            <option value="공과대학" disabled>---공과대학---</option>
+                        <select value={major} onChange={(e) => setMajor(e.target.value)} className="major-dropdown">
+                            <option value="공과대학" disabled>🔎 공과대학</option>
                             <option value="전자전기컴퓨터공학부">전자전기컴퓨터공학부</option>
                             <option value="화학공학과">화학공학과</option>
                             <option value="기계정보공학과">기계정보공학과</option>
@@ -197,28 +197,28 @@ function NewEntryComponent() {
                             <option value="토목공학과">토목공학과</option>
                             <option value="인공지능학과">인공지능학과</option>
                             <option value="컴퓨터과학부">컴퓨터과학부</option>
-                            <option value="정경대학" disabled>---정경대학---</option>
+                            <option value="정경대학" disabled>🔎 정경대학</option>
                             <option value="국제관계학과">국제관계학과</option>
                             <option value="경제학부">경제학부</option>
                             <option value="세무학과">세무학과</option>
                             <option value="사회복지학과">사회복지학과</option>
                             <option value="행정학과">행정학과</option>
-                            <option value="경영대학" disabled>---경영대학---</option>
+                            <option value="경영대학" disabled>🔎 경영대학</option>
                             <option value="경영학부">경영학부</option>
-                            <option value="인문대학" disabled>---인문대학---</option>
+                            <option value="인문대학" disabled>🔎 인문대학</option>
                             <option value="국사학과">국사학과</option>
                             <option value="국어국문학과">국어국문학과</option>
                             <option value="영어영문학과">영어영문학과</option>
                             <option value="중국어문화학과">중국어문화학과</option>
                             <option value="철학과">철학과</option>
-                            <option value="자연과학대학" disabled>---자연과학대학---</option>
+                            <option value="자연과학대학" disabled>🔎 자연과학대학</option>
                             <option value="물리학과">물리학과</option>
                             <option value="생명과학과">생명과학과</option>
                             <option value="수학과">수학과</option>
                             <option value="융합응용화학과">융합응용화학과</option>
                             <option value="통계학과">통계학과</option>
                             <option value="환경원예학과">환경원예학과</option>
-                            <option value="도시과학대학" disabled>---도시과학대학---</option>
+                            <option value="도시과학대학" disabled>🔎 도시과학대학</option>
                             <option value="건축학부(건축공학)">건축학부(건축공학)</option>
                             <option value="건축학부(건축학)">건축학부(건축학)</option>
                             <option value="공간정보공학과">공간정보공학과</option>
@@ -229,12 +229,12 @@ function NewEntryComponent() {
                             <option value="조경학과">조경학과</option>
                             <option value="환경공학부">환경공학부</option>
                             <option value="소방방재학과">소방방재학과</option>
-                            <option value="예술체육대학" disabled>---예술체육대학---</option>
+                            <option value="예술체육대학" disabled>🔎 예술체육대학</option>
                             <option value="디자인학과">디자인학과</option>
                             <option value="스포츠과학과">스포츠과학과</option>
                             <option value="음악학과">음악학과</option>
                             <option value="환경조각학과">환경조각학과</option>
-                            <option value="자유융합대학" disabled>---자유융합대학---</option>
+                            <option value="자유융합대학" disabled>🔎 자유융합대학</option>
                             <option value="융합전공학부">융합전공학부</option>
                             <option value="자유전공학부">자유전공학부</option>
                         </select>
@@ -312,8 +312,8 @@ function ReEntryComponent() {
                 <div className="field major">
                     <b>학과 <span style={{ color: '#448FFF' }}>*</span></b>
                     <div>
-                        <select value={major} onChange={(e) => setMajor(e.target.value)}>
-                            <option value="공과대학" disabled>---공과대학---</option>
+                        <select value={major} onChange={(e) => setMajor(e.target.value)} className="major-dropdown">
+                            <option value="공과대학" disabled>🔎 공과대학</option>
                             <option value="전자전기컴퓨터공학부">전자전기컴퓨터공학부</option>
                             <option value="화학공학과">화학공학과</option>
                             <option value="기계정보공학과">기계정보공학과</option>
@@ -321,28 +321,28 @@ function ReEntryComponent() {
                             <option value="토목공학과">토목공학과</option>
                             <option value="인공지능학과">인공지능학과</option>
                             <option value="컴퓨터과학부">컴퓨터과학부</option>
-                            <option value="정경대학" disabled>---정경대학---</option>
+                            <option value="정경대학" disabled>🔎 정경대학</option>
                             <option value="국제관계학과">국제관계학과</option>
                             <option value="경제학부">경제학부</option>
                             <option value="세무학과">세무학과</option>
                             <option value="사회복지학과">사회복지학과</option>
                             <option value="행정학과">행정학과</option>
-                            <option value="경영대학" disabled>---경영대학---</option>
+                            <option value="경영대학" disabled>🔎 경영대학</option>
                             <option value="경영학부">경영학부</option>
-                            <option value="인문대학" disabled>---인문대학---</option>
+                            <option value="인문대학" disabled>🔎 인문대학</option>
                             <option value="국사학과">국사학과</option>
                             <option value="국어국문학과">국어국문학과</option>
                             <option value="영어영문학과">영어영문학과</option>
                             <option value="중국어문화학과">중국어문화학과</option>
                             <option value="철학과">철학과</option>
-                            <option value="자연과학대학" disabled>---자연과학대학---</option>
+                            <option value="자연과학대학" disabled>🔎 자연과학대학</option>
                             <option value="물리학과">물리학과</option>
                             <option value="생명과학과">생명과학과</option>
                             <option value="수학과">수학과</option>
                             <option value="융합응용화학과">융합응용화학과</option>
                             <option value="통계학과">통계학과</option>
                             <option value="환경원예학과">환경원예학과</option>
-                            <option value="도시과학대학" disabled>---도시과학대학---</option>
+                            <option value="도시과학대학" disabled>🔎 도시과학대학</option>
                             <option value="건축학부(건축공학)">건축학부(건축공학)</option>
                             <option value="건축학부(건축학)">건축학부(건축학)</option>
                             <option value="공간정보공학과">공간정보공학과</option>
@@ -353,12 +353,12 @@ function ReEntryComponent() {
                             <option value="조경학과">조경학과</option>
                             <option value="환경공학부">환경공학부</option>
                             <option value="소방방재학과">소방방재학과</option>
-                            <option value="예술체육대학" disabled>---예술체육대학---</option>
+                            <option value="예술체육대학" disabled>🔎 예술체육대학</option>
                             <option value="디자인학과">디자인학과</option>
                             <option value="스포츠과학과">스포츠과학과</option>
                             <option value="음악학과">음악학과</option>
                             <option value="환경조각학과">환경조각학과</option>
-                            <option value="자유융합대학" disabled>---자유융합대학---</option>
+                            <option value="자유융합대학" disabled>🔎 자유융합대학</option>
                             <option value="융합전공학부">융합전공학부</option>
                             <option value="자유전공학부">자유전공학부</option>
                         </select>

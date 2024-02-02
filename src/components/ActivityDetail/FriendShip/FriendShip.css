@@ -5,18 +5,10 @@
     justify-content: center;
     align-content: start;
     flex-wrap: wrap;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 
     @media (max-width: 900px) {
-        height: calc(100dvh - 60px);
+        height: calc(100dvh - 60px - 54px);
     }
-}
-
-.FriendShip-container::-webkit-scrollbar {
-    /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
-    display: none;
 }
 
 .FriendShip-img {
