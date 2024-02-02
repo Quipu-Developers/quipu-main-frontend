@@ -5,6 +5,10 @@
     overflow: hidden;
 }
 
+.About-container *{
+    font-family: 'JalnanGothic';
+}
+
 .section-container {
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +52,7 @@
 .about-section p {
     color: transparent;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 100;
     margin: 10px;
 }
 
@@ -83,6 +87,6 @@
 .quipu-text p {
     transform-origin: center center;
     font-size: 150px;
-    font-weight: 700;
+    font-weight: 100;
     color: #F2F1EB;
 }
