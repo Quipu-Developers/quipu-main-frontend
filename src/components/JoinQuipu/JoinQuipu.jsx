@@ -41,14 +41,7 @@ function JoinQuipu() {
     };
 
     const copyToClipboard = (text) => {
-        navigator.clipboard.writeText(text).then(
-            () => {
-                alert("복사되었습니다.");
-            },
-            (err) => {
-                alert("복사에 실패했습니다.");
-            }
-        );
+        navigator.clipboard.writeText(text);
     };
 
     return (

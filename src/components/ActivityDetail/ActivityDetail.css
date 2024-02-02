@@ -43,6 +43,47 @@
     text-shadow: 3px 3px 4px grey;
 }
 
+.year-dropdown {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    background-color: #C0CEFF;
+    line-height: 1.5;
+    padding: 1px 5px;
+    margin: 16px;
+    cursor: pointer;
+    border: 1.5px solid white;
+    border-radius: 7px;
+}
+
+.year-dropdown-mobile {
+    display: none;
+
+    text-align: center;
+    width: 80px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    background-color: #C0CEFF;
+    line-height: 1.5;
+    padding: 1px 5px;
+    cursor: pointer;
+    border: 1.5px solid white;
+    border-radius: 7px;
+
+    position: fixed;
+    top: calc(30px - 25px/2);   
+    right: calc(50% - 40px - 16px);
+
+    z-index: 1000;
+
+    @media (max-width: 900px) {
+        display: block;
+    }
+}
+
 .ActivityDetail-content {
     display: flex;
     justify-content: center;

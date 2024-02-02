@@ -1,7 +1,6 @@
 .Study-container {
     width: 80%;
     height: calc(100dvh - 80px);
-    padding: 0 0 150px 0;
     display: flex; 
     justify-content: center;
     align-content: start;
@@ -262,4 +261,10 @@
     font-size: 10px;
     color: #dce3fb;
     margin: 10px;
+}
+
+.blank-studycard {
+    width: 260px;
+    height: 180px;
+    margin: 20px;
 }
