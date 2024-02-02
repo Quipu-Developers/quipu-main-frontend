@@ -1,6 +1,6 @@
 .recommend-site {
     width: 1500px;
-    height: cal(100vh - 80px);
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     z-index: 1;
@@ -12,6 +12,8 @@
 }
 
 .recommend-site__title {
+    height: 40px;
+    margin: 10px;
     font-size: 30px;
     font-weight: 600;
     text-shadow: 5px 5px 5px #9a9a9a;
@@ -27,12 +29,13 @@
 }
 
 .recommend-site__box {
+    height: calc(100vh - 80px - 40px);
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto;
+    height: 90%;
     position: relative;
     overflow-x: scroll;
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
@@ -44,16 +47,18 @@
 }
 
 .recommend-site__box--top {
-    margin: 20px;
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 50%;
     justify-content: space-around;
 }
 
 .recommend-site__box--bottom {
-    margin: 20px;
     display: flex;
     align-items: center;
+    width: 80%;
+    height: 50%;
     justify-content: space-around;
 }
 
@@ -89,7 +94,8 @@
 
 .recommend-site__icon {
     flex: 0 0 auto;
-    margin: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 250px;
     height: 150px;
     background-color: white;
@@ -99,9 +105,26 @@
     border-radius: 0.5em;
     display: flex;
     flex-direction: column;
+    color: #626262;
+}
+
+.recommend-site__icon--textNonHover{
+    display: block;
     font-size: 15px;
     font-weight: 600;
-    color: #626262;
+}
+
+.recommend-site__icon:hover .recommend-site__icon--textNonHover{
+    white-space: pre-wrap;
+}
+
+.recommend-site__icon--textHover{
+    display:none;
+    font-size:12px;
+}
+
+.recommend-site__icon:hover .recommend-site__icon--textHover{
+    display: block;
 }
 
 .recommend-site__icon:hover {
@@ -129,9 +152,16 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: row;
     margin: 10%;
 }
 
+.recommend-site__icon--bodyText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
 @media screen and (max-width: 700px){
     .recommend-site__box--top {
