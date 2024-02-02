@@ -171,13 +171,18 @@ textarea {
     margin: 0;
 }
 
+.account-number {
+    color: yellow;
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
 .divider {
     width: 60%;
     height: 2px;
     background-color: #3B3B3C;
     margin: 30px auto;
 }
-
 
 .member input[type=text]:focus,
 .member input[type=tel]:focus,
@@ -186,7 +191,6 @@ textarea {
 .member textarea:focus {
     border: 1px solid #1c0093;
 }
-
 
 .field.major div {
     display: flex;

@@ -40,6 +40,17 @@ function JoinQuipu() {
         }
     };
 
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text).then(
+            () => {
+                alert("복사되었습니다.");
+            },
+            (err) => {
+                alert("복사에 실패했습니다.");
+            }
+        );
+    };
+
     return (
         <div>
             <div className="blank-navbar-pc"></div>
@@ -85,7 +96,10 @@ function JoinQuipu() {
                                 <p>지원서 작성해주세요!</p>
                                 <p >또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
                                 <p >(신규회원 : <span style={{ fontWeight: 900 }}>20,000</span>원 / 기존회원 : <span style={{ fontWeight: 900 }}>25,000</span>원)</p>
-                                <p>우리은행 <span style={{ color: 'yellow' }}>1002-861-110963</span></p>
+                                <p onClick={() => copyToClipboard('1002-861-110963')}>
+                                    우리은행&nbsp;
+                                    <span className="account-number">1002-861-110963</span>
+                                </p>
                                 <p><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
                             </div>
                         </div>
