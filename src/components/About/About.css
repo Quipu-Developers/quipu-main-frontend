@@ -17,6 +17,10 @@
     position: relative;
     top: -50vh;
     right: 50vw;
+
+    @media (max-width: 500px) {
+        transform: rotate(100deg);
+    }
 }
 
 .about-section {
@@ -52,21 +56,6 @@
     justify-content: start;
     align-items: start;
     background-color: #7e8ec9;
-}
-
-.keyword {
-    color: #0A1D56;
-    font-size: 40px;
-    font-family: 'JalnanGothic';
-    z-index: 100;
-}
-
-.keyword-detail {
-    color: transparent;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.7;
-    margin: 10px;
 }
 
 .about-section:hover {
@@ -120,7 +109,6 @@
 
 .about-section.forth::after {
     content: "";
-
     width: 100%;
     height: 100%;
     position: absolute;
@@ -134,12 +122,6 @@
     opacity: 1;
 }
 
-.about-section:hover p {
-    transition: 1s;
-    color: black;
-    z-index: 2000;
-}
-
 .about-section--content {
     display: flex;
     justify-content: center;
@@ -148,6 +130,27 @@
     width: 40%;
     height: 40%;
     margin: 50px;
+}
+
+.about-section:hover p {
+    transition: 1s;
+    color: black;
+    z-index: 2000;
+}
+
+.keyword {
+    color: #0A1D56;
+    font-size: 40px;
+    font-family: 'JalnanGothic';
+    z-index: 100;
+}
+
+.keyword-detail {
+    color: transparent;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.7;
+    margin: 10px;
 }
 
 .quipu-text {
