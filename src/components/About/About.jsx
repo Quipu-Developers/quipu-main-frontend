@@ -35,11 +35,11 @@ function About() {
                     <div className="quipu-text">
                         <p>QUIPU</p>
                     </div>
-                    <div className="leaders">
+                    {/* <div className="leaders">
                         <p>회장 차준섭</p>
                         <p>부회장 하진혁</p>
                         <p>총무 정민욱</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
