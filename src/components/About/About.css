@@ -132,7 +132,7 @@
     margin: 50px;
 
     @media (max-width: 900px) {
-        margin: 40px;
+        margin: 35px;
     }
 
     @media (max-width: 500px) {
@@ -186,13 +186,13 @@
     text-shadow: 3px 3px 4px grey;
 
     @media (max-width: 900px) {
-        top: calc(50% - 60px);
-        right: calc(50% - 164px);
+        top: calc(50% - 59px);
+        right: calc(50% - 188px);
     }
 
     @media (max-width: 500px) {
-        top: calc(50% - 42px);
-        right: calc(50% - 115px);
+        top: calc(50% - 45px);
+        right: calc(50% - 139px);
     }
 }
 
@@ -204,11 +204,11 @@
     color: #F2F1EB;
 
     @media (max-width: 900px) {
-        font-size: 100px;
+        font-size: 115px;
     }
 
     @media (max-width: 500px) {
-        font-size: 70px;
+        font-size: 85px;
     }
 }
 
@@ -219,6 +219,16 @@
     right: 30%;
     word-break: keep-all;
     z-index: 50;
+
+    @media (max-width: 900px) {
+        bottom: 30%;
+        right: 30%;
+    }
+
+    @media (max-width: 500px) {
+        bottom: 40%;
+        right: 30%;
+    }
 }
 
 .leaders p {
@@ -227,4 +237,12 @@
     font-size: 22px;
     font-weight: 100;
     color: #F2F1EB;
+
+    @media (max-width: 900px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 500px) {
+        font-size: 10px;
+    }
 }
