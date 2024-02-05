@@ -58,8 +58,8 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
           <ul>
-            <li onClick={closeMenu} style={{ marginTop: '80px' }}><NavLink to="/home">home</NavLink></li>
-            <li onClick={closeMenu}><NavLink to="/about">about</NavLink></li>
+            <li style={{ marginTop: '80px' }}><NavLink to="/home" onClick={closeMenu}>home</NavLink></li>
+            <li><NavLink to="/about" onClick={closeMenu}>about</NavLink></li>
             <li>
               <div className="activity-menu">
                 <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
@@ -70,13 +70,13 @@ function App() {
                 </label>
               </div>
               <div className={`activity-detail-menu ${isActivityDetailVisible ? 'visible' : ''}`}>
-                <li onClick={closeMenu}><NavLink to="/activity-detail#Study">&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
-                <li onClick={closeMenu}><NavLink to="/activity-detail#Friendship">&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
-                <li onClick={closeMenu}><NavLink to="/activity-detail#MT">&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+                <li><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+                <li><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+                <li><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
               </div>
             </li>
-            <li><NavLink to="/recommend-site">recommend site</NavLink></li>
-            <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+            <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
+            <li><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
           </ul>
         </div>
 
