@@ -284,9 +284,9 @@ textarea {
 /* FAQ 항목이 확장됐을 때의 스타일 */
 .question.expanded .expanded-content {
     display: block;
-    font-size: 10px;
+    font-size: 11px;
     margin-top: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* 추가된 스타일 */
@@ -305,7 +305,10 @@ textarea {
     }
 
     .question-title {
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 13.5px;
+        font-weight: 700;
+    }
+    .expanded-content {
+        font-weight: 400;
     }
 }
