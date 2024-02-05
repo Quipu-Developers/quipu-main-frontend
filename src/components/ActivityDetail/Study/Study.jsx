@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
 import './Study.css';
 
-const CodingTest2024 = {
+const 퀴푸포럼웹개발 = {
+    year: '2024',
+    title: '퀴푸 포럼 웹 개발',
+    period: '2024.03 - 2024.08',
+    shortDescription: '(모집 예정)',
+    goal: "c++ 기본 문법을 접해보는 것을 목표로 하였습니다.",
+    details: ["매주 스터디룸에서 수업을 듣고 실습을 하였습니다.",
+        "매주 스터디룸에서 수업을 듣고 실습을 하였습니다.",
+        "매주 스터디룸에서 수업을 듣고 실습을 하였습니다."],
+    leaders: ['이예나', '이제민'],
+    members: ['김은지', '차준섭', '표성은', '모집 예정'],
+    allMembers: ['이제민', '김은지', '차준섭', '표성은', '모집 예정'],
+    mainimage: "/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",
+    allImgs: ["/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",],
+};
+
+const 코딩테스트2024 = {
     year: '2024',
     title: '코딩테스트 스터디',
     period: '2024.01 - 진행 중',
@@ -13,13 +29,13 @@ const CodingTest2024 = {
     leaders: ['이예나'],
     members: ['강형준', '김명준', '김예영', '외 3명'],
     allMembers: ['강형준', '김명준', '김예영', '이제민', '최영채', '표성은'],
-    image: "/ActivityDetail-img/2024/Study/코딩테스트스터디1.png",
+    mainimage: "/ActivityDetail-img/2024/Study/코딩테스트스터디1.png",
     allImgs: ["/ActivityDetail-img/2024/Study/코딩테스트스터디2.jpg",],
 };
 
-const QuipuDev = {
+const 퀴푸메인웹개발 = {
     year: '2023',
-    title: '퀴푸 웹 개발',
+    title: '퀴푸 메인 웹 개발',
     period: '2023.10 - 2024.02',
     shortDescription: '퀴푸 홍보용 웹페이지 개발',
     goal: "c++ 기본 문법을 접해보는 것을 목표로 하였습니다.",
@@ -29,13 +45,13 @@ const QuipuDev = {
     leaders: ['이예나'],
     members: ['김고은', '황민영', '박시현', '외 6명'],
     allMembers: ['김고은', '황민영', '박시현', '차준섭', '김은지', '이제민', '표성은', '박수연', '강형준'],
-    image: "/ActivityDetail-img/2023/Study/퀴푸웹개발1.png",
-    allImgs: ["/ActivityDetail-img/2023/Study/퀴푸웹개발2.jpg",
-        "/ActivityDetail-img/2023/Study/퀴푸웹개발3.jpg",
-        "/ActivityDetail-img/2023/Study/퀴푸웹개발4.jpg",],
+    mainimage: "/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png",
+    allImgs: ["/ActivityDetail-img/2023/Study/퀴푸메인웹개발2.jpg",
+        "/ActivityDetail-img/2023/Study/퀴푸메인웹개발3.jpg",
+        "/ActivityDetail-img/2023/Study/퀴푸메인웹개발4.jpg",],
 };
 
-const C = {
+const C스터디 = {
     year: '2023',
     title: 'C언어 스터디',
     period: '2023.10 - 2023.11',
@@ -47,11 +63,11 @@ const C = {
     leaders: ['서강훈'],
     members: ['이예나', '이정훈', '조영서', '외 2명'],
     allMembers: ['이예나', '이정훈', '조영서', '차원재', '최다영'],
-    image: "/ActivityDetail-img/2023/Study/C스터디1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/C스터디1.png",
     allImgs: ["/ActivityDetail-img/2023/Study/C스터디2.png"],
 };
 
-const 전자장및전기회로 = {
+const 전자장및전기회로강연 = {
     year: '2023',
     title: '전자장 및 전기회로 강연',
     period: '2023.09 - 2023.12',
@@ -63,11 +79,11 @@ const 전자장및전기회로 = {
     leaders: ['오병규'],
     members: ['전체'],
     allMembers: ['전체'],
-    image: "/ActivityDetail-img/2023/Study/전자장및전기회로1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/전자장및전기회로1.png",
     allImgs: ["/ActivityDetail-img/2023/Study/전자장및전기회로2.png"],
 };
 
-const Competition = {
+const IT공모전 = {
     year: '2023',
     title: 'IT 공모전',
     period: '2023.08 - 2023.11',
@@ -79,11 +95,11 @@ const Competition = {
     leaders: ['김형민'],
     members: ['신교윤', '안태성', '정하연'],
     allMembers: ['신교윤', '안태성', '정하연'],
-    image: "/ActivityDetail-img/2023/Study/공모전1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/공모전1.png",
     allImgs: ["/ActivityDetail-img/2023/Study/공모전2.png"],
 };
 
-const CodingTest2023 = {
+const 코딩테스트2023 = {
     year: '2023',
     title: '코딩테스트 스터디',
     period: '2023.06 - 2023.08',
@@ -95,11 +111,11 @@ const CodingTest2023 = {
     leaders: ['모용'],
     members: ['이동현', '이예나', '하진혁'],
     allMembers: ['이동현', '이예나', '하진혁'],
-    image: "/ActivityDetail-img/2023/Study/코딩테스트스터디1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/코딩테스트스터디1.png",
     allImgs: ["/ActivityDetail-img/2023/Study/코딩테스트스터디2.png"],
 };
 
-const Python2 = {
+const Python강연 = {
     year: '2023',
     title: 'Python 강연',
     period: '2023.03 - 2023.06',
@@ -111,11 +127,11 @@ const Python2 = {
     leaders: ['정욱재'],
     members: ['전체'],
     allMembers: ['전체'],
-    image: "/ActivityDetail-img/2023/Study/Python강연1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/Python강연1.png",
     allImgs: ["/ActivityDetail-img/2023/Study/Python강연2.png"],
 };
 
-const Python1 = {
+const Python기초스터디 = {
     year: '2023',
     title: 'Python 기초 스터디',
     period: '2023.02 - 2023.06',
@@ -127,13 +143,13 @@ const Python1 = {
     leaders: ['이예나'],
     members: ['김형민', '남민우', '남현우', '외 8명'],
     allMembers: ['김형민', '남민우', '남현우', '최영채', '전한솔', '최다영', '표성은', '하진혁'],
-    image: "/ActivityDetail-img/2023/Study/Python기초스터디1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/Python기초스터디1.png",
     allImgs: [
         "/ActivityDetail-img/2023/Study/Python기초스터디2.png",
         "/ActivityDetail-img/2023/Study/Python기초스터디3.png",],
 };
 
-const Cpp = {
+const Cpp강연 = {
     year: '2023',
     title: 'C++ 강연',
     period: '2022.12 - 2023.02',
@@ -145,13 +161,13 @@ const Cpp = {
     leaders: ['최준하'],
     members: ['김시은', '김형민', '서진주', '외 8명'],
     allMembers: ['김시은', '김형민', '서진주', '이예나', '이학재', '이해리', '조승호', '차준섭', '최영채', '표성은', '하진혁'],
-    image: "/ActivityDetail-img/2023/Study/Cpp스터디1.png",
+    mainimage: "/ActivityDetail-img/2023/Study/Cpp스터디1.png",
     allImgs: ["/ActivityDetail-img/2023/Study/Cpp스터디2.png",],
 };
 
 function Study({ selectedYear }) {
 
-    const studies = [CodingTest2024, QuipuDev, C, 전자장및전기회로, Competition, CodingTest2023, Python2, Python1, Cpp ];
+    const studies = [퀴푸포럼웹개발, 코딩테스트2024, 퀴푸메인웹개발, C스터디, 전자장및전기회로강연, IT공모전, 코딩테스트2023, Python강연, Python기초스터디, Cpp강연 ];
 
     const filteredStudies = studies.filter(study => study.year === selectedYear);
     
@@ -171,13 +187,13 @@ function Study({ selectedYear }) {
     )
 }
 
-function StudyCard({ title, period, shortDescription, goal, details, leaders, members, allMembers, image, allImgs }) {
+function StudyCard({ title, period, shortDescription, goal, details, leaders, members, allMembers, mainimage, allImgs }) {
     const [isModalOpen, setModalOpen] = useState(false);
 
     return (
         <div className="studycard">
             <div className="studycard__top">
-                <img className="studycard__img" src={image} />
+                <img className="studycard__img" src={mainimage} />
                 <div className="studycard__content">
                     <h3>{title}</h3>
                     <p>{shortDescription}</p>
@@ -203,7 +219,7 @@ function StudyCard({ title, period, shortDescription, goal, details, leaders, me
 
             <StudyModal
                 isOpen={isModalOpen} onClose={() => setModalOpen(false)}
-                title={title} period={period} goal={goal} details={details} leaders={leaders} allMembers={allMembers} image={image} allImgs={allImgs}
+                title={title} period={period} goal={goal} details={details} leaders={leaders} allMembers={allMembers} mainimage={mainimage} allImgs={allImgs}
             >
                 <button onClick={() => setModalOpen(false)}>Close</button>
             </StudyModal>
@@ -219,7 +235,7 @@ function Member({ name, backgroundColor, color }) {
     )
 }
 
-function StudyModal({ isOpen, onClose, title, period, goal, details, leaders, allMembers, image, allImgs }) {
+function StudyModal({ isOpen, onClose, title, period, goal, details, leaders, allMembers, mainimage, allImgs }) {
 
     if (!isOpen) return null;
 
@@ -234,7 +250,7 @@ function StudyModal({ isOpen, onClose, title, period, goal, details, leaders, al
                 <div className="study__modal--content">
                     <div className="study__modal--content-top">
                         <div className="studycard__top" style={{ height: '70%', justifyContent: "start" }}>
-                            <img className="studycard__img" src={image} style={{ width: 'auto', marginRight: "20px" }} />
+                            <img className="studycard__img" src={mainimage} style={{ width: 'auto', marginRight: "20px" }} />
                             <div className="studycard__content" style={{ width: 'auto' }}>
                                 <h3>{title}</h3>
                                 <p>기간: {period}</p>

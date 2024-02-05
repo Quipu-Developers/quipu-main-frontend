@@ -4,14 +4,14 @@
     display: flex; 
     justify-content: center;
     align-content: start;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
 
     @media (max-width: 900px) {
         height: calc(100dvh - 60px - 54px);
     }
 }
-
-
 
 .studycard {
     width: 260px;
@@ -23,6 +23,7 @@
     position: relative;
     box-shadow: 3px 3px 4px grey;
     z-index: auto;
+    scroll-snap-align: center;
 }
 
 .studycard:hover {

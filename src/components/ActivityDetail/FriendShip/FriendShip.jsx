@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './FriendShip.css';
 
 const friendshipImages = [
+    { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목2.jpg"},
     { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목1.jpg"},
     { year: '2023', src: "/ActivityDetail-img/2023/FriendShip/친목15.jpg"},
     { year: '2023', src: "/ActivityDetail-img/2023/FriendShip/친목14.jpg"},
