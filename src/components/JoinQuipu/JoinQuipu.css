@@ -286,6 +286,15 @@ textarea {
     display: none;
 }
 
+.more-detail {
+    width: 85%;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 7.5%;
+    font-size: 12px;
+}
+
+
 .footer {
     display: flex;
     justify-content: center;
@@ -298,10 +307,11 @@ textarea {
 }
 
 .footer-content {
-    color : #9AA5CA;
     text-align: center;
     font-size: 15px;
+    color : #9AA5CA;
 }
+
 
 .footer-content a{
     color: inherit;
@@ -328,5 +338,8 @@ textarea {
     }
     .expanded-content {
         font-weight: 400;
+    }
+    .more-detail {
+        font-size : 9px;
     }
 }

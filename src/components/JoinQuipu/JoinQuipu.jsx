@@ -136,6 +136,8 @@ function JoinQuipu() {
                             answer="학생회관 3층 342호 입니다!"
                             emoji="🥸"
                         />
+                        <p class="more-detail">*추가 문의사항은 아래 "퀴푸문의사항" 혹은 @uos_qupiu로 문의 바랍니다 :)</p>
+
                     </div>
                 </div>
 
