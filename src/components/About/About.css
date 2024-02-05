@@ -19,7 +19,7 @@
     height: 200vh;
 
     @media (max-width: 500px) {
-        transform: rotate(100deg);
+        /* transform: rotate(100deg); */
     }
 }
 
@@ -136,7 +136,7 @@
     }
 
     @media (max-width: 500px) {
-        width: 80%;
+        /* width: 80%; */
         margin: 30px;
     }
 }
@@ -152,6 +152,7 @@
     color: #0A1D56;
     font-family: 'JalnanGothic';
     font-size: 40px;
+    font-weight: 100;
 
     @media (max-width: 900px) {
         font-size: 30px;

@@ -16,7 +16,7 @@
 
 .home-container__message--sentence1-pc {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 700;
 
   @media (max-width: 700px) {
     font-size: 0px;
@@ -24,22 +24,21 @@
 }
 
 .home-container__message--sentence1-mobile {
+  margin-bottom: 5px;
   font-size: 0px;
+  font-weight: 700;
 
   @media (max-width: 700px) {
-    margin-bottom: 5px;
     font-size: 25px;
-    font-weight: 700;
   }
 }
 
 .home-container__message--sentence2 {
   font-size: 60px;
-  font-weight: 600;
+  font-weight: 700;
 
   @media (max-width: 700px) {
     margin-top: 5px;
     font-size: 40px;
-    font-weight: 700;
   }
 }

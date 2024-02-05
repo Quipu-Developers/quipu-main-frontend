@@ -10,9 +10,7 @@ html {
 body {
   margin: 0px;
   background: #C0CEFF;
-  font-family: 'JalnanGothic';
   font-family: 'LINESeedKR';
-
 }
 
 div,
@@ -49,19 +47,24 @@ p {
 
 @font-face {
   font-family: 'LINESeedKR';
-  src: url('./fonts/LINESeedKR-Bd.woff2') format('woff2');
+  src: url('./fonts/LINESeedKR-Bd.woff2') format('woff2'),
+       url('./fonts/LINESeedKR-Bd.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'LINESeedKR';
-  src: url('./fonts/LINESeedKR-Rg.woff2') format('woff2');
+  src: url('./fonts/LINESeedKR-Rg.woff2') format('woff2'),
+       url('./fonts/LINESeedKR-Rg.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'LINESeedKR';
-  src: url('./fonts/LINESeedKR-Th.woff2') format('woff2');
+  src: url('./fonts/LINESeedKR-Th.woff2') format('woff2'),
+       url('./fonts/LINESeedKR-Th.woff') format('woff');
   font-weight: 100;
   font-style: normal;
 }
