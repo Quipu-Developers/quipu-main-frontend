@@ -286,13 +286,40 @@ textarea {
     display: none;
 }
 
+.more-detail {
+    width: 85%;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 7.5%;
+    font-size: 12px;
+}
+
+
 .footer {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: auto;
-    margin-top: 15%;
     border-top: 1.5px solid #9AA5CA;
-    padding:10%;
+    padding:5%;
+    margin-top: 20%;
+}
+
+.footer-content {
+    text-align: center;
+    font-size: 15px;
+    color : #9AA5CA;
+}
+
+
+.footer-content a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-content a:hover{
+    font-weight: bold;
 }
 
 @media (max-width:500px) {
@@ -311,5 +338,8 @@ textarea {
     }
     .expanded-content {
         font-weight: 400;
+    }
+    .more-detail {
+        font-size : 9px;
     }
 }
