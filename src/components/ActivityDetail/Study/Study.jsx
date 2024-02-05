@@ -181,7 +181,6 @@ function Study({ selectedYear }) {
                 {/*카드들을 왼쪽부터 정렬한 듯 보이도록 빈 카드 추가*/}
                 <div className="blank-studycard"></div>
                 <div className="blank-studycard"></div>
-                <p className="copyright">icon designed by Flaticon(Freepik)</p>
             </div>
         </>
     )

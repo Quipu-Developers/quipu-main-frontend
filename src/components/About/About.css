@@ -38,6 +38,7 @@
     justify-content: end;
     align-items: end;
     background-color: #C0CEFF;
+    opacity: 0.8;
 }
 
 .about-section.first .about-section--content {
@@ -49,6 +50,7 @@
     justify-content: end;
     align-items: start;
     background-color: #a9bbfe;
+    opacity: 0.8;
 }
 
 .about-section.second .about-section--content {
@@ -60,6 +62,7 @@
     justify-content: start;
     align-items: end;
     background-color: #9ca7d1;
+    opacity: 0.8;
 }
 
 .about-section.third .about-section--content {
@@ -71,6 +74,7 @@
     justify-content: start;
     align-items: start;
     background-color: #7e8ec9;
+    opacity: 0.8;
 }
 
 .about-section.forth .about-section--content {
@@ -79,7 +83,8 @@
 }
 
 .about-section:hover {
-    z-index: 1000;
+    z-index: 2000;
+    border-radius: 5px;
 }
 
 .about-section.first::after {
@@ -171,11 +176,12 @@
 }
 
 .keyword {
-    z-index: 100;
+    z-index: 200;
     color: #0A1D56;
     font-family: 'JalnanGothic';
     font-size: 40px;
     font-weight: 100;
+    text-shadow: 3px 2px 1px #fff0a5;
 
     @media (max-width: 900px) {
         font-size: 30px;
@@ -217,10 +223,10 @@
 
 .quipu-text {
     position: absolute;
-    z-index: 50;
+    z-index: 100;
     top: calc(50% - 80px);
     right: calc(50% - 250px);
-    text-shadow: 3px 3px 4px grey;
+    text-shadow: 3px 3px 3px grey;
 
     @media (max-width: 900px) {
         top: calc(50% - 59px);
@@ -268,9 +274,9 @@
 }
 
 .leaders p {
-    color: #F2F1EB;
+    color: #314355;
     font-family: 'JalnanGothic';
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 100;
     line-height: 1.5;
 

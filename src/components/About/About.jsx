@@ -9,7 +9,7 @@ function About() {
                 <div className="section-container">
                     <div className="about-section first">
                         <div className="about-section--content">
-                            <p className="keyword-detail">아이디어를 마음껏 드러내고 실천에 옮깁니다</p>
+                            <p className="keyword-detail">아이디어를 실행에 옮깁니다</p>
                             <p className="keyword">Practice</p>
                         </div>
                     </div>
