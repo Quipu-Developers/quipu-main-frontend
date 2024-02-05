@@ -1,9 +1,9 @@
 .recommend-site {
-    width: 1500px;
-    height: calc(100dvh - 80px);
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    width: 1500px;
+    height: calc(100dvh - 80px);
 
     @media screen and (max-width: 700px){
         width:100%;
@@ -12,100 +12,95 @@
 }
 
 .recommend-site__title {
+    margin-left: 5%;
+    color: white;
+    text-shadow: 5px 5px 5px #9a9a9a;
     font-size: 30px;
     font-weight: 600;
-    text-shadow: 5px 5px 5px #9a9a9a;
-    color: white;
-    margin-left: 5%;
     
     @media screen and (max-width: 700px){
         display: flex;
-        align-items: center;
         justify-content: flex-end;
+        align-items: center;
         margin-right: 5%;
     }
 }
 
 .recommend-site__box {
-    height: calc(100vh - 80px - 40px);
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    width: 100%;
-    height: auto;
-
-    position: relative;
     overflow-x: scroll;
-    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
-    scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
+    -ms-overflow-style: none;
+    width: 100%;
+    height: calc(100vh - 80px - 40px);
+    scrollbar-width: none;
 }
 
-.recommend-site__box::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
+.recommend-site__box::-webkit-scrollbar {
     display: none;
 }
 
 .recommend-site__box--top {
-    margin: 20px;
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
+    margin: 20px;
 }
 
 .recommend-site__box--bottom {
-    margin: 20px;
     display: flex;
-    align-items: center;
-
     justify-content: space-around;
+    align-items: center;
+    margin: 20px;
 }
 
 .recommend-site__box--behind {
+    position: relative;
     display: none;
+    overflow-y: scroll;
+    -ms-overflow-style: none; 
     width: 100%;
     height: auto;
-    position: relative;
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
-    scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
+    scrollbar-width: none;
 }
 
-.recommend-site__box--behind::-webkit-scrollbar { /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
+.recommend-site__box--behind::-webkit-scrollbar {
     display: none;
 }
 
 .recommend-site__box--topBehind{
+    z-index: 0;
     display: none;
     flex-wrap: row wrap;
     justify-content: space-around;
-    z-index: 0;
     padding-left: 10%;
 }
 
 .recommend-site__box--bottomBehind{
+    z-index: 1;
     display: none;
     flex-wrap: row wrap;
     justify-content: space-around;
-    z-index: 1;
     padding-right: 10%;
 }
 
 .recommend-site__icon {
-    flex: 0 0 auto;
-    margin: 50px;
-
-    width: 250px;
-    height: 150px;
-    background-color: white;
-    border-radius: 0.5em;
-    border: 1px solid #cacaca;
-    box-shadow: 1px 1px 5px 1px #B7B7B7;
-    border-radius: 0.5em;
     display: flex;
     flex-direction: column;
+    flex: 0 0 auto;
+    width: 250px;
+    height: 150px;
+    margin: 50px;
+    color: #626262;
+    border: 1px solid #cacaca;
+    border-radius: 0.5em;
+    background-color: white;
+    box-shadow: 1px 1px 5px 1px #B7B7B7;
     font-size: 15px;
     font-weight: 600;
-    color: #626262;
 }
 
 .recommend-site__icon:hover {
@@ -114,13 +109,13 @@
 }
 
 .recommend-site__icon--top1{
-    width: 100%;
-    height: 20px;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
-    background-color: #F8F8F8;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 20px;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    background-color: #F8F8F8;
 }
 
 .recommend-site__icon--top2{
@@ -131,30 +126,13 @@
 
 .recommend-site__icon--body{
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
     margin: 10%;
 }
 
-
 @media screen and (max-width: 700px){
-    .recommend-site__box--top {
+    .recommend-site__box--top, .recommend-site__box--bottom, .recommend-site__box--topBehind, .recommend-site__box--bottomBehind, .recommend-site__box, .recommend-site__box--behind{
         display: none;
-    }
-    .recommend-site__box--bottom{
-        display: none;
-    }
-    .recommend-site__box--topBehind{
-        display: block;
-    }
-    .recommend-site__box--bottomBehind{
-        display: block;
-    }
-
-    .recommend-site__box {
-        display: none;
-    }
-    .recommend-site__box--behind {
-        display: block;
     }
 }

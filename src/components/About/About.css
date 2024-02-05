@@ -1,22 +1,22 @@
 .About-container {
     position: relative;
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
 
 .section-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 200vw;
-    height: 200vh;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-10deg);
-    transform-origin: center center;
     position: relative;
     top: -50vh;
     right: 50vw;
+    transform: rotate(-10deg);
+    transform-origin: center center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 200vw;
+    height: 200vh;
 
     @media (max-width: 500px) {
         transform: rotate(100deg);
@@ -24,14 +24,14 @@
 }
 
 .about-section {
-    width: 50%;
-    height: 50%;
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
+    width: 50%;
+    height: 50%;
     word-break: keep-all;
-    z-index: 10;
     cursor: pointer;
-    position: relative;
 }
 
 .about-section.first {
@@ -64,11 +64,11 @@
 
 .about-section.first::after {
     content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-image: url(./About-img.png);
     background-size: cover;
+    background-image: url(./About-img.png);
     opacity: 0;
     transition: opacity 1s;
 }
@@ -79,11 +79,11 @@
 
 .about-section.second::after {
     content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-image: url(./About-img.png);
     background-size: cover;
+    background-image: url(./About-img.png);
     opacity: 0;
     transition: opacity 1s;
 }
@@ -94,11 +94,11 @@
 
 .about-section.third::after {
     content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-image: url(./About-img.png);
     background-size: cover;
+    background-image: url(./About-img.png);
     opacity: 0;
     transition: opacity 1s;
 }
@@ -109,11 +109,11 @@
 
 .about-section.forth::after {
     content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-image: url(./About-img.png);
     background-size: cover;
+    background-image: url(./About-img.png);
     opacity: 0;
     transition: opacity 1s;
 }
@@ -124,9 +124,9 @@
 
 .about-section--content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: start;
-    flex-direction: column;
     width: 40%;
     height: 40%;
     margin: 50px;
@@ -136,22 +136,22 @@
     }
 
     @media (max-width: 500px) {
-        margin: 30px;
         width: 80%;
+        margin: 30px;
     }
 }
 
 .about-section:hover p {
-    transition: 1s;
-    color: black;
     z-index: 2000;
+    color: black;
+    transition: 1s;
 }
 
 .keyword {
-    color: #0A1D56;
-    font-size: 40px;
-    font-family: 'JalnanGothic';
     z-index: 100;
+    color: #0A1D56;
+    font-family: 'JalnanGothic';
+    font-size: 40px;
 
     @media (max-width: 900px) {
         font-size: 30px;
@@ -163,11 +163,11 @@
 }
 
 .keyword-detail {
+    margin: 10px;
     color: transparent;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.7;
-    margin: 10px;
 
     @media (max-width: 900px) {
         font-size: 13px;
@@ -180,9 +180,9 @@
 
 .quipu-text {
     position: absolute;
+    z-index: 50;
     top: calc(50% - 80px);
     right: calc(50% - 250px);
-    z-index: 50;
     text-shadow: 3px 3px 4px grey;
 
     @media (max-width: 900px) {
@@ -197,11 +197,11 @@
 }
 
 .quipu-text p {
-    font-family: 'JalnanGothic';
     transform-origin: center center;
+    color: #F2F1EB;
+    font-family: 'JalnanGothic';
     font-size: 150px;
     font-weight: 100;
-    color: #F2F1EB;
 
     @media (max-width: 900px) {
         font-size: 115px;
@@ -214,29 +214,29 @@
 
 .leaders {
     position: absolute;
-    width: 10%;
-    bottom: 30%;
-    right: 30%;
-    word-break: keep-all;
     z-index: 50;
+    right: 30%;
+    bottom: 30%;
+    width: 10%;
+    word-break: keep-all;
 
     @media (max-width: 900px) {
-        bottom: 30%;
         right: 30%;
+        bottom: 30%;
     }
 
     @media (max-width: 500px) {
-        bottom: 40%;
         right: 30%;
+        bottom: 40%;
     }
 }
 
 .leaders p {
-    line-height: 1.5;
+    color: #F2F1EB;
     font-family: 'JalnanGothic';
     font-size: 22px;
     font-weight: 100;
-    color: #F2F1EB;
+    line-height: 1.5;
 
     @media (max-width: 900px) {
         font-size: 15px;
