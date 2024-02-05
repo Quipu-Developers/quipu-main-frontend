@@ -1,11 +1,10 @@
 .Study-container {
-    width: 80%;
-    height: calc(100dvh - 80px);
     display: flex; 
+    flex-wrap: wrap;
     justify-content: center;
     align-content: start;
-    flex-wrap: wrap;
-    scroll-snap-type: y mandatory;
+    width: 80%;
+    height: calc(100dvh - 80px);
     -webkit-overflow-scrolling: touch;
 
     @media (max-width: 900px) {
@@ -14,21 +13,20 @@
 }
 
 .studycard {
+    position: relative;
+    z-index: auto;
     width: 260px;
     height: 180px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 10px;
     margin: 20px;
-    position: relative;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
     box-shadow: 3px 3px 4px grey;
-    z-index: auto;
-    scroll-snap-align: center;
 }
 
 .studycard:hover {
-    bottom: 3px;
     right: 3px;
+    bottom: 3px;
 }
 
 .studycard__top {
@@ -46,10 +44,10 @@
 }   
 
 .studycard__content {
-    width: 70%;
     overflow-x: auto;
-    scrollbar-width: none;
     -ms-overflow-style: none;
+    width: 70%;
+    scrollbar-width: none;
     white-space: nowrap;
 }
 
@@ -58,28 +56,28 @@
 }
 
 .studycard__content h3 {
-    text-align: center;
     margin: 10px;
     font-size: 20px;
     font-weight: 700;
+    text-align: center;
 }
 
 .studycard__content p {
+    color: grey;
     font-size: 12px;
     font-weight: 700;
-    color: grey;
-    text-align: center;
     word-break: keep-all;
+    text-align: center;
 }
 
 .studycard__member--container {
     display: flex;
     align-items: center;
+    overflow-x: auto;
+    -ms-overflow-style: none;
     width: 100%;
     height: 20%;
-    overflow-x: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none;
     white-space: nowrap;
 }
 
@@ -88,13 +86,13 @@
 }
 
 .studycard__member {
-    padding: 5px;
-    height: 70%;
-    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70%;
     margin: 0 2px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .studycard__member p {
@@ -103,46 +101,46 @@
 }
 
 .moreinfo-button {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
     width: 60%;
     height: 13%;
-    font-size: 10px;
-    font-weight: 550;
     color: #1C0093;
     border: 2px solid #1C0093;
     border-radius: 20px;
     background-color: #DFE7FF;
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
+    font-size: 10px;
+    font-weight: 550;
     cursor: pointer;
 }
 
 .moreinfo-button:hover {
-    background-color: #1C0093;
     color: #DFE7FF;
+    background-color: #1C0093;
 }
 
 .study__modal--container {
     position: fixed;
+    z-index: 1000;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
 }
 
 .study__modal {
     position: relative;
+    z-index: auto;
     width: 55%;
     height: 85%;
     border-radius: 7px;
     background-color: #D8D8D8;
     box-shadow: 3px 3px 4px black;
-    z-index: auto;
 
     @media (max-width:600px) {
         width: 80%;
@@ -157,17 +155,17 @@
     align-items: center;
     width: 100%;
     height: 8%;
-    background-color: #D8D8D8;
-    border-radius: 7px 7px 0 0;
     padding: 5px;
+    border-radius: 7px 7px 0 0;
+    background-color: #D8D8D8;
 }
 
 .study__modal--bar p {
-    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 5px;
+    font-size: 15px;
 }
 
 /* 모달창에서 바 제외한 부분 */
@@ -175,14 +173,14 @@
     position: absolute;
     bottom: 0px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     width: 100%;
     height: calc(100% - 8%);
-    background-color: #F8F8F8;
     color: black;
     border-radius: 7px;
+    background-color: #F8F8F8;
 }
 
 .study__modal--content-top {
@@ -191,12 +189,12 @@
 }
 
 .study__modal--content-bottom {
+    overflow-y: auto;
+    -ms-overflow-style: none;
     width: 90%;
     height: 70%;
     border-top: 1px solid black;
-    overflow-y: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none;
 }
 
 .study__modal--content-bottom::-webkit-scrollbar {
@@ -208,10 +206,10 @@
     justify-content: start;
     align-items: center;
     height: 10%;
-    text-align: start;
     padding: 4px;
     font-size: 16px;
     font-weight: 700;
+    text-align: start;
 }
 
 .h90 {
@@ -219,13 +217,13 @@
 }
 
 .study__modal--img-container {
-    height: 70%;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
     overflow-x: auto;
-    scrollbar-width: none;
     -ms-overflow-style: none;
+    height: 70%;
+    margin-bottom: 20px;
+    scrollbar-width: none;
     white-space: nowrap;
 }
 
@@ -239,24 +237,24 @@
 }
 
 .study__modal--content-container li {
-    list-style: none;
+    margin: 10px 0;
     color: #666666;
     font-size: 20px;
     font-weight: 700;
-    margin: 10px 0;
+    list-style: none;
 }
 
 .study__modal--content-container p {
+    margin: 2px;
     font-size: 17px;
     font-weight: 400;
-    margin: 2px;
 }
 
 .copyright {
-    text-align: start;
-    font-size: 10px;
-    color: #dce3fb;
     margin: 10px;
+    color: #dce3fb;
+    font-size: 10px;
+    text-align: start;
 }
 
 .blank-studycard {

@@ -1,14 +1,14 @@
 .JoinQuipu-container {
+    overflow-y: auto;
+    -ms-overflow-style: none;
     width: 100%;
     height: calc(100dvh - 80px);
-    overflow-y: auto;
     scrollbar-width: none;
-    -ms-overflow-style: none;
-    font-size: 14px;
-    line-height: 1.5em;
-    color: black;
     margin: 0;
     padding-bottom: 20%;
+    color: black;
+    font-size: 14px;
+    line-height: 1.5em;
 
     @media (max-width: 900px) {
         height: calc(100dvh - 60px);
@@ -21,28 +21,28 @@
 
 .JoinQuipu-container * {
     box-sizing: border-box;
-    outline: none;
     font-family: 'LINESeedKR';
+    outline: none;
 }
 
 h1 {
-    text-align: center;
-    font-size: 35px;
     color: #1c0093;
+    font-size: 35px;
+    text-align: center;
 }
 
 h2 {
-    text-align: center;
-    font-size: 25px;
     color: #1c0093;
+    font-size: 25px;
+    text-align: center;
 }
 
 .member {
+    overflow-y: auto;
     width: 600px;
     margin: auto;
-    padding: 0 20px;
     margin-bottom: 20px;
-    overflow-y: auto;
+    padding: 0 20px;
 }
 
 .member .field {
@@ -57,24 +57,24 @@ h2 {
 .member input:not(input[type=radio]),
 .member select,
 .member textarea {
-    border: 1px solid #dadada;
-    padding: 13px;
     width: 100%;
     margin-bottom: 5px;
+    padding: 13px;
+    border: 1px solid #dadada;
     border-radius: 0.5em;
     background-color: rgba(255, 255, 255);
     box-shadow: 1px 1px 5px 1px #B7B7B7;
 }
 
 .member input[type=submit] {
+    color: #fff;
     background-color: #3c3c8c;
-    color: #fff
 }
 
 textarea {
-    resize: none;
     overflow: hidden;
     line-height: 1.5;
+    resize: none;
 }
 
 /* 전공 드롭다운 디자인 */
@@ -88,17 +88,17 @@ textarea {
 }
 
 .major-dropdown option {
-    font-size: 12px;
     color: black;
     background-color: #eeeded;
+    font-size: 12px;
 }
 
 /*가입 버튼*/
 .field-type {
     display: flex;
-    gap: 15px;
     justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
 .field-type input[type=radio] {
@@ -109,27 +109,26 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    height: 35px;
     width: 105px;
+    height: 35px;
     border: solid 2px #1c0093;
+    border-radius: 12px;
+    font-size: 13px;
     line-height: 24px;
     text-align: center;
-    font-size: 13px;
-    border-radius: 12px;
+    cursor: pointer;
 }
 
 .field-type input[type=radio]+label {
-    background-color: #DFE7FF;
     color: #1c0093;
+    background-color: #DFE7FF;
 }
 
 .field-type input[type=radio]:checked+label {
-    background-color: #211D2A;
     color: whitesmoke;
+    background-color: #211D2A;
     font-weight: bold;
 }
-
 
 .join-notice {
     display: flex;
@@ -139,29 +138,27 @@ textarea {
 }
 
 .join-notice__icon {
-    margin-top: 20px;
-    width: 83%;
-    /* height: 150px; */
-    background-color: #484848;
-    border-radius: 0.5em;
-    border: 1px solid #1F2020;
-    box-shadow: 1px 1px 3px 1px #00000040;
     display: flex;
     flex-direction: column;
-    font-size: 13px;
+    width: 83%;
+    margin-top: 20px;
     color: #898989;
+    border: 1px solid #1F2020;
+    border-radius: 0.5em;
+    background-color: #484848;
+    box-shadow: 1px 1px 3px 1px #00000040;
+    font-size: 13px;
 }
 
 .join-notice__icon--top1 {
-    width: 100%;
-    height: 18px;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
-    background-color: #1F2020;
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    width: 100%;
+    height: 18px;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    background-color: #1F2020;
 }
 
 .join-notice__icon--top1 p {
@@ -175,12 +172,12 @@ textarea {
 }
 
 .join-notice__icon--body {
-    white-space: nowrap;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 1.3% 15% 2.5%;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.3% 15% 2.5%;
+    white-space: nowrap;
     text-align: center;
 }
 
@@ -197,8 +194,8 @@ textarea {
 .divider {
     width: 60%;
     height: 2px;
-    background-color: #3B3B3C;
     margin: 30px auto;
+    background-color: #3B3B3C;
 }
 
 .member input[type=text]:focus,
@@ -220,8 +217,8 @@ textarea {
 
 
 .placehold-text {
-    display: block;
     position: relative;
+    display: block;
 }
 
 .apply {
@@ -231,43 +228,38 @@ textarea {
 }
 
 .apply button {
-    /* width: 85px;
-    height: 35px;
-    border: solid 2px #1c0093; */
-    background-color: #DFE7FF;
-    color: #1c0093;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 12px;
-    font-weight: 600;
-    margin-top: 20px;
     width: 130px;
     height: 50px;
-    font-size: 20px;
+    margin-top: 20px;
+    color: #1c0093;
     border: solid 2px #1c0093;
-
+    border-radius: 12px;
+    background-color: #DFE7FF;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
 }
 
 .faq {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .question {
     width: 85%;
-    /* display: flex; */
-    background-color: rgba(255, 255, 255, 0.5);
     margin-bottom: 10px;
     padding: 20px 30px 20px 30px;
     border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .question-content {
     display: flex;
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
     font-size: 15px;
     font-weight: 700;
 }
@@ -284,14 +276,21 @@ textarea {
 /* FAQ 항목이 확장됐을 때의 스타일 */
 .question.expanded .expanded-content {
     display: block;
-    font-size: 11px;
     margin-top: 10px;
+    font-size: 11px;
     /* font-weight: bold; */
 }
 
 /* 추가된 스타일 */
 .expanded-content {
     display: none;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    margin: 30px auto;
+    background-color: #3B3B3C;
 }
 
 @media (max-width:500px) {

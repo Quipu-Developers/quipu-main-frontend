@@ -1,28 +1,26 @@
   /* 네브바 */
 
   .navbar {
-    width: 100%;
-    height: 80px;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 80px;
     padding: 0px 40px;
 
-    position: fixed;
-    top: 0;
-
-    z-index: 1000;
-
     @media (max-width: 900px) {
-      padding: 15px;
       height: 60px;
+      padding: 15px;
     }
   }
 
   .navbar__logo {
+    z-index: 1001;
     width: 120px;
     height: 60px;
-    z-index: 1001;
 
     @media (max-width: 900px) {
       width: 100px;
@@ -44,12 +42,12 @@
 
     @media (max-width: 900px) {
       position: absolute;
+      visibility: hidden;
+      overflow: hidden;
       width: 0;
       height: 0;
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      visibility: hidden;
     }
   }
 
@@ -68,10 +66,10 @@
   .navbar__menu--pc ul li a {
     color: white;
     text-decoration: none;
-    cursor: pointer;
-    transition: color 0.4s ease-in-out;
     font-size: 22px;
     font-weight: 600;
+    transition: color 0.4s ease-in-out;
+    cursor: pointer;
   }
 
   .navbar__menu--pc a:hover {
@@ -86,27 +84,27 @@
   }
 
   .menu-button {
+    z-index: 1000;
     display: none;
-    width: 30px;
-    height: 100%;
-    cursor: pointer;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
   }
 
   .menu-button .line {
     display: block;
-    background-color: #fff;
     width: 100%;
     height: 3.5px;
     border-radius: 10px;
+    background-color: #fff;
   }
 
   .menu-button .line1 {
-    margin-bottom: 6px;
     transform-origin: 0% 0%;
+    margin-bottom: 6px;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -115,8 +113,8 @@
   }
 
   .menu-button .line3 {
-    margin-top: 6px;
     transform-origin: 0% 100%;
+    margin-top: 6px;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -142,15 +140,15 @@
     }
 
     .navbar__menu--mobile {
-      display: flex;
       position: absolute;
       top: 0px;
-      margin: 0;
+      right: 0;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 100%;
-      right: 0;
+      margin: 0;
     }
 
     #menu-toggle~.navbar__menu--mobile li {
@@ -182,16 +180,14 @@
     .navbar__menu--mobile li {
       display: flex;
       align-items: center;
-      margin: 0;
       width: 100%;
-      list-style: none;
-      /* color: white;
-      background-color: rgb(171, 184, 236); */
+      margin: 0;
       background-color: #D2E1FF;
+      list-style: none;
       opacity: 0.8;
       text-align: left;
-      cursor: pointer;
       transition: height 800ms cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
     }
     
     .navbar__menu--mobile li a {

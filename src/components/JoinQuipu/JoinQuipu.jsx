@@ -138,6 +138,11 @@ function JoinQuipu() {
                         />
                     </div>
                 </div>
+
+                <div className="fotter">
+                    <div className="footer-divider"></div>
+                    
+                </div>
             </div>
         </div>
     );
