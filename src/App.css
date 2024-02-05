@@ -226,7 +226,7 @@
       position: relative;
       bottom: 1px;
       transform: rotate(90deg);
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.3s ease-in-out;
     }
 
     #activity-toggle:checked+.activity-button .line5 {
@@ -255,7 +255,7 @@
       margin: 0;
       padding: 0px 20px;
       font-size: 0px;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
     
     .activity-detail-menu.visible li {
