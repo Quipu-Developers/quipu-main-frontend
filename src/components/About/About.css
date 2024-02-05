@@ -19,7 +19,7 @@
     height: 200vh;
 
     @media (max-width: 500px) {
-        transform: rotate(10deg);
+        transform: rotate(5deg);
     }
 }
 
@@ -158,6 +158,12 @@
     }
 }
 
+.about-section.forth .about-section--content {
+    @media (max-width: 500px) {
+        width: 50%;
+    }
+}
+
 .about-section:hover p {
     z-index: 2000;
     color: black;
@@ -202,6 +208,11 @@
 
 .about-section.third .keyword-detail {
     text-align: end
+}
+
+.about-section.forth .keyword-detail {
+    position: relative;
+    right: 20px;
 }
 
 .quipu-text {
@@ -252,7 +263,6 @@
     }
 
     @media (max-width: 500px) {
-        right: 30%;
         bottom: 40%;
     }
 }

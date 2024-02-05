@@ -11,6 +11,20 @@ import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 
 function App() {
+  const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleActivityDetail = () => {
+    setIsActivityDetailVisible(!isActivityDetailVisible);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <Router>
@@ -34,7 +48,7 @@ function App() {
         </div>
 
         {/* mobile에서 메뉴 버튼 */}
-        <input id="menu-toggle" type="checkbox" />
+        <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
         <label className='menu-button' htmlFor="menu-toggle">
           <span className="line line1"></span>
           <span className="line line2"></span>
@@ -42,17 +56,29 @@ function App() {
         </label>
 
         {/* mobile에서 메뉴들 */}
-        <ul className="navbar__menu--mobile">
-          <li className="blank"></li>
-          <li className="block"><NavLink to="/home">home</NavLink></li>
-          <li className="block"><NavLink to="/about">about</NavLink></li>
-          <li className="block"><NavLink to="/activity">activity +</NavLink></li>
-          <li className="block"><NavLink to="/activity-detail#Study">&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
-          <li className="block"><NavLink to="/activity-detail#Friendship">&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
-          <li className="block"><NavLink to="/activity-detail#MT">&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
-          <li className="block"><NavLink to="/recommend-site">recommend site</NavLink></li>
-          <li className="block"><NavLink to="/join-quipu">join Quipu</NavLink></li>
-        </ul>
+        <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
+          <ul>
+            <li onClick={closeMenu} style={{ marginTop: '80px' }}><NavLink to="/home">home</NavLink></li>
+            <li onClick={closeMenu}><NavLink to="/about">about</NavLink></li>
+            <li>
+              <div className="activity-menu">
+                <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
+                <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail}/>
+                <label className='activity-button' htmlFor="activity-toggle">
+                  <span className="line line4"></span>
+                  <span className="line line5"></span>
+                </label>
+              </div>
+              <div className={`activity-detail-menu ${isActivityDetailVisible ? 'visible' : ''}`}>
+                <li onClick={closeMenu}><NavLink to="/activity-detail#Study">&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+                <li onClick={closeMenu}><NavLink to="/activity-detail#Friendship">&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+                <li onClick={closeMenu}><NavLink to="/activity-detail#MT">&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+              </div>
+            </li>
+            <li><NavLink to="/recommend-site">recommend site</NavLink></li>
+            <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+          </ul>
+        </div>
 
       </nav>
 
