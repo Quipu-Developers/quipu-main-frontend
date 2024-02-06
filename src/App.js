@@ -63,7 +63,7 @@ function App() {
             <li>
               <div className="activity-menu">
                 <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
-                <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail}/>
+                <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail} />
                 <label className='activity-button' htmlFor="activity-toggle">
                   <span className="line line4"></span>
                   <span className="line line5"></span>
@@ -82,25 +82,23 @@ function App() {
 
       </nav>
 
-      <Routes>
-        <Route path="/" element={
-          <>
-            <section id="home"><Home /></section>
-            <section id="about"><About /></section>
-            <section id="activity"><Activity /></section>
-            <section id="recommend-site"><RecommendSite /></section>
-            <section id="join-quipu"><JoinQuipu /></section>
-          </>
-        } />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/activity" element={<Activity />} />
-        <Route path="/activity-detail" element={<ActivityDetail />} />
-        <Route path="/recommend-site" element={<RecommendSite />} />
-        <Route path="/join-quipu" element={<JoinQuipu />} />
-
-      </Routes>
-
+        <Routes>
+          <Route path="/" element={
+            <>
+              <section id="home"><Home /></section>
+              <section id="about"><About /></section>
+              <section id="activity"><Activity /></section>
+              <section id="recommend-site"><RecommendSite /></section>
+              <section id="join-quipu"><JoinQuipu /></section>
+            </>
+          } />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/about" element={<About />} />
+          <Route path="/activity" element={<Activity />} />
+          <Route path="/activity-detail" element={<ActivityDetail />} />
+          <Route path="/recommend-site" element={<RecommendSite />} />
+          <Route path="/join-quipu" element={<JoinQuipu />} />
+        </Routes>
     </Router>
   );
 }
