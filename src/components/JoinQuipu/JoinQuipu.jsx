@@ -130,7 +130,8 @@ function JoinQuipu() {
                                         <img src = "/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
                                     </div>
                                     <div className="popup_message">
-                                        <p>가입을 축하합니다</p>
+                                        <p className="head-message">Welcome to Quipu!</p>
+                                        <p className="sub-message">퀴푸의 회원이 돼주셔서 감사합니다</p>
                                     </div>
                                 </div>
                                 <div className="popup__button-container">

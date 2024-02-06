@@ -367,11 +367,6 @@ textarea {
     text-align: center;
 }
 
-.popup__icon--body p {
-    margin: 0;
-    margin-left:10px;
-}
-
 .popup__icon--body img {
     width: 80px;
     height: auto; 
@@ -392,8 +387,22 @@ textarea {
 }
 
 .popup_message{
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.head-message{
+    margin-top: 3px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.sub-message{
+    margin-top: 3px;
+    text-align: left;
+    font-weight: 400;
+    font-size: 13px;
 }
 
 .popup__button-container {
@@ -414,6 +423,11 @@ textarea {
     font-weight: 700;
     text-align: center;
     cursor: pointer;
+}
+
+.popup button:hover {
+    box-shadow: 0 0 3px 1.5px #78bdf4;
+    border: none;
 }
 
 @media (max-width:500px) {
@@ -442,7 +456,44 @@ textarea {
     }
 
     .popup {
-        height: 16%;
-        width: 90%;
+        height: 108px;
+        width: 60%;
+    }
+
+    .popup__icon--top{
+        height: 24px;
+    }
+
+    .popup__icon--body img {
+        width: 40px;
+        height: auto; 
+        /* padding: 10px; */
+        /* margin-left:15px; */
+        margin-right: 7px;
+    }
+
+    .popup_img{
+        margin-right : 0;
+    }
+
+    .popup_message{
+        margin-left : 0;
+    }
+
+    .head-message {
+        font-size: 15px;
+        margin-top: 1px;
+    }
+
+    .sub-message {
+        font-size: 11px;
+        margin-top: 1px;
+    }
+
+    .popup button {
+    width: 50px;
+    height: 17px;
+    font-size: 10px;
+    margin-right:11px;
     }
 }
