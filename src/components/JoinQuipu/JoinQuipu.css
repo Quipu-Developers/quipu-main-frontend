@@ -322,6 +322,100 @@ textarea {
     font-weight: bold;
 }
 
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    width: 410px; 
+    height: 160px;
+}
+
+.popup__icon {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: #1F2020;
+    border: 1px solid #cacaca;
+    border-radius: 0.5em;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 5px 1px #B7B7B7;
+    font-size: 1.5em;
+}
+
+.popup__icon--top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    background: linear-gradient(0deg, #dddddd, #FFFFFF);
+}
+
+
+.popup__icon--body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 7px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.popup__icon--body p {
+    margin: 0;
+    margin-left:10px;
+}
+
+.popup__icon--body img {
+    width: 80px;
+    height: auto; 
+    /* padding: 10px; */
+    /* margin-left:15px; */
+    margin-right: 15px;
+}
+
+.popup_content {
+    display: flex;
+    /* justify-content: space-between; */
+    width: 90%;
+}
+
+.popup_img,
+.popup_message {
+    display: flex;
+}
+
+.popup_message{
+    justify-content: center;
+    align-items: center;
+}
+
+.popup__button-container {
+    position: relative;
+    margin-left:auto;
+}
+
+.popup button {
+    width: 94px;
+    height: 30px;
+    font-size: 16px;
+    margin-right:10px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    border: solid 1px #3c8aef;
+    border-radius: 8px;
+    background: linear-gradient(0deg, #3c8aef, #78bdf4);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
 @media (max-width:500px) {
     .member {
         width: 100%;
@@ -345,5 +439,10 @@ textarea {
 
     .footer-content{
         font-size : 0.8em;
+    }
+
+    .popup {
+        height: 16%;
+        width: 90%;
     }
 }
