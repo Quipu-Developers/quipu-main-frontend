@@ -7,11 +7,6 @@ extend({ OrbitControls })
 const Sphere = (props) => {
   const mesh = useRef()
 
-  useFrame(() => {
-    mesh.current.rotation.x += 0.01;
-    mesh.current.rotation.y += 0.01;
-  })
-  
   return (
     <mesh {...props} ref={mesh}>
       <sphereGeometry args={[props.size, 100, 100]} />
@@ -72,8 +67,8 @@ const Object3D1 = () => {
       camera={{ fov: 40, aspect: window.innerWidth / window.innerHeight, near: 0.1, far: 1000, position: [1.2,-2,-5] }}
     >
       <ambientLight intensity={1} />
-      <pointLight position={[-5, 0, 5]} intensity={120} />
-      <pointLight position={[0, 10, 0]} intensity={140} />
+      <pointLight position={[-5, 0, 5]} intensity={100} />
+      <pointLight position={[0, 10, 0]} intensity={100} />
 
       {/* 보라색 구 */}
       <Sphere position={[-0.3,-1,-1]} size={0.8} material={{ color: "#B4B4FF", transparent: true, opacity: 0.6, clearcoat: 0.3, clearcoatRoughness: 0.2 }} />
