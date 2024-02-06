@@ -14,7 +14,7 @@ const Sphere = (props) => {
   
   return (
     <mesh {...props} ref={mesh}>
-      <sphereGeometry args={[props.size, 32, 32]} />
+      <sphereGeometry args={[props.size, 100, 100]} />
       <meshPhysicalMaterial {...props.material} />
     </mesh>
   )
@@ -96,5 +96,4 @@ const Object3D2 = () => {
   )
 }
 
-// export default Object3D2;
 export default memo(Object3D2);
