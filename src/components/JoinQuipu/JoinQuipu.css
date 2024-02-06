@@ -291,7 +291,7 @@ textarea {
     text-align: right;
     margin-left: auto;
     margin-right: 7.5%;
-    font-size: 12px;
+    font-size: 0.9em;
 }
 
 
@@ -308,7 +308,7 @@ textarea {
 
 .footer-content {
     text-align: center;
-    font-size: 15px;
+    font-size: 0.8em;
     color : #9AA5CA;
 }
 
@@ -333,13 +333,17 @@ textarea {
     }
 
     .question-title {
-        font-size: 13.5px;
+        font-size: 0.9em;
         font-weight: 700;
     }
     .expanded-content {
         font-weight: 400;
     }
     .more-detail {
-        font-size : 9px;
+        font-size : 0.6em;
+    }
+
+    .footer-content{
+        font-size : 0.8em;
     }
 }
