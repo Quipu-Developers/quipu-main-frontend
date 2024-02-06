@@ -44,6 +44,16 @@ function JoinQuipu() {
         navigator.clipboard.writeText(text);
     };
 
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleApplyButtonClick = () => {
+        setShowPopup(true);
+    };
+    
+    const handlePopupClose = () => {
+        setShowPopup(false);
+    };
+
     return (
         <div>
             <div className="blank-navbar-pc"></div>
@@ -105,8 +115,32 @@ function JoinQuipu() {
 
                     {/* 신청 버튼 */}
                     <div className="apply">
-                        <button type="submit">📥 Apply</button>
+                        <button type="submit" onClick={handleApplyButtonClick}>
+                            📥 Apply
+                        </button>
                     </div>
+
+                        {showPopup && (
+                        <div className="popup">
+                            <div className="popup__icon">
+                            <div className="popup__icon--top"></div>
+                            <div className="popup__icon--body">
+                                <div className="popup_content">
+                                    <div className="popup_img">
+                                        <img src = "/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
+                                    </div>
+                                    <div className="popup_message">
+                                        <p className="head-message">Welcome to Quipu!</p>
+                                        <p className="sub-message">퀴푸의 회원이 돼주셔서 감사합니다</p>
+                                    </div>
+                                </div>
+                                <div className="popup__button-container">
+                                <button onClick={handlePopupClose}>닫기</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        )}
 
                     <div className="divider"></div>
 
