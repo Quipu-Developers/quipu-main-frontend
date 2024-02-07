@@ -136,7 +136,7 @@ function About() {
               컴퓨터에 관심있는 서울시립대 학우분들 모두 환영합니다!
             </p>
           </div>
-          <div className="w-90 leaders" style={{ justifyContent: 'center', marginBottom: '50px'}}>
+          <div className="w-90 leaders" style={{ justifyContent: 'center', marginTop: '50px', marginBottom: '50px'}}>
             <p>회장 차준섭&nbsp;|&nbsp;</p>
             <p>부회장 하진혁&nbsp;|&nbsp;</p>
             <p>총무 정민욱</p>
