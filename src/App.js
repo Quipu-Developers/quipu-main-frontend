@@ -70,9 +70,9 @@ function App() {
                 </label>
               </div>
               <div className={`activity-detail-menu ${isActivityDetailVisible ? 'visible' : ''}`}>
-                <li><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
-                <li><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
-                <li><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+                <li style={{boxShadow: '0px 0px grey'}}><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+                <li style={{boxShadow: '0px 0px grey'}}><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+                <li style={{boxShadow: '0px 0px grey'}}><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
               </div>
             </li>
             <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
