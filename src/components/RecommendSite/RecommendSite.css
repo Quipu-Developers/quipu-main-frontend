@@ -1,5 +1,6 @@
 .recommend-site {
-    z-index: 1;
+    width: 1500px;
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     width: 1500px;
@@ -12,9 +13,8 @@
 }
 
 .recommend-site__title {
-    margin-left: 5%;
-    color: white;
-    text-shadow: 5px 5px 5px #9a9a9a;
+    height: 40px;
+    margin: 10px;
     font-size: 30px;
     font-weight: 600;
     
@@ -30,13 +30,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
     width: 100%;
-    height: calc(100vh - 80px - 40px);
-    scrollbar-width: none;
+    height: 90%;
+    position: relative;
+    overflow-x: auto;  
+    overflow-y: hidden; 
+    -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
+    scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
 }
 
 .recommend-site__box::-webkit-scrollbar {
@@ -45,6 +47,9 @@
 
 .recommend-site__box--top {
     display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50%;
     justify-content: space-around;
     align-items: center;
     margin: 20px;
@@ -52,6 +57,9 @@
 
 .recommend-site__box--bottom {
     display: flex;
+    align-items: center;
+    width: 80%;
+    height: 50%;
     justify-content: space-around;
     align-items: center;
     margin: 20px;
@@ -91,16 +99,36 @@
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 250px;
     height: 150px;
     margin: 50px;
     color: #626262;
     border: 1px solid #cacaca;
     border-radius: 0.5em;
-    background-color: white;
-    box-shadow: 1px 1px 5px 1px #B7B7B7;
+    display: flex;
+    flex-direction: column;
+    color: #626262;
+}
+
+.recommend-site__icon--textNonHover{
+    display: block;
     font-size: 15px;
     font-weight: 600;
+}
+
+.recommend-site__icon:hover .recommend-site__icon--textNonHover{
+    white-space: pre-wrap;
+}
+
+.recommend-site__icon--textHover{
+    display:none;
+    font-size:12px;
+}
+
+.recommend-site__icon:hover .recommend-site__icon--textHover{
+    display: block;
 }
 
 .recommend-site__icon:hover {
@@ -127,8 +155,15 @@
 .recommend-site__icon--body{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    flex-direction: row;
     margin: 10%;
+}
+
+.recommend-site__icon--bodyText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 @media screen and (max-width: 700px){
