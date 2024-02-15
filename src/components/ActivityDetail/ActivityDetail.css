@@ -1,35 +1,103 @@
 .ActivityDetail-container {
-    width: 100%;
-    display: flex; 
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
-    flex-direction: column;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    width: 100%;
+    height: calc(100dvh - 80px);
+    scrollbar-width: none;
+
+    @media (max-width: 900px) {
+        height: calc(100dvh - 60px);
+    }
+}
+
+.ActivityDetail-container::-webkit-scrollbar {
+    display: none;
 }
 
 .ActivityDetail-titles {
-    height: 50px;
+    position: fixed;
+    z-index: 100;
+    top: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: start;
-    align-items: center;
-    padding-left: 30px;
+    align-items: start;
+    height: 50px;
+    padding-left: 25px;
 
-    @media (max-width: 900px){
-        height: 30px;
+    @media (max-width: 900px) {
+        position: absolute;
+        visibility: hidden;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
     }
 }
 
 .ActivityDetail-titles button {
+    margin: 10px;
     border-style: none;
     background-color: transparent;
     font-size: 18px;
     font-weight: 600;
-    margin: 10px;
-    cursor: pointer;
     text-shadow: 3px 3px 4px grey;
+    cursor: pointer;
+}
+
+.year-dropdown {
+    margin: 16px;
+    padding: 1px 5px;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 7px;
+    background-color: #C0CEFF;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+}
+
+.year-dropdown option {
+    color: #C0CEFF;
+    background-color: white;
+}
+
+.year-dropdown-mobile {
+    position: relative;
+    right: 85px;
+    display: none;
+    margin: 15px 0 15px 0;
+    padding: 1px 5px;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 7px;
+    background-color: #C0CEFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+
+    @media (max-width: 900px) {
+        display: block;
+    }
+}
+
+.year-dropdown-mobile option {
+    color: #C0CEFF;
+    background-color: white;
 }
 
 .ActivityDetail-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

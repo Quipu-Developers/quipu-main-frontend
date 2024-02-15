@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import '../../App.css';
 import './ActivityDetail.css';
 import Study from './Study/Study';
 import FriendShip from './FriendShip/FriendShip';
@@ -8,6 +7,7 @@ import MT from './MT/MT';
 
 
 function ActivityDetail() {
+
     const location = useLocation();
     const [activeTab, setActiveTab] = useState('Study');
 
@@ -17,13 +17,23 @@ function ActivityDetail() {
         }
     }, [location]);
 
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash === 'Study' || hash === 'Friendship' || hash === 'MT') {
+            setActiveTab(hash);
+        }
+    }, [location.hash]);
+
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };
 
+    const [selectedYear, setSelectedYear] = useState('2023');
+
     return (
         <>
-            <div className="blank-navbar"></div>
+            <div className="blank-navbar-pc"></div>
+            <div className="blank-navbar-mobile"></div>
             <div className="ActivityDetail-container">
                 <div className="ActivityDetail-titles">
                     <button onClick={() => handleTabClick('Study')}
@@ -32,11 +42,21 @@ function ActivityDetail() {
                         style={{ color: activeTab === 'Friendship' ? '#5C518B' : 'white' }}>FRIENDSHIP</button>
                     <button onClick={() => handleTabClick('MT')}
                         style={{ color: activeTab === 'MT' ? '#5C518B' : 'white' }}>MT</button>
+                    <select onChange={(e) => setSelectedYear(e.target.value)}
+                        className="year-dropdown">
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
                 </div>
                 <div className="ActivityDetail-content">
-                    {activeTab === 'Study' && <Study />}
-                    {activeTab === 'Friendship' && <FriendShip />}
-                    {activeTab === 'MT' && <MT />}
+                    <select onChange={(e) => setSelectedYear(e.target.value)}
+                        className="year-dropdown-mobile">
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
+                    {activeTab === 'Study' && <Study selectedYear={selectedYear} />}
+                    {activeTab === 'Friendship' && <FriendShip selectedYear={selectedYear} />}
+                    {activeTab === 'MT' && <MT selectedYear={selectedYear} />}
                 </div>
             </div>
         </>
