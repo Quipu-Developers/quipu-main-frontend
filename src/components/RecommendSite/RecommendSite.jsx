@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
 import '../../App.css';
 import './RecommendSite.css';
 
-function Icon({img, nameNoneHover, nameHover, link}){
+function Icon({img, name, link}){
     const [isListHover, setIsListHover] = useState(false);
+
     return (
         <div 
-        onMouseOver = {() => setIsListHover(true)}
-        onMouseOut = {() => setIsListHover(false)}
-        className="recommend-site__icon" onClick={(e)=>{
-            window.location.href = link;
+            onMouseOver = {() => setIsListHover(true)}
+            onMouseOut = {() => setIsListHover(false)}
+            className="recommend-site__icon"
+            onClick={(e)=>{
+                window.open(link, '_blank');
         }}>
             <div className="recommend-site__icon--top1">
                 <p style={{color: "#FF5F56", marginTop: "4px", marginLeft: "10px", fontSize: "10px"}}>●</p>
@@ -20,11 +22,8 @@ function Icon({img, nameNoneHover, nameHover, link}){
             <div className="recommend-site__icon--top2">
             </div>
             <div className="recommend-site__icon--body">
-                <img src={img}/>
-                <div className="recommend-site__icon--bodyText">
-                    <div class="recommend-site__icon--textNonHover">{nameNoneHover}</div>
-                    <div class="recommend-site__icon--textHover">{nameHover}</div>
-                </div>
+                <img src={img || ''} alt = {name}></img>
+                <p>{name}</p>
             </div>
         </div>
     );
@@ -32,18 +31,26 @@ function Icon({img, nameNoneHover, nameHover, link}){
 
 
 function RecommendSite(){
-    const [scrollPosition, setScrollPosition] = useState(0);
-
+    const [isListHover, setIsListHover] = useState(false);
+    const targetRef = useRef(null);
+    
+    useEffect(() => {    
+        const handleScroll = () => {
+            targetRef.current.style.position = window.scrollY > 0 ? "fixed" : "static";
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     return(
-        <div 
-            
-        >
+        <div>
             <div className="blank-navbar"></div>
             <div className="recommend-site">
                 <div className="recommend-site__title">Recommend Site</div>
-                <div className="recommend-site__box">
+                <div className="recommend-site__box" ref={targetRef}>
                     <div className="recommend-site__box--top">
-                        <Icon img="../RecommendSite-img/chatGPT.png" nameNoneHover="ChatGPT" nameHover="<br></br>AI 챗봇, 문서 작성 및 정보 검색 지원" link="https://chat.openai.com/"/>
+                        <Icon img={isListHover ? null : "../RecommendSite-img/chatGPT.png"} name={isListHover ? "인공지능 챗봇으로, 문서 작성, 정보 검색, 언어 번역과 같은 다양한 작업에 대한 실시간 지원을 제공하는 서비스": "ChatGPT"} link="https://chat.openai.com/"/>
                         <Icon img="../RecommendSite-img/leetCode.png" name="LeetCode" link="https://leetcode.com/"/>
                         <Icon img="../RecommendSite-img/hackerRank.png" name="HackerRank" link="https://www.hackerrank.com/"/>
                         <Icon img="../RecommendSite-img/w3Schools.png" name="W3 Schools" link="https://www.w3schools.com/"/>

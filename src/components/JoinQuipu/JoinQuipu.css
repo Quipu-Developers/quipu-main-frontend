@@ -24,31 +24,17 @@
     outline: none;
 }
 
-
 h1{
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
     color : #1c0093;
 }
 
 h2{
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     color : #1c0093;
 }
-
-*{
-    box-sizing: border-box; 
-    outline: none; 
-}
-
-body{
-    font-size:14px;
-    line-height: 1.5em;
-    color : black;
-    margin: 0;
-}
-
 
 .member{
     width: 600px;
@@ -57,7 +43,6 @@ body{
     margin-bottom: 20px;
     overflow-y: auto;
 }
-
 
 .member .field{
     margin :10px 0;
@@ -70,11 +55,12 @@ body{
 
 .member input:not(input[type=radio]),.member select{
     border: 1px solid #dadada;
-    padding: 10px;
+    padding: 13px;
     width: 100%;
     margin-bottom: 5px;
     border-radius: 0.5em;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255);
+    box-shadow: 1px 1px 5px 1px #B7B7B7;
 }
 
 .member input[type=submit]{
@@ -204,17 +190,28 @@ color:#fff
     position:relative;
 }
 
+.apply {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .apply button {
-    width: 85px;
+    /* width: 85px;
     height: 35px;
+    border: solid 2px #1c0093; */
     background-color: #DFE7FF;
     color: #1c0093;
     text-align: center;
     cursor: pointer;
     border-radius: 12px;
-    border: solid 2px #1c0093;
     font-weight: 600;
     margin-top: 20px;
+    width: 130px;
+    height: 50px;
+    font-size: 20px;
+    border: solid 2px #1c0093;
+
 }
 
 .faq {
