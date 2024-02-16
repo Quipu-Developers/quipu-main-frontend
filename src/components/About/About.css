@@ -27,7 +27,6 @@
     background-color: transparent;
     background-image: linear-gradient(to top, black, black);
     background-repeat: no-repeat;
-    cursor: pointer;
 }
 
 .About-container.fill {
@@ -103,6 +102,21 @@
     text-shadow: 2px 2px #54BAB9;
 }
 
+.quipu-button {
+    margin: 0 5px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 7px;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0 0 3px white;
+    cursor: pointer;
+}
+
+.quipu-button:hover {
+    background-color: #a0b4fc;
+}
+
 .w-30 {
     display: flex;
     justify-content: center;
@@ -154,5 +168,9 @@
 
     @media (max-width: 700px) {
         font-size: 17px;
+    }
+
+    @media (max-width: 300px) {
+        font-size: 13px;
     }
 }
