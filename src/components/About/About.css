@@ -114,14 +114,8 @@
 }
 
 .quipu-button:hover {
-    background-color: #a0b4fc;
+    box-shadow: 0 0 3px gray;
 }
-
-@media (hover: hover) {
-    .quipu-button:hover {
-        background-color: transparent;
-    }
-  }
 
 .w-30 {
     display: flex;
