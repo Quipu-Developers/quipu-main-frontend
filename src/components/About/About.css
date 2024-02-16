@@ -117,6 +117,12 @@
     background-color: #a0b4fc;
 }
 
+@media (hover: hover) {
+    .quipu-button:hover {
+        background-color: #a0b4fc;
+    }
+  }
+
 .w-30 {
     display: flex;
     justify-content: center;
