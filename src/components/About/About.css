@@ -119,7 +119,7 @@
 
 @media (hover: hover) {
     .quipu-button:hover {
-        background-color: #a0b4fc;
+        background-color: transparent;
     }
   }
 
