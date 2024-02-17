@@ -3,30 +3,37 @@
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    width: 1500px;
-    height: calc(100dvh - 80px);
 
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 800px){
         width:100%;
         height: calc(100dvh - 60px);
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }
 
 .recommend-site__title {
     height: 40px;
-    margin: 10px;
+    font: bold;
     font-size: 30px;
     font-weight: 600;
+    text-shadow: 5px 5px 5px #9a9a9a;
+    color: white;
+    margin-top: 10px;
+    margin-left: 3%;
     
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 800px){
         display: flex;
-        justify-content: flex-end;
         align-items: center;
+        justify-content: flex-end;
         margin-right: 5%;
     }
+
 }
 
 .recommend-site__box {
+    height: calc(100vh - 80px - 40px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -35,8 +42,7 @@
     width: 100%;
     height: 90%;
     position: relative;
-    overflow-x: auto;  
-    overflow-y: hidden; 
+    overflow-x: auto; 
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
     scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
 }
@@ -46,6 +52,7 @@
 }
 
 .recommend-site__box--top {
+    z-index: 2;
     display: flex;
     align-items: center;
     width: 100%;
@@ -55,7 +62,9 @@
     margin: 20px;
 }
 
+
 .recommend-site__box--bottom {
+    z-index: 0;
     display: flex;
     align-items: center;
     width: 80%;
@@ -65,34 +74,42 @@
     margin: 20px;
 }
 
-.recommend-site__box--behind {
-    position: relative;
-    display: none;
-    overflow-y: scroll;
-    -ms-overflow-style: none; 
+.recommend-site__container--behind{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: auto;
-    scrollbar-width: none;
+}
+
+.recommend-site__box--behind {
+    position: relative;
+    display: none; 
+    width: 70%;
+
+    @media screen and (max-width: 700px){
+        width: 80%;
+    }
+
+    @media screen and (max-width: 600px){
+        width: 90%;
+    }
+
+    @media screen and (max-width: 500px){
+        width: 100%;
+    }
+}
+
+.recommend-site__box--behind .recommend-site__icon:nth-child(odd) {
+    float: left;
+}
+
+.recommend-site__box--behind .recommend-site__icon:nth-child(even) {
+    float: right;
 }
 
 .recommend-site__box--behind::-webkit-scrollbar {
     display: none;
-}
-
-.recommend-site__box--topBehind{
-    z-index: 0;
-    display: none;
-    flex-wrap: row wrap;
-    justify-content: space-around;
-    padding-left: 10%;
-}
-
-.recommend-site__box--bottomBehind{
-    z-index: 1;
-    display: none;
-    flex-wrap: row wrap;
-    justify-content: space-around;
-    padding-right: 10%;
 }
 
 .recommend-site__icon {
@@ -104,31 +121,11 @@
     width: 250px;
     height: 150px;
     margin: 50px;
+    background-color: white;
     color: #626262;
     border: 1px solid #cacaca;
     border-radius: 0.5em;
-    display: flex;
-    flex-direction: column;
-    color: #626262;
-}
-
-.recommend-site__icon--textNonHover{
-    display: block;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.recommend-site__icon:hover .recommend-site__icon--textNonHover{
-    white-space: pre-wrap;
-}
-
-.recommend-site__icon--textHover{
-    display:none;
-    font-size:12px;
-}
-
-.recommend-site__icon:hover .recommend-site__icon--textHover{
-    display: block;
+    box-shadow: 1px 1px 5px 1px #b7b7b7;
 }
 
 .recommend-site__icon:hover {
@@ -156,18 +153,17 @@
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    align-items: center;
     margin: 10%;
 }
 
-.recommend-site__icon--bodyText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
 
-@media screen and (max-width: 700px){
-    .recommend-site__box--top, .recommend-site__box--bottom, .recommend-site__box--topBehind, .recommend-site__box--bottomBehind, .recommend-site__box, .recommend-site__box--behind{
+@media screen and (max-width: 800px){
+    .recommend-site__box{
         display: none;
+    }
+
+    .recommend-site__box--behind{
+        display: block;
     }
 }
