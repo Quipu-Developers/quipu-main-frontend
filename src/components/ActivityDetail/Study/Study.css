@@ -22,6 +22,11 @@
     border-radius: 20px;
     background-color: white;
     box-shadow: 3px 3px 4px grey;
+
+    @media (max-width: 300px) {
+        margin: 20px 0;
+        width: 100%;
+    }
 }
 
 .studycard:hover {
@@ -113,6 +118,10 @@
     font-size: 10px;
     font-weight: 550;
     cursor: pointer;
+
+    @media (max-width: 300px) {
+        font-size: 8px;
+    }
 }
 
 .moreinfo-button:hover {

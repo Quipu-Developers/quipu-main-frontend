@@ -21,6 +21,11 @@
     box-shadow: 5px 5px 5px grey;
     object-fit: cover;
     cursor: pointer;
+
+    @media (max-width: 300px) {
+        margin: 15px 0;
+        width: 100%;
+    }
 }
 
 .FriendShip-img:hover {

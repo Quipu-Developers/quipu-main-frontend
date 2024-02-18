@@ -80,11 +80,10 @@ function About() {
         <div className="About-content">
           <div className="w-90" style={{ marginTop: '40px', flexDirection: 'row' }}>
             <p className="title" style={{ fontSize: '40px' }}>About</p>
-            <p style={{ color: 'black' }}>click!</p>
           </div>
           <div className="w-90">
             <p>
-              안녕하세요! 서울시립대학교 중앙 컴퓨터 학술 동아리 QUIPU입니다.
+              안녕하세요! 서울시립대학교 중앙 컴퓨터 학술 동아리 <span><button className="quipu-button">QUIPU</button></span>입니다.
               <br></br>
               '퀴푸'는 문자 없이 끈과 매듭으로 정보를 기록하고 전달하는 고대 잉카 제국에서 사용된 시스템을 뜻합니다.
               <br></br>
