@@ -22,12 +22,12 @@
     font: bold;
     font-size: 30px;
     font-weight: 600;
-    text-shadow: 3px 3px 2px grey;
+    text-shadow: 2px 2px 3px grey;
     color: white;
     margin-top: 10px;
     margin-left: 3%;
     
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 800px){
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -92,6 +92,7 @@
     flex: 0 0 auto;
     width: 250px;
     height: 150px;
+    margin: 50px;
     background-color: white;
     color: #626262;
     border: 1px solid #cacaca;
@@ -114,7 +115,6 @@
 .recommend-site__icon:hover .site-title{
     box-shadow: 1px 1px 1px grey;
     border-radius: 5px;
-    /* text-decoration: underline #C0CEFF; */
 }
 
 .recommend-site__icon--top1{
