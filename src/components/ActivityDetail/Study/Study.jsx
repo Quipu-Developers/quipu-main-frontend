@@ -10,8 +10,8 @@ const 퀴푸포럼웹개발 = {
     details: ["3월에 모집합니다. 많은 관심 부탁드립니다!"],
     links: {},
     leaders: ['이예나', '이제민'],
-    members: ['김은지', '차준섭', '표성은', '추가 예정'],
-    allMembers: ['이제민', '김은지', '차준섭', '표성은', '추가 예정'],
+    members: ['김은지', '차준섭', '표성은', '김예영'],
+    allMembers: ['이제민', '김은지', '차준섭', '표성은', '김예영'],
     mainimage: "/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",
     allImgs: ["/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",],
 };
@@ -26,7 +26,7 @@ const 코딩테스트2024 = {
     links: { "노션": "https://cote-review.notion.site/bb652211855e4d02a68f011081e0e100?pvs=4", "깃허브": "https://github.com/COTE-review" },
     leaders: ['이예나'],
     members: ['강형준', '김명준', '김예영', '외 3명'],
-    allMembers: ['강형준', '김명준', '김예영', '이제민', '최영채', '표성은'],
+    allMembers: ['강형준', '김명준', '김예영', '이제민', '표성은'],
     mainimage: "/ActivityDetail-img/2024/Study/코딩테스트스터디1.png",
     allImgs: ["/ActivityDetail-img/2024/Study/코딩테스트스터디2.jpg",],
 };

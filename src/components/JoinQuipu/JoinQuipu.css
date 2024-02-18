@@ -185,6 +185,14 @@ textarea {
     margin: 0;
 }
 
+.join-notice__icon--body br {
+    display: none;
+
+    @media (max-width: 350px) {
+        display: block;
+    }
+}
+
 .account-number {
     color: yellow;
     text-decoration-line: underline;
@@ -254,6 +262,10 @@ textarea {
     padding: 20px 30px 20px 30px;
     border-radius: 0.5em;
     background-color: rgba(255, 255, 255, 0.5);
+
+    @media (max-width: 300px) {
+        width: 90vw;
+    }
 }
 
 .question-content {
@@ -271,6 +283,7 @@ textarea {
 
 .question-title {
     font-weight: bold;
+    word-break: keep-all;
 }
 
 /* FAQ 항목이 확장됐을 때의 스타일 */
@@ -278,7 +291,6 @@ textarea {
     display: block;
     margin-top: 10px;
     font-size: 11px;
-    /* font-weight: bold; */
 }
 
 /* 추가된 스타일 */
@@ -467,8 +479,6 @@ textarea {
     .popup__icon--body img {
         width: 40px;
         height: auto; 
-        /* padding: 10px; */
-        /* margin-left:15px; */
         margin-right: 7px;
     }
 
@@ -495,5 +505,29 @@ textarea {
     height: 17px;
     font-size: 10px;
     margin-right:11px;
+    }
+}
+
+@media (max-width: 400px) {
+    .popup {
+        width: 70%;
+    }
+}
+
+@media (max-width: 300px) {
+    .join-notice__icon {
+        width: 90vw;
+    }
+
+    .popup {
+        width: 80%;
+    }
+
+    .head-message {
+        font-size: 13px;
+    }
+
+    .sub-message {
+        font-size: 9px;
     }
 }
