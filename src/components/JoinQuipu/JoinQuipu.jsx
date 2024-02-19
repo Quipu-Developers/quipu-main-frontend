@@ -95,7 +95,7 @@ function JoinQuipu() {
                             </div>
                             <div className="join-notice__icon--top2"></div>
                             <div className="join-notice__icon--body">
-                                <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p>
+                                <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p>
                                 <p>지원서 작성해주세요!</p>
                                 <p >또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
                                 <p >(신규회원 : <span style={{ fontWeight: 900 }}>20,000</span>원 / 기존회원 : <span style={{ fontWeight: 900 }}>25,000</span>원)</p>
@@ -130,8 +130,10 @@ function JoinQuipu() {
                                         <img src = "/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
                                     </div>
                                     <div className="popup_message">
-                                        <p className="head-message">Welcome to Quipu!</p>
-                                        <p className="sub-message">퀴푸의 회원이 돼주셔서 감사합니다</p>
+                                        {/* <p className="head-message">Welcome to Quipu!</p> */}
+                                        <p className="head-message">모집기간이 아닙니다.</p>
+                                        {/* <p className="sub-message">퀴푸의 회원이 돼주셔서 감사합니다</p> */}
+                                         <p className="sub-message">다음 모집을 기다려주세요!😭</p>
                                     </div>
                                 </div>
                                 <div className="popup__button-container">

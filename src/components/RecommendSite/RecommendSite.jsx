@@ -1,32 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
-import '../../App.css';
 import './RecommendSite.css';
 
-function Icon({ img, name, link, exp}) {
+// pc 아이콘
+function Icon({ img, name, link, exp }) {
     const [isListHover, setIsListHover] = useState(false);
 
     return (
-        <div 
-            onMouseOver = {() => setIsListHover(true)}
-            onMouseOut = {() => setIsListHover(false)}
+        <div
+            onMouseOver={() => setIsListHover(true)}
+            onMouseOut={() => setIsListHover(false)}
             className="recommend-site__icon"
-            onClick={(e)=>{
+            onClick={(e) => {
                 window.open(link, '_blank');
-        }}>
+            }}>
             <div className="recommend-site__icon--top1">
-                <p style={{color: "#FF5F56", marginTop: "4px", marginLeft: "10px", fontSize: "10px"}}>●</p>
-                <p style={{color: "#FEBC2E", marginLeft: "7px", marginTop: "4px",fontSize: "10px"}}>●</p>
-                <p style={{color: "#28C840", marginLeft: "7px",marginTop: "4px", fontSize: "10px"}}>●</p>
+                <p style={{ color: "#FF5F56", marginTop: "4px", marginLeft: "10px", fontSize: "10px" }}>●</p>
+                <p style={{ color: "#FEBC2E", marginLeft: "7px", marginTop: "4px", fontSize: "10px" }}>●</p>
+                <p style={{ color: "#28C840", marginLeft: "7px", marginTop: "4px", fontSize: "10px" }}>●</p>
             </div>
             <div className="recommend-site__icon--top2">
             </div>
             <div className="recommend-site__icon--body">
-                <img width="60px" height="60px" src={img || ''} alt = {name}></img>
-                <div>
-                    <p style={{ fontSize: "15px", fontWeight: 'bold', margin: "5px" }}>{name}</p>
-                    {isListHover ? <p style={{fontSize: "12px", margin: "5px"}}>{exp}</p> : null}
-                </div>
+                <img width="60px" height="60px" src={img || ''} alt={name}></img>
+                <p style={{ fontSize: "15px", fontWeight: 'bold', margin: "5px" }}>{name}</p>
+                {isListHover ? <p className="hover-text">what?<br></br>{exp}</p> : null}
             </div>
         </div>
     );

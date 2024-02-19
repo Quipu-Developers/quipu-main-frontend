@@ -10,8 +10,8 @@ const 퀴푸포럼웹개발 = {
     details: ["3월에 모집합니다. 많은 관심 부탁드립니다!"],
     links: {},
     leaders: ['이예나', '이제민'],
-    members: ['김은지', '차준섭', '표성은', '추가 예정'],
-    allMembers: ['이제민', '김은지', '차준섭', '표성은', '추가 예정'],
+    members: ['김은지', '차준섭', '표성은', '김예영'],
+    allMembers: ['김은지', '차준섭', '표성은', '김예영'],
     mainimage: "/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",
     allImgs: ["/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",],
 };
@@ -25,8 +25,8 @@ const 코딩테스트2024 = {
     details: ["범위 : 자료구조, 정렬, 탐색, 그리디, 정수론, 그래프, 트리, 조합, 동적계획법, 기하", "1. 매주 개념 하나씩 노션에 정리", "2. 개념과 관련한 백준 5문제씩 풀어 깃허브에 업로드", "3. 메타버스를 활용하여 풀어온 5문제를 대표자가 리뷰하며 코드 소개", "4. 깃허브에 업로드 된 다른 사람의 코드를 PR을 이용하여 리뷰"],
     links: { "노션": "https://cote-review.notion.site/bb652211855e4d02a68f011081e0e100?pvs=4", "깃허브": "https://github.com/COTE-review" },
     leaders: ['이예나'],
-    members: ['강형준', '김명준', '김예영', '외 3명'],
-    allMembers: ['강형준', '김명준', '김예영', '이제민', '최영채', '표성은'],
+    members: ['강형준', '김명준', '김예영', '외 2명'],
+    allMembers: ['강형준', '김명준', '김예영', '이제민', '표성은'],
     mainimage: "/ActivityDetail-img/2024/Study/코딩테스트스터디1.png",
     allImgs: ["/ActivityDetail-img/2024/Study/코딩테스트스터디2.jpg",],
 };
@@ -39,7 +39,7 @@ const 퀴푸메인웹개발 = {
     goal: "퀴푸를 대표하는 메인 웹을 제작합니다.",
     details: ["디자인, 프론트엔드, 백엔드 팀을 나누어 매주 1회 팀별 정기모임을 갖습니다.",
         "3개월 동안 인프런 및 유튜브 강의를 들으며 개발관련 내용을 숙지합니다.",
-        "2개월 동안 노션에 개발일지를 쓰며 개발하고 깃허브를 사용해 협업합니다."],
+        "2개월 동안 노션에 개발일지를 쓰며 깃허브를 사용해 협업하며 개발을 진행합니다."],
     links: { "노션": "https://quipu-dev.notion.site/main-website-c8661a4633804bfdaadb105c86d2df1e?pvs=4", "깃허브": "https://github.com/Quipu-Developers" },
     leaders: ['이예나'],
     members: ['김고은', '황민영', '박시현', '외 6명'],
@@ -85,8 +85,13 @@ const IT공모전 = {
     title: 'IT 공모전',
     period: '2023.08 - 2023.11',
     shortDescription: '대한전자공학과 IT창의 챌린지 공모전',
-    goal: "",
-    details: [],
+    goal: "무더운 여름 횡단보도 주변에 설치된 파라솔에 쿨링 포그 시스템을 접목하여, 획기적으로 주변 온도를 줄이는 스마트 쿨링 포그 파라솔 제작합니다.",
+    details: ["2개월동안 어떤 아이디어를 설계해 구현할지 생각하고 이에 따른 플로우 차트를 구성해 교수님과 면담을 진행합니다.",
+        "아이디어 선정 후 온도, 습도, 사람 인식 센서 및 clock에 대해 파트를 나눠 주 2-3회씩 정기적 모임을 갖습니다.",
+        "1개월동안 맡은 파트에대해 data sheet 및 유튜브를 통해 설계할 회로에 대한 구상을 합니다. ",
+        "회로 설계 후 breadboard에 해당 회로에 맞게 소자를 납땜합니다. (PCB기판 이용 시 가산점)",
+        "설계한 회로를 이용한 시제품을 구성 후 발표자료를 만들고 대회장에서 시제품을 동작시키며 발표합니다."
+    ],
     links: {},
     leaders: ['김형민'],
     members: ['신교윤', '안태성', '정하연'],
@@ -100,7 +105,7 @@ const 코딩테스트2023 = {
     title: '코딩테스트 스터디',
     period: '2023.06 - 2023.08',
     shortDescription: '백준 문제 코드 리뷰',
-    goal: "기본 파이썬 문법을 익히고, 백준 문제를 풀며 코딩테스트를 대비합니다.",
+    goal: "기본 파이썬 문법을 익히고, 백준 문제를 풀며 코딩테스트에 대비합니다.",
     details: ["매주 동아리방에 모여 풀어온 10문제를 각자 리뷰하며 문제에 대한 접근 방식을 공유합니다."],
     links: {},
     leaders: ['모용'],
@@ -137,7 +142,7 @@ const Python기초스터디 = {
         "flask를 사용하여 기본적인 웹을 제작해봅니다."],
     links: {},
     leaders: ['이예나'],
-    members: ['김형민', '남민우', '남현우', '외 8명'],
+    members: ['김형민', '남민우', '남현우', '외 5명'],
     allMembers: ['김형민', '남민우', '남현우', '최영채', '전한솔', '최다영', '표성은', '하진혁'],
     mainimage: "/ActivityDetail-img/2023/Study/Python기초스터디1.png",
     allImgs: [
@@ -292,7 +297,7 @@ function StudyModal({ isOpen, onClose, title, period, goal, details, links, lead
                                     })
                                 }
                                 {Object.entries(links || {}).map(([key, value]) => (
-                                    <p key={key}>▪️ <a href={value} target="_blank" rel="noopener noreferrer" style={{textDecoration:'none', color: '#8294C4'}}>{key}</a></p>
+                                    <p key={key}>▪️ <a href={value} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#8294C4' }}>{key}</a></p>
                                 ))}
                             </div>
                         </div>
