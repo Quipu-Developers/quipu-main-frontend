@@ -6,7 +6,7 @@
 
     @media screen and (max-width: 800px){
         width:100%;
-        height: calc(100dvh - 60px);
+        height: calc(100vh - 60px);
         overflow-y: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -33,14 +33,13 @@
 }
 
 .recommend-site__box {
-    height: calc(100vh - 80px - 40px);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90%;
+    height: calc(100vh - 80px - 40px);
     position: relative;
     overflow-x: auto; 
     -ms-overflow-style: none; /* IE와 Edge에서 스크롤바 숨기기 */ 
@@ -82,6 +81,7 @@
     position: relative;
     display: none; 
     width: 70%;
+    transition: transform 0.3s ease-out;
 
     @media screen and (max-width: 700px){
         width: 80%;
@@ -94,14 +94,27 @@
     @media screen and (max-width: 500px){
         width: 100%;
     }
+
+
+    @media screen and (max-width: 370px){
+        width: 120%;
+    }
 }
 
 .recommend-site__box--behind .recommend-site__icon:nth-child(odd) {
     float: left;
+
+    @media screen and (max-width: 400px){
+        margin-left: 20px;
+    }
 }
 
 .recommend-site__box--behind .recommend-site__icon:nth-child(even) {
     float: right;
+
+    @media screen and (max-width: 400px){
+        margin-right: 20px;
+    }
 }
 
 .recommend-site__box--behind::-webkit-scrollbar {
