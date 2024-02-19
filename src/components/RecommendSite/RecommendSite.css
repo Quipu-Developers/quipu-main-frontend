@@ -1,15 +1,17 @@
 .recommend-site {
-    width: 1500px;
-    height: calc(100vh - 80px);
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: auto;
 
     @media (max-width: 700px){
         width:100%;
-        height: calc(100vh - 60px);
+        height: 100vh;
         overflow-y: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;
+
     }
 }
 
@@ -18,16 +20,16 @@
 }
 
 .recommend-site__title {
+    width: 100%;
     height: 40px;
     font: bold;
     font-size: 30px;
     font-weight: 600;
     text-shadow: 2px 2px 3px grey;
     color: white;
-    margin-top: 10px;
-    margin-left: 3%;
+    padding-left: 3%;
     
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 700px){
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -57,9 +59,8 @@
     align-items: center;
     width: 100%;
     height: 50%;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-    margin: 20px;
 }
 
 
@@ -67,11 +68,10 @@
     z-index: 0;
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 70%;
     height: 50%;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-    margin: 20px;
 }
 
 .recommend-site__box--behind {
@@ -99,13 +99,13 @@
     flex: 0 0 auto;
     width: 250px;
     height: 150px;
-    margin: 50px;
+    margin: 0 90px;
     background-color: white;
     color: #626262;
     border: 1px solid #cacaca;
     border-radius: 0.5em;
     box-shadow: 2px 2px 2px #5e5d5d;
-    transition: all 0.05s ease-in-out;
+    /* transition: all 0.05s ease-in-out; */
     cursor: pointer;
 
     @media screen and (max-width: 700px){
@@ -131,13 +131,13 @@
 }
 
 .recommend-site__icon:hover {
-    transform: scale(1.15);
+    /* transform: scale(1.15);
     box-shadow: 2px 2px 2px grey;
-    transition: all 0.05s ease-in-out;
+    transition: all 0.05s ease-in-out; */
 
-    @media (max-width: 700px) {
+    /* @media (max-width: 700px) {
         transform: scale(1.1);
-    }
+    } */
 }
 
 .recommend-site__icon--top1{
