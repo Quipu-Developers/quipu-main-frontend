@@ -284,6 +284,7 @@ function NewEntryComponent() {
                             <option value="자유융합대학" disabled>🏫 자유융합대학</option>
                             <option value="융합전공학부">융합전공학부</option>
                             <option value="자유전공학부">자유전공학부</option>
+                            <option value="첨단융합학부">첨단융합학부</option>
                         </select>
                     </div>
                 </div>
@@ -408,6 +409,7 @@ function ReEntryComponent() {
                             <option value="자유융합대학" disabled>🏫 자유융합대학</option>
                             <option value="융합전공학부">융합전공학부</option>
                             <option value="자유전공학부">자유전공학부</option>
+                            <option value="첨단융합학부">첨단융합학부</option>
                         </select>
                     </div>
                 </div>
