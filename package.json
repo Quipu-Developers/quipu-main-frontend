@@ -5,6 +5,7 @@
   "dependencies": {
     "@react-three/drei": "^9.97.1",
     "@react-three/fiber": "^8.15.16",
+    "create-react-app": "^5.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",

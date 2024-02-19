@@ -5,7 +5,7 @@
     flex-direction: column;
     overflow-x: auto;
 
-    @media (max-width: 700px){
+    @media (max-width: 800px){
         width:100%;
         height: 100vh;
         overflow-y: scroll;
@@ -54,7 +54,6 @@
 }
 
 .recommend-site__box--top {
-    z-index: 2;
     display: flex;
     align-items: center;
     width: 100%;
@@ -65,13 +64,19 @@
 
 
 .recommend-site__box--bottom {
-    z-index: 0;
     display: flex;
     align-items: center;
     width: 70%;
     height: 50%;
-    justify-content: start;
+    justify-content: space-around;
+}
+
+.recommend-site__container--behind{
+    display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: auto;
 }
 
 .recommend-site__box--behind {
@@ -81,16 +86,48 @@
     transition: transform 0.3s ease-out;
 
     @media screen and (max-width: 700px){
+        width: 80%;
+    }
+    @media screen and (max-width: 600px){
+        width: 90%;
+    }
+    @media screen and (max-width: 500px){
         width: 100%;
+    }
+    @media screen and (max-width: 370px){
+        width: 120%;
     }
 }
 
 .recommend-site__box--behind .recommend-site__icon:nth-child(odd) {
     float: left;
+
+    @media screen and (max-width: 800px){
+        margin-left: 10px;
+    }
+
+    @media screen and (max-width: 500px){
+        margin-left: 15px;
+    }
+
+    @media screen and (max-width: 400px){
+        margin-left: 20px;
+    }
 }
 
 .recommend-site__box--behind .recommend-site__icon:nth-child(even) {
     float: right;
+
+    @media screen and (max-width: 800px){
+        margin-right: 10px;
+    }
+
+    @media screen and (max-width: 500px){
+        margin-right: 15px;
+    }
+    @media screen and (max-width: 400px){
+        margin-right: 20px;
+    }
 }
 
 .recommend-site__icon {
@@ -107,27 +144,6 @@
     box-shadow: 2px 2px 2px #5e5d5d;
     /* transition: all 0.05s ease-in-out; */
     cursor: pointer;
-
-    @media screen and (max-width: 700px){
-        margin: 30px 120px;
-    }
-
-    @media screen and (max-width: 600px){
-        margin: 30px 80px;
-    }
-
-    @media screen and (max-width: 500px){
-        margin: 30px 40px;
-    }
-
-    @media screen and (max-width: 400px){
-        margin: 30px 20px;
-    }
-    
-    @media screen and (max-width: 300px){
-        width: 200px;
-        height: 150px;
-    }
 }
 
 .recommend-site__icon:hover {
@@ -165,20 +181,6 @@
     position: relative;
 }
 
-.recommend-site__icon--body .hover-text {
-    font-size: 10px;
-    font-weight: 600;
-    color: grey;
-    position: absolute;
-    bottom: -35px;
-    margin: 0px;
-    opacity: 0.6;
-
-    @media (max-width: 300px) {
-        font-size: 8px;
-    }
-}
-
 .recommend-site__icon--body .site-title {
     font-size: 15px;
     font-weight: bold;
@@ -187,7 +189,7 @@
 }
 
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 800px){
     .recommend-site__box{
         display: none;
     }
