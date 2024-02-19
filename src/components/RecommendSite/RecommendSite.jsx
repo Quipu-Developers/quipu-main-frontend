@@ -23,29 +23,16 @@ function Icon({ img, name, link, exp }) {
             </div>
             <div className="recommend-site__icon--body">
                 <img width="60px" height="60px" src={img || ''} alt={name}></img>
-                <p style={{ fontSize: "15px", fontWeight: 'bold', margin: "5px" }}>{name}</p>
-                {isListHover ? <p className="hover-text">what?<br></br>{exp}</p> : null}
+                <div>
+                    <p style={{ fontSize: "15px", fontWeight: 'bold', margin: "5px" }}>{name}</p>
+                    {isListHover ? <p style={{fontSize: "12px", margin: "5px"}}>{exp}</p> : null}
+                </div>
             </div>
         </div>
     );
 }
 
 function RecommendSite(){
-    
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        return () => {
-        window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     return(
         <div>
             <div className="blank-navbar-pc"></div>
@@ -68,7 +55,7 @@ function RecommendSite(){
                     </div>
                 </div>
                 <div className="recommend-site__container--behind">
-                    <div className="recommend-site__box--behind" style={{ transform: `translateX(${scrollPosition}px)`}}>
+                    <div className="recommend-site__box--behind">
                         <Icon img="../RecommendSite-img/chatGPT.png" name="ChatGPT" exp="AI 챗봇, 문서 작성 및 정보 검색 지원" link="https://chat.openai.com/" />
                         <Icon img="../RecommendSite-img/leetCode.png" name="LeetCode" exp="코딩 인터뷰 특화, 기술 기업 스타일 문제 사이트" link="https://leetcode.com/" />
                         <Icon img="../RecommendSite-img/hackerRank.png" name="HackerRank" exp="코딩 테스트 중심의 실무 기술 평가 사이트" link="https://www.hackerrank.com/" />
