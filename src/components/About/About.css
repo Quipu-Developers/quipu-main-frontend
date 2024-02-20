@@ -96,10 +96,15 @@
     }
 }
 
-.title {
+.w-90 .about-title {
+    font-size: 40px;
     font-weight: 700;
     color: #FAF7F0;
     text-shadow: 2px 2px #54BAB9;
+
+    @media (max-width: 700px) {
+        font-size: 30px
+    }
 }
 
 .quipu-button {

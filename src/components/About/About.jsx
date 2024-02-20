@@ -79,7 +79,7 @@ function About() {
 
         <div className="About-content">
           <div className="w-90" style={{ marginTop: '40px', flexDirection: 'row' }}>
-            <p className="title" style={{ fontSize: '40px' }}>About</p>
+            <p className="about-title">About</p>
           </div>
           <div className="w-90">
             <p>
@@ -91,7 +91,7 @@ function About() {
             </p>
           </div>
           <div className="w-90" style={{ marginTop: '40px' }}>
-            <p className="title" style={{ fontSize: '40px' }}>Our Keyword</p>
+            <p className="about-title">Our Keyword</p>
           </div>
           <div className="w-90">
             <div className="w-30">
@@ -124,7 +124,7 @@ function About() {
             </div>
           </div>
           <div className="w-90" style={{ marginTop: '40px' }}>
-            <p className="title" style={{ fontSize: '40px' }}>Welcome!</p>
+            <p className="about-title">Welcome!</p>
           </div>
           <div className="w-90">
             <p>

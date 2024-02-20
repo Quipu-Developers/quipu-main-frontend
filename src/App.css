@@ -150,6 +150,14 @@
       height: 100vh;
       background-color: #DFE7FF;
       transition: left 0.5s;
+
+      @media (max-height: 400px) {
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     }
 
     #menu-toggle~.navbar__menu--mobile {
@@ -178,7 +186,7 @@
       display: flex;
       flex-direction: column;
       align-items: start;
-      width: 80vw;
+      width: 60vw;
       height: auto;
       margin: 10px;
       padding: 5px 20px;
@@ -187,6 +195,10 @@
       list-style: none;
       cursor: pointer;
       box-shadow: 2px 2px #a6adc0;
+
+      @media (max-width: 600px) {
+        width: 80vw;
+      }
     }
 
     .navbar__menu--mobile a {

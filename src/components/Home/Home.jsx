@@ -5,12 +5,12 @@ import './Home.css';
 
 
 function Home() {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 700);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 900);
 
   //가로 700px임을 감지해서 다른 컴포넌트를 렌더링하기 위한 함수
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 700);
+      setIsSmallScreen(window.innerWidth <= 900);
     };
     window.addEventListener('resize', handleResize);
     return () => {

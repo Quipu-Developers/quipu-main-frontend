@@ -175,6 +175,10 @@
     transform: scale(1.15);
     box-shadow: 2px 2px 2px grey;
     transition: all 0.05s ease-in-out;
+
+    @media (max-width: 800px) {
+        transform: scale(1.1);
+    }
 }
 
 .recommend-site__icon:hover .site-title{
@@ -205,6 +209,7 @@
     align-items: center;
     margin: 10%;
     position: relative;
+    word-break: keep-all;
 
     @media screen and (max-width: 300px){
         justify-content: start;
@@ -238,7 +243,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 850px){
     .recommend-site__box{
         display: none;
     }
