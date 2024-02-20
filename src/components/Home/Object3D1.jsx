@@ -82,7 +82,7 @@ const CameraAspectUpdater = () => {
 
 const Object3D1 = () => {
   return (
-    <Canvas
+    <Canvas 
       camera={{ fov: 40, aspect: window.innerWidth / window.innerHeight, near: 0.1, far: 1000, position: [1.2,-2,-5] }}
     >
       <CameraAspectUpdater />
