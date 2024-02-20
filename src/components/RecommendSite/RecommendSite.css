@@ -1,13 +1,13 @@
 .recommend-site {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     overflow-x: auto;
 
     @media (max-width: 800px){
         width:100%;
-        height: calc(100vh - 60px);
+        height: calc(100% - 60px);
         overflow-y: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;

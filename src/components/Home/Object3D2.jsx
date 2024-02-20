@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, memo  } from 'react'
-import { Canvas, useFrame, extend } from '@react-three/fiber'
+import { Canvas, useThree, useFrame, extend } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 
 extend({ OrbitControls })
@@ -61,11 +61,31 @@ const Capsule = (props) => {
   )
 }
 
+const CameraAspectUpdater = () => {
+  const { camera, gl } = useThree();
+
+  useEffect(() => {
+    const updateCameraAspect = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      gl.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    window.addEventListener('resize', updateCameraAspect);
+    updateCameraAspect(); // 초기 실행
+
+    return () => window.removeEventListener('resize', updateCameraAspect);
+  }, [camera, gl]);
+
+  return null;
+};
+
 const Object3D2 = () => {
   return (
     <Canvas
       camera={{ fov: 65, aspect: window.innerWidth / window.innerHeight, near: 0.1, far: 1000, position: [1.2, -2, -3.5] }}
     >
+      <CameraAspectUpdater />
       <ambientLight intensity={1} />
       <pointLight position={[-5, 2, 5]} intensity={60} />
       <pointLight position={[2, 10, 0]} intensity={60} />

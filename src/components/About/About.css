@@ -21,7 +21,7 @@
 .About-container {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-position: bottom;
     background-size: 100% 0%;
     background-color: transparent;
@@ -52,12 +52,12 @@
     overflow-y: auto;
     -ms-overflow-style: none;
     width: 100vw;
-    height: calc(100vh - 80px);
+    height: calc(100% - 80px);
     scrollbar-width: none;
 
     @media (max-width: 900px) {
         top: 60px;
-        height: calc(100vh - 60px);
+        height: calc(100% - 60px);
     }
 }
 

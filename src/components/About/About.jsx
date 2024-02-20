@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, memo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import './About.css';
 
 function getRandomColor() {
@@ -38,6 +38,25 @@ const Confetti = memo(({ position, rotationSpeed }) => {
   );
 });
 
+const CameraAspectUpdater = () => {
+  const { camera, gl } = useThree();
+
+  useEffect(() => {
+    const updateCameraAspect = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      gl.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    window.addEventListener('resize', updateCameraAspect);
+    updateCameraAspect(); // 초기 실행
+
+    return () => window.removeEventListener('resize', updateCameraAspect);
+  }, [camera, gl]); // 의존성 배열에 camera와 gl을 포함시킵니다.
+
+  return null; // 시각적인 요소를 렌더링하지 않는 컴포넌트입니다.
+};
+
 function About() {
   const [confettis, setConfettis] = useState([]);
 
@@ -71,6 +90,7 @@ function About() {
           <ambientLight intensity={1} />
           <pointLight position={[-5, 0, 5]} intensity={100} />
           <pointLight position={[0, 10, 0]} intensity={100} />
+          <CameraAspectUpdater />
 
           {confettis.map((confetti, index) => (
             <Confetti key={index} position={confetti.position} rotationSpeed={confetti.rotationSpeed} />

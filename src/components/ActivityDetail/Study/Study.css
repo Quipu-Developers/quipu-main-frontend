@@ -4,11 +4,11 @@
     justify-content: center;
     align-content: start;
     width: 80%;
-    height: calc(100dvh - 80px);
+    height: calc(100% - 80px);
     -webkit-overflow-scrolling: touch;
 
     @media (max-width: 900px) {
-        height: calc(100dvh - 60px - 54px);
+        height: calc(100% - 60px - 54px);
     }
 }
 

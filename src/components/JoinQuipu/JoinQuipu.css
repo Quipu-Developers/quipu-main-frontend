@@ -2,16 +2,19 @@
     overflow-y: auto;
     -ms-overflow-style: none;
     width: 100%;
-    height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
     scrollbar-width: none;
     margin: 0;
     padding-bottom: 20%;
     color: black;
     font-size: 14px;
     line-height: 1.5em;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
     @media (max-width: 900px) {
-        height: calc(100dvh - 60px);
+        height: calc(100vh - 60px);
     }
 }
 

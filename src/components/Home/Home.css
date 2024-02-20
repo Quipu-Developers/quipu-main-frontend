@@ -2,13 +2,13 @@
   position: relative;
   z-index: 1;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   cursor: pointer;
 }
 
 .home-container__message {
   position: absolute;
-  top: 40vh;
+  top: 40%;
   left: 0;
   margin: 0 0 0 5%;
   color: white;
