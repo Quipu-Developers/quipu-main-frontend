@@ -102,7 +102,7 @@ function RecommendSite() {
                             <div className="recommend-site__icon--blank"></div>
                         </div>
                         <div ref={scrollContainerRef} className="recommend-site__box--bottom">
-                            <Icon img="../RecommendSite-img/baekJoon.png" name="BaekJoon" exp="알고리즘 문제 풀이 경쟁 사이트" link="https://www.acmicpc.net/" />
+                            <Icon img="../RecommendSite-img/baekjoon.png" name="BaekJoon" exp="알고리즘 문제 풀이 경쟁 사이트" link="https://www.acmicpc.net/" />
                             <Icon img="../RecommendSite-img/replit.png" name="Replit" exp="코드 작성 및 실행 가능한 온라인 플랫폼" link="https://replit.com/" />
                             <Icon img="../RecommendSite-img/computerWorld.png" name="Computer World" exp="IT 최신 뉴스 및 인사이트 제공 사이트" link="https://www.computerworld.com/" />
                         </div>
@@ -123,7 +123,7 @@ function RecommendSite() {
                             img="../RecommendSite-img/w3Schools.png" name="W3 Schools" exp="웹 개발 학습 자료 제공 사이트" link="https://www.w3schools.com/" />
 
                         <Icon2
-                            img="../RecommendSite-img/baekJoon.png" name="BaekJoon" exp="알고리즘 문제 풀이 경쟁 사이트" link="https://www.acmicpc.net/" />
+                            img="../RecommendSite-img/baekjoon.png" name="BaekJoon" exp="알고리즘 문제 풀이 경쟁 사이트" link="https://www.acmicpc.net/" />
 
                         <Icon2
                             img="../RecommendSite-img/replit.png" name="Replit" exp="코드 작성 및 실행 가능한 온라인 플랫폼" link="https://replit.com/" />
