@@ -130,7 +130,6 @@ function RecommendSite() {
 
                         <Icon2
                             img="../RecommendSite-img/computerWorld.png" name="Computer World" exp="IT 최신 뉴스 및 인사이트 제공 사이트" link="https://www.computerworld.com/" />
-                        <div className="recommend-site__icon--blank"></div>
                     </div>
                 </div>
             </div>

@@ -77,15 +77,3 @@
   box-shadow: 3px 3px 4px grey;
   object-fit: cover;
 }
-
-.blank-block {
-  width: 0px;
-  height: 0px;
-  margin: 0;
-
-  @media (max-width: 500px) {
-    width: 80vw;
-    height: 200px;
-    margin: 5px;
-  }
-}
