@@ -4,7 +4,7 @@ html {
 
 body,
 html {
-  height: 100vh;
+  height: calc(var(--var, 1vh) * 100);
   overflow: hidden;
 
   @media (max-width: 400px) {
@@ -24,7 +24,7 @@ nav {
 }
 
 section {
-  height: 100vh;
+  height: calc(var(--var, 1vh) * 100);
 }
 
 p {
