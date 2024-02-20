@@ -31,7 +31,7 @@ function App() {
       <nav className="navbar">
 
         <div className="navbar__logo">
-          <NavLink to="/#home" smooth>
+          <NavLink to="/#home" onClick={closeMenu} smooth>
             <img className="navbar__logo--img" src="/logo_main.png"></img>
           </NavLink>
         </div>
@@ -58,11 +58,11 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
           <ul>
-            <li style={{ marginTop: '80px' }}><NavLink to="/home" onClick={closeMenu}>home</NavLink></li>
-            <li><NavLink to="/about" onClick={closeMenu}>about</NavLink></li>
+            <li style={{ marginTop: '80px' }}><NavLink to="/#home" onClick={closeMenu}>home</NavLink></li>
+            <li><NavLink to="/#about" onClick={closeMenu}>about</NavLink></li>
             <li>
               <div className="activity-menu">
-                <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
+                <NavLink to="/#activity" onClick={closeMenu}>activity</NavLink>
                 <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail} />
                 <label className='activity-button' htmlFor="activity-toggle">
                   <span className="line line4"></span>
@@ -70,35 +70,35 @@ function App() {
                 </label>
               </div>
               <div className={`activity-detail-menu ${isActivityDetailVisible ? 'visible' : ''}`}>
-                <li style={{boxShadow: '0px 0px grey'}}><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
-                <li style={{boxShadow: '0px 0px grey'}}><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
-                <li style={{boxShadow: '0px 0px grey'}}><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+                <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+                <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+                <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
               </div>
             </li>
-            <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
-            <li><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
+            <li><NavLink to="/#recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
+            <li style={{ marginBottom: '80px' }}><NavLink to="/#join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
           </ul>
         </div>
 
       </nav>
 
-        <Routes>
-          <Route path="/" element={
-            <>
-              <section id="home"><Home /></section>
-              <section id="about"><About /></section>
-              <section id="activity"><Activity /></section>
-              <section id="recommend-site"><RecommendSite /></section>
-              <section id="join-quipu"><JoinQuipu /></section>
-            </>
-          } />
-          <Route path="/home" element={<Home/>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/activity" element={<Activity />} />
-          <Route path="/activity-detail" element={<ActivityDetail />} />
-          <Route path="/recommend-site" element={<RecommendSite />} />
-          <Route path="/join-quipu" element={<JoinQuipu />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <section id="home"><Home /></section>
+            <section id="about"><About /></section>
+            <section id="activity"><Activity /></section>
+            <section id="recommend-site"><RecommendSite /></section>
+            <section id="join-quipu"><JoinQuipu /></section>
+          </>
+        } />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/activity" element={<Activity />} />
+        <Route path="/activity-detail" element={<ActivityDetail />} />
+        <Route path="/recommend-site" element={<RecommendSite />} />
+        <Route path="/join-quipu" element={<JoinQuipu />} />
+      </Routes>
     </Router>
   );
 }

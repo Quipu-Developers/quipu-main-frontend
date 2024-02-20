@@ -1,5 +1,3 @@
-  /* 네브바 */
-
   .navbar {
     position: fixed;
     z-index: 1000;
@@ -92,6 +90,11 @@
     width: 30px;
     height: 100%;
     cursor: pointer;
+
+    @media (max-width: 400px) {
+      position: absolute;
+      top: calc(100vh - 60px);
+    }
   }
 
   .menu-button .line {
@@ -150,6 +153,10 @@
       height: 100vh;
       background-color: #DFE7FF;
       transition: left 0.5s;
+
+      @media (max-width: 400px) {
+        align-items: end;
+      }
 
       @media (max-height: 400px) {
         align-items: flex-start;

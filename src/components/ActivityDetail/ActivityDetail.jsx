@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './ActivityDetail.css';
 import Study from './Study/Study';
@@ -30,6 +31,8 @@ function ActivityDetail() {
 
     const [selectedYear, setSelectedYear] = useState('2023');
 
+    const navigate = useNavigate();
+
     return (
         <>
             <div className="blank-navbar-pc"></div>
@@ -49,6 +52,7 @@ function ActivityDetail() {
                     </select>
                 </div>
                 <div className="ActivityDetail-content">
+                    <button className='back-button' onClick={() => navigate(-1)}>&laquo;</button>
                     <select onChange={(e) => setSelectedYear(e.target.value)}
                         className="year-dropdown-mobile">
                         <option>2023</option>
