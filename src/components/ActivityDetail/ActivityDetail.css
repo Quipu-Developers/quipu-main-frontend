@@ -7,11 +7,11 @@
     overflow-y: auto;
     -ms-overflow-style: none;
     width: 100%;
-    height: calc(var(--var, 1vh) * 100 - 80px);
+    height: calc(var(--vh, 1vh) * 100 - 80px);
     scrollbar-width: none;
 
     @media (max-width: 900px) {
-        height: calc(var(--var, 1vh) * 100 - 60px);
+        height: calc(var(--vh, 1vh) * 100 - 60px);
     }
 }
 

@@ -8,12 +8,8 @@ html {
 
 body,
 html {
-  height: calc(var(--var, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
-
-  @media (max-width: 400px) {
-    height: calc(var(--var, 1vh) * 100);
-  }
 }
 
 body {
@@ -28,7 +24,7 @@ nav {
 }
 
 section {
-  height: calc(var(--var, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 p {
