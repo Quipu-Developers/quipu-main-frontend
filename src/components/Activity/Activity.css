@@ -17,6 +17,14 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  @media (max-height: 500px) {
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 .activity-container::-webkit-scrollbar {

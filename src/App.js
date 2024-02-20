@@ -66,7 +66,7 @@ function App() {
         {/* mobile에서 메뉴들 */}
         <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
           <ul>
-            <li style={{ marginTop: '80px' }}><NavLink to="/#home" onClick={closeMenu}>home</NavLink></li>
+            <li style={{ marginTop: '80px' }}><NavLink to="/home" onClick={closeMenu}>home</NavLink></li>
             <li><NavLink to="/about" onClick={closeMenu}>about</NavLink></li>
             <li>
               <div className="activity-menu">

@@ -97,7 +97,7 @@ function JoinQuipu() {
                             <div className="join-notice__icon--body">
                                 <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p>
                                 <p>지원서 작성해주세요!</p>
-                                <p >또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
+                                <p style={{color: 'whitesmoke'}}>또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
                                 <p >(신규회원 : <span style={{ fontWeight: 900 }}>20,000</span>원 / 기존회원 : <span style={{ fontWeight: 900 }}>25,000</span>원)</p>
                                 <p onClick={() => copyToClipboard('1002-861-110963')}>
                                     우리은행&nbsp;
@@ -183,7 +183,7 @@ function JoinQuipu() {
                         <p>인스타그램&nbsp;&nbsp;|&nbsp;&nbsp;👉<a href="https://www.instagram.com/uos_quipu?igsh=MTVjZTFhaXl6NGRoZQ=="target="_blank">@uos_quipu</a>👈</p>
                         <p>동아리방 위치&nbsp;&nbsp;|&nbsp;&nbsp;학생회관 342호</p>
                         <br></br>
-                        <p>Copyrightⓒ2023.QUIPU. All rights reserved.</p>
+                        <p>Copyright 2024.QUIPU. All rights reserved.</p>
                         <p>study icon designed by Flaticon(Freepik)</p>
                     </div>
                 </div>

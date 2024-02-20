@@ -13,6 +13,7 @@
       height: 60px;
       padding: 15px;
     }
+
   }
 
   .navbar__logo {
@@ -21,8 +22,8 @@
     height: 60px;
 
     @media (max-width: 900px) {
-      width: 100px;
-      height: 50px;
+      width: 90px;
+      height: 40px;
     }
   }
 
@@ -90,11 +91,6 @@
     width: 30px;
     height: 100%;
     cursor: pointer;
-
-    @media (max-width: 400px) {
-      position: absolute;
-      top: calc(var(--vh, 1vh) * 100 - 60px);
-    }
   }
 
   .menu-button .line {
@@ -153,10 +149,6 @@
       height: calc(var(--vh, 1vh) * 100);
       background-color: #DFE7FF;
       transition: left 0.5s;
-
-      @media (max-width: 400px) {
-        align-items: end;
-      }
 
       @media (max-height: 400px) {
         align-items: flex-start;
