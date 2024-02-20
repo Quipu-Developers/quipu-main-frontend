@@ -59,10 +59,10 @@ function App() {
         <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
           <ul>
             <li style={{ marginTop: '80px' }}><NavLink to="/#home" onClick={closeMenu}>home</NavLink></li>
-            <li><NavLink to="/#about" onClick={closeMenu}>about</NavLink></li>
+            <li><NavLink to="/about" onClick={closeMenu}>about</NavLink></li>
             <li>
               <div className="activity-menu">
-                <NavLink to="/#activity" onClick={closeMenu}>activity</NavLink>
+                <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
                 <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail} />
                 <label className='activity-button' htmlFor="activity-toggle">
                   <span className="line line4"></span>
@@ -75,8 +75,8 @@ function App() {
                 <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
               </div>
             </li>
-            <li><NavLink to="/#recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
-            <li style={{ marginBottom: '80px' }}><NavLink to="/#join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
+            <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
+            <li style={{ marginBottom: '80px' }}><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
           </ul>
         </div>
 

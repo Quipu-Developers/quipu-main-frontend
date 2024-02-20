@@ -4,6 +4,12 @@ html {
 
 body,
 html {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100dvh;
   overflow: hidden;
 }
 
