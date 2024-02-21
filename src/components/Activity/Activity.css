@@ -5,6 +5,7 @@
   align-items: center;
   width: 100%;
   height: calc(var(--vh, 1vh) * 100 - 80px);
+  scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
 
   @media (max-width: 900px) {
@@ -39,12 +40,10 @@
   width: 20vw;
   height: 400px;
   margin: 5px;
+  margin-bottom: 30px;
+  scroll-snap-align: center;
 
   @media (max-width: 900px) {
-    width: 25vw;
-  }
-
-  @media (max-width: 800px) {
     width: 25vw;
   }
 
