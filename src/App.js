@@ -45,7 +45,7 @@ function App() {
         </div>
 
         {/* pc에서 메뉴들 */}
-        <div className="navbar__menu--pc">
+        {/* <div className="navbar__menu--pc">
           <ul>
             <li><NavLink to="/#home" smooth>home</NavLink></li>
             <li><NavLink to="/#about" smooth>about</NavLink></li>
@@ -53,7 +53,7 @@ function App() {
             <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
             <li><NavLink to="/#join-quipu" smooth>join Quipu</NavLink></li>
           </ul>
-        </div>
+        </div> */}
 
         {/* mobile에서 메뉴 버튼 */}
         <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
