@@ -32,11 +32,18 @@ const FAQ = ({ question, answer, emoji }) => {
 
 function JoinQuipu() {
     const [suggestedEntry, setSuggestedEntry] = useState(false);
+    const [hasReviewed, setHasReviewed] = useState(false);
+    const [hasPaidFee, setHasPaidFee] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+
+    const canSubmit = hasReviewed && hasPaidFee;
+
     const renderComponent = () => {
+        const commonProps = { setHasReviewed, setHasPaidFee };
         if (suggestedEntry) {
-            return <ReEntryComponent />;
+            return <ReEntryComponent {...commonProps} />;
         } else {
-            return <NewEntryComponent />;
+            return <NewEntryComponent {...commonProps} />;
         }
     };
 
@@ -44,10 +51,10 @@ function JoinQuipu() {
         navigator.clipboard.writeText(text);
     };
 
-    const [showPopup, setShowPopup] = useState(false);
-
     const handleApplyButtonClick = () => {
-        setShowPopup(true);
+        if (canSubmit) {
+            setShowPopup(true);
+        }
     };
     
     const handlePopupClose = () => {
@@ -115,7 +122,8 @@ function JoinQuipu() {
 
                     {/* 신청 버튼 */}
                     <div className="apply">
-                        <button type="submit" onClick={handleApplyButtonClick}>
+                        <button type="submit" onClick={handleApplyButtonClick} disabled={!canSubmit}
+                        className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}>
                             📥 Apply
                         </button>
                     </div>
@@ -192,11 +200,15 @@ function JoinQuipu() {
     );
 }
 
-function NewEntryComponent() {
+function NewEntryComponent({ setHasReviewed, setHasPaidFee }) {
     const [name, setName] = useState('');
     const [studentNumber, setStudentNumber] = useState('');
     const [major, setMajor] = useState('학과선택');
     const [phoneNumber, setPhoneNumber] = useState('');
+
+    const [reviewed, setReviewed] = useState(false);
+    const [paidFee, setPaidFee] = useState(false);
+
     const phoneAutoHyphen = (value) => {
         return value
             .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
@@ -212,7 +224,15 @@ function NewEntryComponent() {
         }
     };
 
+    const handleReviewedChange = (e) => {
+        setReviewed(e.target.checked);
+        setHasReviewed(e.target.checked); // JoinQuipu의 상태도 업데이트
+    };
 
+    const handlePaidFeeChange = (e) => {
+        setPaidFee(e.target.checked);
+        setHasPaidFee(e.target.checked); // JoinQuipu의 상태도 업데이트
+    };
 
     return (
         <div>
@@ -313,17 +333,29 @@ function NewEntryComponent() {
                         placeholder="하고싶은 활동 있으시면 작성해 주세요"
                     />
                 </div>
+                <div className="checkbox">
+                    <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
+                    <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
+                </div>
+                <div className="checkbox">
+                    <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
+                    <input id="checkbox-input" type="checkbox" checked={paidFee} onChange={handlePaidFeeChange} />
+                </div>
             </div>
         </div>
     );
 }
 
-function ReEntryComponent() {
+function ReEntryComponent({ setHasReviewed, setHasPaidFee }) {
 
     const [name, setName] = useState('');
     const [studentNumber, setStudentNumber] = useState('');
     const [major, setMajor] = useState('학과선택');
     const [phoneNumber, setPhoneNumber] = useState('');
+
+    const [reviewed, setReviewed] = useState(false);
+    const [paidFee, setPaidFee] = useState(false);
+
     const phoneAutoHyphen = (value) => {
         return value
             .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
@@ -337,6 +369,16 @@ function ReEntryComponent() {
             textareaRef.current.style.height = 'auto';
             textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
         }
+    };
+
+    const handleReviewedChange = (e) => {
+        setReviewed(e.target.checked);
+        setHasReviewed(e.target.checked); // JoinQuipu의 상태도 업데이트
+    };
+
+    const handlePaidFeeChange = (e) => {
+        setPaidFee(e.target.checked);
+        setHasPaidFee(e.target.checked); // JoinQuipu의 상태도 업데이트
     };
 
     return (
@@ -437,6 +479,15 @@ function ReEntryComponent() {
                         rows={1}
                         placeholder="개선을 바라는 점 적어주세요!"
                     />
+                </div>
+
+                <div className="checkbox">
+                    <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
+                    <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
+                </div>
+                <div className="checkbox">
+                    <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
+                    <input id="checkbox-input" type="checkbox" checked={paidFee} onChange={handlePaidFeeChange} />
                 </div>
             </div>
         </div>
