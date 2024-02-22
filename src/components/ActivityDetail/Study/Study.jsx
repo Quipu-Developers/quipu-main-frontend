@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
 import './Study.css';
 
+const 웹개발입문 = {
+    year: '2024',
+    title: '웹개발 입문 스터디',
+    period: '2024.03 - 2024.08',
+    shortDescription: '(모집 예정)',
+    goal: "웹 개발에 필요한 개발 지식을 학습하고 팀별로 작은 서비스를 개발합니다.",
+    details: ["포럼 웹 개발팀과 스터디를 같이 진행합니다. 전체적인 스터디 커리큘럼은 하단 계획서를 참고해주세요!", "3월에 모집합니다. 많은 관심 부탁드립니다!"],
+    links: {'계획서':"https://quipu-web.notion.site/a032f2bed8a3441896dc89a8dfe932e6?pvs=4"},
+    leaders: ['이예나', '이제민'],
+    members: ['모집 예정'],
+    allMembers: ['모집 예정'],
+    mainimage: "/ActivityDetail-img/2024/Study/웹개발입문1.png",
+    allImgs: ["/ActivityDetail-img/2024/Study/웹개발입문1.png",],
+};
+
 const 퀴푸포럼웹개발 = {
     year: '2024',
     title: '퀴푸 포럼 웹 개발',
     period: '2024.03 - 2024.08',
     shortDescription: '(모집 예정)',
     goal: "퀴푸의 기록용 게시판 웹사이트를 제작합니다.",
-    details: ["3월에 모집합니다. 많은 관심 부탁드립니다!"],
-    links: {},
+    details: ["모집분야: 웹 기획, 웹 디자인, 백엔드 개발", "자세한 사항은 하단 회의록 참고해주세요!", "3월에 모집합니다. 많은 관심 부탁드립니다!"],
+    links: {"2월 27일 첫 회의록":"https://quipu-web.notion.site/02-27-43ca936739434d4083e1c1c3c0c1e6b8?pvs=4"},
     leaders: ['이예나', '이제민'],
-    members: ['김은지', '차준섭', '표성은', '김예영'],
-    allMembers: ['김은지', '차준섭', '표성은', '김예영'],
+    members: ['김예영', '김은지', '차준섭'],
+    allMembers: ['김예영', '김은지', '차준섭'],
     mainimage: "/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",
     allImgs: ["/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png",],
 };
@@ -168,7 +183,7 @@ const Cpp강연 = {
 
 function Study({ selectedYear }) {
 
-    const studies = [퀴푸포럼웹개발, 코딩테스트2024, 퀴푸메인웹개발, C스터디, 전자장및전기회로강연, IT공모전, 코딩테스트2023, Python강연, Python기초스터디, Cpp강연];
+    const studies = [웹개발입문, 퀴푸포럼웹개발, 코딩테스트2024, 퀴푸메인웹개발, C스터디, 전자장및전기회로강연, IT공모전, 코딩테스트2023, Python강연, Python기초스터디, Cpp강연];
 
     const filteredStudies = studies.filter(study => study.year === selectedYear);
 
