@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
 import Home from './components/Home/Home'
@@ -48,19 +48,6 @@ function App() {
       })
       .catch(() => setIsError(true));
 
-    const handleHashChange = () => {
-      const currentHash = window.location.hash.replace('#', '');
-      const validHashes = ['/home', '/about', '/activity', '/recommend-site', '/join-quipu'];
-      if (!validHashes.includes(currentHash)) {
-        setIsError(true);
-      } else {
-        setIsError(false);
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-
-    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   if (isError) {
