@@ -64,6 +64,12 @@
     font-size: 16px;
     font-weight: 500;
     color: white;
+    word-break: keep-all;
+    text-align: center;
+}
+
+.error-text-container a {
+    color: #1C0093;
 }
 
 .error-container button {
