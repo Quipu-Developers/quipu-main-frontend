@@ -1,4 +1,5 @@
 .JoinQuipu-container {
+    position: relative;
     overflow-y: auto;
     -ms-overflow-style: none;
     width: 100%;

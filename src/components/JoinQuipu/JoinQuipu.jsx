@@ -1,27 +1,114 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 import './JoinQuipu.css';
+import Error from '../Error/Error';
 
 function JoinQuipu() {
+    
 
-    const isRecruiting = false; // 모집기간 여부
+    const isRecruiting = true; //모집 기간 여부
+    const location = useLocation();
 
-    const [suggestedEntry, setSuggestedEntry] = useState(false);
-
+    const [entryType, setEntryType] = useState('newEntry');
     const [hasReviewed, setHasReviewed] = useState(false);
     const [hasPaidFee, setHasPaidFee] = useState(false);
 
-    const renderComponent = () => {
-        const commonProps = { isRecruiting, hasReviewed, setHasReviewed, hasPaidFee, setHasPaidFee };
-        if (suggestedEntry) {
-            return <ReEntryComponent {...commonProps} />;
-        } else {
-            return <NewEntryComponent {...commonProps} />;
-        }
-    };
+    const [name, setName] = useState('');
+    const [studentNumber, setStudentNumber] = useState('');
+    const [major, setMajor] = useState('전자전기컴퓨터공학부');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [textAreaContent, setTextAreaContent] = useState('');
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
     };
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    const [modalMessage, setModalMessage] = useState('모집기간이 아닙니다.');
+    const [modalSubMessage, setModalSubMessage] = useState('다음 모집을 기다려주세요!😭');
+
+    const [reviewed, setReviewed] = useState(false);
+    const [paidFee, setPaidFee] = useState(false);
+
+    const [isError, setIsError] = useState(false);
+
+    const canSubmit = isRecruiting && hasReviewed && hasPaidFee;
+
+    const phoneAutoHyphen = (value) => {
+        return value
+            .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
+            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")  // 숫자를 그룹화하여 하이픈 추가
+            .replace(/(\-{1,2})$/g, "");  // 끝에 하이픈이 1개 또는 2개인 경우 1개로 변경
+    };
+
+    const textareaRef = useRef();
+    const handleResizeHeight = () => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+        }
+    };
+
+    const handleReviewedChange = (e) => {
+        setReviewed(e.target.checked);
+        setHasReviewed(e.target.checked);
+    };
+
+    const handlePaidFeeChange = (e) => {
+        setPaidFee(e.target.checked);
+        setHasPaidFee(e.target.checked);
+    };
+
+    const handlePopupClose = () => {
+        setShowPopup(false);
+    };
+
+    const handleSubmit = async () => {
+
+        const formData = {
+            membershipType: entryType,
+            name: name,
+            studentNumber: studentNumber,
+            major: major,
+            phoneNumber: phoneNumber,
+            textAreaContent: textAreaContent
+        };
+
+        axios.post('http://localhost:3001/form', formData, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then(response => {
+            // 요청 성공 시 실행할 로직
+            setModalMessage('Welcome to Quipu!');
+            setModalSubMessage('퀴푸의 회원이 돼주셔서 감사합니다.');
+            setShowPopup(true);
+        }).catch(error => {
+            // 요청 실패 시 실행할 로직
+            if (error.response && error.response.status === 400) {
+                setModalMessage('잘못된 형식으로 입력되었습니다.');
+                setModalSubMessage('다시 확인해 주세요.');
+                setShowPopup(true);
+            } else {
+                setIsError(true);
+            }
+        });
+    };
+
+    useEffect(() => {
+        
+        if (location.pathname === '/join-quipu') {
+            setShowPopup(!isRecruiting);
+        } else {
+            setShowPopup(false);
+        }
+    }, [location]);
+
+    if (isError) {
+        return <Error />;
+    }
 
     return (
         <div>
@@ -39,8 +126,8 @@ function JoinQuipu() {
                             type="radio"
                             name="entryType"
                             id="newEntry"
-                            checked={!suggestedEntry}
-                            onChange={() => { setSuggestedEntry(false); setHasReviewed(false); setHasPaidFee(false); }}
+                            checked={entryType === 'newEntry'}
+                            onChange={() => { setEntryType('newEntry'); setHasReviewed(false); setHasPaidFee(false); }}
                         />
                         <label htmlFor="newEntry">💻New Entry</label>
 
@@ -48,8 +135,8 @@ function JoinQuipu() {
                             type="radio"
                             name="entryType"
                             id="reEntry"
-                            checked={suggestedEntry}
-                            onChange={() => { setSuggestedEntry(true); setHasReviewed(false); setHasPaidFee(false); }}
+                            checked={entryType === 'reEntry'}
+                            onChange={() => { setEntryType('reEntry'); setHasReviewed(false); setHasPaidFee(false); }}
                         />
                         <label htmlFor="reEntry">🔎Re-Entry</label>
                     </div>
@@ -79,8 +166,141 @@ function JoinQuipu() {
 
                     <div className="divider"></div>
 
-                    {/* renderComponent() 결과 */}
-                    {renderComponent()}
+                    <h2>{entryType === 'newEntry' ? 'For New Entry' : 'For Re-Entry'}</h2>
+
+                    <div className="field">
+                        <b>이름 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+
+                    <div className="field">
+                        <b>학번 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <input
+                            type="tel"
+                            maxLength={10}
+                            placeholder="2020xxxxxx"
+                            value={studentNumber}
+                            onChange={(e) => setStudentNumber(e.target.value)} />
+                    </div>
+
+                    <div className="field major">
+                        <b>학과 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <div>
+                            <select value={major} onChange={(e) => setMajor(e.target.value)} className="major-dropdown">
+                                <option value="공과대학" disabled>🏫 공과대학</option>
+                                <option value="전자전기컴퓨터공학부">전자전기컴퓨터공학부</option>
+                                <option value="화학공학과">화학공학과</option>
+                                <option value="기계정보공학과">기계정보공학과</option>
+                                <option value="신소재공학과">신소재공학과</option>
+                                <option value="토목공학과">토목공학과</option>
+                                <option value="인공지능학과">인공지능학과</option>
+                                <option value="컴퓨터과학부">컴퓨터과학부</option>
+                                <option value="정경대학" disabled>🏫 정경대학</option>
+                                <option value="국제관계학과">국제관계학과</option>
+                                <option value="경제학부">경제학부</option>
+                                <option value="세무학과">세무학과</option>
+                                <option value="사회복지학과">사회복지학과</option>
+                                <option value="행정학과">행정학과</option>
+                                <option value="경영대학" disabled>🏫 경영대학</option>
+                                <option value="경영학부">경영학부</option>
+                                <option value="인문대학" disabled>🏫 인문대학</option>
+                                <option value="국사학과">국사학과</option>
+                                <option value="국어국문학과">국어국문학과</option>
+                                <option value="영어영문학과">영어영문학과</option>
+                                <option value="중국어문화학과">중국어문화학과</option>
+                                <option value="철학과">철학과</option>
+                                <option value="자연과학대학" disabled>🏫 자연과학대학</option>
+                                <option value="물리학과">물리학과</option>
+                                <option value="생명과학과">생명과학과</option>
+                                <option value="수학과">수학과</option>
+                                <option value="융합응용화학과">융합응용화학과</option>
+                                <option value="통계학과">통계학과</option>
+                                <option value="환경원예학과">환경원예학과</option>
+                                <option value="도시과학대학" disabled>🏫 도시과학대학</option>
+                                <option value="건축학부(건축공학)">건축학부(건축공학)</option>
+                                <option value="건축학부(건축학)">건축학부(건축학)</option>
+                                <option value="공간정보공학과">공간정보공학과</option>
+                                <option value="교통공학과">교통공학과</option>
+                                <option value="도시공학과">도시공학과</option>
+                                <option value="도시사회학과">도시사회학과</option>
+                                <option value="도시행정학과">도시행정학과</option>
+                                <option value="조경학과">조경학과</option>
+                                <option value="환경공학부">환경공학부</option>
+                                <option value="소방방재학과">소방방재학과</option>
+                                <option value="예술체육대학" disabled>🏫 예술체육대학</option>
+                                <option value="디자인학과">디자인학과</option>
+                                <option value="스포츠과학과">스포츠과학과</option>
+                                <option value="음악학과">음악학과</option>
+                                <option value="환경조각학과">환경조각학과</option>
+                                <option value="자유융합대학" disabled>🏫 자유융합대학</option>
+                                <option value="융합전공학부">융합전공학부</option>
+                                <option value="자유전공학부">자유전공학부</option>
+                                <option value="첨단융합학부">첨단융합학부</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="field tel-number">
+                        <b>전화번호 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <div>
+                            <input
+                                type="tel"
+                                maxLength={13}
+                                placeholder="010-xxxx-xxxx"
+                                value={phoneAutoHyphen(phoneNumber)}
+                                onChange={(e) => setPhoneNumber(phoneAutoHyphen(e.target.value))}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="field">
+                        <b>{entryType === 'newEntry' ? '지원동기' : '건의사항'}</b>
+                        <textarea
+                            ref={textareaRef}
+                            onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
+                            rows={2}
+                            placeholder={entryType === 'newEntry' ? "하고 싶은 활동이 있으시면 작성해 주세요" : "개선을 바라는 점을 적어주세요!"}
+                            value={textAreaContent}
+                        />
+                    </div>
+                    <div className="checkbox">
+                        <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
+                        <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
+                    </div>
+                    <div className="checkbox">
+                        <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
+                        <input id="checkbox-input" type="checkbox" checked={paidFee} onChange={handlePaidFeeChange} />
+                    </div>
+
+                    {/* 신청 버튼 */}
+                    <div className="apply">
+                        <button type="button" onClick={(event) => {event.preventDefault(); handleSubmit();}} disabled={!canSubmit}
+                            className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}>
+                            📥 Apply
+                        </button>
+                    </div>
+
+                    {showPopup && (
+                        <div className="popup">
+                            <div className="popup__icon">
+                                <div className="popup__icon--top"></div>
+                                <div className="popup__icon--body">
+                                    <div className="popup_content">
+                                        <div className="popup_img">
+                                            <img src="/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
+                                        </div>
+                                        <div className="popup_message">
+                                            <p className="head-message">{modalMessage}</p>
+                                            <p className="sub-message">{modalSubMessage}</p>
+                                        </div>
+                                    </div>
+                                    <div className="popup__button-container">
+                                        <button onClick={handlePopupClose}>닫기</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     <div className="divider"></div>
 
@@ -131,549 +351,6 @@ function JoinQuipu() {
 }
 export default JoinQuipu;
 
-function NewEntryComponent({ isRecruiting, hasReviewed, setHasReviewed, hasPaidFee, setHasPaidFee }) {
-    const [name, setName] = useState('');
-    const [studentNumber, setStudentNumber] = useState('');
-    const [major, setMajor] = useState('학과선택');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [motivation, setMotivation] = useState('');
-
-    const [showPopup, setShowPopup] = useState(false);
-
-    const [modalMessage, setModalMessage] = useState('');
-    const [modalSubMessage, setModalSubMessage] = useState('');
-    const [modalType, setModalType] = useState('');
-
-    const [reviewed, setReviewed] = useState(false);
-    const [paidFee, setPaidFee] = useState(false);
-
-    const canSubmit = hasReviewed && hasPaidFee;
-
-    const phoneAutoHyphen = (value) => {
-        return value
-            .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
-            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")  // 숫자를 그룹화하여 하이픈 추가
-            .replace(/(\-{1,2})$/g, "");  // 끝에 하이픈이 1개 또는 2개인 경우 1개로 변경
-    };
-
-    const textareaRef = useRef();
-    const handleResizeHeight = () => {
-        if (textareaRef.current) {
-            textareaRef.current.style.height = 'auto';
-            textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
-        }
-    };
-
-    const handleReviewedChange = (e) => {
-        setReviewed(e.target.checked);
-        setHasReviewed(e.target.checked); // JoinQuipu의 상태도 업데이트
-    };
-
-    const handlePaidFeeChange = (e) => {
-        setPaidFee(e.target.checked);
-        setHasPaidFee(e.target.checked); // JoinQuipu의 상태도 업데이트
-    };
-
-    const handleApplyButtonClick = () => {
-        if (canSubmit) {
-            setShowPopup(true);
-        }
-    };
-
-    const handlePopupClose = () => {
-        setShowPopup(false);
-    };
-
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const formData = {
-            membershipType: 'new',
-            name: name,
-            studentNumber: studentNumber,
-            major: major,
-            phoneNumber: phoneNumber,
-            motivation: motivation
-        };
-
-        //   try {
-        //     const response = await fetch('서버에서 제공하는 특정 API의 URL', {
-        //       method: 'POST',
-        //       headers: {
-        //         'Content-Type': 'application/json',
-        //       },
-        //       body: JSON.stringify(formData),
-        //     });
-
-        //     if (response.ok) {
-        //       setModalMessage('Welcome to Quipu!');
-        //       setModalSubMessage('퀴푸의 회원이 돼주셔서 감사합니다.');
-        //       setModalType('success');
-        //       setShowPopup(true);
-        //     } else if (response.status === 400) {
-        //       setModalMessage('잘못된 형식으로 입력되었습니다.');
-        //       setModalSubMessage('다시 확인해 주세요.');
-        //       setModalType('error');
-        //       setShowPopup(true);
-        //     } else {
-        //       window.location.href = '../../error.html';
-        //     }
-        //   } catch (error) {
-        //     window.location.href = '../../error.html';
-        //   }
-
-        try {
-            const response = await fetch('서버에서 제공하는 특정 API의 URL', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (isRecruiting) {
-                if (false) {
-                    setModalMessage('Welcome to Quipu!');
-                    setModalSubMessage('퀴푸의 회원이 돼주셔서 감사합니다.');
-                    setModalType('success');
-                    setShowPopup(true);
-                } else if (false) {
-                    setModalMessage('잘못된 형식으로 입력되었습니다.');
-                    setModalSubMessage('다시 확인해 주세요.');
-                    setModalType('error');
-                    setShowPopup(true);
-                } else {
-                    window.location.href = '../../error.html';
-                }
-            }
-            else {
-                setModalMessage('모집기간이 아닙니다.');
-                setModalSubMessage('다음 모집을 기다려주세요!😭');
-                setModalType('success');
-                setShowPopup(true);
-            }
-        } catch (error) {
-            window.location.href = '../../error.html';
-        }
-    };
-
-    return (
-        <div>
-            <h2>For New Entry</h2>
-
-            <form onSubmit={handleSubmit}>
-                <div className="field">
-                    <b>이름 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </div>
-
-                <div className="field">
-                    <b>학번 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <input
-                        type="tel"
-                        maxLength={10}
-                        placeholder="2020xxxxxx"
-                        value={studentNumber}
-                        onChange={(e) => setStudentNumber(e.target.value)} />
-                </div>
-
-                <div className="field major">
-                    <b>학과 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <div>
-                        <select value={major} onChange={(e) => setMajor(e.target.value)} className="major-dropdown">
-                            <option value="공과대학" disabled>🏫 공과대학</option>
-                            <option value="전자전기컴퓨터공학부">전자전기컴퓨터공학부</option>
-                            <option value="화학공학과">화학공학과</option>
-                            <option value="기계정보공학과">기계정보공학과</option>
-                            <option value="신소재공학과">신소재공학과</option>
-                            <option value="토목공학과">토목공학과</option>
-                            <option value="인공지능학과">인공지능학과</option>
-                            <option value="컴퓨터과학부">컴퓨터과학부</option>
-                            <option value="정경대학" disabled>🏫 정경대학</option>
-                            <option value="국제관계학과">국제관계학과</option>
-                            <option value="경제학부">경제학부</option>
-                            <option value="세무학과">세무학과</option>
-                            <option value="사회복지학과">사회복지학과</option>
-                            <option value="행정학과">행정학과</option>
-                            <option value="경영대학" disabled>🏫 경영대학</option>
-                            <option value="경영학부">경영학부</option>
-                            <option value="인문대학" disabled>🏫 인문대학</option>
-                            <option value="국사학과">국사학과</option>
-                            <option value="국어국문학과">국어국문학과</option>
-                            <option value="영어영문학과">영어영문학과</option>
-                            <option value="중국어문화학과">중국어문화학과</option>
-                            <option value="철학과">철학과</option>
-                            <option value="자연과학대학" disabled>🏫 자연과학대학</option>
-                            <option value="물리학과">물리학과</option>
-                            <option value="생명과학과">생명과학과</option>
-                            <option value="수학과">수학과</option>
-                            <option value="융합응용화학과">융합응용화학과</option>
-                            <option value="통계학과">통계학과</option>
-                            <option value="환경원예학과">환경원예학과</option>
-                            <option value="도시과학대학" disabled>🏫 도시과학대학</option>
-                            <option value="건축학부(건축공학)">건축학부(건축공학)</option>
-                            <option value="건축학부(건축학)">건축학부(건축학)</option>
-                            <option value="공간정보공학과">공간정보공학과</option>
-                            <option value="교통공학과">교통공학과</option>
-                            <option value="도시공학과">도시공학과</option>
-                            <option value="도시사회학과">도시사회학과</option>
-                            <option value="도시행정학과">도시행정학과</option>
-                            <option value="조경학과">조경학과</option>
-                            <option value="환경공학부">환경공학부</option>
-                            <option value="소방방재학과">소방방재학과</option>
-                            <option value="예술체육대학" disabled>🏫 예술체육대학</option>
-                            <option value="디자인학과">디자인학과</option>
-                            <option value="스포츠과학과">스포츠과학과</option>
-                            <option value="음악학과">음악학과</option>
-                            <option value="환경조각학과">환경조각학과</option>
-                            <option value="자유융합대학" disabled>🏫 자유융합대학</option>
-                            <option value="융합전공학부">융합전공학부</option>
-                            <option value="자유전공학부">자유전공학부</option>
-                            <option value="첨단융합학부">첨단융합학부</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div className="field tel-number">
-                    <b>전화번호 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <div>
-                        <input
-                            type="tel"
-                            maxLength={13}
-                            placeholder="010-xxxx-xxxx"
-                            value={phoneAutoHyphen(phoneNumber)}
-                            onChange={(e) => setPhoneNumber(phoneAutoHyphen(e.target.value))}
-                        />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <b>지원동기</b>
-                    <textarea
-                        ref={textareaRef}
-                        onChange={(e) => { setMotivation(e.target.value); handleResizeHeight(e.target.value); }}
-                        rows={2}
-                        placeholder="하고싶은 활동 있으시면 작성해 주세요"
-                        value={motivation}
-                    />
-                </div>
-                <div className="checkbox">
-                    <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
-                    <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
-                </div>
-                <div className="checkbox">
-                    <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
-                    <input id="checkbox-input" type="checkbox" checked={paidFee} onChange={handlePaidFeeChange} />
-                </div>
-
-                {/* 신청 버튼 */}
-                <div className="apply">
-                    <button type="submit" onClick={handleApplyButtonClick} disabled={!canSubmit}
-                        className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}>
-                        📥 Apply
-                    </button>
-                </div>
-            </form>
-
-            {showPopup && (
-                <div className="popup">
-                    <div className="popup__icon">
-                        <div className="popup__icon--top"></div>
-                        <div className="popup__icon--body">
-                            <div className="popup_content">
-                                <div className="popup_img">
-                                    <img src="/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
-                                </div>
-                                <div className="popup_message">
-                                    <p className="head-message">{modalMessage}</p>
-                                    <p className="sub-message">{modalSubMessage}</p>
-                                </div>
-                            </div>
-                            <div className="popup__button-container">
-                                <button onClick={handlePopupClose}>닫기</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
-function ReEntryComponent({ isRecruiting, hasReviewed, setHasReviewed, hasPaidFee, setHasPaidFee }) {
-
-    const [name, setName] = useState('');
-    const [studentNumber, setStudentNumber] = useState('');
-    const [major, setMajor] = useState('학과선택');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [feedback, setFeedback] = useState('');
-
-    const [showPopup, setShowPopup] = useState(false);
-
-    const [modalMessage, setModalMessage] = useState('');
-    const [modalSubMessage, setModalSubMessage] = useState('');
-    const [modalType, setModalType] = useState('');
-
-    const canSubmit = hasReviewed && hasPaidFee;
-
-    const [reviewed, setReviewed] = useState(false);
-    const [paidFee, setPaidFee] = useState(false);
-
-    const phoneAutoHyphen = (value) => {
-        return value
-            .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
-            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")  // 숫자를 그룹화하여 하이픈 추가
-            .replace(/(\-{1,2})$/g, "");  // 끝에 하이픈이 1개 또는 2개인 경우 1개로 변경
-    };
-
-    const textareaRef = useRef();
-    const handleResizeHeight = () => {
-        if (textareaRef.current) {
-            textareaRef.current.style.height = 'auto';
-            textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
-        }
-    };
-
-    const handleReviewedChange = (e) => {
-        setReviewed(e.target.checked);
-        setHasReviewed(e.target.checked); // JoinQuipu의 상태도 업데이트
-    };
-
-    const handlePaidFeeChange = (e) => {
-        setPaidFee(e.target.checked);
-        setHasPaidFee(e.target.checked); // JoinQuipu의 상태도 업데이트
-    };
-
-    const handleApplyButtonClick = () => {
-        if (canSubmit) {
-            setShowPopup(true);
-        }
-    };
-
-    const handlePopupClose = () => {
-        setShowPopup(false);
-    };
-
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const formData = {
-            membershipType: 're',
-            name: name,
-            studentNumber: studentNumber,
-            major: major,
-            phoneNumber: phoneNumber,
-            feedback: feedback
-        };
-
-        // try {
-        //     const response = await fetch('서버에서 제공하는 특정 API의 URL', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(formData),
-        //     });
-
-        //     if (response.ok) {
-        //         setModalMessage('Welcome to Quipu!');
-        //         setModalSubMessage('퀴푸의 회원이 돼주셔서 감사합니다.');
-        //         setModalType('success');
-        //         setShowPopup(true);
-        //     } else if (response.status === 400) {
-        //         setModalMessage('잘못된 형식으로 입력되었습니다.');
-        //         setModalSubMessage('다시 확인해 주세요.');
-        //         setModalType('error');
-        //         setShowPopup(true);
-        //     } else {
-        //         window.location.href = '../../error.html';
-        //     }
-        // } catch (error) {
-        //     window.location.href = '../../error.html';
-        // }
-
-        try {
-            const response = await fetch('서버에서 제공하는 특정 API의 URL', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (isRecruiting) {
-                if (false) {
-                    setModalMessage('Welcome to Quipu!');
-                    setModalSubMessage('퀴푸의 회원이 돼주셔서 감사합니다.');
-                    setModalType('success');
-                    setShowPopup(true);
-                } else if (400 === 400) {
-                    setModalMessage('잘못된 형식으로 입력되었습니다.');
-                    setModalSubMessage('다시 확인해 주세요.');
-                    setModalType('error');
-                    setShowPopup(true);
-                } else {
-                    window.location.href = '../../error.html';
-                }
-            }
-            else {
-                setModalMessage('모집기간이 아닙니다.');
-                setModalSubMessage('다음 모집을 기다려주세요!😭');
-                setModalType('success');
-                setShowPopup(true);
-            }
-        } catch (error) {
-            window.location.href = '../../error.html';
-        }
-    };
-
-    return (
-        <div>
-            <h2>For Re-Entry</h2>
-
-            <form onSubmit={handleSubmit}>
-                <div className="field">
-                    <b>이름 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </div>
-
-                <div className="field">
-                    <b>학번 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <input
-                        type="tel"
-                        maxLength={10}
-                        placeholder="2020xxxxxx"
-                        value={studentNumber}
-                        onChange={(e) => setStudentNumber(e.target.value)} />
-                </div>
-
-                <div className="field major">
-                    <b>학과 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <div>
-                        <select value={major} onChange={(e) => setMajor(e.target.value)} className="major-dropdown">
-                            <option value="공과대학" disabled>🏫 공과대학</option>
-                            <option value="전자전기컴퓨터공학부">전자전기컴퓨터공학부</option>
-                            <option value="화학공학과">화학공학과</option>
-                            <option value="기계정보공학과">기계정보공학과</option>
-                            <option value="신소재공학과">신소재공학과</option>
-                            <option value="토목공학과">토목공학과</option>
-                            <option value="인공지능학과">인공지능학과</option>
-                            <option value="컴퓨터과학부">컴퓨터과학부</option>
-                            <option value="정경대학" disabled>🏫 정경대학</option>
-                            <option value="국제관계학과">국제관계학과</option>
-                            <option value="경제학부">경제학부</option>
-                            <option value="세무학과">세무학과</option>
-                            <option value="사회복지학과">사회복지학과</option>
-                            <option value="행정학과">행정학과</option>
-                            <option value="경영대학" disabled>🏫 경영대학</option>
-                            <option value="경영학부">경영학부</option>
-                            <option value="인문대학" disabled>🏫 인문대학</option>
-                            <option value="국사학과">국사학과</option>
-                            <option value="국어국문학과">국어국문학과</option>
-                            <option value="영어영문학과">영어영문학과</option>
-                            <option value="중국어문화학과">중국어문화학과</option>
-                            <option value="철학과">철학과</option>
-                            <option value="자연과학대학" disabled>🏫 자연과학대학</option>
-                            <option value="물리학과">물리학과</option>
-                            <option value="생명과학과">생명과학과</option>
-                            <option value="수학과">수학과</option>
-                            <option value="융합응용화학과">융합응용화학과</option>
-                            <option value="통계학과">통계학과</option>
-                            <option value="환경원예학과">환경원예학과</option>
-                            <option value="도시과학대학" disabled>🏫 도시과학대학</option>
-                            <option value="건축학부(건축공학)">건축학부(건축공학)</option>
-                            <option value="건축학부(건축학)">건축학부(건축학)</option>
-                            <option value="공간정보공학과">공간정보공학과</option>
-                            <option value="교통공학과">교통공학과</option>
-                            <option value="도시공학과">도시공학과</option>
-                            <option value="도시사회학과">도시사회학과</option>
-                            <option value="도시행정학과">도시행정학과</option>
-                            <option value="조경학과">조경학과</option>
-                            <option value="환경공학부">환경공학부</option>
-                            <option value="소방방재학과">소방방재학과</option>
-                            <option value="예술체육대학" disabled>🏫 예술체육대학</option>
-                            <option value="디자인학과">디자인학과</option>
-                            <option value="스포츠과학과">스포츠과학과</option>
-                            <option value="음악학과">음악학과</option>
-                            <option value="환경조각학과">환경조각학과</option>
-                            <option value="자유융합대학" disabled>🏫 자유융합대학</option>
-                            <option value="융합전공학부">융합전공학부</option>
-                            <option value="자유전공학부">자유전공학부</option>
-                            <option value="첨단융합학부">첨단융합학부</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div className="field tel-number">
-                    <b>전화번호 <span style={{ color: '#448FFF' }}>*</span></b>
-                    <div>
-                        <input
-                            type="tel"
-                            maxLength={13}
-                            placeholder="010-xxxx-xxxx"
-                            value={phoneAutoHyphen(phoneNumber)}
-                            onChange={(e) => setPhoneNumber(phoneAutoHyphen(e.target.value))}
-                        />
-                    </div>
-                </div>
-
-                <div className="field">
-                    <b>건의사항</b>
-                    <textarea
-                        ref={textareaRef}
-                        onChange={(e) => { setFeedback(e.target.value); handleResizeHeight(e.target.value); }}
-                        rows={1}
-                        placeholder="개선을 바라는 점 적어주세요!"
-                        value={feedback}
-                    />
-                </div>
-
-                <div className="checkbox">
-                    <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
-                    <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
-                </div>
-                <div className="checkbox">
-                    <label id="checkbox-label">폼 제출 전, 회비를 미리 납부해 주시기 바랍니다!</label>
-                    <input id="checkbox-input" type="checkbox" checked={paidFee} onChange={handlePaidFeeChange} />
-                </div>
-
-                {/* 신청 버튼 */}
-                <div className="apply">
-                    <button type="submit" onClick={handleApplyButtonClick} disabled={!canSubmit}
-                        className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}>
-                        📥 Apply
-                    </button>
-                </div>
-            </form>
-
-
-            {showPopup && (
-                <div className="popup">
-                    <div className="popup__icon">
-                        <div className="popup__icon--top"></div>
-                        <div className="popup__icon--body">
-                            <div className="popup_content">
-                                <div className="popup_img">
-                                    <img src="/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
-                                </div>
-                                <div className="popup_message">
-                                    <p className="head-message">{modalMessage}</p>
-                                    <p className="sub-message">{modalSubMessage}</p>
-                                </div>
-                            </div>
-                            <div className="popup__button-container">
-                                <button onClick={handlePopupClose}>닫기</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
 const FAQ = ({ question, answer, emoji }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -699,4 +376,3 @@ const FAQ = ({ question, answer, emoji }) => {
         </div>
     );
 };
-

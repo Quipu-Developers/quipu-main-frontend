@@ -5,6 +5,7 @@
   "dependencies": {
     "@react-three/drei": "^9.97.1",
     "@react-three/fiber": "^8.15.16",
+    "axios": "^1.6.7",
     "create-react-app": "^5.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -12,7 +13,7 @@
     "react-router": "^6.21.1",
     "react-router-dom": "^6.21.1",
     "react-router-hash-link": "^2.4.3",
-    "react-scripts": "5.0.1", 
+    "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
     "three": "^0.160.1",
     "web-vitals": "^2.1.4"
