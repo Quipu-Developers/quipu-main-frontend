@@ -9,10 +9,10 @@ function Error() {
         <div class="error-container">
             <div class="error-text-container">
                 <h1>ERROR</h1>
-                <h2>Page Not Found</h2>
-                <p>죄송합니다. 페이지를 찾을 수 없습니다.</p>
-                <p>존재하지 않는 주소를 입력하셨거나</p>
-                <p>요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다.</p>
+                <h2>Please Try Again</h2>
+                <p>예상치 못한 오류가 발생했습니다.</p>
+                <p>나중에 다시 시도하거나,</p>
+                <p>문제가 지속될 경우 <span><a href="https://www.instagram.com/uos_quipu?igsh=MTVjZTFhaXl6NGRoZQ==" target="_blank">@uos_quipu</a></span>&nbsp;에 문의해 주세요</p>
                 <button onClick={goHome}>GO TO HOME</button>
             </div>
         </div>

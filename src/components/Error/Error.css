@@ -75,3 +75,8 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.error-container button:hover {
+    border: 1.5px solid #1C0093;
+    color: #1C0093;
+}

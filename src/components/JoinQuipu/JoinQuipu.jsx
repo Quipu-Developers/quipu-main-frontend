@@ -6,7 +6,6 @@ import Error from '../Error/Error';
 
 function JoinQuipu() {
     
-
     const isRecruiting = false; //모집 기간 여부
     const location = useLocation();
 
@@ -65,7 +64,8 @@ function JoinQuipu() {
         setShowPopup(false);
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
         const formData = {
             membershipType: entryType,
@@ -81,12 +81,10 @@ function JoinQuipu() {
                 'Content-Type': 'application/json',
             },
         }).then(response => {
-            // 요청 성공 시 실행할 로직
             setModalMessage('Welcome to Quipu!');
-            setModalSubMessage('퀴푸의 회원이 돼주셔서 감사합니다.');
+            setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
             setShowPopup(true);
         }).catch(error => {
-            // 요청 실패 시 실행할 로직
             if (error.response && error.response.status === 400) {
                 setModalMessage('잘못된 형식으로 입력되었습니다.');
                 setModalSubMessage('다시 확인해 주세요.');
@@ -95,6 +93,7 @@ function JoinQuipu() {
                 setIsError(true);
             }
         });
+        return false
     };
 
     useEffect(() => {
@@ -107,7 +106,7 @@ function JoinQuipu() {
     }, [location]);
 
     if (isError) {
-        return <Error />;
+        return <Error/>;
     }
 
     return (
@@ -274,7 +273,7 @@ function JoinQuipu() {
 
                     {/* 신청 버튼 */}
                     <div className="apply">
-                        <button type="button" onClick={(event) => {event.preventDefault(); handleSubmit();}} disabled={!canSubmit}
+                        <button type="button" onClick={(event) => {handleSubmit(event);}} disabled={!canSubmit}
                             className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}>
                             📥 Apply
                         </button>
