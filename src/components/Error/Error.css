@@ -50,6 +50,9 @@
     color: white;
     text-shadow: 3px 3px 3px black;
 
+    @media (max-width: 340px) {
+        font-size: 40px;
+    }
 }
 
 .error-text-container h2 {
@@ -58,6 +61,9 @@
     margin-bottom: 20px;
     text-shadow: 2px 2px 2px black;
 
+    @media (max-width: 340px) {
+        font-size: 20px;
+    }
 }
 
 .error-text-container p {
@@ -66,6 +72,18 @@
     color: white;
     word-break: keep-all;
     text-align: center;
+
+    @media (max-width: 340px) {
+        font-size: 13px;
+    }
+}
+
+.error-text-container br {
+    display: none;
+
+    @media (max-width: 500px) {
+        display: block;
+    }
 }
 
 .error-text-container a {
