@@ -62,6 +62,7 @@ function JoinQuipu() {
 
     const handlePopupClose = () => {
         setShowPopup(false);
+        window.location.reload();
     };
 
     const handleSubmit = async (event) => {

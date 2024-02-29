@@ -1,18 +1,9 @@
 {
   "form": [
     {
-      "id": "bbe6",
-      "membershipType": "newEntry",
-      "name": "이예나",
-      "studentNumber": "2020440093",
-      "major": "전자전기컴퓨터공학부",
-      "phoneNumber": "010-4279-9940",
-      "textAreaContent": "안녕"
-    },
-    {
       "id": "6441",
       "membershipType": "reEntry",
-      "name": "이제민",
+      "name": "이예나",
       "studentNumber": "2020202020",
       "major": "전자전기컴퓨터공학부",
       "phoneNumber": "010-0100-1001",
@@ -848,6 +839,15 @@
     },
     {
       "id": "d2f2",
+      "membershipType": "newEntry",
+      "name": "",
+      "studentNumber": "",
+      "major": "전자전기컴퓨터공학부",
+      "phoneNumber": "",
+      "textAreaContent": ""
+    },
+    {
+      "id": "4a9e",
       "membershipType": "newEntry",
       "name": "",
       "studentNumber": "",
