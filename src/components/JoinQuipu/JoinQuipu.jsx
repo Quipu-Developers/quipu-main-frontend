@@ -90,7 +90,13 @@ function JoinQuipu() {
                 setModalMessage('잘못된 형식으로 입력되었습니다.');
                 setModalSubMessage('다시 확인해 주세요.');
                 setShowPopup(true);
-            } else {
+            } 
+            else if (error.response && error.response.status === 409) {
+                setModalMessage('이미 제출하셨습니다.');
+                setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
+                setShowPopup(true);
+            }
+            else {
                 setIsError(true);
             }
         });
