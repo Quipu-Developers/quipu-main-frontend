@@ -77,7 +77,7 @@ function JoinQuipu() {
             textAreaContent: textAreaContent
         };
 
-        axios.post('http://localhost:3001/form', formData, {
+        axios.post('http://3.39.180.232:2395/api/data', formData, {
             headers: {
                 'Content-Type': 'application/json',
             },
