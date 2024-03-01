@@ -6,7 +6,7 @@ import Error from '../Error/Error';
 
 function JoinQuipu() {
     
-    const isRecruiting = true; //모집 기간 여부
+    const isRecruiting = false; //모집 기간 여부
     const location = useLocation();
 
     const [entryType, setEntryType] = useState('newEntry');
@@ -77,7 +77,7 @@ function JoinQuipu() {
             textAreaContent: textAreaContent
         };
 
-        axios.post(`${process.env.REACT_APP_API_URL}/data`, formData, {
+        axios.post('https://quipu-main-server.site/api/data', formData, {
             headers: {
                 'Content-Type': 'application/json',
                 'Origin': 'https://uos-quipu.vercel.app'
