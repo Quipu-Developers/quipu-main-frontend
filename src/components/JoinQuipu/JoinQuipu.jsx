@@ -80,6 +80,7 @@ function JoinQuipu() {
         axios.post('https://quipu-main-server.site/api/data', formData, {
             headers: {
                 'Content-Type': 'application/json',
+                'Origin': 'https://uos-quipu.vercel.app'
             },
         }).then(response => {
             setModalMessage('Welcome to Quipu!');
