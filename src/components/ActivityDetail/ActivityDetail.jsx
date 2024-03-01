@@ -29,7 +29,7 @@ function ActivityDetail() {
         setActiveTab(tabName);
     };
 
-    const [selectedYear, setSelectedYear] = useState('2023');
+    const [selectedYear, setSelectedYear] = useState('2024');
 
     const navigate = useNavigate();
 
