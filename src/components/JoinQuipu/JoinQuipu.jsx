@@ -77,7 +77,7 @@ function JoinQuipu() {
             textAreaContent: textAreaContent
         };
 
-        axios.post('https://quipu-main-server.site/api/data', formData, {
+        axios.post(`${process.env.REACT_APP_API_URL}/data`, formData, {
             headers: {
                 'Content-Type': 'application/json',
                 'Origin': 'https://uos-quipu.vercel.app'
