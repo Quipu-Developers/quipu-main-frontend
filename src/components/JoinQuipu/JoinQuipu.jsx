@@ -266,7 +266,8 @@ function JoinQuipu() {
                             ref={textareaRef}
                             onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
                             rows={2}
-                            placeholder={entryType === 'newEntry' ? "하고 싶은 활동이 있으시면 작성해 주세요" : "개선을 바라는 점을 적어주세요!"}
+                            // placeholder={entryType === 'newEntry' ? "하고 싶은 활동이 있으시면 작성해 주세요" : "개선을 바라는 점을 적어주세요!"}
+                            placeholder={entryType === 'newEntry' ? "입문팀 프론트엔드, 백엔드 마감했습니다. 죄송합니다. 입문팀 기획, 디자인 그리고 개발팀 모든 부서 지원 가능하십니다. " : "입문팀 프론트엔드, 백엔드 마감했습니다. 죄송합니다. 입문팀 기획, 디자인 그리고 개발팀 모든 부서 지원 가능하십니다."}
                             value={textAreaContent}
                         />
                     </div>
