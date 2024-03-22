@@ -1,13 +1,72 @@
 {
+    "C언어 스터디": {
+        "year": "2024",
+        "title": "C언어 스터디",
+        "period": "2024.04 - 2024.06",
+        "shortDescription": "C언어 입문 및 코드 리뷰",
+        "goal": "C언어의 기본 개념과 문법을 공부합니다.",
+        "details": [
+            "팀을 나누어 일주일에 한 번씩 대면 스터디를 진행합니다.",
+            "코드업 C언어 기초 100제를 풀고 풀이를 공유 및 질의응답을 합니다."
+        ],
+        "links": {
+        },
+        "leaders": [
+            "이예나",
+            "이제민"
+        ],
+        "members": [
+            "전체 30명"
+        ],
+        "allMembers": [
+            "전체 30명"
+        ],
+        "mainimage": "/ActivityDetail-img/2024/Study/C스터디1.png",
+        "allImgs": [
+            "/ActivityDetail-img/2024/Study/C스터디1.png"
+        ]
+    },
+    "퀴푸백오피스웹": {
+        "year": "2024",
+        "title": "퀴푸 백오피스 웹 개발",
+        "period": "2024.03 - 2024.06",
+        "shortDescription": "퀴푸 관리자 페이지 제작",
+        "goal": "퀴푸 웹의 관리자 페이지를 제작합니다.",
+        "details": [
+            "기획(4월)",
+            "프론트엔드, 백엔드 개발(5월-6월)",
+            "기술 스택: 프론트엔드(React.js), 백엔드(node.js)"
+        ],
+        "links": {
+        },
+        "leaders": [
+            "이제민"
+        ],
+        "members": [
+            "이예나",
+            "최인우"
+        ],
+        "allMembers": [ 
+            "이예나",
+            "최인우"
+        ],
+        "mainimage": "/ActivityDetail-img/2024/Study/백오피스1.png",
+        "allImgs": [
+            "/ActivityDetail-img/2024/Study/백오피스1.png"
+        ]
+    },
     "웹개발입문": {
         "year": "2024",
         "title": "웹개발 입문 스터디",
         "period": "2024.03 - 2024.08",
-        "shortDescription": "(모집 예정)",
+        "shortDescription": "기획, 디자인, 개발 입문 프로젝트",
         "goal": "웹 개발에 필요한 개발 지식을 학습하고 팀별로 작은 서비스를 개발합니다.",
         "details": [
-            "포럼 웹 개발팀과 스터디를 같이 진행합니다. 전체적인 스터디 커리큘럼은 하단 계획서를 참고해주세요!",
-            "3월에 모집합니다. 많은 관심 부탁드립니다!"
+            "1. 웹 개발 단계에 대한 킥오프 진행",
+            "2. 기획, 디자인, 프론트엔드, 백엔드팀 별 세미나 진행",
+            "3. 각 팀별 강의를 듣고 실습을 하며 스터디 진행",
+            "4. 스터디 내용을 바탕으로 기획-디자인-개발 단계별 실전 프로젝트 진행",
+            "기술 스택: 프론트엔드(React.js), 백엔드(node.js)"
         ],
         "links": {
             "계획서": "https://quipu-web-basic.notion.site/d2813f6ed0bc4c9d991eba3c2f32f9d6?pvs=4"
@@ -17,26 +76,27 @@
             "이제민"
         ],
         "members": [
-            "모집 예정"
+            "전체 52명"
         ],
         "allMembers": [
-            "모집 예정"
+            "전체 52명"
         ],
         "mainimage": "/ActivityDetail-img/2024/Study/웹개발입문1.png",
         "allImgs": [
-            "/ActivityDetail-img/2024/Study/웹개발입문1.png"
+            "/ActivityDetail-img/2024/Study/웹개발입문2.png"
         ]
     },
     "퀴푸포럼웹개발": {
         "year": "2024",
         "title": "퀴푸 포럼 웹 개발",
         "period": "2024.03 - 2024.08",
-        "shortDescription": "(모집 예정)",
+        "shortDescription": "퀴푸 게시판 웹 제작",
         "goal": "퀴푸의 기록용 게시판 웹사이트를 제작합니다.",
         "details": [
-            "모집분야: 웹 기획, 웹 디자인, 백엔드 개발",
-            "자세한 사항은 하단 계획서 참고해주세요!",
-            "3월에 모집합니다. 많은 관심 부탁드립니다!"
+            "기획(4월)",
+            "디자인(5월-6월)",
+            "프론트엔드, 백엔드 개발(7월-8월)",
+            "기술 스택: 프론트엔드(React.js), 백엔드(node.js)"
         ],
         "links": {
             "계획서": "https://quipu-web-forum.notion.site/02-29-43ca936739434d4083e1c1c3c0c1e6b8?pvs=4"

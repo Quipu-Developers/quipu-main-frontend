@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import './FriendShip.css';
 
 const friendshipImages = [
+    { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목10.jpg"},
+    { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목9.jpg"},
+    { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목8.jpg"},
+    { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목7.jpg"},
     { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목6.png"},
     { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목5.png"},
     { year: '2024', src: "/ActivityDetail-img/2024/FriendShip/친목4.jpg"},
