@@ -38,15 +38,15 @@ function App() {
 
     setScreenSize();
 
-    fetch('/some-api-endpoint')
-      .then(response => {
-        if (!response.ok) {
-          if ((response.status >= 400 && response.status !== 400 && response.status < 500) || (response.status >= 500)) {
-            throw new Error('Server error');
-          }
-        }
-      })
-      .catch(() => setIsError(true));
+    // fetch('/some-api-endpoint')
+    //   .then(response => {
+    //     if (!response.ok) {
+    //       if ((response.status >= 400 && response.status !== 400 && response.status < 500) || (response.status >= 500)) {
+    //         throw new Error('Server error');
+    //       }
+    //     }
+    //   })
+    //   .catch(() => setIsError(true));
 
   }, []);
 
@@ -56,7 +56,7 @@ function App() {
 
   return (
 
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <nav className="navbar">
 
             <div className="navbar__logo">
