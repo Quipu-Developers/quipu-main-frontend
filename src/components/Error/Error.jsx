@@ -3,7 +3,7 @@ import './Error.css'
 
 function Error() {
     const goHome = () => {
-        window.location.href = "/";
+        window.location.href = "/#home";
     };
     return (
         <div class="error-container">
