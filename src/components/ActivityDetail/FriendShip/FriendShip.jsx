@@ -48,7 +48,7 @@ function FriendShip({selectedYear}) {
             <div className="FriendShip-container">
                 {
                     filteredImages.map((image, index) => (
-                        <img onClick={() => handleImgClick(image.src)} className="FriendShip-img" src={image.src} key={index}></img>
+                        <img onClick={() => handleImgClick(image.src)} className="FriendShip-img" src={process.env.PUBLIC_URL + image.src} key={index}></img>
                     ))
                 }
                 
@@ -59,8 +59,8 @@ function FriendShip({selectedYear}) {
 
             {selectedImg && (
                 <div className="img__modal--container" onClick={closeModal}>
-                    <img src={selectedImg} className="img__modal" />
-                </div>
+                    <img src={process.env.PUBLIC_URL + selectedImg} className="img__modal" />
+                </div>  
             )}
         </>
     )

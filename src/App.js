@@ -38,15 +38,15 @@ function App() {
 
     setScreenSize();
 
-    fetch('/some-api-endpoint')
-      .then(response => {
-        if (!response.ok) {
-          if ((response.status >= 400 && response.status !== 400 && response.status < 500) || (response.status >= 500)) {
-            throw new Error('Server error');
-          }
-        }
-      })
-      .catch(() => setIsError(true));
+    // fetch('/some-api-endpoint')
+    //   .then(response => {
+    //     if (!response.ok) {
+    //       if ((response.status >= 400 && response.status !== 400 && response.status < 500) || (response.status >= 500)) {
+    //         throw new Error('Server error');
+    //       }
+    //     }
+    //   })
+    //   .catch(() => setIsError(true));
 
   }, []);
 
@@ -61,7 +61,7 @@ function App() {
 
             <div className="navbar__logo">
               <NavLink to="/#home" onClick={closeMenu} smooth>
-                <img className="navbar__logo--img" src="/logo_main.png"></img>
+                <img className="navbar__logo--img" src={process.env.PUBLIC_URL +"/logo_main.png"}></img>
               </NavLink>
             </div>
 

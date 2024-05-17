@@ -26,7 +26,7 @@ function MT({selectedYear}) {
             <div className="FriendShip-container">
                 {
                     filteredImages.map((image, index) => (
-                        <img onClick={() => handleImgClick(image.src)} className="FriendShip-img" src={image.src} key={index}></img>
+                        <img onClick={() => handleImgClick(image.src)} className="FriendShip-img" src={process.env.PUBLIC_URL +image.src} key={index}></img>
                     ))
                 }
                 
@@ -37,7 +37,7 @@ function MT({selectedYear}) {
 
             {selectedImg && (
                 <div className="img__modal--container" onClick={closeModal}>
-                    <img src={selectedImg} className="img__modal" />
+                    <img src={process.env.PUBLIC_URL + selectedImg} className="img__modal" />
                 </div>
             )}
         </>

@@ -294,7 +294,7 @@ function JoinQuipu() {
                                 <div className="popup__icon--body">
                                     <div className="popup_content">
                                         <div className="popup_img">
-                                            <img src="/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"></img>
+                                            <img src={process.env.PUBLIC_URL + "/ActivityDetail-img/2023/Study/퀴푸메인웹개발1.png"}></img>
                                         </div>
                                         <div className="popup_message">
                                             <p className="head-message">{modalMessage}</p>

@@ -29,7 +29,7 @@ function StudyCard({ title, period, shortDescription, goal, details, links, lead
     return (
         <div className="studycard">
             <div className="studycard__top">
-                <img className="studycard__img" src={mainimage} />
+                <img className="studycard__img" src={process.env.PUBLIC_URL + mainimage} />
                 <div className="studycard__content">
                     <h3>{title}</h3>
                     <p>{shortDescription}</p>
@@ -86,7 +86,7 @@ function StudyModal({ isOpen, onClose, title, period, goal, details, links, lead
                 <div className="study__modal--content">
                     <div className="study__modal--content-top">
                         <div className="studycard__top" style={{ height: '70%', justifyContent: "start" }}>
-                            <img className="studycard__img" src={mainimage} style={{ width: 'auto', marginRight: "20px" }} />
+                            <img className="studycard__img" src={process.env.PUBLIC_URL + mainimage} style={{ width: 'auto', marginRight: "20px" }} />
                             <div className="studycard__content" style={{ width: 'auto' }}>
                                 <h3>{title}</h3>
                                 <p>기간: {period}</p>
@@ -116,7 +116,7 @@ function StudyModal({ isOpen, onClose, title, period, goal, details, links, lead
                                 {
                                     allImgs.map(function (src, index) {
                                         return (
-                                            <img src={src} className="study__modal--img"></img>
+                                            <img src={process.env.PUBLIC_URL + src} className="study__modal--img"></img>
                                         )
                                     })
                                 }

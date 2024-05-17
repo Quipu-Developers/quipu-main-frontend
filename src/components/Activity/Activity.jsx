@@ -27,9 +27,9 @@ function ActivityBlock(props) {
             <RouterLink to={"/activity-detail"} state={{ activeTab: props.title }}>
                 <p className="activity-block__title">{props.title}&nbsp; ›</p>
             </RouterLink>
-            <img className="activity-block__image--big" src={props.src1}></img>
-            <img className="activity-block__image--small" src={props.src2}></img>
-            <img className="activity-block__image--small" src={props.src3}></img>
+            <img className="activity-block__image--big" src={process.env.PUBLIC_URL + props.src1}></img>
+            <img className="activity-block__image--small" src={process.env.PUBLIC_URL + props.src2}></img>
+            <img className="activity-block__image--small" src={process.env.PUBLIC_URL + props.src3}></img>
         </div>
     )
 }
