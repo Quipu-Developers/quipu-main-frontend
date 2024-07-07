@@ -1,6 +1,6 @@
 {
   "name": "quipu_web",
-  "homepage": "https://quipu-developers.github.io/quipu-main-frontend/",
+  "homepage": "https://github.com/Quipu-Developers/main-frontend.git",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
