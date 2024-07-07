@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/quipu-main-frontend/static/css/main.20b29e98.css",
-    "main.js": "/quipu-main-frontend/static/js/main.1310d1ea.js",
-    "static/js/787.3a3a802a.chunk.js": "/quipu-main-frontend/static/js/787.3a3a802a.chunk.js",
-    "static/media/LINESeedKR-Rg.woff": "/quipu-main-frontend/static/media/LINESeedKR-Rg.aefe197e00153cd0acf0.woff",
-    "static/media/LINESeedKR-Bd.woff": "/quipu-main-frontend/static/media/LINESeedKR-Bd.924771ba9d7ac3f1a815.woff",
-    "static/media/LINESeedKR-Th.woff": "/quipu-main-frontend/static/media/LINESeedKR-Th.419d2e852209e9681685.woff",
-    "static/media/LINESeedKR-Rg.woff2": "/quipu-main-frontend/static/media/LINESeedKR-Rg.3ba2e74d1b581a1d79c3.woff2",
-    "static/media/LINESeedKR-Bd.woff2": "/quipu-main-frontend/static/media/LINESeedKR-Bd.4729562ef4f148c475dc.woff2",
-    "static/media/LINESeedKR-Th.woff2": "/quipu-main-frontend/static/media/LINESeedKR-Th.0e9b92963de1cf3f0a36.woff2",
-    "index.html": "/quipu-main-frontend/index.html",
-    "main.20b29e98.css.map": "/quipu-main-frontend/static/css/main.20b29e98.css.map",
-    "main.1310d1ea.js.map": "/quipu-main-frontend/static/js/main.1310d1ea.js.map",
-    "787.3a3a802a.chunk.js.map": "/quipu-main-frontend/static/js/787.3a3a802a.chunk.js.map"
+    "main.css": "/Quipu-Developers/main-frontend.git/static/css/main.5bd70535.css",
+    "main.js": "/Quipu-Developers/main-frontend.git/static/js/main.508a04b6.js",
+    "static/js/787.3a3a802a.chunk.js": "/Quipu-Developers/main-frontend.git/static/js/787.3a3a802a.chunk.js",
+    "static/media/LINESeedKR-Rg.woff": "/Quipu-Developers/main-frontend.git/static/media/LINESeedKR-Rg.aefe197e00153cd0acf0.woff",
+    "static/media/LINESeedKR-Bd.woff": "/Quipu-Developers/main-frontend.git/static/media/LINESeedKR-Bd.924771ba9d7ac3f1a815.woff",
+    "static/media/LINESeedKR-Th.woff": "/Quipu-Developers/main-frontend.git/static/media/LINESeedKR-Th.419d2e852209e9681685.woff",
+    "static/media/LINESeedKR-Rg.woff2": "/Quipu-Developers/main-frontend.git/static/media/LINESeedKR-Rg.3ba2e74d1b581a1d79c3.woff2",
+    "static/media/LINESeedKR-Bd.woff2": "/Quipu-Developers/main-frontend.git/static/media/LINESeedKR-Bd.4729562ef4f148c475dc.woff2",
+    "static/media/LINESeedKR-Th.woff2": "/Quipu-Developers/main-frontend.git/static/media/LINESeedKR-Th.0e9b92963de1cf3f0a36.woff2",
+    "index.html": "/Quipu-Developers/main-frontend.git/index.html",
+    "main.5bd70535.css.map": "/Quipu-Developers/main-frontend.git/static/css/main.5bd70535.css.map",
+    "main.508a04b6.js.map": "/Quipu-Developers/main-frontend.git/static/js/main.508a04b6.js.map",
+    "787.3a3a802a.chunk.js.map": "/Quipu-Developers/main-frontend.git/static/js/787.3a3a802a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20b29e98.css",
-    "static/js/main.1310d1ea.js"
+    "static/css/main.5bd70535.css",
+    "static/js/main.508a04b6.js"
   ]
 }
