@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
 import Home from './components/Home/Home'
@@ -12,10 +12,13 @@ import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import Error from './components/Error/Error'
 import Detail from './components/ShowcaseDetail/Detail'
 
-function App() {
+function AppContent() {
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+  
+  const location=useLocation();
+  const isDetailPage=location.pathname==='/detail';
 
   const toggleActivityDetail = () => {
     setIsActivityDetailVisible(!isActivityDetailVisible);
@@ -57,8 +60,8 @@ function App() {
 
   return (
 
-        <Router basename={process.env.PUBLIC_URL}>
-          <nav className="navbar">
+        <div basename={process.env.PUBLIC_URL}>
+          <nav className={isDetailPage?'showcase__navbar':'navbar'}>
 
             <div className="navbar__logo">
               <NavLink to="/#home" onClick={closeMenu} smooth>
@@ -132,8 +135,16 @@ function App() {
             <Route path="*" element={<Error />} />
             <Route path="/detail" element={<Detail/>} />
           </Routes>
-        </Router>      
+        </div>      
   );
+}
+
+function App(){
+  return(
+    <Router basename={process.env.PUBLIC_URL}>
+      <AppContent />
+    </Router>
+  )
 }
 
 export default App;
