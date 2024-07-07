@@ -61,59 +61,64 @@ function AppContent() {
   return (
 
         <div basename={process.env.PUBLIC_URL}>
-          <nav className={isDetailPage?'showcase__navbar':'navbar'}>
+          {!isDetailPage && 
+            (
+              <nav className="navbar">
 
-            <div className="navbar__logo">
-              <NavLink to="/#home" onClick={closeMenu} smooth>
-                <img className="navbar__logo--img" src={process.env.PUBLIC_URL + "/logo_main.png"}></img>
-              </NavLink>
-            </div>
+                <div className="navbar__logo">
+                  <NavLink to="/#home" onClick={closeMenu} smooth>
+                    <img className="navbar__logo--img" src={process.env.PUBLIC_URL + "/logo_main.png"}></img>
+                  </NavLink>
+                </div>
 
-            {/* pc에서 메뉴들 */}
-            <div className="navbar__menu--pc">
-              <ul>
-                <li><NavLink to="/#home" smooth>home</NavLink></li>
-                <li><NavLink to="/#about" smooth>about</NavLink></li>
-                <li><NavLink to="/#activity" smooth>activity</NavLink></li>
-                <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-                <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
-              </ul>
-            </div>
+                {/* pc에서 메뉴들 */}
+                <div className="navbar__menu--pc">
+                  <ul>
+                    <li><NavLink to="/#home" smooth>home</NavLink></li>
+                    <li><NavLink to="/#about" smooth>about</NavLink></li>
+                    <li><NavLink to="/#activity" smooth>activity</NavLink></li>
+                    <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
+                    <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+                  </ul>
+                </div>
 
-            {/* mobile에서 메뉴 버튼 */}
-            <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
-            <label className='menu-button' htmlFor="menu-toggle">
-              <span className="line line1"></span>
-              <span className="line line2"></span>
-              <span className="line line3"></span>
-            </label>
+                {/* mobile에서 메뉴 버튼 */}
+                <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
+                <label className='menu-button' htmlFor="menu-toggle">
+                  <span className="line line1"></span>
+                  <span className="line line2"></span>
+                  <span className="line line3"></span>
+                </label>
 
-            {/* mobile에서 메뉴들 */}
-            <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
-              <ul>
-                <li style={{ marginTop: '80px' }}><NavLink to="/home" onClick={closeMenu}>home</NavLink></li>
-                <li><NavLink to="/about" onClick={closeMenu}>about</NavLink></li>
-                <li>
-                  <div className="activity-menu">
-                    <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
-                    <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail} />
-                    <label className='activity-button' htmlFor="activity-toggle">
-                      <span className="line line4"></span>
-                      <span className="line line5"></span>
-                    </label>
-                  </div>
-                  <div className={`activity-detail-menu ${isActivityDetailVisible ? 'visible' : ''}`}>
-                    <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
-                    <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
-                    <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
-                  </div>
-                </li>
-                <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
-                <li style={{ marginBottom: '80px' }}><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
-              </ul>
-            </div>
+                {/* mobile에서 메뉴들 */}
+                <div className={`navbar__menu--mobile ${menuOpen ? 'open' : ''}`}>
+                  <ul>
+                    <li style={{ marginTop: '80px' }}><NavLink to="/home" onClick={closeMenu}>home</NavLink></li>
+                    <li><NavLink to="/about" onClick={closeMenu}>about</NavLink></li>
+                    <li>
+                      <div className="activity-menu">
+                        <NavLink to="/activity" onClick={closeMenu}>activity</NavLink>
+                        <input id="activity-toggle" type="checkbox" onChange={toggleActivityDetail} />
+                        <label className='activity-button' htmlFor="activity-toggle">
+                          <span className="line line4"></span>
+                          <span className="line line5"></span>
+                        </label>
+                      </div>
+                      <div className={`activity-detail-menu ${isActivityDetailVisible ? 'visible' : ''}`}>
+                        <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#Study" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;study</NavLink></li>
+                        <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#Friendship" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;friendship</NavLink></li>
+                        <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/activity-detail#MT" onClick={closeMenu}>&nbsp;&nbsp;&nbsp;&nbsp;mt</NavLink></li>
+                      </div>
+                    </li>
+                    <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
+                    <li style={{ marginBottom: '80px' }}><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
+                  </ul>
+                </div>
 
-          </nav>
+              </nav>
+
+            )
+          }
 
           <Routes>
             <Route path="/" element={

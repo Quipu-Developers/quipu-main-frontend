@@ -6,11 +6,10 @@ function Detail(){
   return (
     <div className="detail">
   
-      <header className="detail-header">
-        <h1>Header</h1>
-      </header>
-  
-      <hr id="detail-hr"></hr>
+      <div className="detail_header">
+        <h1>Project Name</h1>
+        <hr></hr>
+      </div>
   
       <main className="main">
   
@@ -20,7 +19,9 @@ function Detail(){
         </div>
   
         <div className="description">
-          <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/곽철이.png'} alt="활동사진"/>
+          <div className="dc__container--img">
+            <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/곽철이.png'} alt="활동사진"/>
+          </div>
           <DcCard/>
         </div>
   
@@ -34,8 +35,8 @@ function Detail(){
         
       </main>
   
-      <footer className="footer">
-      </footer>
+      {/* <footer className="footer">
+      </footer> */}
   
     </div>
   
@@ -69,7 +70,7 @@ function DcCard(){
         with the release of Letraset sheets containing Lorem Ipsum passages.
       </p>
   
-      <p>
+      <p style={{paddingTop:'5%',paddingBottom:'5%'}}>
         <span>for</span> Lorem Ipsum is simply dummy text of the printing
       </p>
   
@@ -90,14 +91,16 @@ function HistoryCard1(){
     
   return(  
     <div className="history-card1">
-      <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의1.jpg'} alt="회의1" />
+      <div className="history-card1-img">
+        <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의1.jpg'} alt="회의1" />
+      </div>
       <div className="historybox-1">
         <h4>20xx.xx.xx</h4>
         <p>
           ac lacus, varius ipsum luctus lobortis, lacus elit. elit.
           sit eget non libero, adipiscing urna. urna. dui. tincidunt diam
         </p>
-        <div className="historybox-2">
+        <div className="historybox-1-1">
           <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'} alt="html 로고"/>
           <p>
             non. malesuada In Lorem ipsum varius cursus at,
@@ -105,7 +108,7 @@ function HistoryCard1(){
             odio diam Ut sit quam
           </p>
         </div>
-        <div className="historybox-3">
+        <div className="historybox-1-2">
           <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의2.jpg'} alt="회의2"></img>
         </div>
       </div>
@@ -116,13 +119,13 @@ function HistoryCard1(){
 function HistoryCard2(){
   return(
     <div className="history-card2">
-      <div className="historybox-4">
+      <div className="historybox-2">
         <h4>20xx.xx.xx</h4>
         <p style={{textAlign:'start', paddingLeft:'10px'}}>
           ac lacus, varius ipsum luctus lobortis, lacus elit. elit.
           sit eget non libero, adipiscing urna. urna. dui. tincidunt diam
         </p>
-        <div className="historybox-5">
+        <div className="historybox-2-1">
           <button onClick={() => { window.open("https://javascript.com") }}>
             <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'} alt="js logo" />
           </button>
@@ -137,7 +140,7 @@ function HistoryCard2(){
         </div>
       </div>
 
-      <div className="historybox-6">
+      <div className="historybox-3">
         <img id="detail-base-image" src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의3.jpg'} alt="회의3"/>
         <img id="detail-overlay-image" src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/pin.png'} alt="pin"/>
       </div>
