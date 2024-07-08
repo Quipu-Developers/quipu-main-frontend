@@ -9,7 +9,9 @@ import Activity from './components/Activity/Activity'
 import RecommendSite from './components/RecommendSite/RecommendSite'
 import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
+import Showcasemain from './components/ShowcaseMain/Showcasemain';
 import Error from './components/Error/Error';
+
 
 function App() {
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
@@ -127,6 +129,7 @@ function App() {
             <Route path="/activity-detail" element={<ActivityDetail />} />
             <Route path="/recommend-site" element={<RecommendSite />} />
             <Route path="/join-quipu" element={<JoinQuipu />} />
+            <Route path="/showcasemain" element={<Showcasemain/>} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>
