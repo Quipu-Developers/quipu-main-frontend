@@ -9,7 +9,7 @@ function JoinQuipu() {
     const isRecruiting = false; //모집 기간 여부
     const location = useLocation();
 
-    const [entryType, setEntryType] = useState('newEntry');
+    // const [entryType, setEntryType] = useState('newEntry');            -->  db.json 및 post하는 값도 바꾸어야함
     const [hasReviewed, setHasReviewed] = useState(false);
     const [hasPaidFee, setHasPaidFee] = useState(false);
 
@@ -38,8 +38,8 @@ function JoinQuipu() {
     const phoneAutoHyphen = (value) => {
         return value
             .replace(/[^0-9]/g, '')  // 숫자 이외의 문자 제거
-            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")  // 숫자를 그룹화하여 하이픈 추가
-            .replace(/(\-{1,2})$/g, "");  // 끝에 하이픈이 1개 또는 2개인 경우 1개로 변경
+            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1 $2 $3")  // 숫자를 그룹화하여 공백 추가
+            .replace(/(\ {1,2})$/g, "");  // 끝에 공백이 1개 또는 2개인 경우 1개로 변경
     };
 
     const textareaRef = useRef();
@@ -69,7 +69,7 @@ function JoinQuipu() {
         event.preventDefault();
 
         const formData = {
-            membershipType: entryType,
+            // membershipType: entryType,
             name: name,
             studentNumber: studentNumber,
             major: major,
@@ -128,7 +128,7 @@ function JoinQuipu() {
                     <h1>Join Quipu</h1>
 
                     {/* 신입/기존 부원 라디오 버튼 */}
-                    <div className="field-type">
+                    {/* <div className="field-type">
                         <input
                             type="radio"
                             name="entryType"
@@ -146,7 +146,7 @@ function JoinQuipu() {
                             onChange={() => { setEntryType('reEntry'); setHasReviewed(false); setHasPaidFee(false); }}
                         />
                         <label htmlFor="reEntry">🔎Re-Entry</label>
-                    </div>
+                    </div> */}
 
                     {/* 가입 안내 */}
                     <div className="join-notice">
@@ -158,26 +158,26 @@ function JoinQuipu() {
                             </div>
                             <div className="join-notice__icon--top2"></div>
                             <div className="join-notice__icon--body">
-                                <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p>
-                                <p>지원서 작성해주세요!</p>
-                                <p style={{ color: 'whitesmoke' }}>또한, 지원서는 회비 납부 이후 제출바랍니다 :)</p>
-                                <p >(신규회원 : <span style={{ fontWeight: 900 }}>20,000</span>원 / 기존회원 : <span style={{ fontWeight: 900 }}>25,000</span>원)</p>
-                                <p onClick={() => copyToClipboard('1002-861-110963')}>
-                                    우리은행&nbsp;
-                                    <span className="account-number">1002-861-110963</span>
+                                {/* <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p> */}
+                                <p style={{ color: '#448FFF' }}> 🥳환영합니다! 🥳</p>
+                                <p style={{ color: '#898989' }}>지원서는 <span style={{color: 'whitesmoke' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
+                                <p style={{ color: '#898989' }}>(회비 : <span style={{ fontWeight: 700 }}>20,000</span>원)</p>
+                                <p style={{ color: '#898989' }} onClick={() => copyToClipboard('1002-861-110963')}>
+                                    납부 계좌 : 카카오뱅크&nbsp;
+                                    <span className="account-number" style={{ color: 'yellow' }}>1234567 (예금주 : 김예영)</span>
                                 </p>
-                                <p><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
+                                <p style={{ color: '#898989' }}><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
                             </div>
                         </div>
                     </div>
 
                     <div className="divider"></div>
 
-                    <h2>{entryType === 'newEntry' ? 'For New Entry' : 'For Re-Entry'}</h2>
+                    <h2>Entry</h2>
 
                     <div className="field">
                         <b>이름 <span style={{ color: '#448FFF' }}>*</span></b>
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder="이재용" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
 
                     <div className="field">
@@ -185,7 +185,7 @@ function JoinQuipu() {
                         <input
                             type="tel"
                             maxLength={10}
-                            placeholder="2020xxxxxx"
+                            placeholder="2024xxxxxx"
                             value={studentNumber}
                             onChange={(e) => setStudentNumber(e.target.value)} />
                     </div>
@@ -253,7 +253,7 @@ function JoinQuipu() {
                             <input
                                 type="tel"
                                 maxLength={13}
-                                placeholder="010-xxxx-xxxx"
+                                placeholder="010 1234 5678"
                                 value={phoneAutoHyphen(phoneNumber)}
                                 onChange={(e) => setPhoneNumber(phoneAutoHyphen(e.target.value))}
                             />
@@ -261,12 +261,12 @@ function JoinQuipu() {
                     </div>
 
                     <div className="field">
-                        <b>{entryType === 'newEntry' ? '지원동기' : '건의사항'}</b>
+                        <b>지원동기 또는 바라는 점</b>
                         <textarea
                             ref={textareaRef}
                             onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
                             rows={2}
-                            placeholder={entryType === 'newEntry' ? "하고 싶은 활동이 있으시면 작성해 주세요" : "개선을 바라는 점을 적어주세요!"}
+                            placeholder={"하고 싶은 활동이나 바라는 점을 적어주세요!"}
                             value={textAreaContent}
                         />
                     </div>
