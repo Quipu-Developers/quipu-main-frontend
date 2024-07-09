@@ -1,29 +1,34 @@
-/* App.css */
 .navbar__menu--pc ul li {
   padding: 20px;
-  position: relative; /* Ensure dropdown is positioned relative to this element */
+  position: relative;
 }
 
 .dropdown-menu {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 100%; /* Position below the parent li */
+  top: 100%;
   left: 0;
-  background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure it appears above other content */
+  background-color: #5C518B;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; 
 }
 
 .dropdown-menu li {
-  padding: 10px 20px;
+  padding: 10px 10px;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .dropdown-menu li:hover {
   background-color: #f1f1f1;
+  text-align: center;
+  width: 145px;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.2);
 }
+
 
 
 .navbar {
