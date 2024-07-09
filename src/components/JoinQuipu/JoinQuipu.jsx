@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './JoinQuipu.css';
 import Error from '../Error/Error';
+import { and } from 'three/examples/jsm/nodes/Nodes.js';
 
 function JoinQuipu() {
     
@@ -162,7 +163,7 @@ function JoinQuipu() {
                                 <p style={{ color: '#448FFF' }}> 🥳환영합니다! 🥳</p>
                                 <p style={{ color: '#898989' }}>지원서는 <span style={{color: 'whitesmoke' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
                                 <p style={{ color: '#898989' }}>(회비 : <span style={{ fontWeight: 700 }}>20,000</span>원)</p>
-                                <p style={{ color: '#898989' }} onClick={() => copyToClipboard('1002-861-110963')}>
+                                <p style={{ color: '#898989' }} onClick={() => {copyToClipboard('1234567')}}>
                                     납부 계좌 : 카카오뱅크&nbsp;
                                     <span className="account-number" style={{ color: 'yellow' }}>1234567 (예금주 : 김예영)</span>
                                 </p>
