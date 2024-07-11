@@ -9,7 +9,9 @@ import Activity from './components/Activity/Activity'
 import RecommendSite from './components/RecommendSite/RecommendSite'
 import JoinQuipu from './components/JoinQuipu/JoinQuipu'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
+import Showcasemain from './components/ShowcaseMain/Showcasemain';
 import Error from './components/Error/Error';
+
 
 function App() {
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
@@ -73,6 +75,7 @@ function App() {
                 <li><NavLink to="/#activity" smooth>activity</NavLink></li>
                 <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
                 <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+                <li><NavLink to="/quipu-Dev">quipu Dev</NavLink></li>
               </ul>
             </div>
 
@@ -127,6 +130,7 @@ function App() {
             <Route path="/activity-detail" element={<ActivityDetail />} />
             <Route path="/recommend-site" element={<RecommendSite />} />
             <Route path="/join-quipu" element={<JoinQuipu />} />
+            <Route path="/quipu-Dev" element={<Showcasemain/>} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>
