@@ -12,7 +12,6 @@ import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import Showcasemain from './components/ShowcaseMain/Showcasemain';
 import Error from './components/Error/Error';
 
-
 function App() {
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
