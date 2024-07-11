@@ -1,5 +1,5 @@
 import React from 'react';
-import './Showcaseetail.css';
+import './Showcasedetail.css';
 
 function Showcasedetail() {
 
