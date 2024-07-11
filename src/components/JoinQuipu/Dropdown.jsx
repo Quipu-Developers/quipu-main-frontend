@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 
-function Dropdown(setSelectedPage) {
+function Dropdown({setSelectedPage}) {
   return (
     <ul className="dropdown-menu">
-      <li onClick={() => setSelectedPage('general')}>General</li>
-      <li onClick={() => setSelectedPage('development')}>Development</li>
+      <li><NavLink to="/#join-quipu" onClick={() => setSelectedPage('general')}>General</NavLink></li>
+      <li><NavLink to="/#join-quipu" onClick={() => setSelectedPage('development')}>Development</NavLink></li>
     </ul>
   );
 }

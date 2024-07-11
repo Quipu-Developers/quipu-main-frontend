@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import './General.css';
+import './JoinQuipu.css';
 import Error from '../Error/Error';
 import { and } from 'three/examples/jsm/nodes/Nodes.js';
 
-function General() {
-    
+function JoinQuipu() {
     const isRecruiting = false; //모집 기간 여부
     const location = useLocation();
 
@@ -357,7 +356,7 @@ function General() {
         </div>
     );
 }
-export default General;
+export default JoinQuipu;
 
 const FAQ = ({ question, answer, emoji }) => {
     const [isExpanded, setIsExpanded] = useState(false);
