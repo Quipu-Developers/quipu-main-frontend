@@ -75,6 +75,7 @@ function App() {
                 <li><NavLink to="/#activity" smooth>activity</NavLink></li>
                 <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
                 <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+                <li><NavLink to="/quipu-Dev">quipu Dev</NavLink></li>
               </ul>
             </div>
 
@@ -129,7 +130,7 @@ function App() {
             <Route path="/activity-detail" element={<ActivityDetail />} />
             <Route path="/recommend-site" element={<RecommendSite />} />
             <Route path="/join-quipu" element={<JoinQuipu />} />
-            <Route path="/showcasemain" element={<Showcasemain/>} />
+            <Route path="/quipu-Dev" element={<Showcasemain/>} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>

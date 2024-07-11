@@ -18,13 +18,7 @@ function Showcasemain() {
                 <div className='gallery'></div>
                 <div className='gallery'></div>
             </div>
-
-
         </div>
-
     );
-
-
 }
-
 export default Showcasemain;
