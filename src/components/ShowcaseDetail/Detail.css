@@ -1,14 +1,14 @@
-/*전체*//**//**//**//**//**//**//**//**//**//**//**/
-.detail {  
+/*전체*/
+.detail {
   background-color: rgba(254, 251, 255, 1);
   overflow: auto;
   width: 100%;
   height: 100vh;
-  top:0;
+  top: 0;
 }
 
 .detail_header {
-  width: 100%;  
+  width: 100%;
 }
 
 .detail_header h1 {
@@ -21,6 +21,11 @@
   font-size: 50px;
   line-height: 76.8px;
   color: rgba(131, 94, 134, 1);
+
+  @media (max-width: 900px) {
+    text-align: center;
+    margin-left: 0;
+  }
 }
 
 .detail_header hr {
@@ -28,14 +33,14 @@
   border: 1px solid rgba(131, 94, 134, 1);
 }
 
-/*main*//**//**//**//**//**//**//**//**//**//**//**/
+/*main*/
 
 .main {
   width: 100%;
   margin-top: 70px;
 }
 
-/*goal*//**//**//**//**//**//**//**//**//**//**//**/
+/*goal*/
 
 .goal-card {
   display: flex;
@@ -48,60 +53,64 @@
   box-shadow: 0 2px 10px 2px rgba(196, 196, 196, 0.25);
 
   @media (max-width:900px) {
-    width:90%;
+    width: 90%;
   }
 }
 
-.goal-card h1{
+.goal-card h1 {
   text-align: left;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-size: 50px;
   line-height: 66.65px;
-  color:rgba(131, 94, 134, 1);
+  color: rgba(131, 94, 134, 1);
 }
 
-.goal-card p{
-  display:block;
+.goal-card p {
+  display: block;
   margin-bottom: 33.5px;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 21.33px;
-  color:black;
+  color: black;
 }
 
 
-/*Description with image*//**//**//**//**//**//**//**//**//**//**//**/
-
+/*Description with image*/
 .description {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 }
 
-.dc__container--img{
-  width: 320px;
+.dc__container--img {
+  width: 500px;
   height: 320px;
   overflow: hidden;
   border: 2px solid black;
   margin-top: 70px;
   margin-left: 8%;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*이건 그냥 이미지 중앙정렬하려고*/
+
   @media (max-width: 900px) {
-    margin-left:0;
+    width: 400px;
+    margin-left: 0;
   }
 }
 
-.dc__container--img img{
-  object-fit:cover;
-  width: 100%;
+.dc__container--img img {
+  object-fit: cover;
+  height: 100%;
 }
 
 .dc-card {
@@ -117,7 +126,7 @@
   background-color: white;
   box-shadow: 0 2px 10px 2px rgba(196, 196, 196, 0.25);
 
-  @media (max-width:900px){
+  @media (max-width:900px) {
     justify-content: flex-start;
     text-align: left;
     width: 90%;
@@ -126,12 +135,13 @@
   }
 }
 
-.dc-card h1, .dc-card p {
+.dc-card h1,
+.dc-card p {
   font-family: "Plyafair Display", serif;
   font-weight: 400;
 }
 
-.dc-card h1{
+.dc-card h1 {
   font-size: 50px;
   line-height: 66.65px;
   color: rgba(131, 94, 134, 1);
@@ -147,7 +157,7 @@
   color: rgba(131, 94, 134, 1);
 }
 
-.dc-card p{
+.dc-card p {
   font-size: 16px;
   line-height: 21.33px;
   color: black;
@@ -160,28 +170,32 @@
   padding-bottom: 5%;
 }
 
-.dccard-link button{
+.dccard-link button {
   cursor: pointer;
   width: 40px;
   height: 40px;
-  margin: 5px; 
+  margin: 5px;
   background-color: white;
   border: 0px solid white;
 }
 
-.dccard-link img{
+.dccard-link img {
   width: 100%;
   object-fit: cover;
 }
 
-/*history*//**//**//**//**//**//**//**//**//**//**//**/
+/*history*/
 
 .history {
   width: 100%;
   padding-left: 7%;
+
+  @media (max-width: 900px) {
+    padding-left: 5%;
+  }
 }
 
-.history h1{
+.history h1 {
   text-align: left;
   font-family: "Playfair Display", serif;
   font-weight: 400;
@@ -189,26 +203,46 @@
   line-height: 66.65px;
   color: rgba(131, 94, 134, 1);
 
-  @media (min-width:900px){
-    position:relative;
+  @media (min-width:900px) {
+    position: relative;
     bottom: 65px;
     right: 2%;
   }
 }
 
-.history-row1{
-  display:flex;
+.history-row1 {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     flex-direction: column;
   }
 }
 
-/*historycard 1*//**//**//**//**//**//**//**//**//**//**//**/
+.history-row2 {
+  margin-top: 50px;
 
-.history-card1, .historybox-1-1 {
+  @media (min-width: 900px) {
+    position: relative;
+    bottom: 110px;
+  }
+}
+
+.history-row2-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+}
+
+/*historycard 1*/
+
+.history-card1,
+.historybox-1-1 {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -220,7 +254,7 @@
   height: 246px;
 }
 
-.history-card1-img img{
+.history-card1-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -233,7 +267,7 @@
   width: 50%;
 }
 
-.historybox-1 h4{
+.historybox-1 h4 {
   font-family: "Source Serif 4", serif;
   font-weight: 600;
   font-size: 20px;
@@ -243,7 +277,7 @@
   margin-bottom: 9px;
 }
 
-.historybox-1 p{
+.historybox-1 p {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 13px;
@@ -258,7 +292,7 @@
   padding-left: 9px;
 }
 
-.historybox-1-1 img{
+.historybox-1-1 img {
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -269,7 +303,6 @@
 .historybox-1-2 {
   background-color: rgba(243, 217, 255, 0.85);
   padding: 10px;
-  width: 165px;
   height: 165px;
 
   position: relative;
@@ -277,19 +310,20 @@
   top: 2%;
 }
 
-.historybox-1-2 img{
+.historybox-1-2 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/*historycard 2*//**//**//**//**//**//**//**//**//**//**//**/
+/*historycard 2*/
 
 .history-card2 {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: right;
+  align-items: flex-end;
   margin-right: 5%;
   margin-top: 5%;
 
@@ -306,14 +340,14 @@
   width: 100%;
   height: fit-content;
   background-color: rgba(243, 217, 255, 0.85);
-  
+
   position: relative;
-  top: 55%;
-  left: 5%;
+  left: 30px;
+  bottom: 15px;
   z-index: 2;
 
   @media (max-width:900px) {
-    top: 300px;
+    bottom: -15px;
   }
 }
 
@@ -323,8 +357,12 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 25.06px;
-  color:rgba(131, 94, 134, 1);
+  color: rgba(131, 94, 134, 1);
   background-color: transparent;
+
+  @media (max-width: 900px) {
+    text-align: left;
+  }
 }
 
 .historybox-2 p {
@@ -359,20 +397,153 @@
 
 .historybox-3 {
   position: relative;
-  width: 100%;
+  width: 70%;
   height: auto;
 }
 
-#detail-base-image {
+#detail-base-image1 {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+#detail-overlay-image1 {
+  position: relative;
+  left: 93%;
+  top: 25px;
+  z-index: 2;
+  background-color: transparent;
+}
+
+/*historycard 3*/
+
+.history-card3 {
+  width: 100%;
+}
+
+.historybox-4 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+.historybox-4 h4 {
+  font-family: "Source Serif 4", serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25.06px;
+
+  margin: 10px;
+  color: rgba(131, 94, 134, 1);
+}
+
+.historybox-4 p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15.73px;
+  color: rgba(100, 100, 100, 1);
+  padding: 10px;
+
+  @media (max-width: 900px) {
+    width: 70%;
+    align-self: flex-end;
+  }
+}
+
+.historybox-4-1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.historybox-4-1 p {
+  @media (max-width:900px) {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.historybox-4-1 img {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: 10px;
+
+  position: relative;
+  right: 10px;
+}
+
+/*historycard 4*/
+
+.history-card4 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.historybox-5 {
+  width: 50%;
+  height: fit-content;
+}
+
+.historybox-5 h4 {
+  font-family:"Source Serif 4", serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25.06px;
+  color: rgb(131, 94, 131);
+
+  text-align: right;
+  margin: 10px;
+
+  @media (max-width: 900px) {
+    text-align: left;
+    padding-right: 0;
+  }
+}
+
+.historybox-5 p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15.73px;
+  color: rgba(100, 100, 100, 1);
+
+  text-align:right;
+  padding: 10px;
+
+  @media (max-width: 900px) {
+    text-align: left;
+    padding-right: 0;
+  }
+}
+
+
+.historybox-6 {
+  position: relative;
+  width: 210px;
+}
+
+#detail-base-image2 {
+  background-color: rgba(243, 217, 255, 0.85);
+  padding: 15px;
+
   position: relative;
   width: 100%;
   z-index: 1;
 }
 
-#detail-overlay-image {
+#detail-overlay-image2 {
   position: relative;
-  left: 95%;
-  bottom: 97%;
+  top: 30px;
+  left: 100%;
   z-index: 2;
-  background-color: transparent;
 }
+
+
+
