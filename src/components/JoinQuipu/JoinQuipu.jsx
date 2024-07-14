@@ -335,6 +335,7 @@ function JoinQuipu(props) {
                     {props.selectedPage === 'development' && <div className="field">
                         <b>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></b>
                         <input type='file'></input>
+                        <span style={{ color : '#f02929' }}>pdf 파일로 올려주세요!</span>
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="checkbox">
