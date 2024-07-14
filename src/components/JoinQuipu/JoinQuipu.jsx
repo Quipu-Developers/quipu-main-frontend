@@ -18,6 +18,10 @@ function JoinQuipu(props) {
     const [major, setMajor] = useState('전자전기컴퓨터공학부');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [textAreaContent, setTextAreaContent] = useState('');
+    const [exProject, setExProject] = useState('');
+    const [gitHubURL, setGitHubURL] = useState('');
+    const [gitHubAccount, setGitHubAccount] = useState('');
+    const [slackAccount, setSlackAccount] = useState('');
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
@@ -30,6 +34,7 @@ function JoinQuipu(props) {
 
     const [reviewed, setReviewed] = useState(false);
     const [paidFee, setPaidFee] = useState(false);
+    const [alterNative, setAlterNative] = useState(false);
 
     const [isError, setIsError] = useState(false);
 
@@ -43,11 +48,21 @@ function JoinQuipu(props) {
     };
 
     const textareaRef = useRef();
+    const exProjectRef = useRef();
+
     const handleResizeHeight = () => {
         if (textareaRef.current) {
             textareaRef.current.style.height = 'auto';
             textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
         }
+        if (exProjectRef.current) {
+            exProjectRef.current.style.height = 'auto'
+            exProjectRef.current.style.height = exProjectRef.current.scrollHeight + 'px';
+        }
+    };
+
+    const handleAlterNativeChange = (e) => {
+        setAlterNative(e.target.checked);
     };
 
     const handleReviewedChange = (e) => {
@@ -292,23 +307,39 @@ function JoinQuipu(props) {
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="field">
+                        <b>GitHub 프로필 주소 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <input type="text" placeholder="https://github.com/Quipu-Developers" value={gitHubURL} onChange={(e) => setGitHubURL(e.target.value)} />
+                    </div>}
+
+                    {props.selectedPage === 'development' && <div className="field">
+                        <b>GitHub 이메일 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <input type="text" placeholder="quipu_github@naver.com" value={gitHubAccount} onChange={(e) => setGitHubAccount(e.target.value)} />
+                    </div>}
+
+                    {props.selectedPage === 'development' && <div className="field">
+                        <b>Slack 이메일 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <input type="text" placeholder="quipu_slack@naver.com" value={slackAccount} onChange={(e) => setSlackAccount(e.target.value)} />
+                    </div>}
+
+                    {props.selectedPage === 'development' && <div className="field">
                         <b>프로젝트 소개 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
-                            ref={textareaRef}
-                            onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
+                            ref={exProjectRef}
+                            onChange={(e) => { setExProject(e.target.value); handleResizeHeight(e.target.value); }}
                             rows={3}
                             placeholder={"경험해본 프로젝트 중 가장 대표적인 프로젝트에 대한 소개와 기여도 그리고 문제 해결 경험에 대해 구체적으로 설명해주시기 바랍니다."}
-                            value={textAreaContent}
+                            value={exProject}
                         />
                     </div> }
                     
                     {props.selectedPage === 'development' && <div className="field">
                         <b>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></b>
+                        <input type='file'></input>
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="checkbox">
                         <label id="checkbox-label">불합격 시 일반 부원으로 가입 희망하신다면 체크해주세요!</label>
-                        <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
+                        <input id="checkbox-input" type="checkbox" checked={alterNative} onChange={handleAlterNativeChange} />
                     </div> }
                     
                     <div className="checkbox">
