@@ -5,7 +5,7 @@ import './JoinQuipu.css';
 import Error from '../Error/Error';
 import { and } from 'three/examples/jsm/nodes/Nodes.js';
 
-function JoinQuipu() {
+function JoinQuipu(props) {
     const isRecruiting = false; //모집 기간 여부
     const location = useLocation();
 
@@ -105,7 +105,6 @@ function JoinQuipu() {
     };
 
     useEffect(() => {
-        
         if (location.pathname === '/join-quipu') {
             setShowPopup(!isRecruiting);
         } else {
@@ -157,9 +156,10 @@ function JoinQuipu() {
                                 <p style={{ color: "#09ce20", marginLeft: "7px", marginTop: "1.5px", fontSize: "8px" }}>●</p>
                             </div>
                             <div className="join-notice__icon--top2"></div>
+                            {props.selectedPage === 'general' && 
                             <div className="join-notice__icon--body">
                                 {/* <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p> */}
-                                <p style={{ color: '#448FFF' }}> 🥳환영합니다! 🥳</p>
+                                <p style={{ color: '#448FFF' }}> 🥳환영합니다!🥳</p>
                                 <p style={{ color: '#898989' }}>지원서는 <span style={{color: 'whitesmoke' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
                                 <p style={{ color: '#898989' }}>(회비 : <span style={{ fontWeight: 700 }}>20,000</span>원)</p>
                                 <p style={{ color: '#898989' }} onClick={() => {copyToClipboard('1234567')}}>
@@ -168,16 +168,27 @@ function JoinQuipu() {
                                 </p>
                                 <p style={{ color: '#898989' }}><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
                             </div>
+                            }
+                            {props.selectedPage === 'development' && 
+                            <div className="join-notice__icon--body">
+                                <p style={{ color: 'red' }}> 🥳환영합니다!🥳</p>
+                                <p style={{ color: '#898989' }}>저희 <span style={{ color:'#448FFF' }}>퀴푸 개발팀</span>에 관심을 가져주셔서 감사합니다</p>
+                                <p style={{ color: '#898989' }}>제출해주신 지원서는 신중히 검토한 후, </p>
+                                <p>합격 여부를<span style={{ color: 'yellow'}}> 8월 31일 오후 3시</span>에 문자 메세지로</p>
+                                <p>안내해 드릴 예절입니다.</p>
+                                <p style={{ color: '#898989' }} >이는 지원자분들의 역량을 <span style={{ color: '#448FFF'}}>평가하기 위함이 아니라,</span> </p>
+                                <p>개발에 대한 <span style={{ color: '#448FFF'}}>방향성을 확인하기 위한 것이니</span> 부담 갖지 말고 작성해 주시기 바랍니다.</p>
+                            </div>}
                         </div>
                     </div>
 
                     <div className="divider"></div>
 
-                    <h2>Entry</h2>
+                    {props.selectedPage === 'general' ? <h2>General Entry</h2> : <h2>Development Entry</h2>}
 
                     <div className="field">
                         <b>이름 <span style={{ color: '#448FFF' }}>*</span></b>
-                        <input type="text" placeholder="이재용" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder="홍길동" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
 
                     <div className="field">
@@ -259,9 +270,9 @@ function JoinQuipu() {
                             />
                         </div>
                     </div>
-
-                    <div className="field">
-                        <b>지원동기 또는 바라는 점</b>
+                    
+                    {props.selectedPage === 'general' ? <div className="field">
+                        <b>지원동기 또는 바라는 점 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
                             ref={textareaRef}
                             onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
@@ -269,7 +280,37 @@ function JoinQuipu() {
                             placeholder={"하고 싶은 활동이나 바라는 점을 적어주세요!"}
                             value={textAreaContent}
                         />
-                    </div>
+                    </div> : <div className="field">
+                        <b>지원동기 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <textarea
+                            ref={textareaRef}
+                            onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
+                            rows={3}
+                            placeholder={"본 동아리에서 활동하고자 하는 이유를 구체적으로 말씀해주세요!"}
+                            value={textAreaContent}
+                        />
+                    </div>}
+
+                    {props.selectedPage === 'development' && <div className="field">
+                        <b>프로젝트 소개 <span style={{ color: '#448FFF' }}>*</span></b>
+                        <textarea
+                            ref={textareaRef}
+                            onChange={(e) => { setTextAreaContent(e.target.value); handleResizeHeight(e.target.value); }}
+                            rows={3}
+                            placeholder={"경험해본 프로젝트 중 가장 대표적인 프로젝트에 대한 소개와 기여도 그리고 문제 해결 경험에 대해 구체적으로 설명해주시기 바랍니다."}
+                            value={textAreaContent}
+                        />
+                    </div> }
+                    
+                    {props.selectedPage === 'development' && <div className="field">
+                        <b>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></b>
+                    </div>}
+
+                    {props.selectedPage === 'development' && <div className="checkbox">
+                        <label id="checkbox-label">불합격 시 일반 부원으로 가입 희망하신다면 체크해주세요!</label>
+                        <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
+                    </div> }
+                    
                     <div className="checkbox">
                         <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
                         <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />

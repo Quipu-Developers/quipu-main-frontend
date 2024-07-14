@@ -14,11 +14,11 @@ import Dropdown from './components/JoinQuipu/Dropdown';
 
 function App() {
   const[dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedPage, setSelectedPage] = useState(null);
 
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [selectedPage,setSelectedPage] = useState(null);
 
   const toggleActivityDetail = () => {
     setIsActivityDetailVisible(!isActivityDetailVisible);
@@ -76,7 +76,7 @@ function App() {
                 <li><NavLink to="/#about" smooth>about</NavLink></li>
                 <li><NavLink to="/#activity" smooth>activity</NavLink></li>
                 <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-                <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown setSelectedPage={setSelectedPage}/>}</li>
+                <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
               </ul>
             </div>
 
@@ -122,7 +122,7 @@ function App() {
                 <section id="about"><About /></section>
                 <section id="activity"><Activity /></section>
                 <section id="recommend-site"><RecommendSite /></section>
-                <section id="join-quipu"><JoinQuipu /></section>
+                <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage}/></section>
               </>
             } />
             <Route path="/home" element={<Home />} />
@@ -130,7 +130,7 @@ function App() {
             <Route path="/activity" element={<Activity />} />
             <Route path="/activity-detail" element={<ActivityDetail />} />
             <Route path="/recommend-site" element={<RecommendSite />} />
-            <Route path="/join-quipu" element={<JoinQuipu />} />
+            <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>
