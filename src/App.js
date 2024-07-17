@@ -3,18 +3,22 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
-import Home from './components/Home/Home'
-import About from './components/About/About'
-import Activity from './components/Activity/Activity'
-import RecommendSite from './components/RecommendSite/RecommendSite'
-import JoinQuipu from './components/JoinQuipu/JoinQuipu'
-import ActivityDetail from './components/ActivityDetail/ActivityDetail'
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Activity from './components/Activity/Activity';
+import RecommendSite from './components/RecommendSite/RecommendSite';
+import JoinQuipu from './components/JoinQuipu/JoinQuipu';
+import ActivityDetail from './components/ActivityDetail/ActivityDetail';
 import Error from './components/Error/Error';
+import Dropdown from './components/JoinQuipu/Dropdown';
 
 function App() {
+  const[dropdownOpen, setDropdownOpen] = useState(false);
+
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [selectedPage,setSelectedPage] = useState(null);
 
   const toggleActivityDetail = () => {
     setIsActivityDetailVisible(!isActivityDetailVisible);
@@ -72,7 +76,7 @@ function App() {
                 <li><NavLink to="/#about" smooth>about</NavLink></li>
                 <li><NavLink to="/#activity" smooth>activity</NavLink></li>
                 <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-                <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+                <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
               </ul>
             </div>
 
@@ -118,7 +122,7 @@ function App() {
                 <section id="about"><About /></section>
                 <section id="activity"><Activity /></section>
                 <section id="recommend-site"><RecommendSite /></section>
-                <section id="join-quipu"><JoinQuipu /></section>
+                <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage}/></section>
               </>
             } />
             <Route path="/home" element={<Home />} />
@@ -126,7 +130,7 @@ function App() {
             <Route path="/activity" element={<Activity />} />
             <Route path="/activity-detail" element={<ActivityDetail />} />
             <Route path="/recommend-site" element={<RecommendSite />} />
-            <Route path="/join-quipu" element={<JoinQuipu />} />
+            <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>
