@@ -55,10 +55,6 @@ function JoinQuipu(props) {
             motivationRef.current.style.height = 'auto';
             motivationRef.current.style.height = motivationRef.current.scrollHeight + 'px';
         }
-        if (project_descriptionRef.current) {
-            project_descriptionRef.current.style.height = 'auto'
-            project_descriptionRef.current.style.height = project_descriptionRef.current.scrollHeight + 'px';
-        }
     };
 
     const handlewilling_general_memberChange = (e) => {
@@ -120,6 +116,11 @@ function JoinQuipu(props) {
                     setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
                     setShowPopup(true);
                 }
+                else if (error.response && error.response.status === 500) {
+                    setModalMessage('서버 오류입니다.');
+                    setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
+                    setShowPopup(true);
+                }
                 else {
                     setIsError(true);
                 }
@@ -164,6 +165,11 @@ function JoinQuipu(props) {
                     setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
                     setShowPopup(true);
                 }
+                else if (error.response && error.response.status === 500) {
+                    setModalMessage('서버 오류입니다.');
+                    setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
+                    setShowPopup(true);
+                }
                 else {
                     setIsError(true);
                 }
@@ -187,6 +193,11 @@ function JoinQuipu(props) {
                 else if (error.response && error.response.status === 409) {
                     setModalMessage('이미 제출하셨습니다.');
                     setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
+                    setShowPopup(true);
+                }
+                else if (error.response && error.response.status === 500) {
+                    setModalMessage('서버 오류입니다.');
+                    setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
                     setShowPopup(true);
                 }
                 else {
@@ -256,32 +267,33 @@ function JoinQuipu(props) {
                             {props.selectedPage === 'general' && 
                             <div className="join-notice__icon--body">
                                 {/* <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p> */}
-                                <p style={{ color: '#448FFF' }}> 🥳환영합니다!🥳</p>
-                                <p style={{ color: '#898989' }}>지원서는 <span style={{color: 'whitesmoke' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
-                                <p style={{ color: '#898989' }}>(회비 : <span style={{ fontWeight: 700 }}>20,000</span>원)</p>
-                                <p style={{ color: '#898989' }} onClick={() => {copyToClipboard('1234567')}}>
+                                <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
+                                <p style={{ color: '#F5F5DC' }}>지원서는 <span style={{color: 'red' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
+                                <p style={{ color: '#F5F5DC' }}>(회비 : 20,000원)</p>
+                                <p style={{ color: '#F5F5DC' }} onClick={() => {copyToClipboard('1234567')}}>
                                     납부 계좌 : 카카오뱅크&nbsp;
-                                    <span className="account-number" style={{ color: 'yellow' }}>1234567 (예금주 : 김예영)</span>
+                                    <span className="account-number" style={{ color: '#448FFF' }}>1234567 (예금주 : 김예영)</span>
                                 </p>
-                                <p style={{ color: '#898989' }}><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
+                                <p style={{ color: '#F5F5DC' }}><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
                             </div>
                             }
                             {props.selectedPage === 'development' && 
                             <div className="join-notice__icon--body">
-                                <p style={{ color: 'red' }}> 🥳환영합니다!🥳</p>
-                                <p style={{ color: '#898989' }}>저희 <span style={{ color:'#448FFF' }}>퀴푸 개발팀</span>에 관심을 가져주셔서 감사합니다</p>
-                                <p style={{ color: '#898989' }}>제출해주신 지원서는 신중히 검토한 후, </p>
-                                <p>합격 여부를<span style={{ color: 'yellow'}}> 8월 31일 오후 3시</span>에 문자 메세지로</p>
-                                <p>안내해 드릴 예절입니다.</p>
-                                <p style={{ color: '#898989' }} >이는 지원자분들의 역량을 <span style={{ color: '#448FFF'}}>평가하기 위함이 아니라,</span> </p>
-                                <p>개발에 대한 <span style={{ color: '#448FFF'}}>방향성을 확인하기 위한 것이니</span> 부담 갖지 말고 작성해 주시기 바랍니다.</p>
+                                <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
+                                <p style={{ color: '#F5F5DC' }}>저희 <span style={{ color:'#448FFF' }}>퀴푸 개발팀</span>에 관심을 가져주셔서 감사합니다</p>
+                                <p style={{ color: '#F5F5DC' }}>제출해주신 지원서는 신중히 검토한 후, </p>
+                                <p style={{ color: '#F5F5DC' }}>합격 여부를<span style={{ color: 'red'}}> 8월 31일 오후 3시</span>에 문자 메세지로</p>
+                                <p style={{ color: '#F5F5DC' }}>안내해 드릴 예절입니다.</p>
+                                <p style={{ color: '#F5F5DC' }} >이는 지원자분들의 역량을 <span style={{ color: '#448FFF'}}>평가하기 위함이 아니라,</span> </p>
+                                <p style={{ color: '#F5F5DC' }}>개발에 대한 <span style={{ color: '#448FFF'}}>방향성을 확인하기 위한 것이니</span> </p>
+                                <p style={{ color: '#F5F5DC' }}>부담 갖지 말고 작성해 주시기 바랍니다.</p>
                             </div>}
                         </div>
                     </div>
 
                     <div className="divider"></div>
 
-                    {props.selectedPage === 'general' ? <h2>General Entry</h2> : <h2>Development Entry</h2>}
+                    {props.selectedPage === 'general' ? <h2>일반 부원</h2> : <h2>개발 부원</h2>}
 
                     <div className="field">
                         <b>이름 <span style={{ color: '#448FFF' }}>*</span></b>
@@ -368,7 +380,7 @@ function JoinQuipu(props) {
                         </div>
                     </div>
                     
-                    {props.selectedPage === 'general' ? <div className="field">
+                    {props.selectedPage === 'general' && <div className="field">
                         <b>지원동기 또는 바라는 점 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
                             ref={motivationRef}
@@ -377,12 +389,13 @@ function JoinQuipu(props) {
                             placeholder={"하고 싶은 활동이나 바라는 점을 적어주세요!"}
                             value={motivation}
                         />
-                    </div> : <div className="field">
+                    </div>}
+                    {props.selectedPage === 'development' && <div className="field">
                         <b>지원동기 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
                             ref={motivationRef}
-                            onChange={(e) => { setMotivation(e.target.value); handleResizeHeight(e.target.value); }}
-                            rows={2}
+                            onChange={(e) => { setMotivation(e.target.value);} }
+                            rows={5}
                             placeholder={"본 동아리에서 활동하고자 하는 이유를 구체적으로 말씀해주세요!"}
                             value={motivation}
                         />
@@ -392,8 +405,8 @@ function JoinQuipu(props) {
                         <b>프로젝트 소개 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
                             ref={project_descriptionRef}
-                            onChange={(e) => { setProject_description(e.target.value); handleResizeHeight(e.target.value); }}
-                            rows={3}
+                            onChange={(e) => { setProject_description(e.target.value);} }
+                            rows={7}
                             placeholder={"경험해본 프로젝트 중 가장 대표적인 프로젝트에 대한 소개와 기여도 그리고 문제 해결 경험에 대해 구체적으로 설명해주시기 바랍니다."}
                             value={project_description}
                         />
@@ -403,7 +416,7 @@ function JoinQuipu(props) {
                         <p><label style={{ fontWeight : 'bold' }}>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></label></p>
                         <p><input type='file' accept='application/pdf' ref={portfolio_pdfRef} onChange={handleUploadPdf_change} style={{ display:'none' }}/></p>
                         <p><button onClick={handleUploadPdf}>파일 업로드</button></p>
-                        <p><span style={{ color : 'red' }}> pdf 파일로 올려주세요!</span></p>
+                        <p><span style={{ color : '#f0054f' }}> pdf 파일로 올려주세요!</span></p>
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="field">
@@ -422,7 +435,7 @@ function JoinQuipu(props) {
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="checkbox">
-                        <label id="checkbox-label"><span style={{ color: 'red' }}>**</span> 불합격 시 일반 부원으로 가입 희망하신다면 체크해주세요! <span style={{ color: 'red' }}>**</span></label>
+                        <label id="checkbox-label"><span style={{color : '#f0054f'}}>불합격 시 일반 부원</span>으로 가입 희망하신다면 체크해주세요!</label>
                         <input id="checkbox-input" type="checkbox" checked={willing_general_member} onChange={handlewilling_general_memberChange} />
                     </div> }
                     
@@ -470,7 +483,7 @@ function JoinQuipu(props) {
                     <h2>FAQ</h2>
 
                     {/* FAQ 컴포넌트 */}
-                    <div className="faq">
+                    {props.selectedPage === 'general' && <div className="faq">
                         <FAQ
                             question="Q.&nbsp;&nbsp;&nbsp;&nbsp;문과인데 가입해도 되나요?"
                             answer="저희 Quipu는 이과에 국한된 동아리가 아닙니다. 현재 다양한 단과대의 부원들이 있으며 문과분들도 다수 계십니다 :) 이과 분들의 비율이 높지만, 컴퓨터에 관심이 있으신분들 혹은 이과 학우들과 친분을 쌓고 싶으신 분들 모두 환영입니다."
@@ -495,7 +508,47 @@ function JoinQuipu(props) {
                         />
                         <p class="more-detail">*추가 문의사항은 아래 "퀴푸문의사항" 혹은 @uos_qupiu로 문의 바랍니다 :)</p>
 
-                    </div>
+                    </div>}
+                    {props.selectedPage === 'development' && <div className="faq">
+                        <FAQ
+                            question="Q.&nbsp;&nbsp;&nbsp;&nbsp;문과인데 개발 부원으로 가입해도 되나요?"
+                            answer="저희 Quipu는 개발과 프로젝트에 관심이 있고, 과거 프로젝트를 진행했던 경험이 있는 분이시라면 소속과와 관계없이 모두 환영하고 있습니다!!"
+                            emoji="🤓"
+                        />
+
+                        <FAQ
+                            question="Q.&nbsp;&nbsp;&nbsp;&nbsp;Quipu 남녀 성비는 어떻게 되나요?"
+                            answer="24년 1학기 기준 남녀 성비는 남자 0 : 여자 0 였습니다! 특히나 여성 회원분들의 참여도가 높았기 때문에 성비 걱정은 크게 안 하셔도 됩니다!!"
+                            emoji="🤔"
+                        />
+
+                        <FAQ
+                            question="Q.&nbsp;&nbsp;&nbsp;&nbsp;팀 프로젝트 경험이 없는데 가입해도 되나요?"
+                            answer="전혀 상관없습니다!! 현재 퀴푸에는 팀 프로젝트를 여러 번 경험해 보신 능력자분들도 계시지만 배우고자 들어오신 분들, 관심 있어서 들어오신 분들이 더 많습니다! 함께 프로젝트에 참여하며 보다 체계적으로 포트폴리오도 작성해나갈 수 있을 것입니다 :)"
+                            emoji="🧐"
+                        />
+
+                        <FAQ
+                            question="Q.&nbsp;&nbsp;&nbsp;&nbsp;개발 및 프로젝트 진행 시 세부적인 팀 구성은 어떻게 되나요?"
+                            answer="24년 1학기 기준 팀 구성은 프론트엔드, 백엔드, 기획, 디자인 팀으로 나누었습니다!!"
+                            emoji="😝"
+                        />
+
+                        <FAQ
+                            question="Q.&nbsp;&nbsp;&nbsp;&nbsp;어떤 프로젝트를 진행하게 되며, 기술 스택은 어떻게 되나요?"
+                            answer="quipu dev"
+                            emoji="😏"
+                        />
+
+                        <FAQ
+                            question="Q.&nbsp;&nbsp;&nbsp;&nbsp;동아리방 위치가 어디인가요?"
+                            answer="학생회관 3층 342호 입니다!"
+                            emoji="🥸"
+                        />
+                        <p class="more-detail">*추가 문의사항은 아래 "퀴푸문의사항" 혹은 @uos_qupiu로 문의 바랍니다 :)</p>
+
+                    </div>}
+                    
                 </div>
 
                 <div className="footer">
