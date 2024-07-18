@@ -285,7 +285,8 @@ function JoinQuipu(props) {
                                 <p style={{ color: '#F5F5DC' }}>합격 여부를<span style={{ color: 'red'}}> 8월 31일 오후 3시</span>에 문자 메세지로</p>
                                 <p style={{ color: '#F5F5DC' }}>안내해 드릴 예절입니다.</p>
                                 <p style={{ color: '#F5F5DC' }} >이는 지원자분들의 역량을 <span style={{ color: '#448FFF'}}>평가하기 위함이 아니라,</span> </p>
-                                <p style={{ color: '#F5F5DC' }}>개발에 대한 <span style={{ color: '#448FFF'}}>방향성을 확인하기 위한 것이니</span> 부담 갖지 말고 작성해 주시기 바랍니다.</p>
+                                <p style={{ color: '#F5F5DC' }}>개발에 대한 <span style={{ color: '#448FFF'}}>방향성을 확인하기 위한 것이니</span> </p>
+                                <p style={{ color: '#F5F5DC' }}>부담 갖지 말고 작성해 주시기 바랍니다.</p>
                             </div>}
                         </div>
                     </div>
