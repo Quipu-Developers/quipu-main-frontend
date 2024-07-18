@@ -24,7 +24,6 @@
 .dropdown-menu li:hover {
   background-color: #f1f1f1;
   text-align: center;
-  width: 145px;
   border-radius: 20px;
   color: rgba(0, 0, 0, 0.2);
 }
