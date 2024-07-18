@@ -12,11 +12,14 @@ import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import Showcasemain from './components/ShowcaseMain/Showcasemain'
 import Showcasedetail from './components/ShowcaseDetail/Showcasedetail';
 import Error from './components/Error/Error';
+import Dropdown from './components/JoinQuipu/Dropdown';
 
 function AppContent() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [selectedPage,setSelectedPage] = useState(null);
 
   const location = useLocation();
   const isDetailPage = location.pathname === '/showcase-detail';
@@ -78,7 +81,7 @@ function AppContent() {
               <li><NavLink to="/#about" smooth>about</NavLink></li>
               <li><NavLink to="/#activity" smooth>activity</NavLink></li>
               <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-              <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
+              <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
               <li><NavLink to="/quipu-Dev">quipu Dev</NavLink></li>
             </ul>
           </div>
@@ -125,14 +128,15 @@ function AppContent() {
             <section id="home"><Home /></section>
             <section id="about"><About /></section>                <section id="activity"><Activity /></section>
             <section id="recommend-site"><RecommendSite /></section>
-            <section id="join-quipu"><JoinQuipu /></section>
+            <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage}/></section>
           </>
         } />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />            <Route path="/activity" element={<Activity />} />
+        <Route path="/about" element={<About />} />            
+        <Route path="/activity" element={<Activity />} />
         <Route path="/activity-detail" element={<ActivityDetail />} />
         <Route path="/recommend-site" element={<RecommendSite />} />
-        <Route path="/join-quipu" element={<JoinQuipu />} />
+        <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
         <Route path="/quipu-Dev" element={<Showcasemain />} />
         <Route path="/showcase-detail" element={<Showcasedetail />} />
         <Route path="*" element={<Error />} />
