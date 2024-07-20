@@ -13,7 +13,7 @@ function JoinQuipu(props) {
     const [hasPaidFee, setHasPaidFee] = useState(false);
 
     const [name, setName] = useState('');
-    const [student_id, setStudent_id] = useState('');
+    const [student_ID, setStudent_id] = useState('');
     const [major, setMajor] = useState('전자전기컴퓨터공학부');
     const [phone_number, setPhone_number] = useState('');
     const [motivation, setMotivation] = useState('');
@@ -81,7 +81,8 @@ function JoinQuipu(props) {
     };
 
     const handleUploadPdf_change = (e) => {
-        console.log(e.target.files[0])
+        console.log(e.target.files[0]);
+        // console.log(portfolio_pdfRef);
     }
 
     const handleSubmit = async (event) => {
@@ -90,7 +91,7 @@ function JoinQuipu(props) {
         if (props.selectedPage === 'general'){
             const formData = {
                 name: name,
-                student_id: student_id,
+                student_ID: student_ID,
                 major: major,
                 phone_number: phone_number,
                 motivation: motivation
@@ -130,33 +131,31 @@ function JoinQuipu(props) {
         if (props.selectedPage === 'development') {
             const formData = {
                 name: name,
-                student_id: student_id,
+                student_ID: student_ID,
                 major: major,
                 phone_number: phone_number,
                 motivation: motivation,
+                portfolio_pdf: portfolio_pdfRef,
                 project_description: project_description,
                 github_profile: github_profile,
                 github_email: github_email,
                 slack_email: slack_email,
-                willing_general_member: willing_general_member
-                
+                willing_general_member: willing_general_member,
             };
-            const pdfData = {
-                portfolio_pdf: portfolio_pdfRef
-            }
     
             axios.post('https://quipu-main-server.site/api/data2', formData, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "multipart/form-data",
                     'Origin': 'https://uos-quipu.vercel.app'
                 },
             }).then(response => {
                 setModalMessage('Welcome to Quipu!');
                 setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
                 setShowPopup(true);
-            }).catch(error => {
+            }).catch(error => { 
                 if (error.response && error.response.status === 400) {
-                    setModalMessage('잘못된 형식으로 입력되었습니다.');
+                    const message = response.data;
+                    setModalMessage(`${message}이 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 } 
@@ -166,47 +165,14 @@ function JoinQuipu(props) {
                     setShowPopup(true);
                 }
                 else if (error.response && error.response.status === 500) {
-                    setModalMessage('서버 오류입니다.');
-                    setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
+                    setModalMessage('서버에 오류가 발생하였습니다.');
+                    setModalSubMessage('해결이 되지 않을 경우 퀴푸에 문의해주세요.');
                     setShowPopup(true);
                 }
                 else {
                     setIsError(true);
                 }
             });
-            
-            axios.post('https://quipu-main-server.site/api/upload', pdfData, {
-                headers: {
-                    'Content-Type': 'application/pdf',
-                    'Origin': 'https://uos-quipu.vercel.app'
-                },
-            }).then(response => {
-                setModalMessage('Welcome to Quipu!');
-                setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
-                setShowPopup(true);
-            }).catch(error => {
-                if (error.response && error.response.status === 400) {
-                    setModalMessage('잘못된 형식으로 입력되었습니다.');
-                    setModalSubMessage('다시 확인해 주세요.');
-                    setShowPopup(true);
-                } 
-                else if (error.response && error.response.status === 409) {
-                    setModalMessage('이미 제출하셨습니다.');
-                    setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
-                    setShowPopup(true);
-                }
-                else if (error.response && error.response.status === 500) {
-                    setModalMessage('서버 오류입니다.');
-                    setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
-                    setShowPopup(true);
-                }
-                else {
-                    setIsError(true);
-                }
-            });
-
-
-
         }
 
         return false
@@ -306,7 +272,7 @@ function JoinQuipu(props) {
                             type="tel"
                             maxLength={10}
                             placeholder="2024xxxxxx"
-                            value={student_id}
+                            value={student_ID}
                             onChange={(e) => setStudent_id(e.target.value)} />
                     </div>
 
@@ -414,8 +380,7 @@ function JoinQuipu(props) {
                     
                     {props.selectedPage === 'development' && <div className="field">
                         <p><label style={{ fontWeight : 'bold' }}>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></label></p>
-                        <p><input type='file' accept='application/pdf' ref={portfolio_pdfRef} onChange={handleUploadPdf_change} style={{ display:'none' }}/></p>
-                        <p><button onClick={handleUploadPdf}>파일 업로드</button></p>
+                        <p><input type='file' accept=".pdf" ref={portfolio_pdfRef} onChange={handleUploadPdf_change} onClick={handleUploadPdf}/></p>
                         <p><span style={{ color : '#f0054f' }}> pdf 파일로 올려주세요!</span></p>
                     </div>}
 
