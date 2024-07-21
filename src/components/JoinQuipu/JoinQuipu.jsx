@@ -97,7 +97,7 @@ function JoinQuipu(props) {
                 motivation: motivation
             };
     
-            axios.post('https://quipu-main-server.site/api/data1', formData, {
+            axios.post('https://quipu-main-server.site/data1', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Origin': 'https://uos-quipu.vercel.app'
@@ -144,13 +144,13 @@ function JoinQuipu(props) {
                 willing_general_member: willing_general_member,
             };
     
-            axios.post('https://quipu-main-server.site/api/data2', formData, {
+            axios.post('https://quipu-main-server.site/data2', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Origin': 'https://uos-quipu.vercel.app'
                 },
             }).then(response => {
-                setModalMessage('Welcome to Quipu!');
+      setModalMessage('Welcome to Quipu!');
                 setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
                 setShowPopup(true);
             }).catch(error => { 
@@ -502,7 +502,7 @@ function JoinQuipu(props) {
 
                         <FAQ
                             question="Q.&nbsp;&nbsp;&nbsp;&nbsp;어떤 프로젝트를 진행하게 되며, 기술 스택은 어떻게 되나요?"
-                            answer="quipu dev"
+                            answer="메뉴 바에 있는 quipu Dev를 참고하시면 됩니다!!"
                             emoji="😏"
                         />
 
