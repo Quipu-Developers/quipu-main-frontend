@@ -6,7 +6,7 @@ import Error from '../Error/Error';
 import { and } from 'three/examples/jsm/nodes/Nodes.js';
 
 function JoinQuipu(props) {
-    const isRecruiting = true; //모집 기간 여부
+    const isRecruiting = false; //모집 기간 여부
     const location = useLocation();
 
     const [hasReviewed, setHasReviewed] = useState(false);
@@ -89,9 +89,9 @@ function JoinQuipu(props) {
         if (props.selectedPage === 'general') {
             const formData = {
                 name: name,
-                student_id: Number(student_id),
+                student_id: student_id,
                 major: major,
-                phone_number: Number(phone_number),
+                phone_number: phone_number,
                 motivation: motivation
             };
 
@@ -139,9 +139,9 @@ function JoinQuipu(props) {
         if (props.selectedPage === 'development') {
             const formData = {
                 name: name,
-                student_id: Number(student_id),
+                student_id: student_id,
                 major: major,
-                phone_number: Number(phone_number),
+                phone_number: phone_number,
                 motivation: motivation,
                 portfolio_pdf: pdf,
                 project_description: project_description,
