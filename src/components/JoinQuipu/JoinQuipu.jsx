@@ -22,6 +22,8 @@ function JoinQuipu(props) {
     const [github_email, setGithub_email] = useState('');
     const [slack_email, setSlack_email] = useState('');
 
+    const [pdf, setPDF] = useState(null);
+
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
     };
@@ -48,7 +50,6 @@ function JoinQuipu(props) {
 
     const motivationRef = useRef();
     const project_descriptionRef = useRef();
-    const portfolio_pdfRef = React.useRef(null);
 
     const handleResizeHeight = () => {
         if (motivationRef.current) {
@@ -77,18 +78,15 @@ function JoinQuipu(props) {
     };
 
     const handleUploadPdf = (e) => {
-        portfolio_pdfRef.current.click();
-    };
-
-    const handleUploadPdf_change = (e) => {
         console.log(e.target.files[0]);
-        // console.log(portfolio_pdfRef);
+        setPDF(e.target.files[0]);
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (props.selectedPage === 'general'){
+        // 일반 부원 폼 전송
+        if (props.selectedPage === 'general') {
             const formData = {
                 name: name,
                 student_ID: student_ID,
@@ -96,7 +94,7 @@ function JoinQuipu(props) {
                 phone_number: phone_number,
                 motivation: motivation
             };
-    
+
             axios.post('https://quipu-main-server.site/data1', formData, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -108,11 +106,11 @@ function JoinQuipu(props) {
                 setShowPopup(true);
             }).catch(error => {
                 if (error.response && error.response.status === 400) {
-                    const message = response.data;
+                    const message = error.response.data;
                     setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
-                } 
+                }
                 else if (error.response && error.response.status === 409) {
                     setModalMessage('이미 제출하셨습니다.');
                     setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
@@ -129,6 +127,7 @@ function JoinQuipu(props) {
             });
         }
 
+        //개발 부원 폼 전송
         if (props.selectedPage === 'development') {
             const formData = {
                 name: name,
@@ -136,30 +135,30 @@ function JoinQuipu(props) {
                 major: major,
                 phone_number: phone_number,
                 motivation: motivation,
-                portfolio_pdf: portfolio_pdfRef,
+                portfolio_pdf: pdf,
                 project_description: project_description,
                 github_profile: github_profile,
                 github_email: github_email,
                 slack_email: slack_email,
                 willing_general_member: willing_general_member,
             };
-    
+
             axios.post('https://quipu-main-server.site/data2', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Origin': 'https://uos-quipu.vercel.app'
                 },
             }).then(response => {
-      setModalMessage('Welcome to Quipu!');
+                setModalMessage('Welcome to Quipu!');
                 setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
                 setShowPopup(true);
-            }).catch(error => { 
+            }).catch(error => {
                 if (error.response && error.response.status === 400) {
-                    const message = response.data;
+                    const message = error.response.data;
                     setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
-                } 
+                }
                 else if (error.response && error.response.status === 409) {
                     setModalMessage('이미 제출하셨습니다.');
                     setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
@@ -188,7 +187,7 @@ function JoinQuipu(props) {
     }, [location]);
 
     if (isError) {
-        return <Error/>;
+        return <Error />;
     }
 
     return (
@@ -231,30 +230,30 @@ function JoinQuipu(props) {
                                 <p style={{ color: "#09ce20", marginLeft: "7px", marginTop: "1.5px", fontSize: "8px" }}>●</p>
                             </div>
                             <div className="join-notice__icon--top2"></div>
-                            {props.selectedPage === 'general' && 
-                            <div className="join-notice__icon--body">
-                                {/* <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p> */}
-                                <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
-                                <p style={{ color: '#F5F5DC' }}>지원서는 <span style={{color: 'red' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
-                                <p style={{ color: '#F5F5DC' }}>(회비 : 20,000원)</p>
-                                <p style={{ color: '#F5F5DC' }} onClick={() => {copyToClipboard('1234567')}}>
-                                    납부 계좌 : 카카오뱅크&nbsp;
-                                    <span className="account-number" style={{ color: '#448FFF' }}>1234567 (예금주 : 김예영)</span>
-                                </p>
-                                <p style={{ color: '#F5F5DC' }}><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
-                            </div>
+                            {props.selectedPage === 'general' &&
+                                <div className="join-notice__icon--body">
+                                    {/* <p>신입부원의 경우 <span style={{ color: '#448FFF' }}>New Entry</span> / <br></br> 기존부원의 경우 <span style={{ color: '#448FFF' }}>Re-Entry</span>로 체크 후</p> */}
+                                    <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
+                                    <p style={{ color: '#F5F5DC' }}>지원서는 <span style={{ color: 'red' }}>회비 납부 이후</span> 제출바랍니다 :)</p>
+                                    <p style={{ color: '#F5F5DC' }}>(회비 : 20,000원)</p>
+                                    <p style={{ color: '#F5F5DC' }} onClick={() => { copyToClipboard('1234567') }}>
+                                        납부 계좌 : 카카오뱅크&nbsp;
+                                        <span className="account-number" style={{ color: '#448FFF' }}>1234567 (예금주 : 김예영)</span>
+                                    </p>
+                                    <p style={{ color: '#F5F5DC' }}><span style={{ color: '#448FFF' }}>*</span>는 필수입력 칸입니다. </p>
+                                </div>
                             }
-                            {props.selectedPage === 'development' && 
-                            <div className="join-notice__icon--body">
-                                <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
-                                <p style={{ color: '#F5F5DC' }}>저희 <span style={{ color:'#448FFF' }}>퀴푸 개발팀</span>에 관심을 가져주셔서 감사합니다</p>
-                                <p style={{ color: '#F5F5DC' }}>제출해주신 지원서는 신중히 검토한 후, </p>
-                                <p style={{ color: '#F5F5DC' }}>합격 여부를<span style={{ color: 'red'}}> 8월 31일 오후 3시</span>에 문자 메세지로</p>
-                                <p style={{ color: '#F5F5DC' }}>안내해 드릴 예절입니다.</p>
-                                <p style={{ color: '#F5F5DC' }} >이는 지원자분들의 역량을 <span style={{ color: '#448FFF'}}>평가하기 위함이 아니라,</span> </p>
-                                <p style={{ color: '#F5F5DC' }}>개발에 대한 <span style={{ color: '#448FFF'}}>방향성을 확인하기 위한 것이니</span> </p>
-                                <p style={{ color: '#F5F5DC' }}>부담 갖지 말고 작성해 주시기 바랍니다.</p>
-                            </div>}
+                            {props.selectedPage === 'development' &&
+                                <div className="join-notice__icon--body">
+                                    <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
+                                    <p style={{ color: '#F5F5DC' }}>저희 <span style={{ color: '#448FFF' }}>퀴푸 개발팀</span>에 관심을 가져주셔서 감사합니다</p>
+                                    <p style={{ color: '#F5F5DC' }}>제출해주신 지원서는 신중히 검토한 후, </p>
+                                    <p style={{ color: '#F5F5DC' }}>합격 여부를<span style={{ color: 'red' }}> 8월 31일 오후 3시</span>에 문자 메세지로</p>
+                                    <p style={{ color: '#F5F5DC' }}>안내해 드릴 예절입니다.</p>
+                                    <p style={{ color: '#F5F5DC' }} >이는 지원자분들의 역량을 <span style={{ color: '#448FFF' }}>평가하기 위함이 아니라,</span> </p>
+                                    <p style={{ color: '#F5F5DC' }}>개발에 대한 <span style={{ color: '#448FFF' }}>방향성을 확인하기 위한 것이니</span> </p>
+                                    <p style={{ color: '#F5F5DC' }}>부담 갖지 말고 작성해 주시기 바랍니다.</p>
+                                </div>}
                         </div>
                     </div>
 
@@ -346,7 +345,7 @@ function JoinQuipu(props) {
                             />
                         </div>
                     </div>
-                    
+
                     {props.selectedPage === 'general' && <div className="field">
                         <b>지원동기 또는 바라는 점 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
@@ -361,7 +360,7 @@ function JoinQuipu(props) {
                         <b>지원동기 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
                             ref={motivationRef}
-                            onChange={(e) => { setMotivation(e.target.value);} }
+                            onChange={(e) => { setMotivation(e.target.value); }}
                             rows={5}
                             placeholder={"본 동아리에서 활동하고자 하는 이유를 구체적으로 말씀해주세요!"}
                             value={motivation}
@@ -372,17 +371,17 @@ function JoinQuipu(props) {
                         <b>프로젝트 소개 <span style={{ color: '#448FFF' }}>*</span></b>
                         <textarea
                             ref={project_descriptionRef}
-                            onChange={(e) => { setProject_description(e.target.value);} }
+                            onChange={(e) => { setProject_description(e.target.value); }}
                             rows={7}
                             placeholder={"경험해본 프로젝트 중 가장 대표적인 프로젝트에 대한 소개와 기여도 그리고 문제 해결 경험에 대해 구체적으로 설명해주시기 바랍니다."}
                             value={project_description}
                         />
-                    </div> }
-                    
+                    </div>}
+
                     {props.selectedPage === 'development' && <div className="field">
-                        <p><label style={{ fontWeight : 'bold' }}>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></label></p>
-                        <p><input type='file' accept=".pdf" ref={portfolio_pdfRef} onChange={handleUploadPdf_change} onClick={handleUploadPdf}/></p>
-                        <p><span style={{ color : '#f0054f' }}> pdf 파일로 올려주세요!</span></p>
+                        <p><label style={{ fontWeight: 'bold' }}>포토폴리오 PDF <span style={{ color: '#448FFF' }}>*</span></label></p>
+                        <p><input type='file' accept=".pdf" onChange={handleUploadPdf} /></p>
+                        <p><span style={{ color: '#f0054f' }}> pdf 파일로 올려주세요!</span></p>
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="field">
@@ -401,10 +400,10 @@ function JoinQuipu(props) {
                     </div>}
 
                     {props.selectedPage === 'development' && <div className="checkbox">
-                        <label id="checkbox-label"><span style={{color : '#f0054f'}}>불합격 시 일반 부원</span>으로 가입 희망하신다면 체크해주세요!</label>
+                        <label id="checkbox-label"><span style={{ color: '#f0054f' }}>불합격 시 일반 부원</span>으로 가입 희망하신다면 체크해주세요!</label>
                         <input id="checkbox-input" type="checkbox" checked={willing_general_member} onChange={handlewilling_general_memberChange} />
-                    </div> }
-                    
+                    </div>}
+
                     <div className="checkbox">
                         <label id="checkbox-label">입력하신 정보가 정확한지 다시 한 번 확인해주세요!</label>
                         <input id="checkbox-input" type="checkbox" checked={reviewed} onChange={handleReviewedChange} />
@@ -416,7 +415,7 @@ function JoinQuipu(props) {
 
                     {/* 신청 버튼 */}
                     <div className="apply">
-                        <button type="button" onClick={(event) => {handleSubmit(event);}} disabled={!canSubmit}
+                        <button type="button" onClick={(event) => { handleSubmit(event); }} disabled={!canSubmit}
                             className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}>
                             📥 Apply
                         </button>
@@ -514,7 +513,7 @@ function JoinQuipu(props) {
                         <p class="more-detail">*추가 문의사항은 아래 "퀴푸문의사항" 혹은 @uos_qupiu로 문의 바랍니다 :)</p>
 
                     </div>}
-                    
+
                 </div>
 
                 <div className="footer">
