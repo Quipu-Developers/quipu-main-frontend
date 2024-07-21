@@ -108,7 +108,8 @@ function JoinQuipu(props) {
                 setShowPopup(true);
             }).catch(error => {
                 if (error.response && error.response.status === 400) {
-                    setModalMessage('잘못된 형식으로 입력되었습니다.');
+                    const message = response.data;
+                    setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 } 
@@ -155,7 +156,7 @@ function JoinQuipu(props) {
             }).catch(error => { 
                 if (error.response && error.response.status === 400) {
                     const message = response.data;
-                    setModalMessage(`${message}이 잘못된 형식으로 입력되었습니다.`);
+                    setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 } 
