@@ -6,16 +6,16 @@ import Error from '../Error/Error';
 import { and } from 'three/examples/jsm/nodes/Nodes.js';
 
 function JoinQuipu(props) {
-    const isRecruiting = false; //모집 기간 여부
+    const isRecruiting = true; //모집 기간 여부
     const location = useLocation();
 
     const [hasReviewed, setHasReviewed] = useState(false);
     const [hasPaidFee, setHasPaidFee] = useState(false);
 
     const [name, setName] = useState('');
-    const [student_ID, setStudent_id] = useState('');
+    const [student_id, setStudent_id] = useState();
     const [major, setMajor] = useState('전자전기컴퓨터공학부');
-    const [phone_number, setPhone_number] = useState('');
+    const [phone_number, setPhone_number] = useState();
     const [motivation, setMotivation] = useState('');
     const [project_description, setProject_description] = useState('');
     const [github_profile, setGithub_profile] = useState('');
@@ -89,11 +89,13 @@ function JoinQuipu(props) {
         if (props.selectedPage === 'general') {
             const formData = {
                 name: name,
-                student_ID: student_ID,
+                student_id: Number(student_id),
                 major: major,
-                phone_number: phone_number,
+                phone_number: Number(phone_number),
                 motivation: motivation
             };
+
+            console.log(formData);
 
             axios.post('https://quipu-main-server.site/data1', formData, {
                 headers: {
@@ -106,6 +108,12 @@ function JoinQuipu(props) {
                 setShowPopup(true);
             }).catch(error => {
                 if (error.response && error.response.status === 400) {
+                    const message = error.response.data;
+                    setModalMessage(`${message}에 값이 입력되지 않았습니다.`);
+                    setModalSubMessage('다시 확인해 주세요.');
+                    setShowPopup(true);
+                }
+                else if (error.response && error.response.status === 401) {
                     const message = error.response.data;
                     setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
@@ -131,9 +139,9 @@ function JoinQuipu(props) {
         if (props.selectedPage === 'development') {
             const formData = {
                 name: name,
-                student_ID: student_ID,
+                student_id: Number(student_id),
                 major: major,
-                phone_number: phone_number,
+                phone_number: Number(phone_number),
                 motivation: motivation,
                 portfolio_pdf: pdf,
                 project_description: project_description,
@@ -142,6 +150,8 @@ function JoinQuipu(props) {
                 slack_email: slack_email,
                 willing_general_member: willing_general_member,
             };
+            console.log(formData);
+
 
             axios.post('https://quipu-main-server.site/data2', formData, {
                 headers: {
@@ -154,6 +164,12 @@ function JoinQuipu(props) {
                 setShowPopup(true);
             }).catch(error => {
                 if (error.response && error.response.status === 400) {
+                    const message = error.response.data;
+                    setModalMessage(`${message}에 값이 입력되지 않았습니다.`);
+                    setModalSubMessage('다시 확인해 주세요.');
+                    setShowPopup(true);
+                }
+                else if (error.response && error.response.status === 401) {
                     const message = error.response.data;
                     setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
                     setModalSubMessage('다시 확인해 주세요.');
@@ -272,7 +288,7 @@ function JoinQuipu(props) {
                             type="tel"
                             maxLength={10}
                             placeholder="2024xxxxxx"
-                            value={student_ID}
+                            value={student_id}
                             onChange={(e) => setStudent_id(e.target.value)} />
                     </div>
 
@@ -339,9 +355,9 @@ function JoinQuipu(props) {
                             <input
                                 type="tel"
                                 maxLength={13}
-                                placeholder="010 1234 5678"
-                                value={phoneAutoHyphen(phone_number)}
-                                onChange={(e) => setPhone_number(phoneAutoHyphen(e.target.value))}
+                                placeholder="01012345678"
+                                value={phone_number}
+                                onChange={(e) => setPhone_number(e.target.value)}
                             />
                         </div>
                     </div>
