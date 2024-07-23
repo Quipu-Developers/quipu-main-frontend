@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Error.css'
 
 function Error() {
+    const navigate = useNavigate();
     const goHome = () => {
-        window.location.href = "/";
+        navigate('/');
     };
     return (
         <div class="error-container">

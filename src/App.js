@@ -12,6 +12,7 @@ import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import Showcasemain from './components/ShowcaseMain/Showcasemain'
 import Showcasedetail from './components/ShowcaseDetail/Showcasedetail';
 import Error from './components/Error/Error';
+import Dropdown from './components/JoinQuipu/Dropdown';
 import Interview from './components/Interview/Interview';
 
 function Dropdown({ DropdownView }) {
@@ -24,11 +25,12 @@ function Dropdown({ DropdownView }) {
 }
 
 function AppContent() {
-  //드롭다운 메뉴
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isJoinQuipuVisible, setIsJoinQuipuVisible] = useState(false);
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [selectedPage,setSelectedPage] = useState(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -43,6 +45,10 @@ function AppContent() {
     setIsActivityDetailVisible(!isActivityDetailVisible);
   };
 
+  const toggleJoinQuipu = () => {
+    setIsJoinQuipuVisible(!isJoinQuipuVisible);
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -50,6 +56,16 @@ function AppContent() {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  const closeMenu_joinQuipu_general = () => {
+    setMenuOpen(false);
+    setSelectedPage('general')
+  }
+
+  const closeMenu_joinQuipu_development = () => {
+    setMenuOpen(false);
+    setSelectedPage('development')
+  }
 
   function setScreenSize() {
 
@@ -96,8 +112,8 @@ function AppContent() {
               <li><NavLink to="/#about" smooth>about</NavLink></li>
               <li><NavLink to="/#activity" smooth>activity</NavLink></li>
               <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-              <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
               <li onClick={toggleDropdown}>quipu Dev</li>
+              <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
             </ul>
           </div>
 
@@ -132,7 +148,20 @@ function AppContent() {
                 </div>
               </li>
               <li><NavLink to="/recommend-site" onClick={closeMenu}>recommend site</NavLink></li>
-              <li style={{ marginBottom: '80px' }}><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
+              <li>
+                <div className="joinquipu-menu">
+                  <NavLink to="/join-quipu" onClick={closeMenu}>join quipu</NavLink>
+                  <input id="joinquipu-toggle" type="checkbox" onChange={toggleJoinQuipu} />
+                  <label className='joinquipu-button' htmlFor="joinquipu-toggle">
+                    <span className="line line4"></span>
+                    <span className="line line5"></span>
+                  </label>
+                </div>
+                <div className={`joinquipu-detail-menu ${isJoinQuipuVisible ? 'visible' : ''}`}>
+                  <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/join-quipu#general" onClick={closeMenu_joinQuipu_general} >&nbsp;&nbsp;&nbsp;&nbsp;일반 부원</NavLink></li>
+                  <li style={{ boxShadow: '0px 0px grey' }}><NavLink to="/join-quipu#development" onClick={closeMenu_joinQuipu_development} >&nbsp;&nbsp;&nbsp;&nbsp;개발 부원</NavLink></li>
+                </div>
+              </li>
             </ul>
           </div>
           <Dropdown DropdownView={dropdownOpen} />
@@ -145,14 +174,15 @@ function AppContent() {
             <section id="home"><Home /></section>
             <section id="about"><About /></section>                <section id="activity"><Activity /></section>
             <section id="recommend-site"><RecommendSite /></section>
-            <section id="join-quipu"><JoinQuipu /></section>
+            <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage}/></section>
           </>
         } />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />            <Route path="/activity" element={<Activity />} />
+        <Route path="/about" element={<About />} />            
+        <Route path="/activity" element={<Activity />} />
         <Route path="/activity-detail" element={<ActivityDetail />} />
         <Route path="/recommend-site" element={<RecommendSite />} />
-        <Route path="/join-quipu" element={<JoinQuipu />} />
+        <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
         <Route path="/quipu-Dev" element={<Showcasemain />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/showcase-detail" element={<Showcasedetail />} />

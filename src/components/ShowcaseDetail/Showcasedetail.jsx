@@ -1,7 +1,16 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './Showcasedetail.css';
 
 function Showcasedetail() {
+
+  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.outerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="detail">
@@ -37,14 +46,24 @@ function Showcasedetail() {
               <HistoryCard4 />
             </div>
             <div className="histroy-row2-right">
+              <HistoryCard5 />
             </div>
+
+          </div>
+          <div className="history-row3-button">
+            <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'} alt="javascript" />
           </div>
         </div>
 
       </main>
 
-      {/* <footer className="footer">
-      </footer> */}
+
+      {(windowWidth <= 900) && (
+        <footer className="projectname">
+          <p>Project Name</p>
+        </footer>
+      )}
+
 
     </div>
 
@@ -202,10 +221,25 @@ function HistoryCard4() {
   )
 }
 
+
 function HistoryCard5() {
   return (
     <div className="history-card5">
-      
+      <div className="historybox-7">
+        <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의5.jpg'} alt="회의5" />
+        <div className="historybox-8">
+          <h4>20xx.xx.xx</h4>
+          <p>
+            ac lacus, varius ipsum luctus lobortis, lacus elit. elit.
+            sit eget non libero, adipiscing urna. urna. dui. tincidunt diam
+          </p>
+          <p>
+            non. malesuada In Lorem ipsum varius cursus at, est.
+            non quis placerat at nibh ex. sit quam elementum
+            odio diam Ut sit quam
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
