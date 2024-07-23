@@ -18,6 +18,8 @@ function Showcasemain() {
                 <div className='gallery'></div>
                 <div className='gallery'></div>
             </div>
+
+            <button className='view-button'></button>
         </div>
     );
 }

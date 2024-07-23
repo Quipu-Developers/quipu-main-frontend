@@ -12,11 +12,27 @@ import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import Showcasemain from './components/ShowcaseMain/Showcasemain'
 import Showcasedetail from './components/ShowcaseDetail/Showcasedetail';
 import Error from './components/Error/Error';
+import Interview from './components/Interview/Interview';
+
+function Dropdown({ DropdownView }) {
+  return DropdownView ? (
+    <ul className='Dropdownmanu'>
+      <li><NavLink to="/quipu-Dev" smooth>Showcase</NavLink></li>
+      <li><NavLink to="/interview" smooth>Interview</NavLink></li>
+    </ul>
+  ) : null;
+}
 
 function AppContent() {
+  //드롭다운 메뉴
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
   const location = useLocation();
   const isDetailPage = location.pathname === '/showcase-detail';
@@ -79,9 +95,11 @@ function AppContent() {
               <li><NavLink to="/#activity" smooth>activity</NavLink></li>
               <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
               <li><NavLink to="/join-quipu">join Quipu</NavLink></li>
-              <li><NavLink to="/quipu-Dev">quipu Dev</NavLink></li>
+              <li onClick={toggleDropdown}>quipu Dev</li>
             </ul>
           </div>
+
+
 
           {/* mobile에서 메뉴 버튼 */}
           <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
@@ -115,7 +133,7 @@ function AppContent() {
               <li style={{ marginBottom: '80px' }}><NavLink to="/join-quipu" onClick={closeMenu}>join Quipu</NavLink></li>
             </ul>
           </div>
-
+          <Dropdown DropdownView={dropdownOpen} />
         </nav>
       )}
 
@@ -134,6 +152,7 @@ function AppContent() {
         <Route path="/recommend-site" element={<RecommendSite />} />
         <Route path="/join-quipu" element={<JoinQuipu />} />
         <Route path="/quipu-Dev" element={<Showcasemain />} />
+        <Route path="/interview" element={<Interview />} />
         <Route path="/showcase-detail" element={<Showcasedetail />} />
         <Route path="*" element={<Error />} />
       </Routes>
