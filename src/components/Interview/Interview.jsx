@@ -24,7 +24,7 @@ function Interview({ pageCount, onPageChange, currentPage }) {
     onPageChange(selected + 1);
   };
   return (
-    <>
+    <div className='interviewmain-person'>
       <div className='interviewmain-nav'>
         <section className="interviewmain-logo"><NavLink to="/#home" smooth>QUIPU-DEV</NavLink></section>
       </div>
@@ -54,7 +54,7 @@ function Interview({ pageCount, onPageChange, currentPage }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
