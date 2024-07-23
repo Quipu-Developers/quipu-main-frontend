@@ -15,7 +15,7 @@ import Error from './components/Error/Error';
 import Dropdown from './components/JoinQuipu/Dropdown';
 import Interview from './components/Interview/Interview';
 
-function Dropdown({ DropdownView }) {
+function QuipiuDevDropdown({ DropdownView }) {
   return DropdownView ? (
     <ul className='Dropdownmanu'>
       <li><NavLink to="/quipu-Dev" smooth>Showcase</NavLink></li>
@@ -164,7 +164,7 @@ function AppContent() {
               </li>
             </ul>
           </div>
-          <Dropdown DropdownView={dropdownOpen} />
+          <QuipiuDevDropdown DropdownView={dropdownOpen} />
         </nav>
       )}
 
