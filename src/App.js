@@ -36,6 +36,7 @@ function AppContent() {
 
   const location = useLocation();
   const isDetailPage = location.pathname === '/showcase-detail';
+  const isShowcaseMainPage = location.pathname === '/quipu-Dev';
 
   const toggleActivityDetail = () => {
     setIsActivityDetailVisible(!isActivityDetailVisible);
@@ -78,7 +79,7 @@ function AppContent() {
   return (
 
     <div basename={process.env.PUBLIC_URL}>
-      {!isDetailPage && (
+      {!isDetailPage && !isShowcaseMainPage && (
         <nav className="navbar">
 
           <div className="navbar__logo">
