@@ -5,7 +5,7 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 function Showcasemain() {
 
     return (
-        <>
+        <div className='showcasemain-person'>
         <div className='showcasemain-nav'>
         <section className="showcasemain-logo"><NavLink to="/#home" smooth>quipu-logo</NavLink></section>
         </div>
@@ -35,9 +35,9 @@ function Showcasemain() {
                 </div>
             </div>
 
-            <button className='view-button'></button>
+            <button className='view-button'>view</button>
         </div>
-        </>
+        </div>
     );
 }
 export default Showcasemain;
