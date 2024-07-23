@@ -18,10 +18,21 @@ function Showcasemain() {
                 <div className='List'>List</div>
             </div>
             <div className='section2'>
-                <div className='gallery'></div>
-                <div className='gallery'></div>
-                <div className='gallery'></div>
-                <div className='gallery'></div>
+                <div className='gallery'>
+                    <div className="gallery1"></div>
+                </div>
+                <div className='gallery'>
+                    <div className="gallery2">QUIPU-DEV</div>
+                </div>
+                <div className='gallery'>
+                    <div className='gallery3'></div>
+                    <div className='gallery3'></div>
+                    <div className='gallery3'></div>
+                    <div className='gallery3'></div>
+                </div>
+                <div className='gallery'>
+                    <div className='gallery4'></div>
+                </div>
             </div>
 
             <button className='view-button'></button>
