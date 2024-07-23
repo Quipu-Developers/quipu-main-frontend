@@ -13,6 +13,16 @@ import Showcasemain from './components/ShowcaseMain/Showcasemain'
 import Showcasedetail from './components/ShowcaseDetail/Showcasedetail';
 import Error from './components/Error/Error';
 import Dropdown from './components/JoinQuipu/Dropdown';
+import Interview from './components/Interview/Interview';
+
+function Dropdown({ DropdownView }) {
+  return DropdownView ? (
+    <ul className='Dropdownmanu'>
+      <li><NavLink to="/quipu-Dev" smooth>Showcase</NavLink></li>
+      <li><NavLink to="/interview" smooth>Interview</NavLink></li>
+    </ul>
+  ) : null;
+}
 
 function AppContent() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -22,8 +32,14 @@ function AppContent() {
   const [isError, setIsError] = useState(false);
   const [selectedPage,setSelectedPage] = useState(null);
 
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   const location = useLocation();
   const isDetailPage = location.pathname === '/showcase-detail';
+  const isShowcaseMainPage = location.pathname === '/quipu-Dev';
+  const isInterveiwPage = location.pathname === '/interview';
 
   const toggleActivityDetail = () => {
     setIsActivityDetailVisible(!isActivityDetailVisible);
@@ -80,7 +96,7 @@ function AppContent() {
   return (
 
     <div basename={process.env.PUBLIC_URL}>
-      {!isDetailPage && (
+      {!isDetailPage && !isShowcaseMainPage && !isInterveiwPage &&(
         <nav className="navbar">
 
           <div className="navbar__logo">
@@ -96,10 +112,12 @@ function AppContent() {
               <li><NavLink to="/#about" smooth>about</NavLink></li>
               <li><NavLink to="/#activity" smooth>activity</NavLink></li>
               <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
+              <li onClick={toggleDropdown}>quipu Dev</li>
               <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
-              <li><NavLink to="/quipu-Dev">quipu Dev</NavLink></li>
             </ul>
           </div>
+
+
 
           {/* mobile에서 메뉴 버튼 */}
           <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
@@ -146,7 +164,7 @@ function AppContent() {
               </li>
             </ul>
           </div>
-
+          <Dropdown DropdownView={dropdownOpen} />
         </nav>
       )}
 
@@ -166,6 +184,7 @@ function AppContent() {
         <Route path="/recommend-site" element={<RecommendSite />} />
         <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
         <Route path="/quipu-Dev" element={<Showcasemain />} />
+        <Route path="/interview" element={<Interview />} />
         <Route path="/showcase-detail" element={<Showcasedetail />} />
         <Route path="*" element={<Error />} />
       </Routes>
