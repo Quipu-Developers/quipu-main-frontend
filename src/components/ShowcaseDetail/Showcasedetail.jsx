@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Showcasedetail.css';
-import { showcase_data } from './data_showcasedetail';
+import { showcase_data } from '../ShowcaseMain/showcase_data';
 
 function Showcasedetail() {
   const navigate = useNavigate();

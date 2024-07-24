@@ -13,11 +13,13 @@
     font-family: "Orbitron";
     padding: 1% 0 0 2%;
     color: #233EC8;
+    background-color: transparent;
 }
 
 .interview-logo {
     width: 100%;
     height: fit-content;
+    background-color: transparent;
 }
 
 .interview-logo a {

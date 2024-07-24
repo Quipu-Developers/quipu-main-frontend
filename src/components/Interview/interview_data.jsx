@@ -1,4 +1,5 @@
 export const interview_data = [
+    // 1기수
     [
         {
             img: '박지후.png',
@@ -65,6 +66,7 @@ export const interview_data = [
             project: ['project1', 'project2', 'project3']
         }
     ],
+    //2기수
     [
         {
             img: '곽철이.png',
@@ -139,6 +141,7 @@ export const interview_data = [
             project: ['project1', 'project2', 'project3']
         }
     ],
+    //3기수
     [
         {
             img: '고양이.jpg',
