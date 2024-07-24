@@ -1,148 +1,200 @@
-export const profile = [
+export const interview_data = [
     [
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/Interview-img/박지후.png",
-            name: "박지후",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-    ],
-    [
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
-        },
-        {
-            imgUrl: "/ShowcaseDetail-img/곽철이.png",
-            name: "곽철이",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '박지후.png',
+            name: '박지후',
+            title: '때 내용이 요소나 폰트, 차지하는 로렘 표준 때',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         }
     ],
     [
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         },
         {
-            imgUrl: "/ShowcaseDetail-img/회의5.jpg",
-            name: "선배마라탕",
-            readme: "때 내용이 요소나 폰트, 차지하는 로렘 표준 때"
+            img: '곽철이.png',
+            name: '곽철이',
+            title: '곽곽곽곽곽곽곽곽과곽곽곽곽곽',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        }
+    ],
+    [
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        },
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        },
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        },
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        },
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        },
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
+        },
+        {
+            img: '고양이.jpg',
+            name: '선배마라탕',
+            title: '그럼 제가 선배맘에 탕탕 후루후루',
+            introduction: 'text2',
+            review: 'text3',
+            project: ['project1', 'project2', 'project3']
         }
     ]
 ]

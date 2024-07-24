@@ -1,38 +1,25 @@
-import { useState, useEffect, useRef } from 'react';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
+import { useNavigate, useParamsm, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './Interview.css';
-import { profile } from './interview_data';
+import { interview_data } from './interview_data.jsx';
 import * as SolarIconSet from "solar-icon-set";
 
-function InterviewDetail() {
-  return (
-    <div className="detail">
-      <div className="InterviewDetail-header"></div>
-      <div className="InterviewDetail-introduce"></div>
-      <div className="InterviewDetail-after-activity"></div>
-      <div className="InterviewDetail-career"></div>
-    </div>
-  );
-}
-
-
 function Interview() {
-
-  const [modalOpen, setModalOpen] = useState(false);
-  const modalBackground = useRef();
-
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
-  // const [windowWidth, setWindowWidth] = useState(window.outerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
 
-  // useEffect(() => {
-  //   const handleResize = () => setWindowWidth(window.outerWidth);
-  //   window.addEventListener('resize', handleResize);
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, []);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.outerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="interview-container">
       <div className="interview-navbar">
-        <h4>QUIPU-DEV</h4>
+        <section className="interview-logo"><NavLink to="/#home" smooth>QUIPU-DEV</NavLink></section>
         <p>Interview</p>
       </div>
       <div className="interview-index-container">
@@ -43,23 +30,23 @@ function Interview() {
           <div className="interview-arrow">
             {
               (index != 0) &&
-              <p onClick={(e) => {
-                if (index > 0) {
-                  setIndex(index - 1);
+              <p onClick={(e)=> {
+                if (index>0) {
+                  setIndex(index-1);
                 }
                 e.stopPropagation();
               }}>&lt;</p>
             }
           </div>
           <div className="interview-middle">
-            <h4>{index + 1}기</h4>
+            <h4>{index+1}기</h4>
           </div>
           <div className="interview-arrow">
             {
               (index != 2) &&
-              <p onClick={(e) => {
-                if (index < 3) {
-                  setIndex(index + 1);
+              <p onClick={(e)=> {
+                if (index<3) {
+                  setIndex(index+1);
                 }
                 e.stopPropagation();
               }}>&gt;</p>
@@ -73,34 +60,19 @@ function Interview() {
 
       <div className="interview-profile">
         {
-          profile[index].map(function (element) {
+          interview_data[index].map(function (element) {
             return (
-              <div className="interview-profilebox" onClick={() => setModalOpen(true)}>
-                 {modalOpen &&
-                <div className={'modal-container'} ref={modalBackground} onClick={e => {
-                  if (e.target === modalBackground.current) {
-                    setModalOpen(false);
-                  }
-                }}>
-                  <div className={'modal-content'}>
-                    <p>리액트로 모달 구현하기</p>
-                    <button className={'modal-close-btn'} onClick={() => setModalOpen(false)}>
-                      모달 닫기
-                    </button>
-                  </div>
-                </div>
-          }
-
+              <div className="interview-profilebox">
                 <div className="interview-profile-top">
                   <SolarIconSet.MenuDots color="#233EC8" size={32} iconStyle="Broken" />
                 </div>
                 <div className="interview-profile-content">
                   <div className="interview-profile-img">
-                    <img src={process.env.PUBLIC_URL + element.imgUrl} />
+                    <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} />
                   </div>
                   <div className="interview-profile-dc">
                     <h4>{element.name}</h4>
-                    <p>{element.readme}</p>
+                    <p>{element.title}</p>
                   </div>
                 </div>
               </div>
@@ -110,7 +82,9 @@ function Interview() {
       </div>
 
       <div className="interview-pagination">
-        <img src={process.env.PUBLIC_URL + '/Interview-img/arrow.png'} />
+        {
+          (windowWidth > 900) && (<img src={process.env.PUBLIC_URL + '/Interview-img/arrow.png'} />)
+        }
       </div>
 
       <div className="interview-footer">

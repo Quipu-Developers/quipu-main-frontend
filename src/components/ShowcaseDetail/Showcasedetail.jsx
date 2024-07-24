@@ -1,8 +1,10 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Showcasedetail.css';
+import { showcase_data } from './data_showcasedetail';
 
 function Showcasedetail() {
+  const navigate = useNavigate();
 
   const [windowWidth, setWindowWidth] = useState(window.outerWidth);
 
@@ -16,14 +18,14 @@ function Showcasedetail() {
     <div className="detail">
 
       <div className="detail_header">
-        <h1>Project Name</h1>
+        <h1>project name</h1>
         <hr></hr>
       </div>
 
       <main className="main">
 
         <div className="goal">
-          <GoalCard />
+          <GoalCard goal={showcase_data[0].goal} />
           <br></br>
         </div>
 
@@ -31,28 +33,31 @@ function Showcasedetail() {
           <div className="dc__container--img">
             <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/곽철이.png'} alt="활동사진" />
           </div>
-          <DcCard />
+          <DcCard 
+            this_project={showcase_data[0].this_project} this_project_for={showcase_data[0].this_project_for} 
+            web_url={showcase_data[0].web_url} github_url={showcase_data[0].github_url}
+          />
         </div>
 
         <div className="history">
           <h1>History</h1>
           <div className="history-row1">
             <HistoryCard1 />
-            <HistoryCard2 />
+            {/* <HistoryCard2 /> */}
           </div>
           <div className="history-row2">
             <div className="history-row2-left">
-              <HistoryCard3 />
-              <HistoryCard4 />
+              {/* <HistoryCard3 /> */}
+              {/* <HistoryCard4 /> */}
             </div>
             <div className="histroy-row2-right">
-              <HistoryCard5 />
+              {/* <HistoryCard5 /> */}
             </div>
 
           </div>
-          <div className="history-row3-button">
+          {/* <div className="history-row3-button">
             <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'} alt="javascript" />
-          </div>
+          </div> */}
         </div>
 
       </main>
@@ -70,42 +75,33 @@ function Showcasedetail() {
   )
 }
 
-function GoalCard() {
+function GoalCard({goal}) {
   return (
     <div className="goal-card">
 
       <h1>Goal</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled.
-      </p>
+      <p>{goal}</p>
 
     </div>
   )
 }
 
-function DcCard() {
+function DcCard({this_project, this_project_for, web_url, github_url}) {
   return (
     <div className="dc-card">
 
       <h1>This project...</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s
-        with the release of Letraset sheets containing Lorem Ipsum passages.
-      </p>
+      <p>{this_project}</p>
 
       <p style={{ paddingTop: '5%', paddingBottom: '5%' }}>
-        <span>for</span> Lorem Ipsum is simply dummy text of the printing
+        <span>for</span>{this_project_for}
       </p>
 
       <div className="dccard-link">
-        <button onClick={() => { window.open("https://notion.com") }}>
+        <button onClick={() => { window.open(web_url) }}>
           <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/link.png'} alt="link" />
         </button>
-        <button onClick={() => { window.open("https://github.com") }}>
+        <button onClick={() => { window.open(github_url) }}>
           <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/github.png'} alt="github" />
         </button>
       </div>
@@ -115,32 +111,69 @@ function DcCard() {
 }
 
 function HistoryCard1() {
+  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
 
-  return (
-    <div className="history-card1">
-      <div className="history-card1-img">
-        <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의1.jpg'} alt="회의1" />
+
+  if (windowWidth >= 900) { //pc 버전에서 배치
+    return (
+      <div className="history-card1">
+        <div className="history-card1-img">
+          <img className="HistoryImg1" src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의1.jpg'} alt="회의1" />
+          <img className="HistoryImg2" src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의2.jpg'} alt="회의2"></img>
+        </div>
+        <div className="historybox-1">
+          <div className="historybox-1-1">
+            <h4>20xx.xx.xx</h4>
+            <p>
+              ac lacus, varius ipsum luctus lobortis, lacus elit. elit.
+              sit eget non libero, adipiscing urna. urna. dui. tincidunt diam
+            </p>
+          </div>        
+          <div className="historybox-1-2">
+            <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'} alt="html 로고" />
+            <p>
+             non. malesuada In Lorem ipsum varius cursus at,
+              est. non quis placerat at nibh ex. sit quam elementum
+              odio diam Ut sit quam
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="historybox-1">
-        <h4>20xx.xx.xx</h4>
-        <p>
-          ac lacus, varius ipsum luctus lobortis, lacus elit. elit.
-          sit eget non libero, adipiscing urna. urna. dui. tincidunt diam
-        </p>
-        <div className="historybox-1-1">
-          <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'} alt="html 로고" />
+    )
+  }
+
+  else { //모바일 버전에서 배치
+    return (
+      <div className="mobile-history-card1">
+        <div className="mobile-history1-top">
+          <div className="mobile-history1-left">
+            <h4>20xx.xx.xx</h4>
+            <p>
+              ac lacus, varius ipsum luctus lobortis, lacus elit. elit.
+              sit eget non libero, adipiscing urna. urna. dui. tincidunt diam              
+            </p>
+          </div>
+          <img className="mobile-history1-right" src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의1.jpg'} alt="회의1" />
+        </div>
+        <div className="mobile-history1-middle">
+          <img 
+            src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'}
+            onClick={()=>{window.open("https://html.com")}}
+            alt="html 로고" 
+          />
           <p>
             non. malesuada In Lorem ipsum varius cursus at,
             est. non quis placerat at nibh ex. sit quam elementum
             odio diam Ut sit quam
           </p>
         </div>
-        <div className="historybox-1-2">
+        <div className="mobile-history1-bottom">
           <img src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/회의2.jpg'} alt="회의2"></img>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+
 }
 
 function HistoryCard2() {
