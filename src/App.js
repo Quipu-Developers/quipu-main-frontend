@@ -15,9 +15,9 @@ import Error from './components/Error/Error';
 import Dropdown from './components/JoinQuipu/Dropdown';
 import Interview from './components/Interview/Interview';
 
-function QuipiuDevDropdown({ DropdownView }) {
-  return DropdownView ? (
-    <ul className='Dropdownmanu'>
+function QuipuDevDropdown({ quipuDev }) {
+  return quipuDev ? (
+    <ul className='Dropdownmenu'>
       <li><NavLink to="/quipu-Dev" smooth>Showcase</NavLink></li>
       <li><NavLink to="/interview" smooth>Interview</NavLink></li>
     </ul>
@@ -25,16 +25,13 @@ function QuipiuDevDropdown({ DropdownView }) {
 }
 
 function AppContent() {
+  const [quipuDev, setQuipuDev] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isJoinQuipuVisible, setIsJoinQuipuVisible] = useState(false);
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
   const [selectedPage,setSelectedPage] = useState(null);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
 
   const location = useLocation();
   const isDetailPage = location.pathname === '/showcase-detail';
@@ -112,12 +109,10 @@ function AppContent() {
               <li><NavLink to="/#about" smooth>about</NavLink></li>
               <li><NavLink to="/#activity" smooth>activity</NavLink></li>
               <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-              <li onClick={toggleDropdown}>quipu Dev</li>
               <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
+              <li onClick={()=>{setQuipuDev(!quipuDev)}}>quipu Dev<QuipuDevDropdown quipuDev={quipuDev}/></li>
             </ul>
           </div>
-
-
 
           {/* mobile에서 메뉴 버튼 */}
           <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={toggleMenu} />
@@ -164,7 +159,7 @@ function AppContent() {
               </li>
             </ul>
           </div>
-          <QuipiuDevDropdown DropdownView={dropdownOpen} />
+          <QuipuDevDropdown DropdownView={dropdownOpen} />
         </nav>
       )}
 
@@ -175,6 +170,8 @@ function AppContent() {
             <section id="about"><About /></section>                <section id="activity"><Activity /></section>
             <section id="recommend-site"><RecommendSite /></section>
             <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage}/></section>
+            <section id="quipu-Dev"><Showcasemain /></section>
+            <section id="interview"><Interview /></section>
           </>
         } />
         <Route path="/home" element={<Home />} />
