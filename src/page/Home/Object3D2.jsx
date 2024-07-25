@@ -1,3 +1,5 @@
+// home mobile
+
 import React, { useRef, useEffect, memo  } from 'react'
 import { Canvas, useThree, useFrame, extend } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
@@ -80,12 +82,23 @@ const CameraAspectUpdater = () => {
   return null;
 };
 
+const SetCameraTarget = () => {
+  const { camera } = useThree()
+
+  useEffect(() => {
+    camera.lookAt(0.7, 0.2, 0)
+  }, [camera])
+
+  return null
+}
+
 const Object3D2 = () => {
   return (
     <Canvas
       camera={{ fov: 65, aspect: window.innerWidth / window.innerHeight, near: 0.1, far: 1000, position: [1.2, -2, -3.5] }}
     >
       <CameraAspectUpdater />
+      <SetCameraTarget />
       <ambientLight intensity={1} />
       <pointLight position={[-5, 2, 5]} intensity={60} />
       <pointLight position={[2, 10, 0]} intensity={60} />
@@ -106,7 +119,7 @@ const Object3D2 = () => {
       {/* 흰 캡슐 */}
       <Capsule position={[1.1, -1, -1]} size={0.17} tube={0.3} material={{ color: "#EBFBFF", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2 }} rotationX={Math.PI / 5} rotationZ={Math.PI / 4} />
 
-      <OrbitControls minDistance={2} maxDistance={5} target={[0.7, 0.2, 0]} />
+      {/* <OrbitControls minDistance={2} maxDistance={5} target={[0.7, 0.2, 0]} /> */}
     </Canvas>
   )
 }

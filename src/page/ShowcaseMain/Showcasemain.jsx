@@ -7,7 +7,7 @@ function Showcasemain() {
     return (
         <div className='showcasemain-person'>
         <div className='showcasemain-nav'>
-        <section className="showcasemain-logo"><NavLink to="/#home">QUIPU</NavLink></section>
+        <section className="showcasemain-logo"><NavLink to="/">QUIPU</NavLink></section>
         </div>
         <div className='showcasemain'>
             <div className='section1'>
