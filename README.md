@@ -18,16 +18,13 @@
 
 ### local
 ```bash
-git clone https://github.com/Quipu-Developers/front-end.git
+git clone https://github.com/Quipu-Developers/main-frontend.git
 
-cd front-end
+cd main-frontend
 
 npm install
 
-npm run start
-```
+npm install solar-icon-set
 
-### production
-```bash
-ssh username@server 'bash -s' < deploy_script.sh
+npm start
 ```
