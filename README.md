@@ -1,15 +1,17 @@
 <img width="600" alt="image" src="https://github.com/Quipu-Developers/.github/assets/147997324/9122451c-e0b1-41d3-a22c-5b1cb7eb49a1">
 
-## main web의 Front-End
+## Quipu Main Web의 Front-End
 - 퀴푸 메인 웹의 프론트엔드를 담당하는 레포지토리입니다.
 
 ## period
-- 2024.01 - 2024.02
+- 2024.01 -
 
 ## maintainers
 - 이예나 | [@YenaLey](https://github.com/YenaLey)
-- 차준섭 | [@Junsub-Cha](https://github.com/Junsub-Cha)
-- 김은지 | [@ej9374](https://github.com/ej9374)
+- 김예영 | [@yezzero](https://github.com/yezzero)
+- 박주현 | [@and-to-endew](https://github.com/and-to-endew)
+- 임준용 | [@Ihimjy](https://github.com/lhimjy)
+- 이채우 | [@2fill](https://github.com/2fill)
 
 ## environment
 - Language: JavaScript
