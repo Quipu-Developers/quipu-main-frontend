@@ -3,40 +3,62 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import './App.css';
-import Home from './components/Home/Home'
-import About from './components/About/About'
-import Activity from './components/Activity/Activity'
-import RecommendSite from './components/RecommendSite/RecommendSite'
-import JoinQuipu from './components/JoinQuipu/JoinQuipu'
-import ActivityDetail from './components/ActivityDetail/ActivityDetail'
-import Showcasemain from './components/ShowcaseMain/Showcasemain'
-import Showcasedetail from './components/ShowcaseDetail/Showcasedetail';
-import Error from './components/Error/Error';
-import Dropdown from './components/JoinQuipu/Dropdown';
-import Interview from './components/Interview/Interview';
+import Home from './page/Home/Home'
+import About from './page/About/About'
+import Activity from './page/Activity/Activity'
+import RecommendSite from './page/RecommendSite/RecommendSite'
+import JoinQuipu from './page/JoinQuipu/JoinQuipu'
+import ActivityDetail from './page/ActivityDetail/ActivityDetail'
+import Showcasemain from './page/ShowcaseMain/Showcasemain'
+import Showcasedetail from './page/ShowcaseDetail/Showcasedetail';
+import Error from './page/Error/Error';
+import Interview from './page/Interview/Interview';
 
-function QuipuDevDropdown({ quipuDev }) {
-  return quipuDev ? (
-    <ul className='Dropdownmenu'>
-      <li><NavLink to="/quipu-Dev" smooth>Showcase</NavLink></li>
-      <li><NavLink to="/interview" smooth>Interview</NavLink></li>
+function QuipuDevDropdown({ quipudevDropdown }) {
+  return quipudevDropdown ? (
+    <ul className='dropdown-box'>
+      <NavLink to="/quipu-Dev" smooth><li>Showcase</li></NavLink>
+      <NavLink to="/interview" smooth><li>Interview</li></NavLink>
     </ul>
   ) : null;
 }
 
+function JoinQuipuDropdown({setSelectedPage}) {
+  return (
+    <ul className="dropdown-box">
+      <NavLink to="/#join-quipu" style={{border: '1.5px solid rgb(86, 127, 187, 0.5)', backgroundColor: '#EDF4FF', color:'#567FBB'}}><li onClick={() => setSelectedPage('general')}>일반 부원</li></NavLink>
+      <NavLink to="/#join-quipu" style={{border: '1.5px solid rgb(86, 127, 187, 0.5)', color:'#567FBB'}}><li onClick={() => setSelectedPage('development')}>개발 부원</li></NavLink>
+    </ul>
+  );
+}
+
 function AppContent() {
-  const [quipuDev, setQuipuDev] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [quipudevDropdown, setQuipudevDropdown] = useState(false);
+  const [joinquipuDropdown, setJoinquipuDropdown] = useState(false);
   const [isJoinQuipuVisible, setIsJoinQuipuVisible] = useState(false);
   const [isActivityDetailVisible, setIsActivityDetailVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [selectedPage,setSelectedPage] = useState(null);
+  const [selectedPage, setSelectedPage] = useState(null);
 
   const location = useLocation();
   const isDetailPage = location.pathname === '/showcase-detail';
   const isShowcaseMainPage = location.pathname === '/quipu-Dev';
   const isInterveiwPage = location.pathname === '/interview';
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest('.navbar__menu--pc') && !event.target.closest('.dropdown-box')) {
+      setQuipudevDropdown(false);
+      setJoinquipuDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   const toggleActivityDetail = () => {
     setIsActivityDetailVisible(!isActivityDetailVisible);
@@ -73,17 +95,6 @@ function AppContent() {
   useEffect(() => {
 
     setScreenSize();
-
-    // fetch('/some-api-endpoint')
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       if ((response.status >= 400 && response.status !== 400 && response.status < 500) || (response.status >= 500)) {
-    //         throw new Error('Server error');
-    //       }
-    //     }
-    //   })
-    //   .catch(() => setIsError(true));
-
   }, []);
 
   if (isError) {
@@ -93,7 +104,7 @@ function AppContent() {
   return (
 
     <div basename={process.env.PUBLIC_URL}>
-      {!isDetailPage && !isShowcaseMainPage && !isInterveiwPage &&(
+      {!isDetailPage && !isShowcaseMainPage && !isInterveiwPage && (
         <nav className="navbar">
 
           <div className="navbar__logo">
@@ -109,8 +120,8 @@ function AppContent() {
               <li><NavLink to="/#about" smooth>about</NavLink></li>
               <li><NavLink to="/#activity" smooth>activity</NavLink></li>
               <li><NavLink to="/#recommend-site" smooth>recommend site</NavLink></li>
-              <li onClick={()=>{setDropdownOpen(!dropdownOpen)}}>join Quipu{dropdownOpen && <Dropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}</li>
-              <li onClick={()=>{setQuipuDev(!quipuDev)}}>quipu Dev<QuipuDevDropdown quipuDev={quipuDev}/></li>
+              <li onClick={() => { setQuipudevDropdown(!quipudevDropdown) }}>QUIPU-DEV<QuipuDevDropdown quipudevDropdown={quipudevDropdown} /></li>
+              <li onClick={() => { setJoinquipuDropdown(!joinquipuDropdown) }}>JOIN QUIPU{joinquipuDropdown && <JoinQuipuDropdown selectedPage={selectedPage} setSelectedPage={setSelectedPage} />}</li>
             </ul>
           </div>
 
@@ -159,7 +170,7 @@ function AppContent() {
               </li>
             </ul>
           </div>
-          <QuipuDevDropdown DropdownView={dropdownOpen} />
+          <QuipuDevDropdown DropdownView={quipudevDropdown} />
         </nav>
       )}
 
@@ -169,13 +180,13 @@ function AppContent() {
             <section id="home"><Home /></section>
             <section id="about"><About /></section>                <section id="activity"><Activity /></section>
             <section id="recommend-site"><RecommendSite /></section>
-            <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage}/></section>
+            <section id="join-quipu"><JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} /></section>
             <section id="quipu-Dev"><Showcasemain /></section>
             <section id="interview"><Interview /></section>
           </>
         } />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />            
+        <Route path="/about" element={<About />} />
         <Route path="/activity" element={<Activity />} />
         <Route path="/activity-detail" element={<ActivityDetail />} />
         <Route path="/recommend-site" element={<RecommendSite />} />

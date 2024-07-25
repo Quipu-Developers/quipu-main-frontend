@@ -1,5 +1,5 @@
-{
-    "C언어 스터디": {
+const study_data = [
+    {
         "year": "2024",
         "title": "C언어 스터디",
         "period": "2024.04 - 2024.06",
@@ -26,7 +26,7 @@
             "/ActivityDetail-img/2024/Study/C스터디1.png"
         ]
     },
-    "퀴푸백오피스웹": {
+    {
         "year": "2024",
         "title": "퀴푸 백오피스 웹 개발",
         "period": "2024.03 - 2024.06",
@@ -46,7 +46,7 @@
             "이예나",
             "최인우"
         ],
-        "allMembers": [ 
+        "allMembers": [
             "이예나",
             "최인우"
         ],
@@ -55,7 +55,7 @@
             "/ActivityDetail-img/2024/Study/백오피스1.png"
         ]
     },
-    "웹개발입문": {
+    {
         "year": "2024",
         "title": "웹개발 입문 스터디",
         "period": "2024.03 - 2024.08",
@@ -86,7 +86,7 @@
             "/ActivityDetail-img/2024/Study/웹개발입문2.png"
         ]
     },
-    "퀴푸포럼웹개발": {
+    {
         "year": "2024",
         "title": "퀴푸 포럼 웹 개발",
         "period": "2024.03 - 2024.08",
@@ -120,7 +120,7 @@
             "/ActivityDetail-img/2024/Study/퀴푸포럼웹개발1.png"
         ]
     },
-    "코딩테스트2024": {
+    {
         "year": "2024",
         "title": "코딩테스트 스터디",
         "period": "2024.01 - 2024.02",
@@ -154,7 +154,7 @@
             "/ActivityDetail-img/2024/Study/코딩테스트스터디2.jpg"
         ]
     },
-    "퀴푸메인웹개발": {
+    {
         "year": "2023",
         "title": "퀴푸 메인 웹 개발",
         "period": "2023.10 - 2024.02",
@@ -196,7 +196,7 @@
             "/ActivityDetail-img/2023/Study/퀴푸메인웹개발4.jpg"
         ]
     },
-    "C스터디": {
+    {
         "year": "2023",
         "title": "C언어 스터디",
         "period": "2023.10 - 2023.11",
@@ -227,7 +227,7 @@
             "/ActivityDetail-img/2023/Study/C스터디2.png"
         ]
     },
-    "전자장및전기회로강연": {
+    {
         "year": "2023",
         "title": "전자장 및 전기회로 강연",
         "period": "2023.09 - 2023.12",
@@ -251,7 +251,7 @@
             "/ActivityDetail-img/2023/Study/전자장및전기회로2.png"
         ]
     },
-    "IT공모전": {
+    {
         "year": "2023",
         "title": "IT 공모전",
         "period": "2023.08 - 2023.11",
@@ -283,7 +283,7 @@
             "/ActivityDetail-img/2023/Study/공모전2.png"
         ]
     },
-    "코딩테스트2023": {
+    {
         "year": "2023",
         "title": "코딩테스트 스터디",
         "period": "2023.06 - 2023.08",
@@ -311,7 +311,7 @@
             "/ActivityDetail-img/2023/Study/코딩테스트스터디2.png"
         ]
     },
-    "Python강연": {
+    {
         "year": "2023",
         "title": "Python 강연",
         "period": "2023.03 - 2023.06",
@@ -336,7 +336,7 @@
             "/ActivityDetail-img/2023/Study/Python강연2.png"
         ]
     },
-    "Python기초스터디": {
+    {
         "year": "2023",
         "title": "Python 기초 스터디",
         "period": "2023.02 - 2023.06",
@@ -373,7 +373,7 @@
             "/ActivityDetail-img/2023/Study/Python기초스터디3.png"
         ]
     },
-    "Cpp강연": {
+    {
         "year": "2023",
         "title": "C++ 강연",
         "period": "2022.12 - 2023.02",
@@ -411,4 +411,6 @@
             "/ActivityDetail-img/2023/Study/Cpp스터디2.png"
         ]
     }
-}
+]
+
+export default study_data;

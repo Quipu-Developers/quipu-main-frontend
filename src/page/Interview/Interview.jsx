@@ -2,7 +2,7 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { useNavigate, useParamsm, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Interview.css';
-import { interview_data } from './interview_data.jsx';
+import { interview_data } from '../../data/interview_data.jsx';
 import * as SolarIconSet from "solar-icon-set";
 
 function Interview() {

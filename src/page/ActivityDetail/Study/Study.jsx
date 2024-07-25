@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Study.css';
-import studyList from './studyList.json';
+import study_data from '../../../data/study_data';
 
 function Study({ selectedYear }) {
 
-    const studiesArray = Object.values(studyList);
+    const studiesArray = Object.values(study_data);
     const [studies, setStudies] = useState(studiesArray);
 
     const filteredStudies = studies.filter(study => study.year === selectedYear);

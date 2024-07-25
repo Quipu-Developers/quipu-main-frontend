@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import '../FriendShip/FriendShip.css';
+import './FriendShip.css';
+import friendship_data from '../../../data/friendship_data';
 
-const mtImages = [
-    { year: '2023', src: "/ActivityDetail-img/2023/MT/엠티3.jpg"},
-    { year: '2023', src: "/ActivityDetail-img/2023/MT/엠티2.jpg"},
-    { year: '2023', src: "/ActivityDetail-img/2023/MT/엠티1.jpg"},
-]
-
-function MT({selectedYear}) {
+function FriendShip({selectedYear}) {
 
     const [selectedImg, setSelectedImg] = useState(null);
 
@@ -19,14 +14,14 @@ function MT({selectedYear}) {
         setSelectedImg(null);
     };
 
-    const filteredImages = mtImages.filter(image => image.year === selectedYear);
+    const filteredImages = friendship_data.filter(image => image.year === selectedYear);
 
     return (
         <>
             <div className="FriendShip-container">
                 {
                     filteredImages.map((image, index) => (
-                        <img onClick={() => handleImgClick(image.src)} className="FriendShip-img" src={process.env.PUBLIC_URL +image.src} key={index}></img>
+                        <img onClick={() => handleImgClick(image.src)} className="FriendShip-img" src={process.env.PUBLIC_URL + image.src} key={index}></img>
                     ))
                 }
                 
@@ -38,10 +33,10 @@ function MT({selectedYear}) {
             {selectedImg && (
                 <div className="img__modal--container" onClick={closeModal}>
                     <img src={process.env.PUBLIC_URL + selectedImg} className="img__modal" />
-                </div>
+                </div>  
             )}
         </>
     )
 }
 
-export default MT;
+export default FriendShip;
