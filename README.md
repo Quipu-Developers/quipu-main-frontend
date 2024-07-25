@@ -6,13 +6,6 @@
 ## Period
 - 2024.01 -
 
-## Maintainers
-- 이예나 | [@YenaLey](https://github.com/YenaLey)
-- 김예영 | [@yezzero](https://github.com/yezzero)
-- 박주현 | [@and-to-endew](https://github.com/and-to-endew)
-- 임준용 | [@Ihimjy](https://github.com/lhimjy)
-- 이채우 | [@2fill](https://github.com/2fill)
-
 ## Environment
 - Language: JavaScript
 - Package Manager: npm 10.2.4
