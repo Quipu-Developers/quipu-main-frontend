@@ -4,31 +4,20 @@
     flex-direction: column;
     justify-content: start;
     align-content: center;
-    overflow-y: auto;
-    -ms-overflow-style: none;
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100 - 80px);
-    scrollbar-width: none;
 
     @media (max-width: 900px) {
         height: calc(var(--vh, 1vh) * 100 - 60px);
     }
 }
 
-.ActivityDetail-container::-webkit-scrollbar {
-    display: none;
-}
-
 .ActivityDetail-titles {
-    position: fixed;
     z-index: 100;
-    top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     height: 50px;
-    padding-left: 25px;
 
     @media (max-width: 900px) {
         position: absolute;

@@ -4,13 +4,10 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100 - 80px);
+  height: auto;
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
-
-  @media (max-width: 900px) {
-    height: calc(var(--vh, 1vh) * 100 - 60px);
-  }
+  margin: 100px 0;
 
   @media (max-width: 500px) {
     display: block;
