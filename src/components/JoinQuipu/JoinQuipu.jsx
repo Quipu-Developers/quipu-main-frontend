@@ -6,7 +6,7 @@ import Error from '../Error/Error';
 import { and } from 'three/examples/jsm/nodes/Nodes.js';
 
 function JoinQuipu(props) {
-    const isRecruiting = false; //모집 기간 여부
+    const isRecruiting = true; //모집 기간 여부
     const location = useLocation();
 
     const [hasReviewed, setHasReviewed] = useState(false);
@@ -97,7 +97,7 @@ function JoinQuipu(props) {
 
             console.log(formData);
 
-            axios.post('https://quipu-main-server.site/data1', formData, {
+            axios.post('http://localhost:3001//data1', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Origin': 'https://uos-quipu.vercel.app'
@@ -153,7 +153,7 @@ function JoinQuipu(props) {
             console.log(formData);
 
 
-            axios.post('https://quipu-main-server.site/data2', formData, {
+            axios.post('http://localhost:3001//data2', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Origin': 'https://uos-quipu.vercel.app'
