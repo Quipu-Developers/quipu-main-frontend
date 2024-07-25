@@ -1,87 +1,17 @@
-.navbar__menu--pc ul li {
-  padding: 20px;
-  position: relative;
-}
-
-/*join-quipu운드롭다운*/
-.dropdown-menu {
+.navbar {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #5C518B;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000; 
-}
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0px 40px;
 
-.dropdown-menu li {
-  padding: 10px 10px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.dropdown-menu li:hover {
-  background-color: #f1f1f1;
-  text-align: center;
-  border-radius: 20px;
-  color: rgba(0, 0, 0, 0.2);
-}
-
-
-
-  .navbar {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    padding: 0px 40px;
-
-  @media (max-width: 900px) {
-    height: 60px;
-    padding: 15px;
-  }
-
- /*quipu dev 드롭다운*/
-/* 드롭다운 메뉴 스타일 */
-.Dropdownmenu {
-  position: absolute; /* 절대 위치 설정 */
-  top: 100%; /* 네비게이션 바 바로 아래 */
-  left: 0;
-  background-color: #5C518B;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1001; /* 네비게이션 바 위에 표시 */
-  border-radius: 4px;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-}
-
-.DropdownMenu ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.DropdownMenu li {
-  padding: 12px 16px;
-}
-
-.DropdownMenu li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-}
-
-.DropdownMenu li:hover {
-  background-color: #f1f1f1;
+@media (max-width: 900px) {
+  height: 60px;
+  padding: 15px;
 }
 
 .navbar__logo {
@@ -126,24 +56,110 @@
   list-style: none;
 }
 
-.navbar__menu--pc ul li {
-  padding: 20px;
-}
-
-.navbar__menu--pc ul li a,
-.navbar__menu--pc ul li {
-  color: white;
+.navbar__menu--pc ul li a{
   text-decoration: none;
+  color: white;
   font-size: 22px;
   font-weight: 600;
   transition: color 0.4s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 
-.navbar__menu--pc a:hover,
-.navbar__menu--pc ul li:hover {
+.navbar__menu--pc ul li {
+  padding: 15px;
+}
+
+.navbar__menu--pc a:hover {
   color: #5C518B;
   transition: color 0.4s ease-in-out;
+}
+
+/* 드롭다운 버튼 */
+.navbar__menu--pc ul li:nth-child(5) {
+  border: 1.5px solid rgb(131, 82, 134, 0.8);
+  border-radius: 50px;
+  padding: 5px 15px;
+  font-family: "Lora";
+  margin: 0 5px;
+  font-size: 18px;
+  color: #835286;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar__menu--pc ul li:nth-child(5):hover {
+  transition: all 0.4 ease-in-out;
+}
+
+
+.navbar__menu--pc ul li:nth-child(6) {
+  border: 1.5px solid rgb(86, 127, 187, 0.8);
+  border-radius: 50px;
+  padding: 5px 15px;
+  font-family: "Lora";
+  margin: 0 5px;
+  font-size: 18px;
+  color: #567FBB;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4 ease-in-out;
+}
+
+.navbar__menu--pc ul li:nth-child(6):hover {
+  transition: all 0.4 ease-in-out;
+}
+
+.dropdown-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 3px);
+  left: 0;
+  border-radius: 20px;
+  z-index: 1000; 
+}
+
+.dropdown-box a:nth-child(1) {
+  width: 100%;
+  padding: 0px 0;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1.5px solid rgb(131, 82, 134, 0.5);
+  border-radius: 15px 15px 10px 10px;
+  text-align: center;
+  background-color: #FBF3FF;
+  margin-bottom: 1px;
+  color: #835286;
+  font-size: 16px;
+}
+
+.dropdown-box a:nth-child(1) li {
+  padding: 4px;
+}
+
+.dropdown-box a:nth-child(2) {
+  width: 100%;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 1.5px solid rgb(131, 82, 134, 0.5);
+  border-radius: 10px 10px 15px 15px;
+  text-align: center;
+  background-color: white;
+  color: #835286;
+  font-size: 16px;
+}
+
+.dropdown-box a:nth-child(2) li {
+  padding: 4px;
+}
+
+.dropdown-box a:hover {
+  opacity: 0.9; 
 }
 
 /* 모바일 네브바 */
