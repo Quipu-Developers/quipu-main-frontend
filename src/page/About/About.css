@@ -1,68 +1,12 @@
-@keyframes fillBackground {
-    from {
-        background-size: 100% 0%;
-    }
-
-    to {
-        background-size: 100% 100%;
-    }
-}
-
-@keyframes drainBackground {
-    from {
-        background-size: 100% 100%;
-    }
-
-    to {
-        background-size: 100% 0%;
-    }
-}
-
 .About-container {
-    position: relative;
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100);
-    background-position: bottom;
-    background-size: 100% 0%;
-    background-color: transparent;
-    background-image: linear-gradient(to top, black, black);
-    background-repeat: no-repeat;
-}
-
-.About-container.fill {
-    animation: fillBackground 1s forwards;
-}
-
-.About-container.drain {
-    animation: drainBackground 1s forwards;
-}
-
-.About-container Canvas {
-    z-index: 1;
-}
-
-.About-content {
-    position: absolute;
-    top: 80px;
-    left: 0;
+    height: auto;
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    width: 100vw;
-    height: calc(100% - 80px);
-    scrollbar-width: none;
 
-    @media (max-width: 900px) {
-        top: 60px;
-        height: calc(100% - 60px);
-    }
-}
-
-.About-content::-webkit-scrollbar {
-    display: none;
 }
 
 .w-90 {
