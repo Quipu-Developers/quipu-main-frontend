@@ -148,7 +148,7 @@ function JoinQuipu(props) {
 
             console.log(formData);
 
-            axios.post('http://localhost:3001//data1', formData, {
+            axios.post('http://localhost:3001/data1', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Origin': 'https://uos-quipu.vercel.app'
@@ -160,13 +160,13 @@ function JoinQuipu(props) {
             }).catch(error => {
                 if (error.response && error.response.status === 400) {
                     const message = error.response.data;
-                    setModalMessage(`${message}에 값이 입력되지 않았습니다.`);
+                    setModalMessage(`${message}`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 }
                 else if (error.response && error.response.status === 401) {
                     const message = error.response.data;
-                    setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
+                    setModalMessage(`${message}`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 }
@@ -204,7 +204,7 @@ function JoinQuipu(props) {
             console.log(formData);
 
 
-            axios.post('http://localhost:3001//data2', formData, {
+            axios.post('http://localhost:3001/data2', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Origin': 'https://uos-quipu.vercel.app'
@@ -216,13 +216,13 @@ function JoinQuipu(props) {
             }).catch(error => {
                 if (error.response && error.response.status === 400) {
                     const message = error.response.data;
-                    setModalMessage(`${message}에 값이 입력되지 않았습니다.`);
+                    setModalMessage(`${message}`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 }
                 else if (error.response && error.response.status === 401) {
                     const message = error.response.data;
-                    setModalMessage(`${message}이(가) 잘못된 형식으로 입력되었습니다.`);
+                    setModalMessage(`${message}`);
                     setModalSubMessage('다시 확인해 주세요.');
                     setShowPopup(true);
                 }
