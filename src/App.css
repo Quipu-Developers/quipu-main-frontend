@@ -76,7 +76,7 @@
 }
 
 /* 드롭다운 버튼 */
-.navbar__menu--pc ul li:nth-child(5) {
+.navbar__menu--pc ul li:nth-child(6) {
   border: 1.5px solid rgb(131, 82, 134, 0.8);
   border-radius: 50px;
   padding: 5px 15px;
@@ -90,12 +90,12 @@
   transition: all 0.4s ease-in-out;
 }
 
-.navbar__menu--pc ul li:nth-child(5):hover {
+.navbar__menu--pc ul li:nth-child(6):hover {
   transition: all 0.4 ease-in-out;
 }
 
 
-.navbar__menu--pc ul li:nth-child(6) {
+.navbar__menu--pc ul li:nth-child(7) {
   border: 1.5px solid rgb(86, 127, 187, 0.8);
   border-radius: 50px;
   padding: 5px 15px;
@@ -109,7 +109,7 @@
   transition: all 0.4 ease-in-out;
 }
 
-.navbar__menu--pc ul li:nth-child(6):hover {
+.navbar__menu--pc ul li:nth-child(7):hover {
   transition: all 0.4 ease-in-out;
 }
 

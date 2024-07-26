@@ -1,3 +1,5 @@
+// home pc
+
 import React, { useRef, useEffect, memo  } from 'react'
 import { Canvas, useThree, useFrame, extend } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
@@ -109,7 +111,7 @@ const Object3D1 = () => {
       {/* 파란색 캡슐 */}
       <Capsule position={[2.2,-0.7,-3]} size={0.17} tube={0.3} material={{ color: "#87AFEB", transparent: true, opacity: 0.6, clearcoat: 0.6, clearcoatRoughness: 0.2 }} rotationX={Math.PI / 6} rotationZ={-Math.PI / 6} />
 
-      <OrbitControls minDistance={2} maxDistance={5} target={[0.7, 0.2, 0]} />
+      <OrbitControls minDistance={2} maxDistance={5} target={[0.7, 0.2, 0]} enableZoom={false} />
     </Canvas>
   )
 }
