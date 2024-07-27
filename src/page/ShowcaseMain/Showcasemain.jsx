@@ -19,17 +19,16 @@ function Showcasemain() {
             </div>
             <div className='showcasemain'>
                 <div className='section1'>
-                    <div className='List'>LIST</div>
-                    <div className='List'>LIST</div>
-                    <div className='List'>LIST</div>
-                    <div className='List'>LIST</div>
-                    <div className='List'>LIST</div>
-                    <div className='List'>LIST</div>
+                    <div className='List' onClick={()=>{}}>LIST</div>
+                    <div className='List' onClick={()=>{}}>LIST</div>
+                    <div className='List' onClick={()=>{}}>LIST</div>
+                    <div className='List' onClick={()=>{}}>LIST</div>
+                    <div className='List' onClick={()=>{}}>LIST</div>
+                    <div className='List' onClick={()=>{}}>LIST</div>
                 </div>
                 <div className='section2'>
                     <div className='gallery'>
-                        <div className="gallery1">
-                        </div>
+                        <div className="gallery1"><img/></div>
                     </div>
                     <div className='gallery'>
                         <div className="gallery2">QUIPU-DEV</div>
@@ -46,6 +45,7 @@ function Showcasemain() {
                 </div>
                 <NavLink to="/showcase-detail" className="view-button">VIEW</NavLink>
             </div>
+            {Isshowcasedetail && <ShowcaseDetail />} 
         </div>
     );
 }

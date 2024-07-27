@@ -1,6 +1,6 @@
 import { NavHashLink as NavLink } from 'react-router-hash-link';
-import { useNavigate, useParamsm, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import './Interview.css';
 import { interview_data } from '../../data/interview_data.jsx';
 import * as SolarIconSet from "solar-icon-set";
@@ -8,18 +8,11 @@ import * as SolarIconSet from "solar-icon-set";
 function Interview() {
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.outerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <div className="interview-container">
       <div className="interview-navbar">
-        <section className="interview-logo"><NavLink to="/#home" smooth>QUIPU-DEV</NavLink></section>
+        <div className="interview-logo"><NavLink to="/#home" smooth>QUIPU</NavLink></div>
         <p>Interview</p>
       </div>
       <div className="interview-index-container">
@@ -78,12 +71,6 @@ function Interview() {
               </div>
             )
           })
-        }
-      </div>
-
-      <div className="interview-pagination">
-        {
-          (windowWidth > 900) && (<img src={process.env.PUBLIC_URL + '/Interview-img/arrow.png'} />)
         }
       </div>
 

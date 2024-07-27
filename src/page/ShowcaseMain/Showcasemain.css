@@ -1,9 +1,8 @@
 .showcasemain-container{
     width: 100%;
     height: 100vh;
-    overflow-y: auto;
     font-family: "NEXON Lv2 Gothic";
-
+    background-color: #f5f5f5;
 }
 .showcasemain-nav {
     height: 15%;
@@ -38,7 +37,7 @@
 
 
 .showcasemain {
-    width: 100%;
+    width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -67,6 +66,7 @@
 }
 
 .List {
+    padding: 1%;
     font-family: "NEXON Lv2 Gothic";
     display: flex;
     flex-direction: row;
@@ -139,4 +139,12 @@
     border: 1.5px solid #835E86;
     color: #835E86;
     font:30px bold 'Nexon Lv2 Gothic';
+}
+
+@media (max-width: 900px){
+    
+}
+
+@media (max-width: 500px){
+    
 }
