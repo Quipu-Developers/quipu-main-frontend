@@ -230,7 +230,6 @@
     margin-right: calc((100% - 3 * (27% + 3px)) / 6);
     margin-left: calc((100% - 3 * (27% + 3px)) / 6);
     word-break: keep-all;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -355,3 +354,25 @@
     font-size: 1.2rem;
     font-weight: 400;
 }
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* 전체 뷰포트 너비 */
+    height: 100vh; /* 전체 뷰포트 높이 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    display: flex; /* flexbox 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.modal-content {
+    background-color: white; /* 배경색 */
+    padding: 20px; /* 내부 여백 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    max-width: 83%; /* 최대 너비 설정 (반응형) */
+    max-height: 80%; /* 최대 높이 설정 (반응형) */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 추가 */
+}
+
