@@ -12,7 +12,7 @@ function Interview() {
   return (
     <div className="interview-container">
       <div className="interview-navbar">
-        <div className="interview-logo"><NavLink to="/#home" smooth>QUIPU-DEV</NavLink></div>
+        <div className="interview-logo"><NavLink to="/#home" smooth>QUIPU</NavLink></div>
         <p>Interview</p>
       </div>
       <div className="interview-index-container">
