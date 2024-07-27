@@ -1,12 +1,12 @@
-.showcasemain-person{
+.showcasemain-container{
+    width: 100%;
     height: 100vh;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
+    overflow-y: auto;
+    font-family: "NEXON Lv2 Gothic";
 
 }
 .showcasemain-nav {
-    height: 80px;
+    height: 15%;
     width: 100%;
     display: flex;
     justify-content: start;
@@ -39,8 +39,7 @@
 
 .showcasemain {
     width: 100%;
-    height: 100vh;;
-    overflow: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,22 +52,9 @@
     justify-content: center;
     align-items: center;
     margin: 21px;
-    width: 50%;
-    Height: 58px;
+    width: 77%;
+    Height: 13%;
     border: 1px solid #0C0B0B1A;
-}
-
-.List {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    Width: 97px;
-    Height: 46px;
-    font: 32px;
-    color: #8F6E92;
-    font-weight: bold;
-    line-height: 40.96px;
 }
 
 .section2 {
@@ -77,16 +63,24 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid #0C0B0B1A;
-    width: 60%;
-    Height: 500px;
+    width: 88%;
+}
+
+.List {
+    font-family: "NEXON Lv2 Gothic";
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    Width: 12%;
+    Height: 60px;
+    font: 50px bold;
+    color: #8F6E92;
 }
 
 .gallery {
-    box-sizing: border-box;
     width: 50%;
-    height: 50%;
-    padding: 14px;
+    height: 380px;
     border: 1px solid #0C0B0B1A;
     display: flex;
     flex-direction: row;
@@ -102,6 +96,11 @@
     background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
 }
 
+.gallery1-img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
 .gallery2 {
     font-family: Lora;
     font-size: 70px;
@@ -115,7 +114,7 @@
     box-sizing: border-box;
     width: 47%;
     height: 46%;
-    margin: 2px;
+    margin: 1%;
     background: linear-gradient(0deg, rgba(241, 204, 132, 0.22), rgba(241, 204, 132, 0.22));
 
 }
@@ -129,18 +128,15 @@
 }
 
 .view-button {
-    margin: 10px;
-    width: 92px;
-    height: 42px;
-    top: 864px;
-    left: 674px;
-    padding: 3px 15px 3px 15px;
-    gap: 10px;
-    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+    width: 5%;
+    height:52px;
+    border-radius: 24px;
     border: 1.5px solid #835E86;
     color: #835E86;
-    font:28px bold;
-    Line-height:35.84px;
-
-
+    font:30px bold 'Nexon Lv2 Gothic';
 }
