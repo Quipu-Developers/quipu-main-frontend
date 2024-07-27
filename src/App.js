@@ -10,6 +10,7 @@ import Activity from './page/Activity/Activity'
 import RecommendSite from './page/RecommendSite/RecommendSite'
 import JoinQuipu from './page/JoinQuipu/JoinQuipu'
 import Showcasemain from './page/ShowcaseMain/Showcasemain'
+import ShowcasemainMobile from './page/ShowcaseMain/showcaseMainMobile';
 import Showcasedetail from './page/ShowcaseDetail/Showcasedetail';
 import Interview from './page/Interview/Interview';
 import Footer from './page/Footer/Footer';
@@ -46,6 +47,7 @@ function AppContent() {
   const isJoinQuipuPage = location.pathname === '/join-quipu';
   const isDetailPage = location.pathname === '/showcase-detail';
   const isShowcaseMainPage = location.pathname === '/quipu-dev';
+  const isShowcaseMainMobilePage = location.pathname === '/quipu-dev-mobile';
   const isInterveiwPage = location.pathname === '/interview';
 
   const handleClickOutside = (event) => {
@@ -188,6 +190,7 @@ function AppContent() {
         } />
         <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
         <Route path="/quipu-dev" element={<Showcasemain />} />
+        <Route path="/quipu-dev-mobile" element={<ShowcasemainMobile />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/showcase-detail" element={<Showcasedetail />} />
         <Route path="*" element={<Error />} />
