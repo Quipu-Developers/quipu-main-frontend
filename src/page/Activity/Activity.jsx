@@ -14,19 +14,19 @@ function Activity() {
     ["/ActivityDetail-img/2023/MT/엠티3.jpg", "/ActivityDetail-img/2023/MT/엠티2.jpg", "/ActivityDetail-img/2023/MT/엠티1.jpg"]];
 
     return (
-        <>
+        <div className="activity-container">
             <h1 onClick={() => setGotoDetail(false)}>Activity</h1>
             {
                 gotoDetail ?
                     <ActivityDetail activeTab={activeTab} setActiveTab={setActiveTab} />
                     :
-                    <div className="activity-container">
+                    <div className="activity-box">
                         <ActivityBlock title={titles[0]} src1={images[0][0]} src2={images[0][1]} src3={images[0][2]} setGotoDetail={setGotoDetail} setActiveTab={setActiveTab}></ActivityBlock>
                         <ActivityBlock title={titles[1]} src1={images[1][0]} src2={images[1][1]} src3={images[1][2]} setGotoDetail={setGotoDetail} setActiveTab={setActiveTab}></ActivityBlock>
                         <ActivityBlock title={titles[2]} src1={images[2][0]} src2={images[2][1]} src3={images[2][2]} setGotoDetail={setGotoDetail} setActiveTab={setActiveTab}></ActivityBlock>
                     </div>
             }
-        </>
+        </div>
     )
 }
 

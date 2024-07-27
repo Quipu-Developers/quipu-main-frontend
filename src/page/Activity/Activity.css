@@ -1,5 +1,17 @@
-/* activity section의 전체 container */
 .activity-container {
+  width: 100;
+  height: auto;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.activity-container h1 {
+  color: white;
+  text-shadow: 0 0 1px black;
+  text-align: center;
+}
+
+.activity-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +19,6 @@
   height: auto;
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
-  margin: 100px 0;
 
   @media (max-width: 500px) {
     display: block;
@@ -25,7 +36,7 @@
   }
 }
 
-.activity-container::-webkit-scrollbar {
+.activity-box::-webkit-scrollbar {
   display: none;
 }
 
