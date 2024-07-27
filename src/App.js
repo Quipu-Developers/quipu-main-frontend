@@ -189,10 +189,10 @@ function AppContent() {
           </>
         } />
         <Route path="/join-quipu" element={<JoinQuipu selectedPage={selectedPage} setSelectedPage={setSelectedPage} />} />
-        <Route path="/quipu-dev" element={<Showcasemain />} />
+        <Route path="/quipu-dev" element={<Showcasemain />}/>
         <Route path="/quipu-dev-mobile" element={<ShowcasemainMobile />} />
         <Route path="/interview" element={<Interview />} />
-        <Route path="/showcase-detail" element={<Showcasedetail />} />
+        <Route path="/showcase-detail" element={<Showcasedetail />}/>
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

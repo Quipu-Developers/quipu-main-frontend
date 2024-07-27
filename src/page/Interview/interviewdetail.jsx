@@ -1,12 +1,20 @@
 import React from "react";
+import './interviewdetail.css';
 
-function InterviewDetail() {
+function InterviewDetail({ profile, closeModal }) {
   return (
-    <div className="detail">
-        <div className="header"></div>
-        <div className="introduce"></div>
-        <div className="after-activity"></div>
-        <div className="career"></div>
+    <div className="modal">
+      <div className="modal-content">
+        <h2>곽곽이</h2>
+        {profile && (
+          <>
+            <img src={process.env.PUBLIC_URL + `/Interview-img/${profile.img}`} alt={profile.name} />
+            <h3>{profile.name}</h3>
+            <p>{profile.title}</p>
+          </>
+        )}
+        <button onClick={closeModal}>닫기</button>
+      </div>
     </div>
   );
 }
