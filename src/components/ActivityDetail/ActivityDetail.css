@@ -1,125 +1,125 @@
 .ActivityDetail-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-content: center;
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    width: 100%;
-    height: calc(var(--vh, 1vh) * 100 - 80px);
-    scrollbar-width: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-content: center;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100 - 80px);
+  scrollbar-width: none;
 
-    @media (max-width: 900px) {
-        height: calc(var(--vh, 1vh) * 100 - 60px);
-    }
+  @media (max-width: 900px) {
+    height: calc(var(--vh, 1vh) * 100 - 60px);
+  }
 }
 
 .ActivityDetail-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .ActivityDetail-titles {
-    position: fixed;
-    z-index: 100;
-    top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    height: 50px;
-    padding-left: 25px;
+  position: fixed;
+  z-index: 100;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  height: 50px;
+  padding-left: 25px;
 
-    @media (max-width: 900px) {
-        position: absolute;
-        visibility: hidden;
-        overflow: hidden;
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-    }
+  @media (max-width: 900px) {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .ActivityDetail-titles button {
-    margin: 10px;
-    border-style: none;
-    background-color: transparent;
-    font-size: 18px;
-    font-weight: 600;
-    text-shadow: 3px 3px 4px grey;
-    cursor: pointer;
+  margin: 10px;
+  border-style: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 3px 3px 4px grey;
+  cursor: pointer;
 }
 
 .year-dropdown {
-    margin: 16px;
-    padding: 1px 5px;
-    color: white;
-    border: 1.5px solid white;
-    border-radius: 7px;
-    background-color: #C0CEFF;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    cursor: pointer;
+  margin: 16px;
+  padding: 1px 5px;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 7px;
+  background-color: #c0ceff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
 }
 
 .year-dropdown option {
-    color: #C0CEFF;
-    background-color: white;
+  color: #c0ceff;
+  background-color: white;
 }
 
 .year-dropdown-mobile {
-    position: absolute;
-    top: 7px;
-    left: 30%;
-    display: none;
-    padding: 1px 5px;
-    color: white;
-    border: 1.5px solid white;
-    border-radius: 7px;
-    background-color: #cbd3ee;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    cursor: pointer;
+  position: absolute;
+  top: 7px;
+  left: 30%;
+  display: none;
+  padding: 1px 5px;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 7px;
+  background-color: #cbd3ee;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
 
-    @media (max-width: 900px) {
-        display: block;
-    }
+  @media (max-width: 900px) {
+    display: block;
+  }
 }
 
 .year-dropdown-mobile option {
-    color: #C0CEFF;
-    background-color: white;
+  color: #c0ceff;
+  background-color: white;
 }
 
 .ActivityDetail-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .back-button {
-    display: none;
-    position: absolute;
-    top: -8px;
-    left: 10%;
-    border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 50px;
-    padding: 0;
-    cursor: pointer;
+  display: none;
+  position: absolute;
+  top: -8px;
+  left: 10%;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 50px;
+  padding: 0;
+  cursor: pointer;
 
-    @media (max-width: 900px) {
-        display: block;
-    }
+  @media (max-width: 900px) {
+    display: block;
+  }
 
-    @media (max-width: 600px) {
-        font-size: 40px;
-    }
+  @media (max-width: 600px) {
+    font-size: 40px;
+  }
 }

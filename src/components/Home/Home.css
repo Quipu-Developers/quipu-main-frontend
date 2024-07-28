@@ -3,7 +3,7 @@
   z-index: 1;
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100);
-  cursor: pointer;
+  top: 0;
 }
 
 .home-container__message {

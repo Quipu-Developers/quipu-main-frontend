@@ -53,7 +53,7 @@
 
   @media (max-width: 500px) {
     width: 80vw;
-    margin: calc( (100vw - 80vw) / 2);
+    margin: calc((100vw - 80vw) / 2);
   }
 }
 
