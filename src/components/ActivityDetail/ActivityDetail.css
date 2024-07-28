@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-content: center;
   overflow-y: auto;
   -ms-overflow-style: none;
@@ -14,7 +14,6 @@
     height: calc(var(--vh, 1vh) * 100 - 60px);
   }
 }
-
 .ActivityDetail-container::-webkit-scrollbar {
   display: none;
 }
@@ -25,8 +24,8 @@
   top: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   height: 50px;
   padding-left: 25px;
 

@@ -7,7 +7,6 @@
     background-size: 100% 100%;
   }
 }
-
 @keyframes drainBackground {
   from {
     background-size: 100% 100%;
@@ -17,7 +16,6 @@
     background-size: 100% 0%;
   }
 }
-
 .About-container {
   position: relative;
   width: 100vw;
@@ -47,7 +45,7 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   overflow-y: auto;
   -ms-overflow-style: none;
@@ -72,7 +70,7 @@
 @media (max-width: 700px) {
   .w-90 {
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     margin: 10px;
   }
 }
@@ -132,7 +130,7 @@
 
 @media (max-width: 700px) {
   .w-30 {
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
 
