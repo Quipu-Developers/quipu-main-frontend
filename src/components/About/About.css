@@ -52,6 +52,10 @@
   width: 100vw;
   height: calc(100% - 80px);
   scrollbar-width: none;
+
+  @media (max-width: 900px) {
+    top: 60px;
+  }
 }
 
 .About-content::-webkit-scrollbar {

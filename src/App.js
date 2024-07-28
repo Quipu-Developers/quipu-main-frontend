@@ -7,7 +7,6 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Activity from './components/Activity/Activity';
 import RecommendSite from './components/RecommendSite/RecommendSite';
-import JoinQuipu from './components/JoinQuipu/JoinQuipu';
 import Recruit from './components/JoinQuipu/Recruit';
 import ActivityDetail from './components/ActivityDetail/ActivityDetail';
 import Error from './components/Error/Error';
