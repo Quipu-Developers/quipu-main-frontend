@@ -32,4 +32,20 @@
     display: block;
 }
 
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-close{
+    cursor: pointer;
+    font-size: 20px;
+    color: #9FADF5;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+}
+
 
