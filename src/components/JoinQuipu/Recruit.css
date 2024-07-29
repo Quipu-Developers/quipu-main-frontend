@@ -11,12 +11,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.85);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5000;
-  border-radius: 50px;
+  border-radius: 30px;
   box-shadow: 0 0 10px grey;
   padding: 0 40px;
 
@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .recruit-chat1 p {
@@ -104,9 +104,15 @@
   margin: 5px;
   font-family: 'GmarketSansMedium';
   background-color: #f7f9f2;
+  margin: 10px 20px;
   @media (max-width: 600px) {
     font-size: 14px;
   }
+}
+
+.recruit-chat1 span {
+  color: #088395;
+  font-weight: 900;
 }
 
 .recruit-chat1 img {
@@ -116,6 +122,10 @@
   margin: 0;
   @media (max-width: 600px) {
     width: 70px;
+    top: 70px;
+  }
+  @media (max-width: 500px) {
+    top: 90px;
   }
 }
 
@@ -130,7 +140,7 @@
 .recruit-chat2 img {
   width: 80px;
   position: relative;
-  top: 50px;
+  top: 30px;
   margin: 0;
   @media (max-width: 600px) {
     width: 70px;
@@ -138,14 +148,31 @@
 }
 
 .recruit-chat2 p {
+  width: 400px;
   border: 2px solid black;
   padding: 20px;
+  margin: 10px 20px;
   border-radius: 20px 20px 0px 20px;
   font-family: 'GmarketSansMedium';
   background-color: #f7f9f2;
   @media (max-width: 600px) {
     font-size: 14px;
+    width: 80%;
+    padding: 20px 10px;
   }
+}
+
+.recruit-chat2 br {
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+.recruit-chat2 span {
+  color: #088395;
+  font-weight: 900;
 }
 
 .recruit-close {
