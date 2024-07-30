@@ -10,10 +10,6 @@ function Showcasemain() {
     const [Isshowcasedetail, setIsShowcasedetail] = useState(false);
     const [index, setIndex] = useState(0);
 
-    function handleShowcasedetail(){
-        setIsShowcasedetail(true);
-    }
-
     return (
         <div className='showcasemain-container'>
             <div className='showcasemain-nav'>
@@ -41,7 +37,10 @@ function Showcasemain() {
                         <div className='gallery3'>
                         <img src={showcase_data[index].main_img[1]} alt={`Image for ${showcase_data[index].project_name}`} />
                         </div>
-                        <div className='gallery3'></div>
+                        <div className='gallery3'>
+                            <h4>{showcase_data[index].goal}</h4>
+                            <p className='gallery-3-text'>{showcase_data[index].this_project}</p>
+                        </div>
                         <div className='gallery3'>
                         <img src={showcase_data[index].main_img[2]} alt={`Image for ${showcase_data[index].project_name}`} />
                         </div>

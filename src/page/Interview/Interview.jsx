@@ -15,6 +15,16 @@ function Interview() {
   const openDetailModal = (profile) => {
     setSelectedProfile(profile); // 클릭된 프로필 정보를 설정
     setIsdetailOpen(true);
+
+    const profileElement = document.querySelector('.interview-profile');
+    if (profileElement) {
+        const { offsetWidth, offsetHeight } = profileElement;
+        const modalContent = document.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.style.width = `${offsetWidth}px`;
+            modalContent.style.height = `${offsetHeight}px`;
+        }
+    }
   };
 
   const closeDetailModal = () => {
@@ -127,12 +137,9 @@ function Interview() {
 </div>
       {IsdetailOpen && (
         <div className="modal-overlay">
-          <div className="modal-content">
             <InterviewDetail profile={selectedProfile} closeModal={closeDetailModal} />
-          </div>
         </div>
       )}
-
       <div className="interview-footer">
         <p>QUIPU-DEV</p>
       </div>

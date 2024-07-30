@@ -67,7 +67,7 @@
 
 .List {
     padding: 1%;
-    font-family: "NEXON Lv2 Gothic";
+    font-family: "Lora" !important;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -76,6 +76,7 @@
     Height: 60px;
     font: 50px bold;
     color: #8F6E92;
+    cursor: pointer;
 }
 
 .gallery {
@@ -106,7 +107,7 @@
     height: 100%;
 }
 .gallery2 {
-    font-family: Lora;
+    font-family: "Lora";
     font-size: 70px;
     font-weight: 600;
     line-height: 128px;
@@ -126,6 +127,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.gallery3 h4 {
+    display: block;
+    font-family: "Lora";
+}
+.gallery-3-text{
+    padding: 2%;
+    font-family: "Lora", serif;
+    font:5px bold 'Nexon Lv2 Gothic';
 }
 
 .gallery4 {
