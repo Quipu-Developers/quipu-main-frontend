@@ -128,7 +128,7 @@ function Interview() {
       {IsdetailOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <InterviewDetail profile={selectedProfile} closeModal={closeDetailModal} />
+            <InterviewDetail index={index} profile={selectedProfile} closeModal={closeDetailModal} />
           </div>
         </div>
       )}
