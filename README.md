@@ -19,7 +19,5 @@ cd main-frontend
 
 npm install
 
-npm install solar-icon-set
-
 npm start
 ```
