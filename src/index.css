@@ -6,7 +6,8 @@ html {
   scroll-behavior: smooth;
 }
 
-#root, body,
+#root,
+body,
 html {
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
@@ -16,7 +17,7 @@ body {
   margin: 0px;
   background: #fff;
   font-family: 'LINESeedKR';
-  background-color: #C0CEFF;
+  background-color: #c0ceff;
 }
 
 div,
@@ -31,7 +32,7 @@ p {
 @font-face {
   font-family: 'LINESeedKR';
   src: url('./fonts/LINESeedKR-Bd.woff2') format('woff2'),
-       url('./fonts/LINESeedKR-Bd.woff') format('woff');
+    url('./fonts/LINESeedKR-Bd.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
@@ -39,7 +40,7 @@ p {
 @font-face {
   font-family: 'LINESeedKR';
   src: url('./fonts/LINESeedKR-Rg.woff2') format('woff2'),
-       url('./fonts/LINESeedKR-Rg.woff') format('woff');
+    url('./fonts/LINESeedKR-Rg.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -47,21 +48,23 @@ p {
 @font-face {
   font-family: 'LINESeedKR';
   src: url('./fonts/LINESeedKR-Th.woff2') format('woff2'),
-       url('./fonts/LINESeedKR-Th.woff') format('woff');
+    url('./fonts/LINESeedKR-Th.woff') format('woff');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'JalnanGothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NEXON Lv2 Gothic';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -70,7 +73,10 @@ p {
 
 @font-face {
   font-family: 'GmarketSansMedium';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');

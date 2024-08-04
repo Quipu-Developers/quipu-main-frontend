@@ -1,0 +1,24 @@
+.event-container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #98ded9;
+  position: relative;
+  padding-top: 60px;
+}
+
+.event-container h3 {
+  position: absolute;
+  margin: 0;
+  top: 20px;
+  left: 30px;
+  font-size: 40px;
+  font-family: 'Black Han Sans', sans-serif;
+  font-weight: 400;
+  color: #161d6f;
+}
+
+.event-container h1 {
+  margin: 0;
+  text-align: center;
+}
