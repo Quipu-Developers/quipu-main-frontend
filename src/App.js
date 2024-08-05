@@ -67,6 +67,7 @@ function AppContent() {
   const isDetailPage = location.pathname === '/showcase-detail';
   const isShowcaseMainPage = location.pathname === '/quipu-dev';
   const isShowcaseMainMobilePage = location.pathname === '/quipu-dev-mobile';
+  const isShowcaseDetailPage = /^\/quipu-dev\/\d+$/.test(location.pathname);
   const isInterveiwPage = location.pathname === '/interview';
   const isEventPage = location.pathname === '/event';
 
@@ -128,6 +129,7 @@ function AppContent() {
       {!isJoinQuipuPage &&
         !isDetailPage &&
         !isShowcaseMainPage &&
+        !isShowcaseDetailPage &&
         !isInterveiwPage &&
         !isEventPage && (
           <nav className="navbar">

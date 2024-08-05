@@ -95,10 +95,18 @@ export function HistoryCard_1({ index }) {
         <h4>{showcase_data[index].history[0].date}</h4>
         <p>{showcase_data[index].history[0].content[0]}</p>
         <div className="history__1-card-link">
-          <FaHtml5 />
+          <FaHtml5 onClick={()=>window.open(showcase_date[index].history[0].tech_stack)}/>
           <p>{showcase_data[index].history[0].content[1]}</p>
         </div>
       </div>
+    </div>
+  )
+}
+
+export function HistoryCard_2({ index }) {
+  return (
+    <div className="history__2-container">
+      
     </div>
   )
 }
