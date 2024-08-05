@@ -311,7 +311,7 @@ function AppContent() {
         <Route path="/quipu-dev" element={<Showcasemain />} />
         <Route path="/quipu-dev-mobile" element={<ShowcasemainMobile />} />
         <Route path="/interview" element={<Interview />} />
-        <Route path="/showcase-detail" element={<Showcasedetail />} />
+        <Route path="/quipu-dev/:index" element={<Showcasedetail />}/>
         <Route path="/event" element={<Event />} />
         <Route path="*" element={<Error />} />
       </Routes>

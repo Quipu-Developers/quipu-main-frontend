@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ShowcasemainMobile.css';
 
 function Dropdown() {
@@ -11,7 +12,10 @@ function Dropdown() {
 }
 
 function ShowcasemainMobile() {
+  const navigate = useNavigate();
   const [view, setView] = useState(false);
+  const [index, setIndex] = useState(0);
+
   return (
     <div className="showcasemainMobile">
       <div className="showcasemainMobile-header">
@@ -27,7 +31,12 @@ function ShowcasemainMobile() {
         </ul>
       </div>
       <div className="showcasemainMobile-main">
-        <button className="showcasemainMobile-main-view">view</button>
+        <button 
+          className="showcasemainMobile-main-view"
+          onClick={()=>navigate(`/quipu-dev/${index}`)}
+        >
+          view
+        </button>
         <div className="showcasemainMobile-main-card"></div>
       </div>
     </div>
