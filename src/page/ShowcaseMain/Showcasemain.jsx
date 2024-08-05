@@ -2,11 +2,16 @@ import './Showcasemain.css';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { showcase_data } from '../../data/showcase_data.jsx';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function Showcasemain() {
     const [index, setIndex] = useState(0);
     //useparameter로 index값을 받아와서 index값을 state로 저장
+    const navigate = useNavigate();
+    const handleIndexClick = () => {
+        navigate(`/quipu-dev/${index}`);
+    }
 
     return (
         <div className='showcasemain-container'>
@@ -54,16 +59,12 @@ function Showcasemain() {
                         <div className='gallery4'><img src={showcase_data[index].main_img[4]} alt={`Image for ${showcase_data[index].project_name}`} /></div>
                     </div>
                 </div>
-                <NavLink
-                    to={{
-                        pathname: "/showcase-detail",
-                        state:{index: {index}} // index 값을 state로 전달
-                    }}
+                <h4 
                     className="view-button"
+                    onClick={()=>handleIndexClick()}
                 >
                     VIEW
-                </NavLink>
-
+                </h4>
             </div>
         </div>
 
