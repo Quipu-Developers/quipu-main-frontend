@@ -24,7 +24,15 @@ export function Start() {
     <>
       <h1>랜덤 룰렛 이벤트</h1>
       <div className="event-big-block">
-        <div className="event-big-block-top">
+        <div
+          className="event-big-block-top"
+          style={{
+            position: 'absolute',
+            top: '0px',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
           <p>새 학기를 맞이하여 특별한 이벤트를 준비했습니다! 퀴즈를 맞추고 룰렛을 돌리세요!</p>
         </div>
       </div>
@@ -42,21 +50,39 @@ export function Quiz() {
   return (
     <>
       <div className="event-big-block">
-        <div className="event-big-block-top">
-          <p>정답은 이 웹사이트 속에 있어요!</p>
-          <button>
-            <img />
-            <p>퀴푸 웹 사이트 둘러보기</p>
-          </button>
+        <div
+          className="event-big-block-top"
+          style={{
+            position: 'absolute',
+            top: '0px',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          <p>
+            정답은 이 웹사이트 속에 있어요!
+            <button>
+              <img />
+              퀴푸 웹 사이트 둘러보기
+            </button>
+          </p>
         </div>
-        <h3>
+        <h3 className="quiz-title">
           QUIZ. 퀴푸의 웹 개발팀 이름은 무엇일까요?
           <img />
         </h3>
-        <div className="quiz-block">1. quipu-code</div>
-        <div className="quiz-block">1. quipu-code</div>
-        <div className="quiz-block">1. quipu-code</div>
-        <div className="quiz-block">1. quipu-code</div>
+        <div className="quiz-block">
+          <div>1</div> QUIPU-CODE
+        </div>
+        <div className="quiz-block">
+          <div>2</div> QUIPU-TECH
+        </div>
+        <div className="quiz-block">
+          <div>3</div> QUIPU-DEV
+        </div>
+        <div className="quiz-block">
+          <div>4</div> QUIPU-DEVELOPERS
+        </div>
       </div>
       <div className="event-input-block">
         <label>학번: </label>
@@ -66,7 +92,9 @@ export function Quiz() {
         <label>이름: </label>
         <input></input>
       </div>
-      <p>*중복 참여를 방지하기 위함입니다. 이벤트 종료 후 모두 삭제할 예정입니다.</p>
+      <p className="event-input-text">
+        *중복 참여를 방지하기 위함입니다. 이벤트 종료 후 모두 삭제할 예정입니다.
+      </p>
       <Button buttonName="정답은? false" path="/event/result" state="incorrect" />
       <Button buttonName="정답은? true" path="/event/roulette" />
 
@@ -89,9 +117,9 @@ export function Result() {
     content = (
       <>
         <div className="event-big-block-top">
-          정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
+          <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
         </div>
-        <div>
+        <div className="event-result-text">
           <img />
           <p>
             아쉽게도 정답이 아닙니다! <img />
@@ -105,9 +133,9 @@ export function Result() {
     content = (
       <>
         <div className="event-big-block-top">
-          정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
+          <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
         </div>
-        <div>
+        <div className="event-result-text">
           <img />
           <p>
             축하합니다! <img />
@@ -126,9 +154,9 @@ export function Result() {
     content = (
       <>
         <div className="event-big-block-top">
-          정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
+          <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
         </div>
-        <div>
+        <div className="event-result-text">
           <img />
           <p>
             아쉽게도 꽝입니다!
@@ -154,7 +182,7 @@ export function Roulette() {
   return (
     <>
       <div className="event-big-block-top">
-        정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!
+        <p>정답은 3번! 퀴푸의 웹 개발팀 이름은 QUIPU-DEV 입니다!</p>
       </div>
       <p>정답입니다!</p>
       <div>
