@@ -63,9 +63,12 @@ const CameraAspectUpdater = () => {
   return null; // 시각적인 요소를 렌더링하지 않는 컴포넌트입니다.
 };
 
-function JoinQuipu(props) {
+function JoinQuipu() {
   const isRecruiting = true; //모집 기간 여부
+
   const location = useLocation();
+  const { selectedPage } = location.state || {};
+
   const navigate = useNavigate();
   const [confettis, setConfettis] = useState([]);
 
@@ -139,7 +142,7 @@ function JoinQuipu(props) {
     event.preventDefault();
 
     // 일반 부원 폼 전송
-    if (props.selectedPage === 'general') {
+    if (selectedPage === 'general') {
       const formData = {
         name: name,
         student_id: student_id,
@@ -188,7 +191,7 @@ function JoinQuipu(props) {
     }
 
     //개발 부원 폼 전송
-    if (props.selectedPage === 'development') {
+    if (selectedPage === 'development') {
       const formData = {
         name: name,
         student_id: student_id,
@@ -294,7 +297,7 @@ function JoinQuipu(props) {
       </div>
       <div className="joinquipu-content">
         {/* 일반 부원 모집 폼 */}
-        {props.selectedPage === 'general' && (
+        {selectedPage === 'general' && (
           <>
             <div className="joinquipu-notice">
               <img src={process.env.PUBLIC_URL + '/JoinQuipu-img/robot.png'} alt="" />
@@ -379,7 +382,7 @@ function JoinQuipu(props) {
         )}
 
         {/* 개발 부원 모집 폼 */}
-        {props.selectedPage === 'development' && (
+        {selectedPage === 'development' && (
           <>
             <div className="join-notice__icon--body">
               <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
@@ -610,7 +613,7 @@ function JoinQuipu(props) {
         <h2>FAQ</h2>
 
         {/* FAQ 컴포넌트 */}
-        {props.selectedPage === 'general' && (
+        {selectedPage === 'general' && (
           <div className="faq">
             <FAQ
               question="Q.&nbsp;&nbsp;&nbsp;&nbsp;문과인데 가입해도 되나요?"
@@ -639,7 +642,7 @@ function JoinQuipu(props) {
             </p>
           </div>
         )}
-        {props.selectedPage === 'development' && (
+        {selectedPage === 'development' && (
           <div className="faq">
             <FAQ
               question="Q.&nbsp;&nbsp;&nbsp;&nbsp;문과인데 개발 부원으로 가입해도 되나요?"
