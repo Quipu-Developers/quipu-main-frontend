@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Outlet, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useNavigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import './App.css';
 import Home from './page/Home/Home';
@@ -15,12 +15,32 @@ import Footer from './page/Footer/Footer';
 import { Event, Start, Quiz } from './page/Event/Event';
 import Error from './page/Error/Error';
 import Navbar from './component/navbar/navbar';
+import useScroll from './hooks/useScroll';
 
 function MainLayout() {
+  const navigate = useNavigate();
+  const scrollY = useScroll();
+  const [offsetY, setOffsetY] = useState(0);
+
+  useEffect(() => {
+    const handleOffset = () => {
+      setOffsetY(scrollY * 0.2);
+    };
+    handleOffset();
+  }, [scrollY]);
+
   return (
     <>
       <Navbar />
       <Outlet />
+      <div className="event-button">
+        <button
+          onClick={() => navigate('/event')}
+          style={{ transform: `translateY(${offsetY}px)` }}
+        >
+          go to event !
+        </button>
+      </div>
     </>
   );
 }
@@ -51,6 +71,7 @@ function AppContent() {
             </>
           }
         />
+        <Route path="*" element={<Error />} />
       </Route>
       <Route path="/join-quipu" element={<JoinQuipu />} />
       <Route path="/quipu-dev" element={<Showcasemain />} />

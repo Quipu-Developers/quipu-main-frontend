@@ -7,15 +7,18 @@
   padding-top: 60px;
 }
 
-.event-container h3 {
-  position: absolute;
-  margin: 0;
-  top: 17px;
-  left: 25px;
-  font-size: 33px;
-  font-family: 'Black Han Sans', sans-serif;
-  font-weight: 400;
-  color: #161d6f;
+.event-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 10000;
+  cursor: pointer;
+  margin: 10px 20px;
+}
+
+.event-nav img {
+  height: 100%;
 }
 
 .event-container h1 {

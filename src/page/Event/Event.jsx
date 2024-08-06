@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import './Event.css';
 
 export function Event() {
+  const navigate = useNavigate();
   return (
     <div className="event-container">
-      <h3>QUIPU</h3>
+      <div className="event-nav">
+        <img
+          src={process.env.PUBLIC_URL + '/logo_main.png'}
+          onClick={() => navigate('/')}
+          alt="로고"
+        ></img>
+      </div>
       <Outlet />
     </div>
   );
