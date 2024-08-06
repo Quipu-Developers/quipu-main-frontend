@@ -12,9 +12,9 @@ import ShowcasemainMobile from './page/ShowcaseMain/showcaseMainMobile';
 import Showcasedetail from './page/ShowcaseDetail/Showcasedetail';
 import Interview from './page/Interview/Interview';
 import Footer from './page/Footer/Footer';
-import { Event, Start, Quiz } from './page/Event/Event';
+import { Event, Start, Quiz, Roulette, Result } from './page/Event/Event';
 import Error from './page/Error/Error';
-import Navbar from './component/navbar/navbar';
+import Navbar from './component/navbar';
 import useScroll from './hooks/useScroll';
 
 function MainLayout() {
@@ -81,6 +81,8 @@ function AppContent() {
       <Route path="/event" element={<Event />}>
         <Route index element={<Start />} />
         <Route path="quiz" element={<Quiz />} />
+        <Route path="roulette" element={<Roulette />} />
+        <Route path="result" element={<Result />} />
       </Route>
       <Route path="*" element={<Error />} />
     </Routes>

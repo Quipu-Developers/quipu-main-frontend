@@ -10,7 +10,6 @@ html {
 body,
 html {
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
 }
 
 body {
@@ -83,13 +82,7 @@ p {
 
 @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
 
-@font-face {
-  font-family: 'BMJUA';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 @font-face {
   font-family: 'ONE-Mobile-POP';

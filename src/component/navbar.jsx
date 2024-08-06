@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { Link } from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
-import '../../App.css';
+import '../App.css';
 
 function QuipuDevDropdown({ quipudevDropdown }) {
   return quipudevDropdown ? (
