@@ -1,27 +1,38 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Showcasedetail.css';
 import { FiLink } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
-import { FaHtml5 } from "react-icons/fa";
+import { FaGithub, FaHtml5} from "react-icons/fa";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { showcase_data } from '../../data/showcase_data';
-import { useParams, useNavigate } from 'react-router-dom';
 
 export default function Showcasedetail() {
+  const navigate = useNavigate();
   const { index } = useParams();
+  const [windowWidth, setWindowWidth] = useState(window.outerWidth);
 
   useEffect(() => {
-    const handleResize = () => console.log(window.outerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const setWindowWidth = () => console.log(window.outerWidth);
+    window.addEventListener('resize', setWindowWidth);
+    return () => window.removeEventListener('resize', setWindowWidth);
   }, []);
 
   return (
     <div className="showcasedetail-container">
       {/* 헤더 */}
       <div className="showcasedetail-header">
+        {windowWidth <= 900 &&
+          <FaArrowLeftLong onClick={()=>navigate(-1)}/>
+        }
         <h1>{showcase_data[index].project_name}</h1>
       </div>
       <hr className="showcasedetail-header-border" />
+      {
+        windowWidth > 900 &&
+        <div className="showcasedetail-back">
+          <FaArrowLeftLong onClick={()=>navigate('/')}/>
+        </div>
+      }
 
       {/* 메인 */}
       <div className="showcasedetail-main">
@@ -32,8 +43,24 @@ export default function Showcasedetail() {
 
         <div className="showcasedetail-main-lower">
           <h4>History</h4>
-          <HistoryCard_1 index={index} />
+          <div className="showcasedetail-main-lower-row__1">
+            {windowWidth > 900 && <HistoryCard_1 index={index} />}
+            {windowWidth <= 900 && <HistoryCard_1_mobile index={index} />}
+            <HistoryCard_2 index={index} />
+          </div>
+          <div className="showcasedetail-main-lower-row__2">
+            <div className="showcasedetail-main-lower-row__2-left">
+              <HistoryCard_3 index={index} />
+              <HistoryCard_4 index={index} />
+            </div>
+            <HistoryCard_5 index={index} />
+          </div>
         </div>
+      </div>
+
+      {/* 푸터 */}
+      <div className="showcasedetail-footer">
+        <h4>{showcase_data[index].project_name}</h4>
       </div>
     </div>
   );
@@ -49,12 +76,10 @@ export function GoalCard({ index }) {
 }
 
 export function DcCard({ index }) {
-  const navigate = useNavigate();
-
   return (
     <div className="dc-container">
       <div className="dc-img-container">
-        <img src={process.env.PUBLIC_URL + showcase_data[index].main_img[0]} />
+        <img src={process.env.PUBLIC_URL + showcase_data[index].main_img[0]} alt='description card 사진'/>
       </div>
       <div className="dc-description-container">
         <h4>This project...</h4>
@@ -76,18 +101,12 @@ export function DcCard({ index }) {
 }
 
 export function HistoryCard_1({ index }) {
-  const navigate = useNavigate();
-
   return (
     <div className="history__1-container">
       <div className="history__1-img">
         <img 
-          className="history__1-img-base"
-          src={process.env.PUBLIC_URL + showcase_data[index].main_img[0] } 
-        />
-        <img 
-          className="history__1-img-overlay"
-          src={process.env.PUBLIC_URL + showcase_data[index].main_img[1] } 
+          src={process.env.PUBLIC_URL + showcase_data[index].history[0].history_img[0]}
+          alt='historycard 1-1' 
         />
       </div>
 
@@ -95,10 +114,52 @@ export function HistoryCard_1({ index }) {
         <h4>{showcase_data[index].history[0].date}</h4>
         <p>{showcase_data[index].history[0].content[0]}</p>
         <div className="history__1-card-link">
-          <FaHtml5 onClick={()=>window.open(showcase_data[index].history[0].tech_stack)}/>
+          <div className="history__1-button-container">
+            <img
+              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'}
+              onClick={()=>window.open(showcase_data[index].history[0].tech_stack)}
+            />
+          </div>
           <p>{showcase_data[index].history[0].content[1]}</p>
         </div>
+        <div className="history__1-card-img">
+          <img 
+            src={process.env.PUBLIC_URL + showcase_data[index].history[0].history_img[1]}
+            alt='historycard 1-2' 
+          />
+        </div>
       </div>
+    </div>
+  )
+}
+
+export function HistoryCard_1_mobile({ index }) {
+  return (
+    <div className="history__1-mobile-container">
+      <div className="history__1-mobile-middle">
+        <div className="history__1-mobile-middle-content">
+          <h4>{showcase_data[index].history[0].date}</h4>
+          <p>{showcase_data[index].history[0].content[0]}</p>
+        </div>
+        <img 
+          src={process.env.PUBLIC_URL + showcase_data[index].history[0].history_img[0]}
+          alt='historycard 1-1' 
+        />
+      </div>
+      <div className="history__1-mobile-bottom">
+        <div className="history__1-button-container">
+          <img
+            src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/html.png'}
+            onClick={()=>window.open(showcase_data[index].history[0].tech_stack)}
+          />        
+        </div>
+        <p>{showcase_data[index].history[0].content[1]}</p>
+      </div>
+      <img 
+        className="history__1-mobile-img"
+        src={process.env.PUBLIC_URL + showcase_data[index].history[0].history_img[1]}
+        alt='historycard 1-2' 
+      />
     </div>
   )
 }
@@ -106,7 +167,113 @@ export function HistoryCard_1({ index }) {
 export function HistoryCard_2({ index }) {
   return (
     <div className="history__2-container">
+      <div className="history__2-card-container">
+        <h4>{showcase_data[index].history[1].date}</h4>
+        <p>{showcase_data[index].history[1].content[0]}</p>
+        <div className="history__2-card-link">
+          <div className="history__1-button-container">
+            <img
+              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'}
+              onClick={()=>window.open(showcase_data[index].history[1].tech_stack[0])}
+              alt='javascript'
+            />
+          </div>
+          <div className="history__1-button-container">
+            <img 
+              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/css.png'}
+              onClick={()=>window.open(showcase_data[index].history[1].tech_stack[1])}  
+              alt='css'          
+            />
+          </div>
+          <p>{showcase_data[index].history[1].content[1]}</p>
+        </div>
+      </div>
 
+      <div className="history__2-img">
+        <img
+          className="history__2-img-base"
+          src={process.env.PUBLIC_URL+showcase_data[index].history[1].history_img}
+          alt='historycard 2'
+        />
+        <img
+          className="history__2-img-overlay"
+          src={process.env.PUBLIC_URL+'/ShowcaseDetail-img/pin1.png'}
+          alt='historycard 2 pin'
+        />
+      </div>
+    </div>
+  )
+}
+
+export function HistoryCard_3({ index }) {
+  return (
+    <div className="history__3-container">
+      <h4>{showcase_data[index].history[2].date} </h4>
+      <p>{showcase_data[index].history[2].content[0]}</p>
+      <div className="history__3-link">
+        <p>{showcase_data[index].history[2].content[1]}</p>
+        <div className="history__1-button-container">
+          <img 
+              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/figma.png'}
+              onClick={()=>window.open(showcase_data[index].history[2].tech_stack)}    
+              alt='figma'        
+          /> 
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function HistoryCard_4({ index }) {
+  return (
+    <div className="history__4-container">
+      <div className="history__4-card-container">
+        <h4>{showcase_data[index].history[3].date} </h4>
+        <p>{showcase_data[index].history[3].content[0]}</p>
+        <p className="history__4-mobile-text">{showcase_data[index].history[3].content[1]}</p>      
+      </div>
+
+      <div className="history__4-img">
+        <img
+          className="history__4-img-base"
+          src={process.env.PUBLIC_URL+showcase_data[index].history[3].history_img}
+          alt='historycard 4'
+        />
+        <img
+          className="history__4-img-overlay"
+          src={process.env.PUBLIC_URL+'/ShowcaseDetail-img/pin1.png'}
+          alt='historycard 4 pin'
+        />  
+      </div>
+    </div>
+  )
+}
+
+export function HistoryCard_5({index}) {
+  return (
+    <div className="history__5-container">
+
+      <div className="history__5-img">
+        <img
+          src={process.env.PUBLIC_URL + showcase_data[index].history[4].history_img}
+          alt='historycard 5'
+        />
+      </div>
+    
+      <div className="history__5-card-container">
+        <h4>{showcase_data[index].history[4].date} </h4>
+        <p>{showcase_data[index].history[4].content[0]}</p>
+        <div className="history__5-card-link">
+          <p>{showcase_data[index].history[4].content[1]}</p>
+          <div className="history__1-button-container">
+            <img
+              src={process.env.PUBLIC_URL + '/ShowcaseDetail-img/js.png'}
+              onClick={()=>window.open(showcase_data[index].history[4].tech_stack)}
+              alt='javascript'
+            />                      
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

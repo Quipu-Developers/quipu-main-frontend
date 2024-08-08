@@ -5,6 +5,8 @@
     font-family: "NEXON Lv2 Gothic";
     background-color: white;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 /*상단바*/
@@ -207,6 +209,8 @@
 
 .interview-profile {
     width: 100%;
+    max-width: 1500px;
+    align-self: center;
     display: inline-flex;
     flex-direction: row;
     justify-content:start;

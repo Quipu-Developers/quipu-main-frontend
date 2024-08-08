@@ -16,21 +16,50 @@ export const showcase_data = [
                     'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam '
                 ],
                 tech_stack: ['https://html.com',],
-                history_img: ['/ShowcaseMain-img/image 1.png', '/ShowcaseMain-img/image 2.png']
+                history_img: ['/ShowcaseDetail-img/image 1.png', '/ShowcaseDetail-img/image 2.png']
             },
             {
                 card_type: 'history_card2',
                 date: '2024.07.24',
-                content: 'text3',
-                tech_stack: ['img_url8'],
-                history_img: ['path1', 'path2']
+                content: [
+                    'ac lacus, varius ipsum luctus lobortis, lacus elit. elit. sit eget non libero, adipiscing urna. urna. dui. tincidunt diam ',
+                    'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam'
+                ],
+                tech_stack: [
+                    'https://javascript.com',
+                    'https://css.com'
+                ],
+                history_img: '/ShowcaseDetail-img/image 3.png'
             },
             {
                 card_type: 'history_card3',
                 date: '2024.07.24',
-                content: 'text4',
-                tech_stack: ['img_url8'],
+                content: [
+                    'ac lacus, varius ipsum luctus lobortis, lacus elit. elit. sit eget non libero, adipiscing urna. urna. dui. tincidunt diam ',
+                    'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam'
+                ],
+                tech_stack: 'https://figma.com',
                 history_img: ['']
+            },
+            {
+                card_type: 'history_card4',
+                date: '2024.07.24',
+                content: [
+                    'ac lacus, varius ipsum luctus lobortis, lacus elit. elit. sit eget non libero, adipiscing urna. urna. dui. tincidunt diam ',
+                    'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam'
+                ],
+                tech_stack: '',
+                history_img: '/ShowcaseDetail-img/image 4.png'
+            },
+            {
+                card_type: 'history_card5',
+                date: '2024.07.24',
+                content: [
+                    'ac lacus, varius ipsum luctus lobortis, lacus elit. elit. sit eget non libero, adipiscing urna. urna. dui. tincidunt diam ',
+                    'non. malesuada In Lorem ipsum varius cursus at, est. non quis placerat at nibh ex. sit quam elementum odio diam Ut sit quam'
+                ],
+                tech_stack: 'https://javascript.com',
+                history_img: '/ShowcaseDetail-img/image 5.png'
             }
         ]
     },
