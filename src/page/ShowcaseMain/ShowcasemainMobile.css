@@ -151,10 +151,13 @@
 
     .showcasemainMobile-section2 {
         width: 95%;
+        height: 100%;
         padding: 3%;
         border: 1px solid #0000001A;
         display: flex;
         flex-direction: column;
+        position: relative;
+        height: 400px;
     }
 
     .section2-gallery1 {
@@ -164,9 +167,10 @@
         align-items: center;
         justify-content: center;
         padding: 2%;
+        position: absolute; /* 절대 위치로 설정하여 겹침 */
     }
-
-    .section2-gallery1-img {
+    
+    .section2-gallery1 img {
         width: 90%;
         object-fit: cover;
     }
@@ -176,19 +180,18 @@
         display: inline-flex;
         width: 60%;
         flex-direction: column;
-        align-items: flex-end;
+        align-self: flex-end;
         justify-content: center;
         padding: 2%;
         border: 1px solid #0000001A;
+        position: absolute; /* 절대 위치로 설정하여 겹침 */
+        top: 30%;
     }
-
-
     .section2-text h4 {
         color: #18101096;
         font-family: "Lora";
         font-size: 0.6rem;
     }
-    
     .section2-text p {
         color: #01010196;
         font-family: "Lora";
@@ -201,6 +204,8 @@
         align-items: center;
         justify-content: center;
         padding: 2%;
+        position: absolute; /* 절대 위치로 설정하여 겹침 */
+        top: 60%;
     }
     .section2-gallery2 img{
         width: 90%;
@@ -211,9 +216,11 @@
         border: 1px solid #0000001A;
         display: inline-flex;
         width: 60%;
-        align-items: center;
+        align-self: flex-end;
         justify-content: center;
         padding: 2%;
+        position: absolute; /* 절대 위치로 설정하여 겹침 */
+        top: 90%;
     }
     .section2-gallery3 img{
         width: 90%;
