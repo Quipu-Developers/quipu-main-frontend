@@ -167,13 +167,14 @@
 }
 
 .gallery3-text h4 {
-    color: #01010196;
+    color: #18101096;
     font-family: "Lora";
     text-align: left;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
 }
 
 .gallery3-text p {
+    object-fit: cover;
     color: #01010196;
     font-family: "Lora";
     text-align: left;
