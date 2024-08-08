@@ -40,8 +40,7 @@ function ShowcasemainMobile() {
             setView(!view);
           }}
         >
-          <p>Drop down</p>
-          <p>{view ? '▲' : '▼'}</p> 
+          <p>Drop down {view ? '▲' : '▼'}</p>
           {view && <Dropdown setIndex={setIndex}/>} {/* setIndex를 Dropdown에 전달 */}
         </ul>
       </div>
