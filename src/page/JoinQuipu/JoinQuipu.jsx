@@ -1,67 +1,10 @@
 import React, { useRef, useState, useEffect, memo } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
+import { sendGeneral, sendDevelopment } from '../../api/joinquipu_api';
 import './JoinQuipu.css';
-import Error from '../Error/Error';
-
-function getRandomColor() {
-  let hue;
-  const colorType = Math.floor(Math.random() * 3);
-  switch (colorType) {
-    case 0:
-      return `hsl(0, 0%, ${90 + Math.random() * 10}%)`;
-    case 1:
-      hue = Math.random() < 0.5 ? Math.random() * 30 : 300 + Math.random() * 60;
-      break;
-    case 2:
-      hue = 210 + Math.random() * 30;
-      break;
-    default:
-      hue = 0;
-      break;
-  }
-  return `hsl(${hue}, 100%, 50%)`;
-}
-
-const Confetti = memo(({ position, rotationSpeed }) => {
-  const mesh = useRef();
-
-  useFrame(() => {
-    mesh.current.rotation.x += rotationSpeed.x;
-    mesh.current.rotation.y += rotationSpeed.y;
-    mesh.current.position.y -= 0.02;
-    if (mesh.current.position.y < -5) {
-      mesh.current.position.y = 5;
-    }
-  });
-
-  return (
-    <mesh ref={mesh} position={position}>
-      <planeGeometry args={[0.1, 0.1, 1, 1]} />
-      <meshBasicMaterial color={getRandomColor()} />
-    </mesh>
-  );
-});
-
-const CameraAspectUpdater = () => {
-  const { camera, gl } = useThree();
-
-  useEffect(() => {
-    const updateCameraAspect = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      gl.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener('resize', updateCameraAspect);
-    updateCameraAspect(); // 초기 실행
-
-    return () => window.removeEventListener('resize', updateCameraAspect);
-  }, [camera, gl]); // 의존성 배열에 camera와 gl을 포함시킵니다.
-
-  return null; // 시각적인 요소를 렌더링하지 않는 컴포넌트입니다.
-};
+import Logo from '../../component/logo';
+import Footer from '../Footer/Footer';
 
 function JoinQuipu() {
   const isRecruiting = true; //모집 기간 여부
@@ -69,9 +12,7 @@ function JoinQuipu() {
   const location = useLocation();
   const { selectedPage } = location.state || {};
 
-  const navigate = useNavigate();
-  const [confettis, setConfettis] = useState([]);
-
+  const [response, setResponse] = useState('');
   const [hasReviewed, setHasReviewed] = useState(false);
   const [hasPaidFee, setHasPaidFee] = useState(false);
 
@@ -100,19 +41,9 @@ function JoinQuipu() {
   const [paidFee, setPaidFee] = useState(false);
   const [willing_general_member, setWilling_general_member] = useState(false);
 
-  const [isError, setIsError] = useState(false);
-
   const canSubmit = isRecruiting && hasReviewed && hasPaidFee;
 
-  const motivationRef = useRef();
   const project_descriptionRef = useRef();
-
-  const handleResizeHeight = () => {
-    if (motivationRef.current) {
-      motivationRef.current.style.height = 'auto';
-      motivationRef.current.style.height = motivationRef.current.scrollHeight + 'px';
-    }
-  };
 
   const handlewilling_general_memberChange = (e) => {
     setWilling_general_member(e.target.checked);
@@ -130,7 +61,6 @@ function JoinQuipu() {
 
   const handlePopupClose = () => {
     setShowPopup(false);
-    // window.location.reload();
   };
 
   const handleUploadPdf = (e) => {
@@ -138,9 +68,7 @@ function JoinQuipu() {
     setPDF(e.target.files[0]);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async () => {
     // 일반 부원 폼 전송
     if (selectedPage === 'general') {
       const formData = {
@@ -153,45 +81,14 @@ function JoinQuipu() {
 
       console.log(formData);
 
-      axios
-        .post('http://localhost:3001/data1', formData, {
-          headers: {
-            'Content-Type': 'application/json',
-            Origin: 'https://uos-quipu.vercel.app',
-          },
-        })
-        .then((response) => {
-          setModalMessage('Welcome to Quipu!');
-          setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
-          setShowPopup(true);
-        })
-        .catch((error) => {
-          if (error.response && error.response.status === 400) {
-            const message = error.response.data;
-            setModalMessage(`${message}`);
-            setModalSubMessage('다시 확인해 주세요.');
-            setShowPopup(true);
-          } else if (error.response && error.response.status === 401) {
-            const message = error.response.data;
-            setModalMessage(`${message}`);
-            setModalSubMessage('다시 확인해 주세요.');
-            setShowPopup(true);
-          } else if (error.response && error.response.status === 409) {
-            setModalMessage('이미 제출하셨습니다.');
-            setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
-            setShowPopup(true);
-          } else if (error.response && error.response.status === 500) {
-            setModalMessage('서버 오류입니다.');
-            setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
-            setShowPopup(true);
-          } else {
-            setIsError(true);
-          }
-        });
+      const res = await sendGeneral({
+        formData,
+      });
+      setResponse(res);
     }
 
     //개발 부원 폼 전송
-    if (selectedPage === 'development') {
+    else if (selectedPage === 'development') {
       const formData = {
         name: name,
         student_id: student_id,
@@ -207,44 +104,25 @@ function JoinQuipu() {
       };
       console.log(formData);
 
-      axios
-        .post('http://localhost:3001/data2', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Origin: 'https://uos-quipu.vercel.app',
-          },
-        })
-        .then((response) => {
-          setModalMessage('Welcome to Quipu!');
-          setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
-          setShowPopup(true);
-        })
-        .catch((error) => {
-          if (error.response && error.response.status === 400) {
-            const message = error.response.data;
-            setModalMessage(`${message}`);
-            setModalSubMessage('다시 확인해 주세요.');
-            setShowPopup(true);
-          } else if (error.response && error.response.status === 401) {
-            const message = error.response.data;
-            setModalMessage(`${message}`);
-            setModalSubMessage('다시 확인해 주세요.');
-            setShowPopup(true);
-          } else if (error.response && error.response.status === 409) {
-            setModalMessage('이미 제출하셨습니다.');
-            setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
-            setShowPopup(true);
-          } else if (error.response && error.response.status === 500) {
-            setModalMessage('서버에 오류가 발생하였습니다.');
-            setModalSubMessage('해결이 되지 않을 경우 퀴푸에 문의해주세요.');
-            setShowPopup(true);
-          } else {
-            setIsError(true);
-          }
-        });
+      const res = await sendDevelopment({
+        formData,
+      });
+      setResponse(res);
     }
 
-    return false;
+    if (response.status === 200) {
+      setModalMessage('Welcome to Quipu!');
+      setModalSubMessage('퀴푸의 회원이 되어주셔서 감사합니다.');
+    } else if (response.status === 400 || response.status === 401) {
+      setModalMessage(`${response.data}`);
+      setModalSubMessage('다시 확인해 주세요.');
+    } else if (response.status === 409) {
+      setModalMessage('이미 제출하셨습니다.');
+      setModalSubMessage('다른 응답을 원하시면 퀴푸에 문의해주세요.');
+    } else {
+      setModalMessage('서버 오류입니다.');
+      setModalSubMessage('다시 시도해보신 후 퀴푸에 문의해주세요.');
+    }
   };
 
   useEffect(() => {
@@ -253,108 +131,111 @@ function JoinQuipu() {
     } else {
       setShowPopup(false);
     }
-
-    const tempConfettis = [];
-    for (let i = 0; i < 60; i++) {
-      tempConfettis.push({
-        position: [Math.random() * 5 - 2.5, Math.random() * 5, Math.random() * 5 - 2.5],
-        rotationSpeed: { x: Math.random() * 0.02, y: Math.random() * 0.02 },
-      });
-    }
-    setConfettis(tempConfettis);
   }, [isRecruiting, location]);
-
-  if (isError) {
-    return <Error />;
-  }
 
   return (
     <div className="joinquipu-container">
-      <div className="mesh-container">
-        <Canvas
-          camera={{ fov: 45, aspect: window.innerWidth / window.innerHeight, near: 0.1, far: 1000 }}
-        >
-          <ambientLight intensity={1} />
-          <pointLight position={[-5, 0, 5]} intensity={100} />
-          <pointLight position={[0, 10, 0]} intensity={100} />
-          <CameraAspectUpdater />
-
-          {confettis.map((confetti, index) => (
-            <Confetti
-              key={index}
-              position={confetti.position}
-              rotationSpeed={confetti.rotationSpeed}
-            />
-          ))}
-        </Canvas>
-      </div>
-      <div className="joinquipu-nav">
-        <img
-          src={process.env.PUBLIC_URL + '/logo_main.png'}
-          onClick={() => navigate('/')}
-          alt="로고"
-        ></img>
-      </div>
+      <NavLink to="/" smooth={true} duration={100}>
+        <div className="joinquipu-logo">
+          <Logo />
+        </div>
+      </NavLink>
       <div className="joinquipu-content">
         {/* 일반 부원 모집 폼 */}
+        <h1>Join Quipu</h1>
         {selectedPage === 'general' && (
           <>
-            <div className="joinquipu-notice">
-              <img src={process.env.PUBLIC_URL + '/JoinQuipu-img/robot.png'} alt="" />
-              <div>
-                <p style={{ color: 'black' }}> 환영합니다!</p>
-                <p style={{ color: 'black' }}>
-                  지원서는 <span style={{ color: 'red' }}>회비 납부 이후</span> 제출바랍니다 :)
-                </p>
-                <p style={{ color: 'black' }}>(회비 : 20,000원)</p>
-                <p
-                  style={{ color: 'black' }}
-                  onClick={() => {
-                    copyToClipboard('1234567');
-                  }}
-                >
-                  납부 계좌 : 카카오뱅크&nbsp;
-                  <span className="account-number" style={{ color: '#448FFF' }}>
-                    1234567 (예금주 : 김예영)
-                  </span>
-                </p>
+            <h2>일반 부원</h2>
+            {/* 가입 안내 */}
+            <div className="join-notice">
+              <div className="join-notice__icon">
+                <div className="join-notice__icon--top1">
+                  <p
+                    style={{
+                      color: 'red',
+                      marginTop: '1.5px',
+                      marginLeft: '10px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    ●
+                  </p>
+                  <p
+                    style={{
+                      color: '#ffd400',
+                      marginLeft: '7px',
+                      marginTop: '1.5px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    ●
+                  </p>
+                  <p
+                    style={{
+                      color: '#09ce20',
+                      marginLeft: '7px',
+                      marginTop: '1.5px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    ●
+                  </p>
+                </div>
+                <div className="join-notice__icon--top2"></div>
+                <div className="join-notice__icon--body">
+                  <p> 환영합니다!</p>
+                  <p>지원서는 회비 납부 이후 제출바랍니다.</p>
+                  <p>회비 : 20,000원</p>
+                  <p
+                    onClick={() => {
+                      copyToClipboard('1234567');
+                    }}
+                  >
+                    납부 계좌 : 카카오뱅크&nbsp;
+                    <span className="account-number" style={{ color: '#448FFF' }}>
+                      1234567 (예금주 : 김예영)
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
 
-            <h2>일반 부원</h2>
-
-            <div className="field">
-              <b>이름</b>
-              <input
-                type="text"
-                placeholder="홍길동"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+            <div className="apply-title">
+              <h4>Apply</h4>
             </div>
 
-            <div className="field">
-              <b>학번</b>
-              <input
-                type="tel"
-                maxLength={10}
-                placeholder="2024xxxxxx"
-                value={student_id}
-                onChange={(e) => setStudent_id(e.target.value)}
-              />
-            </div>
-            <div className="field major">
-              <b>학과</b>
-              <input
-                placeholder="전자전기컴퓨터공학부"
-                value={major}
-                onChange={(e) => setMajor(e.target.value)}
-              />
-            </div>
-
-            <div className="field tel-number">
-              <b>전화번호</b>
+            <div className="form-container">
               <div>
+                <p>이름</p>
+                <input
+                  type="text"
+                  placeholder="홍길동"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p>학번</p>
+                <input
+                  type="tel"
+                  maxLength={10}
+                  placeholder="2024xxxxxx"
+                  value={student_id}
+                  onChange={(e) => setStudent_id(e.target.value)}
+                />
+              </div>
+              <div>
+                <p>학과</p>
+                <input
+                  placeholder="전자전기컴퓨터공학부"
+                  value={major}
+                  onChange={(e) => setMajor(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p>전화번호</p>
                 <input
                   type="tel"
                   maxLength={13}
@@ -363,20 +244,18 @@ function JoinQuipu() {
                   onChange={(e) => setPhone_number(e.target.value)}
                 />
               </div>
-            </div>
 
-            <div className="field">
-              <b>지원동기 또는 바라는 점</b>
-              <textarea
-                ref={motivationRef}
-                onChange={(e) => {
-                  setMotivation(e.target.value);
-                  handleResizeHeight(e.target.value);
-                }}
-                rows={2}
-                placeholder={'하고 싶은 활동이나 바라는 점을 적어주세요!'}
-                value={motivation}
-              />
+              <div>
+                <p>지원동기 또는 바라는 점</p>
+                <textarea
+                  onChange={(e) => {
+                    setMotivation(e.target.value);
+                  }}
+                  rows={2}
+                  placeholder={'하고 싶은 활동이나 바라는 점을 적어주세요!'}
+                  value={motivation}
+                />
+              </div>
             </div>
           </>
         )}
@@ -384,62 +263,90 @@ function JoinQuipu() {
         {/* 개발 부원 모집 폼 */}
         {selectedPage === 'development' && (
           <>
-            <div className="join-notice__icon--body">
-              <p style={{ color: 'yellow' }}> 🥳환영합니다!🥳</p>
-              <p style={{ color: '#F5F5DC' }}>
-                저희 <span style={{ color: '#448FFF' }}>퀴푸 개발팀</span>에 관심을 가져주셔서
-                감사합니다
-              </p>
-              <p style={{ color: '#F5F5DC' }}>제출해주신 지원서는 신중히 검토한 후, </p>
-              <p style={{ color: '#F5F5DC' }}>
-                합격 여부를<span style={{ color: 'red' }}> 8월 31일 오후 3시</span>에 문자 메세지로
-              </p>
-              <p style={{ color: '#F5F5DC' }}>안내해 드릴 예절입니다.</p>
-              <p style={{ color: '#F5F5DC' }}>
-                이는 지원자분들의 역량을{' '}
-                <span style={{ color: '#448FFF' }}>평가하기 위함이 아니라,</span>{' '}
-              </p>
-              <p style={{ color: '#F5F5DC' }}>
-                개발에 대한 <span style={{ color: '#448FFF' }}>방향성을 확인하기 위한 것이니</span>{' '}
-              </p>
-              <p style={{ color: '#F5F5DC' }}>부담 갖지 말고 작성해 주시기 바랍니다.</p>
-            </div>
-
             <h2>개발 부원</h2>
-
-            <div className="field">
-              <b>이름</b>
-              <input
-                type="text"
-                placeholder="홍길동"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+            {/* 가입 안내 */}
+            <div className="join-notice">
+              <div className="join-notice__icon">
+                <div className="join-notice__icon--top1">
+                  <p
+                    style={{
+                      color: 'red',
+                      marginTop: '1.5px',
+                      marginLeft: '10px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    ●
+                  </p>
+                  <p
+                    style={{
+                      color: '#ffd400',
+                      marginLeft: '7px',
+                      marginTop: '1.5px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    ●
+                  </p>
+                  <p
+                    style={{
+                      color: '#09ce20',
+                      marginLeft: '7px',
+                      marginTop: '1.5px',
+                      fontSize: '8px',
+                    }}
+                  >
+                    ●
+                  </p>
+                </div>
+                <div className="join-notice__icon--top2"></div>
+                <div className="join-notice__icon--body">
+                  <p>환영합니다!</p>
+                  <p>저희 퀴푸 개발팀에 관심을 가져주셔서 감사합니다</p>
+                  <p>제출해주신 지원서는 신중히 검토한 후, </p>
+                  <p>합격 여부를 8월 31일 오후 3시에 문자 메세지로 안내해 드릴 예절입니다.</p>
+                  <p>이는 지원자분들의 역량을 평가하기 위함이 아니라, </p>
+                  <p>개발에 대한 방향성을 확인하기 위한 것이니</p>
+                  <p>부담 갖지 말고 작성해 주시기 바랍니다.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="field">
-              <b>학번</b>
-              <input
-                type="tel"
-                maxLength={10}
-                placeholder="2024xxxxxx"
-                value={student_id}
-                onChange={(e) => setStudent_id(e.target.value)}
-              />
-            </div>
+            <h4>Apply</h4>
 
-            <div className="field major">
-              <b>학과</b>
-              <input
-                placeholder="전자전기컴퓨터공학부"
-                value={major}
-                onChange={(e) => setMajor(e.target.value)}
-              />
-            </div>
-
-            <div className="field tel-number">
-              <b>전화번호</b>
+            <div className="form-container">
               <div>
+                <p>이름</p>
+                <input
+                  type="text"
+                  placeholder="홍길동"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p>학번</p>
+                <input
+                  type="tel"
+                  maxLength={10}
+                  placeholder="2024xxxxxx"
+                  value={student_id}
+                  onChange={(e) => setStudent_id(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p>학과</p>
+                <input
+                  placeholder="전자전기컴퓨터공학부"
+                  value={major}
+                  onChange={(e) => setMajor(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p>전화번호</p>
                 <input
                   type="tel"
                   maxLength={13}
@@ -448,90 +355,75 @@ function JoinQuipu() {
                   onChange={(e) => setPhone_number(e.target.value)}
                 />
               </div>
-            </div>
 
-            <div className="field">
-              <b>지원동기 또는 바라는 점</b>
-              <textarea
-                ref={motivationRef}
-                onChange={(e) => {
-                  setMotivation(e.target.value);
-                  handleResizeHeight(e.target.value);
-                }}
-                rows={2}
-                placeholder={'하고 싶은 활동이나 바라는 점을 적어주세요!'}
-                value={motivation}
-              />
-            </div>
+              <div>
+                <p>지원동기 또는 바라는 점</p>
+                <textarea
+                  onChange={(e) => {
+                    setMotivation(e.target.value);
+                  }}
+                  rows={2}
+                  placeholder={'하고 싶은 활동이나 바라는 점을 적어주세요!'}
+                  value={motivation}
+                />
+              </div>
 
-            <div className="field">
-              <b>지원동기</b>
-              <textarea
-                ref={motivationRef}
-                onChange={(e) => {
-                  setMotivation(e.target.value);
-                }}
-                rows={5}
-                placeholder={'본 동아리에서 활동하고자 하는 이유를 구체적으로 말씀해주세요!'}
-                value={motivation}
-              />
-            </div>
+              <div>
+                <p>프로젝트 소개</p>
+                <textarea
+                  ref={project_descriptionRef}
+                  onChange={(e) => {
+                    setProject_description(e.target.value);
+                  }}
+                  rows={7}
+                  placeholder={
+                    '경험해본 프로젝트 중 가장 대표적인 프로젝트에 대한 소개와 기여도 그리고 문제 해결 경험에 대해 구체적으로 설명해주시기 바랍니다.'
+                  }
+                  value={project_description}
+                />
+              </div>
 
-            <div className="field">
-              <b>프로젝트 소개</b>
-              <textarea
-                ref={project_descriptionRef}
-                onChange={(e) => {
-                  setProject_description(e.target.value);
-                }}
-                rows={7}
-                placeholder={
-                  '경험해본 프로젝트 중 가장 대표적인 프로젝트에 대한 소개와 기여도 그리고 문제 해결 경험에 대해 구체적으로 설명해주시기 바랍니다.'
-                }
-                value={project_description}
-              />
-            </div>
+              <div>
+                <p>
+                  <label style={{ fontWeight: 'bold' }}>포토폴리오 PDF</label>
+                </p>
+                <p>
+                  <input type="file" accept=".pdf" onChange={handleUploadPdf} />
+                </p>
+                <p>
+                  <span style={{ color: '#f0054f' }}> pdf 파일로 올려주세요!</span>
+                </p>
+              </div>
 
-            <div className="field">
-              <p>
-                <label style={{ fontWeight: 'bold' }}>포토폴리오 PDF</label>
-              </p>
-              <p>
-                <input type="file" accept=".pdf" onChange={handleUploadPdf} />
-              </p>
-              <p>
-                <span style={{ color: '#f0054f' }}> pdf 파일로 올려주세요!</span>
-              </p>
-            </div>
+              <div>
+                <b>GitHub 프로필 주소</b>
+                <input
+                  type="text"
+                  placeholder="https://github.com/Quipu-Developers"
+                  value={github_profile}
+                  onChange={(e) => setGithub_profile(e.target.value)}
+                />
+              </div>
 
-            <div className="field">
-              <b>GitHub 프로필 주소</b>
-              <input
-                type="text"
-                placeholder="https://github.com/Quipu-Developers"
-                value={github_profile}
-                onChange={(e) => setGithub_profile(e.target.value)}
-              />
-            </div>
+              <div>
+                <b>GitHub 이메일</b>
+                <input
+                  type="text"
+                  placeholder="quipu_github@naver.com"
+                  value={github_email}
+                  onChange={(e) => setGithub_email(e.target.value)}
+                />
+              </div>
 
-            <div className="field">
-              <b>GitHub 이메일</b>
-              <input
-                type="text"
-                placeholder="quipu_github@naver.com"
-                value={github_email}
-                onChange={(e) => setGithub_email(e.target.value)}
-              />
-            </div>
-
-            <div className="field">
-              <b>Slack 이메일</b>
-              <input
-                type="text"
-                placeholder="quipu_slack@naver.com"
-                value={slack_email}
-                onChange={(e) => setSlack_email(e.target.value)}
-              />
+              <div>
+                <b>Slack 이메일</b>
+                <input
+                  type="text"
+                  placeholder="quipu_slack@naver.com"
+                  value={slack_email}
+                  onChange={(e) => setSlack_email(e.target.value)}
+                />
+              </div>
             </div>
 
             <div className="checkbox">
@@ -572,8 +464,8 @@ function JoinQuipu() {
         <div className="apply">
           <button
             type="button"
-            onClick={(event) => {
-              handleSubmit(event);
+            onClick={() => {
+              handleSubmit();
             }}
             disabled={!canSubmit}
             className={`apply-button ${!canSubmit ? 'button-disabled' : 'button-enabled'}`}
@@ -610,7 +502,9 @@ function JoinQuipu() {
           </div>
         )}
 
-        <h2>FAQ</h2>
+        <h5 className="faq-title" style={{ color: '#1c0093' }}>
+          FAQ
+        </h5>
 
         {/* FAQ 컴포넌트 */}
         {selectedPage === 'general' && (
@@ -637,9 +531,6 @@ function JoinQuipu() {
               answer="학생회관 3층 342호 입니다!"
               emoji="🥸"
             />
-            <p class="more-detail">
-              *추가 문의사항은 아래 "퀴푸문의사항" 혹은 @uos_qupiu로 문의 바랍니다 :)
-            </p>
           </div>
         )}
         {selectedPage === 'development' && (
@@ -679,11 +570,9 @@ function JoinQuipu() {
               answer="학생회관 3층 342호 입니다!"
               emoji="🥸"
             />
-            <p class="more-detail">
-              *추가 문의사항은 아래 "퀴푸문의사항" 혹은 @uos_qupiu로 문의 바랍니다 :)
-            </p>
           </div>
         )}
+        <Footer />
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ body {
   margin: 0px;
   background: #fff;
   font-family: 'LINESeedKR';
-  background-color: #c0ceff;
+  background-color: white;
 }
 
 div,
@@ -38,6 +38,11 @@ nav {
 
 p {
   margin: 0px;
+}
+
+.blank-box {
+  width: 100%;
+  height: 200px;
 }
 
 @font-face {

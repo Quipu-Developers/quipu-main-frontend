@@ -94,7 +94,7 @@ const Object3D1 = () => {
       }}
     >
       <CameraAspectUpdater />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1.3} />
       <pointLight position={[-5, 0, 5]} intensity={100} />
       <pointLight position={[0, 10, 0]} intensity={100} />
 

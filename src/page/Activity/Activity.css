@@ -3,6 +3,7 @@
   height: auto;
   min-height: 100vh;
   padding-top: 60px;
+  background-color: #ebf0ff;
 }
 
 .activity-container h1 {
@@ -61,7 +62,7 @@
 
   @media (max-width: 500px) {
     width: 80vw;
-    margin: calc( (100vw - 80vw) / 2);
+    margin: calc((100vw - 80vw) / 2);
   }
 }
 

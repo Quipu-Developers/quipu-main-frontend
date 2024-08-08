@@ -33,13 +33,8 @@ function MainLayout() {
     <>
       <Navbar />
       <Outlet />
-      <div className="event-button">
-        <button
-          onClick={() => navigate('/event')}
-          style={{ transform: `translateY(${offsetY}px)` }}
-        >
-          go to event !
-        </button>
+      <div className="event-button" style={{ transform: `translateY(${offsetY}px)` }}>
+        <button onClick={() => navigate('/event')}>go to event !</button>
       </div>
     </>
   );
@@ -59,9 +54,17 @@ function AppContent() {
               <Element name="about">
                 <About />
               </Element>
+              <div
+                className="blank-box"
+                style={{ background: 'linear-gradient(to bottom, white, #ebf0ff)' }}
+              />
               <Element name="activity">
                 <Activity />
               </Element>
+              <div
+                className="blank-box"
+                style={{ background: 'linear-gradient(to bottom, #ebf0ff, #cbddff)' }}
+              />
               <Element name="recommend-site">
                 <RecommendSite />
               </Element>

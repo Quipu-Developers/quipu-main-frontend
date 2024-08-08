@@ -1,25 +1,83 @@
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    border-top: 1.5px solid #9AA5CA;
-    padding:5%;
-    margin-top: 20%;
-  }
-  
-  .footer-content {
-    text-align: center;
-    font-size: 0.8em;
-    color : #9AA5CA;
-  }
-  
-  .footer-content a{
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .footer-content a:hover{
-    font-weight: bold;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  line-height: 1.7;
+  background: linear-gradient(to bottom, #cbddff 0%, #ebf0ff 30%);
+}
+
+.footer * {
+  color: #596f8f;
+  font-family: 'NEXON Lv2 Gothic';
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.footer-contact {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.footer-contact h5 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.footer-contact a {
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: grey;
+}
+
+.footer-logo {
+  width: 33%;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer-logo .logo {
+  margin: 20px;
+}
+
+.footer-logo .logo h1 {
+  background: linear-gradient(to right, #b3c2d7, #596f8f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-icon {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.footer-icon .icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.footer-icon .icon:hover {
+  transform: scale(1.1);
+}

@@ -1,18 +1,23 @@
 import './Footer.css';
+import Logo from '../../component/logo';
+import { FaInstagram } from 'react-icons/fa';
+import { IoIosMail } from 'react-icons/io';
+import { RiKakaoTalkFill } from 'react-icons/ri';
 
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="footer-content">
+      <div className="footer-contact">
+        <h5>Contact.</h5>
         <p>
-          카카오톡&nbsp;&nbsp;|&nbsp;&nbsp;👉
+          카카오톡&nbsp;|&nbsp;
           <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
-            퀴푸문의사항
+            '퀴푸 문의 오픈톡방'
           </a>
-          👈
+          &nbsp;검색
         </p>
         <p>
-          인스타그램&nbsp;&nbsp;|&nbsp;&nbsp;👉
+          인스타그램&nbsp;|&nbsp;
           <a
             href="https://www.instagram.com/uos_quipu?igsh=MTVjZTFhaXl6NGRoZQ=="
             target="_blank"
@@ -20,12 +25,24 @@ export default function Footer() {
           >
             @uos_quipu
           </a>
-          👈
         </p>
-        <p>동아리방 위치&nbsp;&nbsp;|&nbsp;&nbsp;학생회관 342호</p>
-        <br></br>
+        <p>동아리방 주소&nbsp;|&nbsp; 학생회관 342호</p>
+      </div>
+      <div className="footer-logo">
+        <Logo />
         <p>Copyright 2024.QUIPU. All rights reserved.</p>
-        <p>study icon designed by Flaticon(Freepik)</p>
+        <p>Icon designed by Flaticon(Freepik)</p>
+      </div>
+      <div className="footer-icon">
+        <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
+          <FaInstagram className="icon" />
+        </a>
+        <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
+          <IoIosMail className="icon" />
+        </a>
+        <a href="https://open.kakao.com/o/sO45q17f" target="_blank" rel="noopener noreferrer">
+          <RiKakaoTalkFill className="icon" />
+        </a>
       </div>
     </div>
   );

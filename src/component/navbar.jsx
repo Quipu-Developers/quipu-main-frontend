@@ -3,17 +3,18 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { Link } from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import Logo from './logo';
 
 function QuipuDevDropdown({ quipudevDropdown }) {
   return quipudevDropdown ? (
-    <ul className="dropdown-box">
+    <div className="dropdown-box">
       <NavLink to="/quipu-dev" smooth>
-        <li>Showcase</li>
+        <p>Showcase</p>
       </NavLink>
       <NavLink to="/interview" smooth>
-        <li>Interview</li>
+        <p>Interview</p>
       </NavLink>
-    </ul>
+    </div>
   ) : null;
 }
 
@@ -25,10 +26,10 @@ function JoinQuipuDropdown() {
   };
 
   return (
-    <ul className="dropdown-box">
-      <li onClick={() => handleNavigation('general')}>일반 부원</li>
-      <li onClick={() => handleNavigation('development')}>개발 부원</li>
-    </ul>
+    <div className="dropdown-box">
+      <p onClick={() => handleNavigation('general')}>일반 부원</p>
+      <p onClick={() => handleNavigation('development')}>개발 부원</p>
+    </div>
   );
 }
 
@@ -88,15 +89,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar__logo">
-        <Link to="home" smooth={true} duration={100} onClick={closeMenu}>
-          <img
-            className="navbar__logo--img"
-            src={process.env.PUBLIC_URL + '/logo_main.png'}
-            alt="logo"
-          ></img>
-        </Link>
-      </div>
+      <Link to="home" smooth={true} duration={100} onClick={closeMenu}>
+        <Logo />
+      </Link>
 
       {/* pc에서 메뉴들 */}
       <div className="navbar__menu--pc">
@@ -121,27 +116,22 @@ const Navbar = () => {
               recommend site
             </Link>
           </li>
-          <li>
-            <Link to="contact" smooth={true} duration={100}>
-              contact
-            </Link>
-          </li>
-          <li
+          <h4
             onClick={() => {
               setQuipudevDropdown(!quipudevDropdown);
             }}
           >
             QUIPU-DEV
             <QuipuDevDropdown quipudevDropdown={quipudevDropdown} />
-          </li>
-          <li
+          </h4>
+          <h4
             onClick={() => {
               setJoinquipuDropdown(!joinquipuDropdown);
             }}
           >
             JOIN QUIPU
             {joinquipuDropdown && <JoinQuipuDropdown />}
-          </li>
+          </h4>
         </ul>
       </div>
 
