@@ -80,7 +80,7 @@ function AppContent() {
       <Route path="/quipu-dev" element={<Showcasemain />} />
       <Route path="/quipu-dev-mobile" element={<ShowcasemainMobile />} />
       <Route path="/interview" element={<Interview />} />
-      <Route path="/quipu-dev/:index" element={<Showcasedetail />} />
+      <Route path="/quipu-dev/detail" element={<Showcasedetail />} />
       <Route path="/event" element={<Event />}>
         <Route index element={<Start />} />
         <Route path="quiz" element={<Quiz />} />
