@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './Interview.css';
 import { interview_data } from '../../data/interview_data.jsx';
-import * as SolarIconSet from "solar-icon-set";
 import InterviewDetail from './interviewdetail.jsx';
 
 function Interview() {
@@ -69,7 +68,9 @@ function Interview() {
       return (
         <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
           <div className="interview-profile-top">
-            <SolarIconSet.MenuDots color="#233EC8" size={32} iconStyle="Broken" />
+            <div />
+            <div />
+            <div />
           </div>
           <div className="interview-profile-content">
             <div className="interview-profile-img">
@@ -89,7 +90,9 @@ function Interview() {
       return (
         <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
           <div className="interview-profile-top">
-            <SolarIconSet.MenuDots color="#233EC8" size={32} iconStyle="Broken" />
+            <div />
+            <div />
+            <div />
           </div>
           <div className="interview-profile-content">
             <div className="interview-profile-img">
@@ -109,7 +112,9 @@ function Interview() {
       return (
         <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
           <div className="interview-profile-top">
-            <SolarIconSet.MenuDots color="#233EC8" size={32} iconStyle="Broken" />
+            <div />
+            <div />
+            <div />
           </div>
           <div className="interview-profile-content">
             <div className="interview-profile-img">

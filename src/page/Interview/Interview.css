@@ -220,6 +220,7 @@
 }
 
 .interview-profilebox {
+    cursor: pointer;
     width: 27%;
     height: fit-content;
     background-color: #E6E7FF;
@@ -240,14 +241,60 @@
 
 .interview-profilebox:hover {
     border: 3px solid #4c5fbe;
+
+    & .interview-profile-top > div::before {
+        transform: rotate(90deg);  
+    }
+
+    & .interview-profile-content .interview-profile-img img {
+        transform: scale(1.1);
+    }
 }
 
-
 .interview-profile-top {
-    width: 100%;
+    align-self: flex-end;
+    height: 40px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.interview-profile-top > div {
+    margin: 0 2px;
+    width: 8px;
+    aspect-ratio: 1/1;
+    border: 2px solid #233EC8;
+    transform: rotate(45deg);
+    border-radius: 50%;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 100%;
+        aspect-ratio: 1/1;
+        border: 2px solid #233EC8;
+        border-right: 2px solid transparent;
+        border-radius: 50%;
+        transition: transform 0.5s ease;
+    }
+
+    &:nth-child(1) {
+        border-bottom: 2px solid transparent;
+        &::before {
+            border-right: 2px solid transparent;
+        }
+    }
+
+    &:nth-child(3) {
+        border-top: 2px solid transparent;
+        &::before {
+            border-left: 2px solid transparent;
+        }
+    }
 }
 
 .interview-profile-content {
@@ -261,20 +308,22 @@
 }
 
 .interview-profile-img {
+    overflow: hidden;
     margin-right: 1%;
     width: 30%;
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 3px solid #9FADF5;
+    border-radius: 50%;
 }
 
 .interview-profile-img img {
     width: 100%;
     height: 100%;
-    border: 3px solid #9FADF5;
-    border-radius: 50%;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 .interview-profile-dc {
