@@ -11,7 +11,10 @@ function Showcasemain() {
     const navigate = useNavigate();
 
     const handleIndexClick = () => {
-        navigate(`/quipu-dev/${index}`);
+        navigate(`/quipu-dev/detail`, {state:{
+            projectname: showcase_data[index].project_name,
+            index: index
+        }});
     };
 
     const handleResize = () => {

@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import './Showcasedetail.css';
 import { FiLink } from "react-icons/fi";
-import { FaGithub, FaHtml5} from "react-icons/fa";
+import { FaGithub} from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { showcase_data } from '../../data/showcase_data';
 
 export default function Showcasedetail() {
   const navigate = useNavigate();
-  const { index } = useParams();
+  const location = useLocation();
+  const { projectname, index } = location.state || {};
   const [windowWidth, setWindowWidth] = useState(window.outerWidth);
 
   useEffect(() => {
-    const setWindowWidth = () => console.log(window.outerWidth);
-    window.addEventListener('resize', setWindowWidth);
-    return () => window.removeEventListener('resize', setWindowWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial setting
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -24,7 +26,7 @@ export default function Showcasedetail() {
         {windowWidth <= 900 &&
           <FaArrowLeftLong onClick={()=>navigate(-1)}/>
         }
-        <h1>{showcase_data[index].project_name}</h1>
+        <h1>{projectname}</h1>
       </div>
       <hr className="showcasedetail-header-border" />
       {
@@ -60,7 +62,7 @@ export default function Showcasedetail() {
 
       {/* 푸터 */}
       <div className="showcasedetail-footer">
-        <h4>{showcase_data[index].project_name}</h4>
+        <h4>{projectname}</h4>
       </div>
     </div>
   );
