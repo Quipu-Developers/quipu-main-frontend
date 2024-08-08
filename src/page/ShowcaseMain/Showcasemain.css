@@ -1,4 +1,18 @@
+.showcasemain-house{
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    background-color: #f5f5f5;
+    font-family: "NEXON Lv2 Gothic";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .showcasemain-container {
+    max-width: 1150px;
     width: 100%;
     height: 100vh;
     font-family: "NEXON Lv2 Gothic";
@@ -51,7 +65,7 @@
     justify-content: center;
     align-items: center;
     margin: 21px;
-    width: 77%;
+    width: 80%;
     Height: 13%;
     border: 1px solid #0C0B0B1A;
 }
@@ -62,24 +76,32 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 88%;
+    width: 90%;
 }
 
 .List {
     padding: 1%;
-    font-family: "Lora";
+    font-family: "Lora" !important;
+    margin: 0 2%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     Width: 12%;
     Height: 60px;
-    font: 50px bold;
+    font: 2rem bold;
     color: #8F6E92;
     cursor: pointer;
 }
 
+.List:hover {
+    border: 2px solid #927195;
+    border-radius: 30px;
+    
+}
+
 .gallery {
+    min-width: 400px;
     width: 50%;
     height: 380px;
     border: 1px solid #0C0B0B1A;
@@ -147,19 +169,15 @@
 .gallery3-text h4 {
     color: #01010196;
     font-family: "Lora";
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 46.08px;
     text-align: left;
+    font-size: 0.5rem;
 }
 
 .gallery3-text p {
     color: #01010196;
-    font-family: Lora;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 25.6px;
+    font-family: "Lora";
     text-align: left;
+    font-size: 0.5rem;
 }
 
 
@@ -192,14 +210,23 @@
     justify-content: center;
     align-items: center;
     margin: 2%;
-    width: 5%;
+    width: 7%;
     height: 52px;
-    border-radius: 24px;
+    border-radius: 29px;
     border: 1.5px solid #835E86;
     color: #835E86;
-    font: 30px bold 'Nexon Lv2 Gothic';
+    font: 1rem bold 'Nexon Lv2 Gothic';
 }
 
-@media (max-width: 900px) {}
+.view-button:hover{
+    background-color: #ae7eaf;
+    color: white;
+}
 
-@media (max-width: 500px) {}
+.mobile-view{
+    width: 100%;
+    background-color: rgba(254, 251, 255, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
