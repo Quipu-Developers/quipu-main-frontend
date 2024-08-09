@@ -34,17 +34,17 @@ function Interview() {
           </div>
           <div className="interview-arrow">
             {
-             (index != 0) &&
-             <p onClick={(e)=> {
-               if (index>0) {
-                 setIndex(index-1);
+              (index != 0) &&
+              <p onClick={(e) => {
+                if (index > 0) {
+                  setIndex(index - 1);
                 }
                 e.stopPropagation();
               }}>&lt;</p>
             }
           </div>
           <div className="interview-middle">
-            <h4>{index+1}기</h4>
+            <h4>{index + 1}기</h4>
           </div>
           <div className="interview-arrow">
             {
@@ -63,78 +63,76 @@ function Interview() {
         </div>
       </div>
       <div className="interview-profile">
-  {
-    index === 0 && interview_data[0].map(function (element) {
-      return (
-        <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
-          <div className="interview-profile-top">
-            <div />
-            <div />
-            <div />
-          </div>
-          <div className="interview-profile-content">
-            <div className="interview-profile-img">
-              <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} alt={element.name} />
-            </div>
-            <div className="interview-profile-dc">
-              <h4>{element.name}</h4>
-              <p>{element.title}</p>
-            </div>
-          </div>
-        </div>
-      );
-    })
-  }
-  {
-    index === 1 && interview_data[1].map(function (element) {
-      return (
-        <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
-          <div className="interview-profile-top">
-            <div />
-            <div />
-            <div />
-          </div>
-          <div className="interview-profile-content">
-            <div className="interview-profile-img">
-              <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} alt={element.name} />
-            </div>
-            <div className="interview-profile-dc">
-              <h4>{element.name}</h4>
-              <p>{element.title}</p>
-            </div>
-          </div>
-        </div>
-      );
-    })
-  }
-  {
-    index === 2 && interview_data[2].map(function (element) {
-      return (
-        <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
-          <div className="interview-profile-top">
-            <div />
-            <div />
-            <div />
-          </div>
-          <div className="interview-profile-content">
-            <div className="interview-profile-img">
-              <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} alt={element.name} />
-            </div>
-            <div className="interview-profile-dc">
-              <h4>{element.name}</h4>
-              <p>{element.title}</p>
-            </div>
-          </div>
-        </div>
-      );
-    })
-  }
-</div>
+        {
+          index === 0 && interview_data[0].map(function (element) {
+            return (
+              <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
+                <div className="interview-profile-top">
+                  <div />
+                  <div />
+                  <div />
+                </div>
+                <div className="interview-profile-content">
+                  <div className="interview-profile-img">
+                    <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} alt={element.name} />
+                  </div>
+                  <div className="interview-profile-dc">
+                    <h4>{element.name}</h4>
+                    <p>{element.title}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+        {
+          index === 1 && interview_data[1].map(function (element) {
+            return (
+              <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
+                <div className="interview-profile-top">
+                  <div />
+                  <div />
+                  <div />
+                </div>
+                <div className="interview-profile-content">
+                  <div className="interview-profile-img">
+                    <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} alt={element.name} />
+                  </div>
+                  <div className="interview-profile-dc">
+                    <h4>{element.name}</h4>
+                    <p>{element.title}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+        {
+          index === 2 && interview_data[2].map(function (element) {
+            return (
+              <div className="interview-profilebox" key={element.name} onClick={() => openDetailModal(element)}>
+                <div className="interview-profile-top">
+                  <div />
+                  <div />
+                  <div />
+                </div>
+                <div className="interview-profile-content">
+                  <div className="interview-profile-img">
+                    <img src={process.env.PUBLIC_URL + `/Interview-img/${element.img}`} alt={element.name} />
+                  </div>
+                  <div className="interview-profile-dc">
+                    <h4>{element.name}</h4>
+                    <p>{element.title}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
       {IsdetailOpen && (
         <div className="modal-overlay">
-          <div className="modal-content">
-            <InterviewDetail index={index} profile={selectedProfile} closeModal={closeDetailModal} />
-          </div>
+          <InterviewDetail index={index} profile={selectedProfile} closeModal={closeDetailModal} />
         </div>
       )}
 
