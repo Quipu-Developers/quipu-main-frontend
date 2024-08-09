@@ -32,7 +32,7 @@ export default function Showcasedetail() {
       {
         windowWidth > 900 &&
         <div className="showcasedetail-back">
-          <FaArrowLeftLong onClick={()=>navigate('/')}/>
+          <FaArrowLeftLong onClick={()=>navigate(-1)}/>
         </div>
       }
 

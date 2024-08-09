@@ -406,6 +406,7 @@
     font-size: 1.2rem;
     font-weight: 400;
 }
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -417,9 +418,4 @@
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
     z-index: 1000; /* 다른 요소 위에 표시 */
-}
-
-.modal-content{
-    width: 100%;
-    max-width: 1150px;
 }
