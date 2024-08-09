@@ -31,7 +31,7 @@ function ShowcasemainMobile() {
   return (
     <div className="showcasemainMobile">
       <div className='showcasemainMobile-nav'>
-      <section className="showcasemainMobile-logo"><NavLink to="/">QUIPU-DEV</NavLink></section>
+      <section className="showcasemainMobile-logo"><NavLink to="/">QUIPU</NavLink></section>
       </div>
       <div className="showcasemainMobile-header">
       <ul

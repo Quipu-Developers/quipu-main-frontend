@@ -1,5 +1,7 @@
 import React from "react";
 import './interviewdetail.css';
+import { IoCloseOutline } from "react-icons/io5";
+
 
 function InterviewDetail({ index, profile, closeModal }) {
   return (
@@ -8,12 +10,14 @@ function InterviewDetail({ index, profile, closeModal }) {
         {profile && (
           <>
             <div className="modal-header">
+              <div className="modal-hearder-introduce">
               <img src={process.env.PUBLIC_URL + `/Interview-img/${profile.img}`} alt={profile.name} />
               <div className="header-name-text">
                 <h2>{index+1}기 {profile.name}님</h2>
                 <p>{profile.title}</p>
               </div>
-              <button className="modal-close" onClick={closeModal}>CLOSE</button>
+              </div>
+              <IoCloseOutline className="modal-close" onClick={closeModal}/>
             </div>
             <div className="modal-body">
               <h1>자기소개</h1>
